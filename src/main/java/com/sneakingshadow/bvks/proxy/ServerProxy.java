@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.proxy;
 
-public class ServerProxy
+public class ServerProxy extends CommonProxy
 {
 
 }

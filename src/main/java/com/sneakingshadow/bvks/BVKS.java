@@ -1,15 +1,21 @@
 package com.sneakingshadow.bvks;
 
+import com.sneakingshadow.bvks.proxy.IProxy;
+import com.sneakingshadow.bvks.reference.Reference;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "bvks", name = "Bearwalley's Killing Set", version = "1.7.10-1.0")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class BVKS
 {
-    @Mod.Instance("bvks")
+    @Mod.Instance(Reference.MOD_ID)
     public static BVKS instance;
+
+    @SidedProxy(clientSide = "com.sneakingshadow.bvks.proxy.ClientProxy", serverSide = "com.sneakingshadow.bvks.proxy.ServerProxy")
+    public static IProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
