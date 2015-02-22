@@ -14,13 +14,13 @@ public class BVKS
     @Mod.Instance(Reference.MOD_ID)
     public static BVKS instance;
 
-    @SidedProxy(clientSide = "com.sneakingshadow.bvks.proxy.ClientProxy", serverSide = "com.sneakingshadow.bvks.proxy.ServerProxy")
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+        
     }
 
     @Mod.EventHandler
