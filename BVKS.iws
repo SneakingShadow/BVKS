@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/configuration/ConfigurationHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BVKS/com/sneakingshadow/bvks/BVKS.class" afterPath="$PROJECT_DIR$/out/production/BVKS/com/sneakingshadow/bvks/BVKS.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BVKS.iws" afterPath="$PROJECT_DIR$/BVKS.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/BVKS.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/BVKS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/latest.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" />
     </list>
     <ignored path="BVKS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -709,7 +700,13 @@
       <option name="project" value="LOCAL" />
       <updated>1424610438426</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="..">
+      <created>1424614295010</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1424614295010</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
