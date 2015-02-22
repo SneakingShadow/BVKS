@@ -1,0 +1,15 @@
+# Block localizations
+tile.bvks:devilOre.name=Devil Ore
+
+# Item localizations
+item.bvks:devilGem.name=Devil Gem
+item.bvks:devilIngot.name=Devil Ingot
+item.bvks:devilPickaxe.name=Devil Pickaxe
+item.bvks:devilSword.name=Devil Blade
+item.bvks:ironRod.name=Iron Rod
+item.bvks:obsidianRod.name=Obsidian Rod
+item.bvks:obsidianIngot.name=Obsidian Ingot
+
+# Creative tab localizations
+itemGroup.bvks_item=BVKS Items
+itemGroup.bvks_block=BVKS Blocks

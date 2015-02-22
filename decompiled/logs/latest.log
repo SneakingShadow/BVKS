@@ -1,11 +1,33 @@
-[15:05:22] [main/INFO]: Setting user: Player859
-[15:05:23] [Client thread/INFO]: LWJGL Version: 2.9.1
-[15:05:27] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Bearwalley's Killing Set
-[15:05:28] [Sound Library Loader/INFO]: Sound engine started
-[15:05:29] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[15:05:29] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[15:05:29] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Bearwalley's Killing Set
-[15:05:29] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[15:05:29] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[15:05:30] [Sound Library Loader/INFO]: Sound engine started
-[15:10:25] [Client thread/INFO]: Stopping!
+[23:02:31] [main/INFO]: Setting user: Player109
+[23:02:32] [Client thread/INFO]: LWJGL Version: 2.9.1
+[23:02:37] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set
+[23:02:38] [Sound Library Loader/INFO]: Sound engine started
+[23:02:39] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[23:02:39] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[23:02:40] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set
+[23:02:40] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[23:02:40] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[23:02:41] [Sound Library Loader/INFO]: Sound engine started
+[23:02:46] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[23:02:46] [Server thread/INFO]: Generating keypair
+[23:02:46] [Server thread/INFO]: Preparing start region for level 0
+[23:02:47] [Server thread/INFO]: Changing view distance to 12, from 10
+[23:02:47] [Server thread/INFO]: Player109[local:E:8e8121fd] logged in with entity id 130 at (-850.505535327372, 4.0, -94.82007386914651)
+[23:02:47] [Server thread/INFO]: Player109 joined the game
+[23:02:52] [Server thread/INFO]: Player109 has just earned the achievement [Taking Inventory]
+[23:02:52] [Client thread/INFO]: [CHAT] Player109 has just earned the achievement [Taking Inventory]
+[23:02:57] [Server thread/INFO]: [Player109: Given [Iron Ingot] * 1 to Player109]
+[23:02:58] [Client thread/INFO]: [CHAT] Given [Iron Ingot] * 1 to Player109
+[23:02:58] [Server thread/INFO]: [Player109: Given [Iron Ingot] * 1 to Player109]
+[23:02:58] [Client thread/INFO]: [CHAT] Given [Iron Ingot] * 1 to Player109
+[23:05:55] [Server thread/INFO]: Saving and pausing game...
+[23:05:55] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[23:05:55] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[23:05:55] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[23:06:00] [Client thread/INFO]: Stopping!
+[23:06:00] [Server thread/INFO]: Stopping server
+[23:06:00] [Server thread/INFO]: Saving players
+[23:06:00] [Server thread/INFO]: Saving worlds
+[23:06:00] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[23:06:00] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[23:06:00] [Server thread/INFO]: Saving chunks for level 'New World'/The End
