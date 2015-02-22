@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks;
 
+import com.sneakingshadow.bvks.configuration.ConfigurationHandler;
 import com.sneakingshadow.bvks.proxy.IProxy;
 import com.sneakingshadow.bvks.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -20,7 +21,7 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        
+        ConfigurationHandler.init(event.getSuggestedConfigurationFile());
     }
 
     @Mod.EventHandler
