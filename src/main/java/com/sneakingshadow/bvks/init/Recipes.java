@@ -8,6 +8,6 @@ public class Recipes
 {
     public static void init()
     {
-        GameRegistry.addRecipe(new ItemStack(ModItems.ironRod), "i","i", 'i', new ItemStack(Items.iron_ingot));
+
     }
 }

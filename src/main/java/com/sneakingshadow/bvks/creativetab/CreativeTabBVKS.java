@@ -2,18 +2,19 @@ package com.sneakingshadow.bvks.creativetab;
 
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
+import com.sneakingshadow.bvks.reference.Names;
 import com.sneakingshadow.bvks.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class CreativeTabBVKS
 {
-    public static final CreativeTabs tabItem = new CreativeTabs(Reference.MOD_ID.toLowerCase() + "_item")
+    public static final CreativeTabs tabItem = new CreativeTabs(Names.creativeTabs.Item)
     {
         @Override
         public Item getTabIconItem() {
             this.setBackgroundImageName("item_search.png");
-            return ModItems.devilGem;
+            return ModItems.DevilGem;
         }
 
         @Override
@@ -23,12 +24,12 @@ public class CreativeTabBVKS
         }
     };
 
-    public static final CreativeTabs tabBlock = new CreativeTabs(Reference.MOD_ID.toLowerCase() + "_block")
+    public static final CreativeTabs tabBlock = new CreativeTabs(Names.creativeTabs.Block)
     {
         @Override
         public Item getTabIconItem() {
             this.setBackgroundImageName("item_search.png");
-            return Item.getItemFromBlock(ModBlocks.blockDevilOre);
+            return Item.getItemFromBlock(ModBlocks.DevilOre);
         }
 
         @Override

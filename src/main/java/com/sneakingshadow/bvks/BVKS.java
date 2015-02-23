@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks;
 
+import com.sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import com.sneakingshadow.bvks.handler.ConfigurationHandler;
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
@@ -27,7 +28,10 @@ public class BVKS
     public void preInit(FMLPreInitializationEvent event)
     {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        proxy.registerKeyBindings();
 
         ModItems.init();
         ModBlocks.init();
@@ -40,13 +44,14 @@ public class BVKS
     {
         Recipes.init();
 
+        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+
         LogHelper.info("Initialization Complete!");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
 
         LogHelper.info("Post Initialization Complete!");
     }
