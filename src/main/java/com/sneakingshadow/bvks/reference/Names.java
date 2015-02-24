@@ -53,9 +53,15 @@ public final class Names
 
     }
 
+    public static final class ArmorTextures
+    {
+        public static final String Devil = "devil_armor";
+        public static final String Obsidian = "obsidian_armor";
+    }
+
     public static final class creativeTabs
     {
-        public static final String Item = Reference.MOD_ID+"_item";
-        public static final String Block = Reference.MOD_ID+"_block";
+        public static final String Item = Ref.MOD_ID+"_item";
+        public static final String Block = Ref.MOD_ID+"_block";
     }
 }

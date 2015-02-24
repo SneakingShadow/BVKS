@@ -6,7 +6,7 @@ import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.init.Recipes;
 import com.sneakingshadow.bvks.proxy.IProxy;
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -15,13 +15,13 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION, guiFactory = Reference.GUI_FACTORY_CLASS)
+@Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.VERSION, guiFactory = Ref.GUI_FACTORY_CLASS)
 public class BVKS
 {
-    @Mod.Instance(Reference.MOD_ID)
+    @Mod.Instance(Ref.MOD_ID)
     public static BVKS instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
+    @SidedProxy(clientSide = Ref.CLIENT_PROXY_CLASS, serverSide = Ref.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
     @Mod.EventHandler

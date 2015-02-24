@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -23,12 +23,12 @@ public class ItemBVKS extends Item
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("item.%s%s", Reference.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", Ref.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        return String.format("item.%s%s", Reference.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", Ref.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override

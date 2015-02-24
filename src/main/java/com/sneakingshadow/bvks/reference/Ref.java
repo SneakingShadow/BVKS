@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.reference;
 
-public class Reference
+public class Ref
 {
     public static final String MOD_ID = "bvks";
     public static final String MOD_NAME = "Bearwalley's Killing Set";

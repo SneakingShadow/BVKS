@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.util;
 
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
@@ -8,7 +8,7 @@ public class LogHelper
 {
     public static void log(Level logLevel, Object object)
     {
-        FMLLog.log(Reference.MOD_NAME, logLevel, String.valueOf(object));
+        FMLLog.log(Ref.MOD_NAME, logLevel, String.valueOf(object));
     }
 
     public static void all(Object object)

@@ -3,7 +3,6 @@ package com.sneakingshadow.bvks.creativetab;
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.handler;
 
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
@@ -25,7 +25,7 @@ public class ConfigurationHandler
     @SubscribeEvent
     public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
     {
-        if ( event.modID.equalsIgnoreCase(Reference.MOD_ID) )
+        if ( event.modID.equalsIgnoreCase(Ref.MOD_ID) )
         {
             loadConfiguration();
         }

@@ -1,14 +1,11 @@
 package com.sneakingshadow.bvks.client.gui;
 
 import com.sneakingshadow.bvks.handler.ConfigurationHandler;
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.IConfigElement;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
-
-import java.util.List;
 
 public class ModGuiConfig extends GuiConfig
 {
@@ -16,7 +13,7 @@ public class ModGuiConfig extends GuiConfig
     {
         super(guiScreen,
                 new ConfigElement(ConfigurationHandler.configuration.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
-                Reference.MOD_ID,
+                Ref.MOD_ID,
                 false,
                 false,
                 GuiConfig.getAbridgedConfigPath(ConfigurationHandler.configuration.toString()));

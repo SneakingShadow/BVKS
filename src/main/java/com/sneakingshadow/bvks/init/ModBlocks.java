@@ -5,11 +5,10 @@ import com.sneakingshadow.bvks.block.BlockDevilCobblestone;
 import com.sneakingshadow.bvks.block.BlockDevilOre;
 import com.sneakingshadow.bvks.block.BlockSmoothObsidian;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.reference.Reference;
-import com.sneakingshadow.bvks.util.LogHelper;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@GameRegistry.ObjectHolder(Reference.MOD_ID)
+@GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModBlocks
 {
     public static final BlockBVKS DevilOre = new BlockDevilOre();

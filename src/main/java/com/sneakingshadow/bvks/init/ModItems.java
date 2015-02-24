@@ -2,45 +2,49 @@ package com.sneakingshadow.bvks.init;
 
 import com.sneakingshadow.bvks.item.*;
 import com.sneakingshadow.bvks.item.armor.*;
+import com.sneakingshadow.bvks.item.tool.*;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@GameRegistry.ObjectHolder(Reference.MOD_ID)
+@GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
+    //Items
+    public static final ItemBVKS DevilGem = new ItemDevilGem();
+    public static final ItemBVKS DevilHammer = new ItemDevilHammer();
+    public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
+    public static final ItemBVKS IronRod = new ItemIronRod();
     public static final ItemBVKS AssassinsKnife = new ItemAssassinsKnife();
     public static final ItemBVKS DevilArrow = new ItemDevilArrow();
     public static final ItemBVKS DevilAxe = new ItemDevilAxe();
-    public static final ItemBVKS DevilBoots = new ItemDevilBoots();
     public static final ItemBVKS DevilBow = new ItemDevilBow();
-    public static final ItemBVKS DevilChestplate = new ItemDevilChestplate();
-    public static final ItemBVKS DevilGem = new ItemDevilGem();
-    public static final ItemBVKS DevilHammer = new ItemDevilHammer();
-    public static final ItemBVKS DevilHelmet = new ItemDevilHelmet();
     public static final ItemBVKS DevilIngot = new ItemDevilIngot();
-    public static final ItemBVKS DevilLeggings = new ItemDevilLeggings();
     public static final ItemBVKS DevilPickaxe = new ItemDevilPickaxe();
     public static final ItemBVKS DevilShovel = new ItemDevilShovel();
     public static final ItemBVKS DevilSword = new ItemDevilSword();
     public static final ItemBVKS DiamondHammer = new ItemDiamondHammer();
     public static final ItemBVKS GoldHammer = new ItemGoldHammer();
     public static final ItemBVKS IronHammer = new ItemIronHammer();
-    public static final ItemBVKS IronRod = new ItemIronRod();
     public static final ItemBVKS ObsidianAxe = new ItemObsidianAxe();
-    public static final ItemBVKS ObsidianBoots = new ItemObsidianBoots();
-    public static final ItemBVKS ObsidianChestplate = new ItemObsidianChestplate();
     public static final ItemBVKS ObsidianHammer = new ItemObsidianHammer();
-    public static final ItemBVKS ObsidianHelmet = new ItemObsidianHelmet();
     public static final ItemBVKS ObsidianHoe = new ItemObsidianHoe();
-    public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
-    public static final ItemBVKS ObsidianLeggings = new ItemObsidianLeggings();
     public static final ItemBVKS ObsidianPickaxe = new ItemObsidianPickaxe();
     public static final ItemBVKS ObsidianRod = new ItemObsidianRod();
     public static final ItemBVKS ObsidianShovel = new ItemObsidianShovel();
     public static final ItemBVKS ObsidianSword = new ItemObsidianSword();
     public static final ItemBVKS StoneHammer = new ItemStoneHammer();
     public static final ItemBVKS WoodHammer = new ItemWoodHammer();
+
+    //Armor
+    public static final ItemBVKSArmor DevilBoots = new ItemDevilBoots();
+    public static final ItemBVKSArmor DevilLeggings = new ItemDevilLeggings();
+    public static final ItemBVKSArmor DevilChestplate = new ItemDevilChestplate();
+    public static final ItemBVKSArmor DevilHelmet = new ItemDevilHelmet();
+    public static final ItemBVKSArmor ObsidianBoots = new ItemObsidianBoots();
+    public static final ItemBVKSArmor ObsidianLeggings = new ItemObsidianLeggings();
+    public static final ItemBVKSArmor ObsidianChestplate = new ItemObsidianChestplate();
+    public static final ItemBVKSArmor ObsidianHelmet = new ItemObsidianHelmet();
 
     public static void init()
     {
