@@ -5,7 +5,7 @@ import com.sneakingshadow.bvks.handler.ConfigurationHandler;
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.init.Recipes;
-import com.sneakingshadow.bvks.proxy.IProxy;
+import com.sneakingshadow.bvks.proxy.*;
 import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;

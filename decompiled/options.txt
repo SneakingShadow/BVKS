@@ -1,10 +1,10 @@
 invertYMouse:false
 mouseSensitivity:0.5
 fov:0.0
-gamma:0.0
+gamma:1.0
 saturation:0.0
 renderDistance:12
-guiScale:0
+guiScale:3
 particles:0
 bobView:true
 anaglyph3d:false
@@ -87,6 +87,11 @@ key_key.hotbar.8:9
 key_key.hotbar.9:10
 key_keys.bvks.charge:46
 key_keys.bvks.release:19
+key_waila.keybind.wailaconfig:82
+key_waila.keybind.wailadisplay:79
+key_waila.keybind.liquid:80
+key_waila.keybind.recipe:81
+key_waila.keybind.usage:75
 soundCategory_master:0.08940397
 soundCategory_music:0.0
 soundCategory_record:1.0

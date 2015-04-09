@@ -1,28 +1,3 @@
-[21:24:43] [main/INFO]: Logging in with username & password
-[21:24:48] [main/INFO]: Setting user: MariusBuilder
-[21:24:50] [Client thread/INFO]: LWJGL Version: 2.9.1
-[21:24:55] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set
-[21:24:56] [Sound Library Loader/INFO]: Sound engine started
-[21:24:57] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[21:24:58] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[21:24:58] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set
-[21:24:58] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[21:24:58] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[21:24:59] [Sound Library Loader/INFO]: Sound engine started
-[21:27:42] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[21:27:42] [Server thread/INFO]: Generating keypair
-[21:27:42] [Server thread/INFO]: Preparing start region for level 0
-[21:27:43] [Server thread/INFO]: Changing view distance to 12, from 10
-[21:27:43] [Server thread/INFO]: MariusBuilder[local:E:48247766] logged in with entity id 130 at (-850.5033127263846, 4.0, -94.34974955402467)
-[21:27:43] [Server thread/INFO]: MariusBuilder joined the game
-[21:33:40] [Server thread/INFO]: Saving and pausing game...
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[21:33:40] [Server thread/INFO]: Stopping server
-[21:33:40] [Server thread/INFO]: Saving players
-[21:33:40] [Server thread/INFO]: Saving worlds
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[21:33:40] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[21:33:43] [Client thread/INFO]: Stopping!
+[16:31:30] [main/INFO]: Logging in with username & password
+[16:31:34] [main/INFO]: Setting user: MariusBuilder
+[16:31:35] [Client thread/INFO]: LWJGL Version: 2.9.1
