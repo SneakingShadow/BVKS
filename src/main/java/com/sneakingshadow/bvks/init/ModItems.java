@@ -10,19 +10,17 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
-    //Items
+    /**
+     *
+     */
     public static final ItemBVKS DevilGem = new ItemDevilGem();
     public static final ItemBVKS DevilHammer = new ItemDevilHammer();
     public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
     public static final ItemBVKS IronRod = new ItemIronRod();
     public static final ItemBVKS AssassinsKnife = new ItemAssassinsKnife();
     public static final ItemBVKS DevilArrow = new ItemDevilArrow();
-    public static final ItemBVKS DevilAxe = new ItemDevilAxe();
     public static final ItemBVKS DevilBow = new ItemDevilBow();
     public static final ItemBVKS DevilIngot = new ItemDevilIngot();
-    public static final ItemBVKS DevilPickaxe = new ItemDevilPickaxe();
-    public static final ItemBVKS DevilShovel = new ItemDevilShovel();
-    public static final ItemBVKS DevilSword = new ItemDevilSword();
     public static final ItemBVKS DiamondHammer = new ItemDiamondHammer();
     public static final ItemBVKS GoldHammer = new ItemGoldHammer();
     public static final ItemBVKS IronHammer = new ItemIronHammer();
@@ -45,6 +43,19 @@ public class ModItems
     public static final ItemBVKSArmor ObsidianLeggings = new ItemObsidianLeggings();
     public static final ItemBVKSArmor ObsidianChestplate = new ItemObsidianChestplate();
     public static final ItemBVKSArmor ObsidianHelmet = new ItemObsidianHelmet();
+
+    /**
+     *    Tools
+     */
+    //Pickaxes
+    public static final ItemBVKSPickaxe DevilPickaxe = new ItemDevilPickaxe();
+    //Axes
+    public static final ItemBVKSAxe DevilAxe = new ItemDevilAxe();
+    //Shovel
+    public static final ItemBVKSShovel DevilShovel = new ItemDevilShovel();
+    //Sword
+    public static final ItemBVKSSword DevilSword = new ItemDevilSword();
+
 
     public static void init()
     {

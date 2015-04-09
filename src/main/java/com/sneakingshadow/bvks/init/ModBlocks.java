@@ -1,11 +1,11 @@
 package com.sneakingshadow.bvks.init;
 
 import com.sneakingshadow.bvks.block.BlockBVKS;
+import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.block.BlockDevilCobblestone;
 import com.sneakingshadow.bvks.block.BlockDevilOre;
 import com.sneakingshadow.bvks.block.BlockSmoothObsidian;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(Ref.MOD_ID)

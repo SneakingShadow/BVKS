@@ -2,10 +2,6 @@ package com.sneakingshadow.bvks.item.armor;
 
 import com.sneakingshadow.bvks.reference.Armor;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.util.LogHelper;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 public class ItemDevilBoots extends ItemBVKSArmor
 {

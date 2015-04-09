@@ -64,4 +64,10 @@ public final class Names
         public static final String Item = Ref.MOD_ID+"_item";
         public static final String Block = Ref.MOD_ID+"_block";
     }
+
+    public static final class Configuration
+    {
+        public static final String DevilTools = "Devil-tools!!";
+        public static final String ObsidianTools = "Obsidian-tools";
+    }
 }

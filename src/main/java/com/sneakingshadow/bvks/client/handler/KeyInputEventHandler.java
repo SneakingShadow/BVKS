@@ -2,7 +2,6 @@ package com.sneakingshadow.bvks.client.handler;
 
 import com.sneakingshadow.bvks.client.settings.Keybindings;
 import com.sneakingshadow.bvks.reference.Key;
-import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 

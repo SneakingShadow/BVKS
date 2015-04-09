@@ -1,13 +1,13 @@
 package com.sneakingshadow.bvks.item.tool;
 
-import com.sneakingshadow.bvks.item.ItemBVKS;
+import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
 
-public class ItemDevilShovel extends ItemBVKS
+public class ItemDevilShovel extends ItemBVKSShovel
 {
     public ItemDevilShovel()
     {
-        super();
+        super(ItemToolMaterial.DevilShovel);
         this.setUnlocalizedName(Names.Items.DevilShovel);
     }
 }
