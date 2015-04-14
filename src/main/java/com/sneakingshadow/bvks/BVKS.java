@@ -52,7 +52,6 @@ public class BVKS
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-
         LogHelper.info("Post Initialization Complete!");
     }
 }

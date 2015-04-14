@@ -8,6 +8,5 @@ public class ItemIronRod extends ItemBVKS
     {
         super();
         this.setUnlocalizedName(Names.Items.IronRod);
-        this.setMaxStackSize(64);
     }
 }

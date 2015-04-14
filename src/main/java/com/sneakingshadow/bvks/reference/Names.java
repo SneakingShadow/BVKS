@@ -21,6 +21,7 @@ public final class Names
         public static final String AssassinsKnife = "assassins_knife";
         public static final String DevilArrow = "devil_arrow";
         public static final String DevilAxe = "devil_axe";
+        public static final String DevilHoe = "devil_hoe";
         public static final String DevilBoots = "devil_boots";
         public static final String DevilBow = "devil_bow";
         public static final String DevilChestplate = "devil_chestplate";
@@ -50,7 +51,8 @@ public final class Names
         public static final String ObsidianSword = "obsidian_sword";
         public static final String StoneHammer = "stone_hammer";
         public static final String WoodHammer = "wood_hammer";
-
+        public static final String DebugItem = "debug_item";
+        public static final String DevilCompound = "devil_compound";
     }
 
     public static final class ArmorTextures

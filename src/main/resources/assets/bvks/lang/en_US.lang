@@ -12,6 +12,7 @@ tile.bvks:smooth_obsidian.name=Smooth Obsidian
 item.bvks:assassins_knife.name=Assassins Knife
 item.bvks:devil_arrow.name=Devil Arrow
 item.bvks:devil_axe.name=Devil Axe
+item.bvks:devil_hoe.name=Death's schyte
 item.bvks:devil_boots.name=Devil Boots
 item.bvks:devil_bow.name=Devil Bow
 item.bvks:devil_chestplate.name=Devil Chestplate
@@ -41,6 +42,7 @@ item.bvks:obsidian_shovel.name=Obsidian Shovel
 item.bvks:obsidian_sword.name=Obsidian Sword
 item.bvks:stone_hammer.name=Stone Hammer
 item.bvks:wood_hammer.name=Wood Hammer
+item.bvks:devil_compound.name=Wood Hammer
 
 # Creative tab localizations
 itemGroup.bvks_item=BVKS Items

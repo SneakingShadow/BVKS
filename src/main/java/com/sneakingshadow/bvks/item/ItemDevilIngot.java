@@ -8,6 +8,5 @@ public class ItemDevilIngot extends ItemBVKS
     {
         super();
         this.setUnlocalizedName(Names.Items.DevilIngot);
-        this.maxStackSize = 64;
     }
 }

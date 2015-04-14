@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.ItemBVKS;
 import com.sneakingshadow.bvks.reference.Names;
@@ -9,6 +9,5 @@ public class ItemObsidianRod extends ItemBVKS
     {
         super();
         this.setUnlocalizedName(Names.Items.ObsidianRod);
-        this.setMaxStackSize(64);
     }
 }

@@ -14,7 +14,7 @@ public class ItemBVKS extends Item
     public ItemBVKS()
     {
         super();
-        this.maxStackSize = 1;
+        this.setMaxStackSize(64);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setCreativeTab(CreativeTabBVKS.tabItem);
         this.setNoRepair();

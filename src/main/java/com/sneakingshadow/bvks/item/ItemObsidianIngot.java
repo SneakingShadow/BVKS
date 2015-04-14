@@ -8,6 +8,5 @@ public class ItemObsidianIngot extends ItemBVKS
     {
         super();
         this.setUnlocalizedName(Names.Items.ObsidianIngot);
-        this.setMaxStackSize(64);
     }
 }

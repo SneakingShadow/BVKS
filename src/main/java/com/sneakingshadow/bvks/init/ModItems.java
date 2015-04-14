@@ -14,7 +14,6 @@ public class ModItems
      *
      */
     public static final ItemBVKS DevilGem = new ItemDevilGem();
-    public static final ItemBVKS DevilHammer = new ItemDevilHammer();
     public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
     public static final ItemBVKS IronRod = new ItemIronRod();
     public static final ItemBVKS AssassinsKnife = new ItemAssassinsKnife();
@@ -33,6 +32,7 @@ public class ModItems
     public static final ItemBVKS ObsidianSword = new ItemObsidianSword();
     public static final ItemBVKS StoneHammer = new ItemStoneHammer();
     public static final ItemBVKS WoodHammer = new ItemWoodHammer();
+    public static final ItemBVKS DevilCompound = new ItemDevilCompound();
 
     //Armor
     public static final ItemBVKSArmor DevilBoots = new ItemDevilBoots();
@@ -51,17 +51,27 @@ public class ModItems
     public static final ItemBVKSPickaxe DevilPickaxe = new ItemDevilPickaxe();
     //Axes
     public static final ItemBVKSAxe DevilAxe = new ItemDevilAxe();
-    //Shovel
+    //Shovels
     public static final ItemBVKSShovel DevilShovel = new ItemDevilShovel();
-    //Sword
+    //Swords
     public static final ItemBVKSSword DevilSword = new ItemDevilSword();
+    //Hoes
+    public static final ItemBVKSHoe DevilHoe = new ItemDevilHoe();
+    //Hammers
+    public static final ItemBVKSHammer DevilHammer = new ItemDevilHammer();
 
+
+    /**
+     *   The allmighty, holy debug tool!!!
+     */
+    public static final ItemDebugItem DebugItem = new ItemDebugItem();
 
     public static void init()
     {
         GameRegistry.registerItem(AssassinsKnife, Names.Items.AssassinsKnife);
         GameRegistry.registerItem(DevilArrow, Names.Items.DevilArrow);
         GameRegistry.registerItem(DevilAxe, Names.Items.DevilAxe);
+        GameRegistry.registerItem(DevilHoe, Names.Items.DevilHoe);
         GameRegistry.registerItem(DevilBoots, Names.Items.DevilBoots);
         GameRegistry.registerItem(DevilBow, Names.Items.DevilBow);
         GameRegistry.registerItem(DevilChestplate, Names.Items.DevilChestplate);
@@ -91,5 +101,7 @@ public class ModItems
         GameRegistry.registerItem(ObsidianSword, Names.Items.ObsidianSword);
         GameRegistry.registerItem(StoneHammer, Names.Items.StoneHammer);
         GameRegistry.registerItem(WoodHammer, Names.Items.WoodHammer);
+        GameRegistry.registerItem(DebugItem, Names.Items.DebugItem);
+        GameRegistry.registerItem(DevilCompound, Names.Items.DevilCompound);
     }
 }

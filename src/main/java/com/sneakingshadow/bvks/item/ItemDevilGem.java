@@ -8,6 +8,5 @@ public class ItemDevilGem extends ItemBVKS
     {
         super();
         this.setUnlocalizedName(Names.Items.DevilGem);
-        this.maxStackSize = 64;
     }
 }
