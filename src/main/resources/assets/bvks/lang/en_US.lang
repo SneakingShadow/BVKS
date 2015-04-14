@@ -42,7 +42,8 @@ item.bvks:obsidian_shovel.name=Obsidian Shovel
 item.bvks:obsidian_sword.name=Obsidian Sword
 item.bvks:stone_hammer.name=Stone Hammer
 item.bvks:wood_hammer.name=Wood Hammer
-item.bvks:devil_compound.name=Wood Hammer
+item.bvks:devil_compound.name=Devil Compound
+item.bvks:debug_item.name=Debug Item
 
 # Creative tab localizations
 itemGroup.bvks_item=BVKS Items

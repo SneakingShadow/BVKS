@@ -21,18 +21,7 @@ public class ModItems
     public static final ItemBVKS DevilArrow = new ItemDevilArrow();
     public static final ItemBVKS DevilBow = new ItemDevilBow();
     public static final ItemBVKS DevilIngot = new ItemDevilIngot();
-    public static final ItemBVKS DiamondHammer = new ItemDiamondHammer();
-    public static final ItemBVKS GoldHammer = new ItemGoldHammer();
-    public static final ItemBVKS IronHammer = new ItemIronHammer();
-    public static final ItemBVKS ObsidianAxe = new ItemObsidianAxe();
-    public static final ItemBVKS ObsidianHammer = new ItemObsidianHammer();
-    public static final ItemBVKS ObsidianHoe = new ItemObsidianHoe();
-    public static final ItemBVKS ObsidianPickaxe = new ItemObsidianPickaxe();
     public static final ItemBVKS ObsidianRod = new ItemObsidianRod();
-    public static final ItemBVKS ObsidianShovel = new ItemObsidianShovel();
-    public static final ItemBVKS ObsidianSword = new ItemObsidianSword();
-    public static final ItemBVKS StoneHammer = new ItemStoneHammer();
-    public static final ItemBVKS WoodHammer = new ItemWoodHammer();
     public static final ItemBVKS DevilCompound = new ItemDevilCompound();
 
     //Armor
@@ -50,16 +39,27 @@ public class ModItems
      */
     //Pickaxes
     public static final ItemBVKSPickaxe DevilPickaxe = new ItemDevilPickaxe();
+    public static final ItemBVKSPickaxe ObsidianPickaxe = new ItemObsidianPickaxe();
     //Axes
     public static final ItemBVKSAxe DevilAxe = new ItemDevilAxe();
+    public static final ItemBVKSAxe ObsidianAxe = new ItemObsidianAxe();
     //Shovels
     public static final ItemBVKSShovel DevilShovel = new ItemDevilShovel();
+    public static final ItemBVKSShovel ObsidianShovel = new ItemObsidianShovel();
     //Swords
     public static final ItemBVKSSword DevilSword = new ItemDevilSword();
+    public static final ItemBVKSSword ObsidianSword = new ItemObsidianSword();
     //Hoes
     public static final ItemBVKSHoe DevilHoe = new ItemDevilHoe();
+    public static final ItemBVKSHoe ObsidianHoe = new ItemObsidianHoe();
     //Hammers
     public static final ItemBVKSHammer DevilHammer = new ItemDevilHammer();
+    public static final ItemBVKSHammer DiamondHammer = new ItemDiamondHammer();
+    public static final ItemBVKSHammer GoldHammer = new ItemGoldHammer();
+    public static final ItemBVKSHammer IronHammer = new ItemIronHammer();
+    public static final ItemBVKSHammer ObsidianHammer = new ItemObsidianHammer();
+    public static final ItemBVKSHammer StoneHammer = new ItemStoneHammer();
+    public static final ItemBVKSHammer WoodHammer = new ItemWoodHammer();
 
 
     /**

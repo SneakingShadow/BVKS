@@ -2,55 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\ItemBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKS.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\armor\ItemBVKSArmor.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSArmor.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSAxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSAxe.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSHoe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHoe.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSPickaxe.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSShovel.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSShovel.java" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\com\sneakingshadow\bvks\item\tool\ItemBVKSSword.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSSword.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BVKS.iws" afterPath="$PROJECT_DIR$/BVKS.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDebugItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDebugItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilArrow.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilArrow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilAxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilAxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilBoots.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilBoots.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilBow.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilBow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilChestplate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilCompound.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilCompound.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilGem.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilGem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilHelmet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHoe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHoe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilIngot.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilIngot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilLeggings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilPickaxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilShovel.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilShovel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilSword.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilSword.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDiamondHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDiamondHammer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemGoldHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemGoldHammer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemIronHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemIronHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemIronRod.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemIronRod.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianAxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianAxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianBoots.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianBoots.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianChestplate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianHelmet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHoe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHoe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianIngot.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianIngot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianLeggings.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianPickaxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianRod.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianRod.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianShovel.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianShovel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianSword.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianSword.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemStoneHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemStoneHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemWoodHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemWoodHammer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" afterPath="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/latest.log" />
     </list>
     <list id="8c8cc534-6cf7-41fc-80c0-c7b1538c4c34" name="Rejected commit: Default" comment="." />
     <list id="f023569a-fa58-44bb-bb77-5711c7000c33" name="Failed commit: Default" comment="." />
@@ -118,8 +94,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53125" vertical-offset="0" max-vertical-offset="1173">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.07641196" vertical-offset="277" max-vertical-offset="1173">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -145,18 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/client/handler/KeyInputEventHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemAssassinsKnife.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemBVkSArmor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Armortype.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Type.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Armor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilLeggings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilBoots.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilHelmet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilChestplate.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianBoots.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianChestplate.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianHelmet.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemObsidianLeggings.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemBVKSTool.java" />
@@ -170,7 +134,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemToolMaterial.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/proxy/CommonProxy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/proxy/ClientProxy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilAxe.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilShovel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilSword.java" />
@@ -178,12 +141,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilPickaxe.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDebugItem.java" />
         <option value="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemBVKSHammer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHoe.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/BVKS.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Names.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilCompound.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilGem.java" />
@@ -192,10 +152,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianIngot.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianRod.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemBVKS.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" />
         <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemBVKSArmor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemWoodHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemStoneHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemIronHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemGoldHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDiamondHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHoe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianAxe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianShovel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianSword.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianPickaxe.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
       </list>
     </option>
   </component>
@@ -954,7 +930,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="968" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="SearchEverywhereHistoryKey" value="Ore&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/oredict/OreDictionary.java&#10;OreDic&#9;PSI&#9;JAVA://net.minecraftforge.oredict.OreDictionary" />
+    <property name="SearchEverywhereHistoryKey" value="BlockRedstone&#9;PSI&#9;JAVA://net.minecraft.block.BlockRedstoneOre&#10;redstone&#9;PSI&#9;JAVA://net.minecraft.item.ItemRedstone&#10;Ore&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/oredict/OreDictionary.java&#10;OreDic&#9;PSI&#9;JAVA://net.minecraftforge.oredict.OreDictionary" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1230,7 +1206,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429034300940</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update 0.0.4">
+      <created>1429034518669</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1429034518669</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1267,10 +1249,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23667377" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1283,9 +1265,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1295,9 +1277,9 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1327,7 +1309,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="." />
     <MESSAGE value="Update 0.0.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 0.0.3" />
+    <MESSAGE value="Update 0.0.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 0.0.4" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1341,154 +1324,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemHoe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.067911714" vertical-offset="108" max-vertical-offset="1411">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemSword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028239202" vertical-offset="51" max-vertical-offset="1972">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemBow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11295681" vertical-offset="0" max-vertical-offset="2635">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/common/config/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325893" vertical-offset="27327" max-vertical-offset="28339">
-          <caret line="1683" column="17" selection-start-line="1683" selection-start-column="17" selection-end-line="1683" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BVKS.iws">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22848">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mcmod.info">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19767442" vertical-offset="0" max-vertical-offset="602">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/proxy/ClientProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.265625" vertical-offset="0" max-vertical-offset="896">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <caret line="7" column="51" selection-start-line="7" selection-start-column="51" selection-end-line="7" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/handler/ConfigurationHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8947368" vertical-offset="0" max-vertical-offset="748">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilSword.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22591361" vertical-offset="0" max-vertical-offset="602">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilShovel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22591361" vertical-offset="0" max-vertical-offset="602">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilAxe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22591361" vertical-offset="0" max-vertical-offset="602">
-          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/ItemDevilHelmet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemArmor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36502546" vertical-offset="958" max-vertical-offset="5491">
-          <caret line="87" column="24" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7131" max-vertical-offset="13957">
-          <caret line="497" column="61" selection-start-line="497" selection-start-column="61" selection-end-line="497" selection-end-column="61" />
-          <folding>
-            <element signature="e#2273#2274#0" expanded="false" />
-            <element signature="e#2308#2309#0" expanded="false" />
-            <element signature="e#2370#2371#0" expanded="false" />
-            <element signature="e#2417#2418#0" expanded="false" />
-            <element signature="e#2619#2620#0" expanded="false" />
-            <element signature="e#2654#2655#0" expanded="false" />
-            <element signature="e#4231#4232#0" expanded="false" />
-            <element signature="e#4286#4287#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/entity/player/EntityPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11544991" vertical-offset="0" max-vertical-offset="41327">
           <caret line="94" column="22" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2346">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSPickaxe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0448505" vertical-offset="95" max-vertical-offset="697">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemPickaxe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1609,6 +1448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08471761" vertical-offset="102" max-vertical-offset="2142">
           <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,14 +1456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63327676" vertical-offset="3061" max-vertical-offset="4182">
           <caret line="220" column="122" selection-start-line="220" selection-start-column="122" selection-end-line="220" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327674" vertical-offset="11228" max-vertical-offset="40069">
-          <caret line="800" column="68" selection-start-line="800" selection-start-column="68" selection-end-line="800" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1644,22 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemStoneHammer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11295681" vertical-offset="0" max-vertical-offset="602">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <caret line="14" column="95" selection-start-line="14" selection-start-column="95" selection-end-line="14" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/cpw/mods/fml/common/registry/GameRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3327674" vertical-offset="1062" max-vertical-offset="6732">
@@ -1668,22 +1484,6 @@
             <element signature="e#4623#4624#0" expanded="false" />
             <element signature="e#4669#4670#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45182723" vertical-offset="0" max-vertical-offset="602">
-          <caret line="22" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327674" vertical-offset="10072" max-vertical-offset="22933">
-          <caret line="739" column="16" selection-start-line="739" selection-start-column="16" selection-end-line="739" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1753,14 +1553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianRod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17075893" vertical-offset="0" max-vertical-offset="896">
-          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemDevilArrow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17075893" vertical-offset="0" max-vertical-offset="896">
@@ -1773,32 +1565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="896">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49330357" vertical-offset="0" max-vertical-offset="896">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84821427" vertical-offset="1008" max-vertical-offset="1921">
-          <caret line="104" column="74" selection-start-line="104" selection-start-column="74" selection-end-line="104" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76245844" vertical-offset="289" max-vertical-offset="918">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1819,6 +1585,232 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSArmor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55022323" vertical-offset="0" max-vertical-offset="1071">
+          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11130" max-vertical-offset="40069">
+          <caret line="805" column="148" selection-start-line="805" selection-start-column="148" selection-end-line="805" selection-end-column="148" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/event/ForgeEventFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1293" max-vertical-offset="4148">
+          <caret line="173" column="5" selection-start-line="170" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemRedstone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.057757646" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/BlockRedstoneOre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23103058" vertical-offset="1173" max-vertical-offset="3043">
+          <caret line="98" column="76" selection-start-line="98" selection-start-column="76" selection-end-line="98" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemPickaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2346">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/ItemObsidianRod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/Ref.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.094866075" vertical-offset="0" max-vertical-offset="896">
+          <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDevilHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="896">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="896">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemWoodHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="896">
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemStoneHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20870535" vertical-offset="0" max-vertical-offset="896">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemIronHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11383928" vertical-offset="0" max-vertical-offset="896">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemGoldHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07589286" vertical-offset="0" max-vertical-offset="896">
+          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemDiamondHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20870535" vertical-offset="0" max-vertical-offset="896">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/common/util/EnumHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325893" vertical-offset="773" max-vertical-offset="4352">
+          <caret line="110" column="31" selection-start-line="110" selection-start-column="31" selection-end-line="110" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSPickaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44847113" vertical-offset="21007" max-vertical-offset="22933">
+          <caret line="1493" column="37" selection-start-line="1489" selection-start-column="8" selection-end-line="1493" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/ModItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1938">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianSword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianShovel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianAxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianHoe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/reference/ItemToolMaterial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemObsidianPickaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15178572" vertical-offset="0" max-vertical-offset="896">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79129463" vertical-offset="39" max-vertical-offset="935">
+          <caret line="44" column="44" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/BVKS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
@@ -1829,18 +1821,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSArmor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55022323" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53125" vertical-offset="0" max-vertical-offset="1173">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.07641196" vertical-offset="277" max-vertical-offset="1173">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
           <folding />
         </state>
       </provider>

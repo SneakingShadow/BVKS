@@ -1,8 +1,10 @@
 package com.sneakingshadow.bvks.item.base;
 
+import com.sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -24,7 +26,6 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe{
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase player)
     {
-
         if ((double) block.getBlockHardness(world, x, y, z) != 0.0D) {
             itemStack.damageItem(1, player);
             for(int rx = x-( (widthX/2)-((widthX/2)%1) ); rx< x-((widthX/2)-((widthX/2)%1)) + widthX ;rx++){
@@ -42,7 +43,6 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe{
                 }
             }
         }
-
 
         return true;
     }
