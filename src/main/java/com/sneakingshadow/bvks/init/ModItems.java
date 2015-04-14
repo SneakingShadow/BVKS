@@ -2,6 +2,7 @@ package com.sneakingshadow.bvks.init;
 
 import com.sneakingshadow.bvks.item.*;
 import com.sneakingshadow.bvks.item.armor.*;
+import com.sneakingshadow.bvks.item.base.*;
 import com.sneakingshadow.bvks.item.tool.*;
 import com.sneakingshadow.bvks.reference.Names;
 import com.sneakingshadow.bvks.reference.Ref;

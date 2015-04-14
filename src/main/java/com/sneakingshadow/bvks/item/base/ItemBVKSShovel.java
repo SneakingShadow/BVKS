@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item.base;
 
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import com.sneakingshadow.bvks.reference.Ref;
@@ -6,12 +6,12 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 
-public class ItemBVKSHoe extends ItemHoe
+public class ItemBVKSShovel extends ItemSpade
 {
-    public ItemBVKSHoe(ToolMaterial toolMaterial) {
+    public ItemBVKSShovel(ToolMaterial toolMaterial) {
         super(toolMaterial);this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setCreativeTab(CreativeTabBVKS.tabItem);

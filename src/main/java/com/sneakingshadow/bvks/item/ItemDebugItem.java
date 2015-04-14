@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.tool.ItemBVKSHammer;
+import com.sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;

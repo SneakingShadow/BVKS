@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.item.tool;
 
+import com.sneakingshadow.bvks.item.base.ItemBVKSSword;
 import com.sneakingshadow.bvks.reference.Names;
 import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 

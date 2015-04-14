@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item.base;
 
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import com.sneakingshadow.bvks.reference.Ref;
@@ -6,15 +6,18 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemBVKSPickaxe extends ItemPickaxe
+public class ItemBVKS extends Item
 {
-    public ItemBVKSPickaxe(ToolMaterial toolMaterial) {
-        super(toolMaterial);this.maxStackSize = 1;
+    public ItemBVKS()
+    {
+        super();
+        this.setMaxStackSize(64);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setCreativeTab(CreativeTabBVKS.tabItem);
+        this.setNoRepair();
     }
 
     @Override

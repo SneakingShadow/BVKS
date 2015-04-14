@@ -1,14 +1,10 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item.base;
 
-import com.sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.event.ForgeEventFactory;
-
-import java.util.ArrayList;
 
 import static oracle.jrockit.jfr.events.Bits.byteValue;
 

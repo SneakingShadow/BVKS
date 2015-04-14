@@ -1,23 +1,20 @@
-package com.sneakingshadow.bvks.item;
+package com.sneakingshadow.bvks.item.base;
 
-import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import com.sneakingshadow.bvks.reference.Ref;
+import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 
-public class ItemBVKS extends Item
+public class ItemBVKSSword extends ItemSword
 {
-    public ItemBVKS()
-    {
-        super();
-        this.setMaxStackSize(64);
+    public ItemBVKSSword(ToolMaterial toolMaterial) {
+        super(toolMaterial);this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setCreativeTab(CreativeTabBVKS.tabItem);
-        this.setNoRepair();
     }
 
     @Override

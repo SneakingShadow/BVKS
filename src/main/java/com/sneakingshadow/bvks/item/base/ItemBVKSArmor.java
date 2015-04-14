@@ -1,20 +1,36 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item.base;
 
-import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
+import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 
-public class ItemBVKSSword extends ItemSword
+public class ItemBVKSArmor extends ItemArmor
 {
-    public ItemBVKSSword(ToolMaterial toolMaterial) {
-        super(toolMaterial);this.maxStackSize = 1;
+    private String texture;
+    private int armor;
+
+    public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType)
+    {
+        super(material, 0, armorType);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setCreativeTab(CreativeTabBVKS.tabItem);
+        texture = textureName;
+        armor = armorType;
+    }
+
+    public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType, int renderIndex)
+    {
+        super(material, renderIndex, armorType);
+        this.setCreativeTab(CreativeTabs.tabAllSearch);
+        this.setCreativeTab(CreativeTabBVKS.tabItem);
+        texture = textureName;
+        armor = armorType;
     }
 
     @Override
@@ -39,4 +55,11 @@ public class ItemBVKSSword extends ItemSword
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
+
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
+    {
+        return Ref.RESOURCE_PREFIX+"textures/armor/" + this.texture + "_" + (this.armor == 2 ? "2" : "1") + ".png";
+    }
+
 }

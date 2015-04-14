@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.tool;
+package com.sneakingshadow.bvks.item.base;
 
 import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;

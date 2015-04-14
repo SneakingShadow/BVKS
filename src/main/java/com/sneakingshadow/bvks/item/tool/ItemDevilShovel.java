@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.item.tool;
 
+import com.sneakingshadow.bvks.item.base.ItemBVKSShovel;
 import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
 
