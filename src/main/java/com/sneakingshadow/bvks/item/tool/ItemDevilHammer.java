@@ -23,11 +23,4 @@ public class ItemDevilHammer extends ItemBVKSHammer
     {
         list.add("The devil has a taste for worlds");
     }
-
-    @Override
-    public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
-    {
-        LogHelper.all(itemStack.getEnchantmentTagList());
-        return itemStack;
-    }
 }

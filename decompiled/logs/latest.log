@@ -1,10 +1,10 @@
-[20:45:34] [main/INFO]: Logging in with username & password
-[20:45:40] [main/INFO]: Setting user: MariusBuilder
-[20:45:42] [Client thread/INFO]: LWJGL Version: 2.9.1
-[20:45:46] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set, FMLFileResourcePack:Waila
-[20:45:48] [Sound Library Loader/INFO]: Sound engine started
-[20:45:49] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[20:45:49] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
+[00:12:25] [main/INFO]: Logging in with username & password
+[00:12:30] [main/INFO]: Setting user: MariusBuilder
+[00:12:32] [Client thread/INFO]: LWJGL Version: 2.9.1
+[00:12:37] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set, FMLFileResourcePack:Waila
+[00:12:38] [Sound Library Loader/INFO]: Sound engine started
+[00:12:39] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[00:12:39] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
 java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -29,7 +29,7 @@ java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:49] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/debug_item.png
+[00:12:39] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/debug_item.png
 java.io.FileNotFoundException: bvks:textures/items/debug_item.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -54,7 +54,7 @@ java.io.FileNotFoundException: bvks:textures/items/debug_item.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:49] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
+[00:12:39] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
 java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -79,9 +79,9 @@ java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:49] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[20:45:50] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set, FMLFileResourcePack:Waila
-[20:45:50] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
+[00:12:39] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[00:12:40] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearwalley's Killing Set, FMLFileResourcePack:Waila
+[00:12:40] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
 java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -109,7 +109,7 @@ java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:50] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/debug_item.png
+[00:12:40] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/debug_item.png
 java.io.FileNotFoundException: bvks:textures/items/debug_item.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -137,7 +137,7 @@ java.io.FileNotFoundException: bvks:textures/items/debug_item.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:50] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
+[00:12:40] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
 java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -165,41 +165,23 @@ java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:134) [idea_rt.jar:?]
-[20:45:50] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[20:45:50] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[20:45:51] [Sound Library Loader/INFO]: Sound engine started
-[20:46:01] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[20:46:01] [Server thread/INFO]: Generating keypair
-[20:46:02] [Server thread/INFO]: Preparing start region for level 0
-[20:46:03] [Server thread/INFO]: Changing view distance to 12, from 10
-[20:46:03] [Server thread/INFO]: MariusBuilder[local:E:40e7197d] logged in with entity id 39 at (-129.84701556912813, 183.1707870772188, 174.85930545966335)
-[20:46:03] [Server thread/INFO]: MariusBuilder joined the game
-[20:46:19] [Server thread/INFO]: [MariusBuilder: Given [Wooden Pickaxe] * 1 to MariusBuilder]
-[20:46:19] [Client thread/INFO]: [CHAT] Given [Wooden Pickaxe] * 1 to MariusBuilder
-[20:46:28] [Server thread/INFO]: [MariusBuilder: Given [Stone Pickaxe] * 1 to MariusBuilder]
-[20:46:28] [Client thread/INFO]: [CHAT] Given [Stone Pickaxe] * 1 to MariusBuilder
-[20:46:29] [Server thread/INFO]: [MariusBuilder: Given [Iron Pickaxe] * 1 to MariusBuilder]
-[20:46:29] [Client thread/INFO]: [CHAT] Given [Iron Pickaxe] * 1 to MariusBuilder
-[20:46:30] [Server thread/INFO]: [MariusBuilder: Given [Golden Pickaxe] * 1 to MariusBuilder]
-[20:46:30] [Client thread/INFO]: [CHAT] Given [Golden Pickaxe] * 1 to MariusBuilder
-[20:46:30] [Server thread/INFO]: [MariusBuilder: Given [Diamond Pickaxe] * 1 to MariusBuilder]
-[20:46:30] [Client thread/INFO]: [CHAT] Given [Diamond Pickaxe] * 1 to MariusBuilder
-[20:46:32] [Server thread/INFO]: [MariusBuilder: Given [Obsidian Pickaxe] * 1 to MariusBuilder]
-[20:46:32] [Client thread/INFO]: [CHAT] Given [Obsidian Pickaxe] * 1 to MariusBuilder
-[20:46:38] [Server thread/INFO]: [MariusBuilder: Given [Devil Pickaxe] * 1 to MariusBuilder]
-[20:46:38] [Client thread/INFO]: [CHAT] Given [Devil Pickaxe] * 1 to MariusBuilder
-[20:48:40] [Server thread/INFO]: [MariusBuilder: Given [Devil Ore] * 1 to MariusBuilder]
-[20:48:40] [Client thread/INFO]: [CHAT] Given [Devil Ore] * 1 to MariusBuilder
-[20:48:45] [Server thread/INFO]: [MariusBuilder: Given [Devil Ore] * 64 to MariusBuilder]
-[20:48:45] [Client thread/INFO]: [CHAT] Given [Devil Ore] * 64 to MariusBuilder
-[20:49:10] [Server thread/INFO]: Saving and pausing game...
-[20:49:10] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[20:49:11] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[20:49:11] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[20:49:11] [Server thread/INFO]: Stopping server
-[20:49:11] [Server thread/INFO]: Saving players
-[20:49:11] [Server thread/INFO]: Saving worlds
-[20:49:11] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
-[20:49:11] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
-[20:49:11] [Server thread/INFO]: Saving chunks for level 'New World'/The End
-[20:49:12] [Client thread/INFO]: Stopping!
+[00:12:40] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[00:12:40] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[00:12:41] [Sound Library Loader/INFO]: Sound engine started
+[00:13:13] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[00:13:13] [Server thread/INFO]: Generating keypair
+[00:13:13] [Server thread/INFO]: Preparing start region for level 0
+[00:13:14] [Server thread/INFO]: Changing view distance to 12, from 10
+[00:13:15] [Server thread/INFO]: MariusBuilder[local:E:815ec673] logged in with entity id 39 at (18.770606487362198, 247.0, 4.18396358464425)
+[00:13:15] [Server thread/INFO]: MariusBuilder joined the game
+[00:13:28] [Server thread/INFO]: Saving and pausing game...
+[00:13:28] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[00:13:28] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[00:13:28] [Server thread/INFO]: Saving chunks for level 'New World'/The End
+[00:14:31] [Client thread/INFO]: Stopping!
+[00:14:31] [Server thread/INFO]: Stopping server
+[00:14:31] [Server thread/INFO]: Saving players
+[00:14:31] [Server thread/INFO]: Saving worlds
+[00:14:31] [Server thread/INFO]: Saving chunks for level 'New World'/Overworld
+[00:14:31] [Server thread/INFO]: Saving chunks for level 'New World'/Nether
+[00:14:31] [Server thread/INFO]: Saving chunks for level 'New World'/The End
