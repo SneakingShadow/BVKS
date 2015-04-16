@@ -9,9 +9,6 @@ import net.minecraft.world.World;
 
 public class EnchantmentHelper
 {
-    /**
-     * Remember to check for: !world.isRemote && !world.restoringBlockSnapshots
-     */
     public static int getLevel(int id, NBTTagList tagList) {
         if(tagList != null){
             for (int i = 0; i < tagList.tagCount(); i++) {
@@ -23,26 +20,19 @@ public class EnchantmentHelper
         return 0;
     }
 
-    /**
-     * Remember to check for: !world.isRemote && !world.restoringBlockSnapshots
-     */
     public static int getLevel(int id, ItemStack itemStack){ return getLevel(id, itemStack.getEnchantmentTagList()); }
 
-    /**
-     * Remember to check for: !world.isRemote && !world.restoringBlockSnapshots
-     */
     public static int getLevel(Enchantment id, NBTTagList tagList){ return getLevel(id.effectId, tagList); }
 
-    /**
-     * Remember to check for: !world.isRemote && !world.restoringBlockSnapshots
-     */
     public static int getLevel(Enchantment id, ItemStack itemStack){ return getLevel(id, itemStack.getEnchantmentTagList()); }
 
-    public static NBTTagList setLevel(int level, int id, NBTTagList tagList){
+    public static void setLevel(Enchantment enchantment, int level, ItemStack itemStack){
+        NBTTagList tagList = itemStack.getEnchantmentTagList();
+
         if(tagList != null){
             boolean booly = true;
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if (tagList.getCompoundTagAt(i).getShort("id") == id) {
+                if (tagList.getCompoundTagAt(i).getShort("id") == enchantment.effectId) {
                     tagList.getCompoundTagAt(i).setShort("lvl", (short) level);
 
                     booly = false;
@@ -50,11 +40,55 @@ public class EnchantmentHelper
             }
             if(booly){
                 NBTTagCompound tagCompound = new NBTTagCompound();
-                tagCompound.setShort("id", (short)id);
+                tagCompound.setShort("id", (short)enchantment.effectId);
                 tagCompound.setShort("lvl", (short)level);
                 tagList.appendTag( tagCompound );
             }
+        }else{
+            itemStack.addEnchantment(enchantment, level);
         }
-        return tagList;
+    }
+
+    public static void remove(Enchantment enchantment, ItemStack itemStack){
+        NBTTagList tagList = itemStack.getEnchantmentTagList();
+
+        if(tagList != null) {
+            for (int i = 0; i < tagList.tagCount(); i++) {
+                if(tagList.getCompoundTagAt(i).getShort("id") == enchantment.effectId) {
+                    tagList.removeTag(i);
+                    return;
+                }
+            }
+        }
+    }
+
+    public static void removeAll(ItemStack itemStack){
+        itemStack.stackTagCompound.removeTag("ench");
+    }
+
+    public static boolean hasEnchant(Enchantment enchantment, ItemStack itemStack){
+        NBTTagList tagList = itemStack.getEnchantmentTagList();
+
+        if(tagList != null) {
+            for (int i = 0; i < tagList.tagCount(); i++) {
+                if(tagList.getCompoundTagAt(i).getShort("id") == enchantment.effectId) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean hasEnchantOtherThan(Enchantment enchantment, ItemStack itemStack){
+        NBTTagList tagList = itemStack.getEnchantmentTagList();
+
+        if(tagList != null) {
+            for (int i = 0; i < tagList.tagCount(); i++) {
+                if(tagList.getCompoundTagAt(i).getShort("id") != enchantment.effectId) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

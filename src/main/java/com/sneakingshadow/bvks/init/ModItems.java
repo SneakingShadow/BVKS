@@ -61,6 +61,11 @@ public class ModItems
     public static final ItemBVKSHammer StoneHammer = new ItemStoneHammer();
     public static final ItemBVKSHammer WoodHammer = new ItemWoodHammer();
 
+    /**
+     *   The common admin tools
+     */
+    public static final ItemBVKSPickaxe AdminHammer = new ItemAdminHammer();
+
 
     /**
      *   The allmighty, holy debug tool!!!
@@ -104,5 +109,6 @@ public class ModItems
         GameRegistry.registerItem(WoodHammer, Names.Items.WoodHammer);
         GameRegistry.registerItem(DebugItem, Names.Items.DebugItem);
         GameRegistry.registerItem(DevilCompound, Names.Items.DevilCompound);
+        GameRegistry.registerItem(AdminHammer, Names.Items.AdminHammer);
     }
 }

@@ -53,6 +53,7 @@ public final class Names
         public static final String WoodHammer = "wood_hammer";
         public static final String DebugItem = "debug_item";
         public static final String DevilCompound = "devil_compound";
+        public static final String AdminHammer = "admin_hammer";
     }
 
     public static final class ArmorTextures

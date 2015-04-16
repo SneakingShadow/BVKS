@@ -28,16 +28,28 @@ public class ItemDebugItem extends ItemBVKS {
 
     public ItemDebugItem() {
         super();
+        this.setMaxStackSize(1);
         this.setUnlocalizedName(Names.Items.DebugItem);
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
 
-        if(EnchantmentHelper.getLevel(Enchantment.fortune, itemStack) == 3) EnchantmentHelper.setLevel(5, Enchantment.fortune.effectId, itemStack.getEnchantmentTagList());
-        else EnchantmentHelper.setLevel(3, Enchantment.fortune.effectId, itemStack.getEnchantmentTagList());
+        EnchantmentHelper.removeAll(itemStack);
 
+        if(!world.isRemote && !world.restoringBlockSnapshots && false) {
 
+            if(EnchantmentHelper.hasEnchant(Enchantment.fortune, itemStack)){
+                EnchantmentHelper.remove(Enchantment.fortune, itemStack);
+                EnchantmentHelper.setLevel(Enchantment.silkTouch, 1, itemStack);
+            }else if(EnchantmentHelper.hasEnchant(Enchantment.silkTouch, itemStack)){
+                EnchantmentHelper.remove(Enchantment.silkTouch, itemStack);
+                EnchantmentHelper.remove(Enchantment.fortune, itemStack);
+            }else{
+                EnchantmentHelper.setLevel(Enchantment.fortune, 3, itemStack);
+            }
+
+        }
         return itemStack;
     }
 
