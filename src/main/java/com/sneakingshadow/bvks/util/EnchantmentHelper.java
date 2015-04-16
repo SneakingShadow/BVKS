@@ -41,7 +41,7 @@ public class EnchantmentHelper
     public static NBTTagList setLevel(int level, int id, NBTTagList tagList){
         if(tagList != null){
             boolean booly = true;
-            for (int i = 0; i <= tagList.tagCount(); i++) {
+            for (int i = 0; i < tagList.tagCount(); i++) {
                 if (tagList.getCompoundTagAt(i).getShort("id") == id) {
                     tagList.getCompoundTagAt(i).setShort("lvl", (short) level);
 
