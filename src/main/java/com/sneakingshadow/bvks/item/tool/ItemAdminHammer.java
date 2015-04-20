@@ -13,6 +13,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.Vec3;
@@ -48,7 +49,7 @@ public class ItemAdminHammer extends ItemBVKSPickaxe{
                                 if (blocky.getMaterial() != Material.air && this.func_150897_b(blocky)){
                                     if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && dropItems) // do not drop items while restoring blockstates, prevents item dupe
                                     {
-                                        ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
+                                        ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), 0);
 
                                         for (ItemStack item : items)
                                         {
@@ -74,8 +75,13 @@ public class ItemAdminHammer extends ItemBVKSPickaxe{
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
-        if(!world.isRemote && !world.restoringBlockSnapshots) this.dropItems = !this.dropItems;
-
+        if(!world.isRemote && !world.restoringBlockSnapshots){
+            this.dropItems = !this.dropItems;
+            if(dropItems) {
+                entityPlayer.addChatComponentMessage(new ChatComponentText("Hammer will drop items when mining blocks"));
+                entityPlayer.addChatComponentMessage(new ChatComponentText("Aka. crash the server.. not my fault!"));
+            }else entityPlayer.addChatComponentMessage(new ChatComponentText("Hammer will not drop items when mining blocks"));
+        }
         return itemStack;
     }
 

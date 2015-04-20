@@ -1,30 +1,23 @@
 package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
-import com.sneakingshadow.bvks.item.base.ItemBVKSHammer;
-import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
-import com.sneakingshadow.bvks.util.EnchantmentHelper;
 import com.sneakingshadow.bvks.util.LogHelper;
-import com.sneakingshadow.bvks.util.NBTHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentLootBonus;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.Vec3;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import sun.rmi.runtime.Log;
-
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import java.util.List;
 
 public class ItemDebugItem extends ItemBVKS {
+
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
+    {
+        list.add("Use at own risk!");
+    }
 
     public ItemDebugItem() {
         super();
@@ -34,28 +27,30 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
-
-        EnchantmentHelper.removeAll(itemStack);
-
-        if(!world.isRemote && !world.restoringBlockSnapshots && false) {
-
-            if(EnchantmentHelper.hasEnchant(Enchantment.fortune, itemStack)){
-                EnchantmentHelper.remove(Enchantment.fortune, itemStack);
-                EnchantmentHelper.setLevel(Enchantment.silkTouch, 1, itemStack);
-            }else if(EnchantmentHelper.hasEnchant(Enchantment.silkTouch, itemStack)){
-                EnchantmentHelper.remove(Enchantment.silkTouch, itemStack);
-                EnchantmentHelper.remove(Enchantment.fortune, itemStack);
-            }else{
-                EnchantmentHelper.setLevel(Enchantment.fortune, 3, itemStack);
+        if(!world.isRemote && !world.restoringBlockSnapshots) {
+            if (itemStack.stackTagCompound == null)
+            {
+                itemStack.setTagCompound(new NBTTagCompound());
             }
 
+            //if (!itemStack.stackTagCompound.hasKey("ench", 9))
+            //{
+            //   itemStack.stackTagCompound.setTag("ench", new NBTTagList());
+            //}
+
+            if(entityPlayer.isSneaking()){
+                LogHelper.info("sneaking");
+
+            }else{
+                LogHelper.info("standing");
+
+            }
         }
         return itemStack;
     }
 
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
-    {
-        list.add("Use at own risk!");
+    @SubscribeEvent
+    public void onItemPickUp(EntityItemPickupEvent evt) {
+
     }
 }
