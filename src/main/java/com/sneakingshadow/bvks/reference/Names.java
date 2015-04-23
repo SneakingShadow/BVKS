@@ -14,6 +14,7 @@ public final class Names
         public static final String DevilOre = "devil_ore";
         public static final String DevilCobblestone = "devil_cobblestone";
         public static final String SmoothObsidian = "smooth_obsidian";
+        public static final String DebugBlock = "debug_block";
     }
 
     public static final class Items

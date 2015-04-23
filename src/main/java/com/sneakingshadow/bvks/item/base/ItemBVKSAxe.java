@@ -8,8 +8,10 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class ItemBVKSAxe extends ItemAxe {
+
     protected ItemBVKSAxe(ToolMaterial toolMaterial) {
         super(toolMaterial);this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);

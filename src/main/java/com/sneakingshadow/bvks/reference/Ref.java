@@ -10,5 +10,5 @@ public class Ref
     public static final String SERVER_PROXY_CLASS = ROOT_FOLDER+".proxy.ServerProxy";
     public static final String CLIENT_PROXY_CLASS = ROOT_FOLDER+".proxy.ClientProxy";
     public static final String GUI_FACTORY_CLASS = ROOT_FOLDER+".client.gui.GuiFactory";
-    public static final String RESOURCE_PREFIX = MOD_ID.toLowerCase()+":";
+    public static final String RESOURCE_PREFIX = MOD_ID+":";
 }

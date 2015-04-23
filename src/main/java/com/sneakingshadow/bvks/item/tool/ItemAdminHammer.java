@@ -47,18 +47,20 @@ public class ItemAdminHammer extends ItemBVKSPickaxe{
                             Block blocky = world.getBlock(rx, ry, rz);
                             if ((double) blocky.getBlockHardness(world, rx, ry, rz) != 0.0D) {
                                 if (blocky.getMaterial() != Material.air && this.func_150897_b(blocky)){
-                                    if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && dropItems) // do not drop items while restoring blockstates, prevents item dupe
+                                    if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")) // do not drop items while restoring blockstates, prevents item dupe
                                     {
                                         ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), 0);
 
                                         for (ItemStack item : items)
                                         {
-                                            EntityItem entityItem = new EntityItem(world, pos.xCoord, pos.yCoord+0.2F, pos.zCoord, item);
-                                            entityItem.delayBeforeCanPickup = 0;
-                                            entityItem.motionX = 0D;
-                                            entityItem.motionY = 0D;
-                                            entityItem.motionZ = 0D;
-                                            world.spawnEntityInWorld(entityItem);
+                                            if(dropItems) {
+                                                EntityItem entityItem = new EntityItem(world, pos.xCoord, pos.yCoord + 0.2F, pos.zCoord, item);
+                                                entityItem.delayBeforeCanPickup = 0;
+                                                entityItem.motionX = 0D;
+                                                entityItem.motionY = 0D;
+                                                entityItem.motionZ = 0D;
+                                                world.spawnEntityInWorld(entityItem);
+                                            }
                                         }
                                     }
                                     world.setBlockToAir(rx, ry, rz);

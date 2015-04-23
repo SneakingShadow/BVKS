@@ -14,6 +14,7 @@ public class ItemBVKSArmor extends ItemArmor
 {
     private String texture;
     private int armor;
+    private static boolean isInvisible = false;
 
     public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType)
     {
@@ -44,6 +45,11 @@ public class ItemBVKSArmor extends ItemArmor
         return String.format("item.%s%s", Ref.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
 
+    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
+    {
+        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
@@ -51,15 +57,14 @@ public class ItemBVKSArmor extends ItemArmor
         itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName)
-    {
-        return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
-    }
-
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
     {
+        if(entity.isInvisible() && isInvisible) return Ref.RESOURCE_PREFIX+"textures/armor/invisible_armor.png";
         return Ref.RESOURCE_PREFIX+"textures/armor/" + this.texture + "_" + (this.armor == 2 ? "2" : "1") + ".png";
     }
 
+    public void setInvisible(){
+        isInvisible = true;
+    }
 }

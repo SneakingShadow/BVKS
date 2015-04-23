@@ -1,9 +1,19 @@
 package com.sneakingshadow.bvks.init;
 
 import com.sneakingshadow.bvks.item.*;
-import com.sneakingshadow.bvks.item.armor.*;
+import com.sneakingshadow.bvks.item.armor.devil.ItemDevilBoots;
+import com.sneakingshadow.bvks.item.armor.devil.ItemDevilChestplate;
+import com.sneakingshadow.bvks.item.armor.devil.ItemDevilHelmet;
+import com.sneakingshadow.bvks.item.armor.devil.ItemDevilLeggings;
+import com.sneakingshadow.bvks.item.armor.obsidian.ItemObsidianBoots;
+import com.sneakingshadow.bvks.item.armor.obsidian.ItemObsidianChestplate;
+import com.sneakingshadow.bvks.item.armor.obsidian.ItemObsidianHelmet;
+import com.sneakingshadow.bvks.item.armor.obsidian.ItemObsidianLeggings;
 import com.sneakingshadow.bvks.item.base.*;
 import com.sneakingshadow.bvks.item.tool.*;
+import com.sneakingshadow.bvks.item.tool.devil.*;
+import com.sneakingshadow.bvks.item.tool.hammer.*;
+import com.sneakingshadow.bvks.item.tool.obsidian.*;
 import com.sneakingshadow.bvks.reference.Names;
 import com.sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.registry.GameRegistry;

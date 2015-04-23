@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class ItemBVKSPickaxe extends ItemPickaxe
 {

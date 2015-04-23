@@ -28,10 +28,10 @@ public class ItemDebugItem extends ItemBVKS {
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
         if(!world.isRemote && !world.restoringBlockSnapshots) {
-            if (itemStack.stackTagCompound == null)
-            {
-                itemStack.setTagCompound(new NBTTagCompound());
-            }
+            //if (itemStack.stackTagCompound == null)
+            //{
+            //    itemStack.setTagCompound(new NBTTagCompound());
+            //}
 
             //if (!itemStack.stackTagCompound.hasKey("ench", 9))
             //{
@@ -40,10 +40,8 @@ public class ItemDebugItem extends ItemBVKS {
 
             if(entityPlayer.isSneaking()){
                 LogHelper.info("sneaking");
-
             }else{
                 LogHelper.info("standing");
-
             }
         }
         return itemStack;

@@ -7,6 +7,7 @@ keys.bvks.release=Pointless button
 tile.bvks:devil_ore.name=Devil Ore
 tile.bvks:devil_cobblestone.name=Devil Cobblestone
 tile.bvks:smooth_obsidian.name=Smooth Obsidian
+tile.bvks:debug_block.name=Debug Block
 
 # Item localizations
 item.bvks:assassins_knife.name=Assassins Knife
