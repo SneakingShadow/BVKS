@@ -5,6 +5,7 @@ import com.sneakingshadow.bvks.handler.ConfigurationHandler;
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.init.Recipes;
+import com.sneakingshadow.bvks.init.WorldGen;
 import com.sneakingshadow.bvks.proxy.*;
 import com.sneakingshadow.bvks.reference.Ref;
 import com.sneakingshadow.bvks.util.LogHelper;
@@ -35,6 +36,7 @@ public class BVKS
 
         ModItems.init();
         ModBlocks.init();
+        WorldGen.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }

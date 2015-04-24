@@ -10,11 +10,14 @@
 :apiClasses UP-TO-DATE
 :sourceMainJava
 :compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
+C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\build\sources\java\com\sneakingshadow\bvks\util\EnchantmentHelper.java:10: warning: Log is internal proprietary API and may be removed in a future release
+import sun.rmi.runtime.Log;
+                      ^
 Note: C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\build\sources\java\com\sneakingshadow\bvks\init\ModItems.java uses or overrides a deprecated API.
 Note: Recompile with -Xlint:deprecation for details.
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.
-1 warning
+2 warnings
 
 :processResources
 :classes
@@ -34,4 +37,4 @@ Note: Recompile with -Xlint:unchecked for details.
 
 BUILD SUCCESSFUL
 
-Total time: 12.303 secs
+Total time: 1 mins 15.419 secs
