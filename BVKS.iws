@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/world/WorldGenDevilOre.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BVKS.iws" afterPath="$PROJECT_DIR$/BVKS.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/block/BlockBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/block/BlockBVKS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/block/BlockDevilOre.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/block/BlockDevilOre.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemAdminHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/ItemAdminHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilBoots.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilBoots.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilHelmet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/armor/devil/ItemDevilLeggings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemGoldHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemGoldHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemObsidianHammer.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemObsidianHammer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java" afterPath="$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-1.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-2.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-3.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-client-latest.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" afterPath="$PROJECT_DIR$/decompiled/logs/fml-junk-earlystartup.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/decompiled/logs/latest.log" afterPath="$PROJECT_DIR$/decompiled/logs/latest.log" />
     </list>
     <list id="8c8cc534-6cf7-41fc-80c0-c7b1538c4c34" name="Rejected commit: Default" comment="." />
     <list id="f023569a-fa58-44bb-bb77-5711c7000c33" name="Failed commit: Default" comment="." />
@@ -87,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53654486">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -167,6 +144,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Recipes.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8277027">
+              <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -941,6 +928,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="init" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="block" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1300,7 +1317,13 @@
       <option name="project" value="LOCAL" />
       <updated>1429822982914</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Update 0.0.5">
+      <created>1429902896056</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1429902896056</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1335,8 +1358,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3181818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23667377" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1414,6 +1437,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16943522">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1709,14 +1733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77408636">
-          <caret line="47" column="111" selection-start-line="47" selection-start-column="111" selection-end-line="47" selection-end-column="111" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/base/ItemBVKSHammer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.858804">
@@ -1781,24 +1797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45182723">
-          <caret line="22" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1821" column="5" selection-start-line="1796" selection-start-column="4" selection-end-line="1821" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/block/BlockDevilOre.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1832,8 +1830,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53654486">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40202704">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1821" column="5" selection-start-line="1796" selection-start-column="4" selection-end-line="1821" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sneakingshadow/bvks/init/Recipes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8277027">
+          <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
           <folding />
         </state>
       </provider>
