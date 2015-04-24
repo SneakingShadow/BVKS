@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.world;
 
 import com.sneakingshadow.bvks.init.ModBlocks;
+import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
