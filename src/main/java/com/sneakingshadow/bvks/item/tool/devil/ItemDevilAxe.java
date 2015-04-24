@@ -14,6 +14,5 @@ public class ItemDevilAxe extends ItemBVKSAxe
     {
         super(ItemToolMaterial.DevilAxe);
         this.setUnlocalizedName(Names.Items.DevilAxe);
-        this.setInvisible();
     }
 }

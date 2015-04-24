@@ -12,7 +12,7 @@ public class ItemDevilHammer extends ItemBVKSHammer
 {
     public ItemDevilHammer()
     {
-        super(ItemToolMaterial.DevilHammer, 7, 7, 7);
+        super(ItemToolMaterial.DevilHammer, 9, 9, 9);
         this.setUnlocalizedName(Names.Items.DevilHammer);
     }
 

@@ -46,7 +46,7 @@ public class ItemAdminHammer extends ItemBVKSPickaxe{
                         for(int rz = z-( (widthZ/2)-((widthZ/2)%1) ); rz< z-((widthZ/2)-((widthZ/2)%1)) + widthZ ;rz++){
                             Block blocky = world.getBlock(rx, ry, rz);
                             if ((double) blocky.getBlockHardness(world, rx, ry, rz) != 0.0D) {
-                                if (blocky.getMaterial() != Material.air && this.func_150897_b(blocky)){
+                                if (blocky.getMaterial() != Material.air){
                                     if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")) // do not drop items while restoring blockstates, prevents item dupe
                                     {
                                         ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), 0);

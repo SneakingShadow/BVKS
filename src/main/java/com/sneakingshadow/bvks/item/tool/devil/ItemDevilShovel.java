@@ -10,6 +10,5 @@ public class ItemDevilShovel extends ItemBVKSShovel
     {
         super(ItemToolMaterial.DevilShovel);
         this.setUnlocalizedName(Names.Items.DevilShovel);
-        this.setInvisible();
     }
 }

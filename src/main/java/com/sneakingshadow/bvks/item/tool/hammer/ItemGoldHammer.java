@@ -8,7 +8,7 @@ public class ItemGoldHammer extends ItemBVKSHammer
 {
     public ItemGoldHammer()
     {
-        super(ItemToolMaterial.GoldHammer, 4,4,4);
+        super(ItemToolMaterial.GoldHammer, 3,3,3);
         this.setUnlocalizedName(Names.Items.GoldHammer);
     }
 }

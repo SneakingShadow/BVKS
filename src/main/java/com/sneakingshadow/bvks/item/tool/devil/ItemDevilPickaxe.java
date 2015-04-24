@@ -10,6 +10,5 @@ public class ItemDevilPickaxe extends ItemBVKSPickaxe
     {
         super(ItemToolMaterial.DevilPickaxe);
         this.setUnlocalizedName(Names.Items.DevilPickaxe);
-        this.setInvisible();
     }
 }

@@ -10,6 +10,5 @@ public class ItemDevilSword extends ItemBVKSSword
     {
         super(ItemToolMaterial.DevilSword);
         this.setUnlocalizedName(Names.Items.DevilSword);
-        this.setInvisible();
     }
 }

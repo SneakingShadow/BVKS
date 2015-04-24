@@ -13,7 +13,6 @@ public class ItemDevilHoe extends ItemBVKSHoe
     public ItemDevilHoe() {
         super(ItemToolMaterial.DevilHoe);
         this.setUnlocalizedName(Names.Items.DevilHoe);
-        this.setInvisible();
     }
 
     @Override

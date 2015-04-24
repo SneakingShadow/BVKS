@@ -4,6 +4,8 @@ import com.sneakingshadow.bvks.item.base.ItemBVKS;
 import com.sneakingshadow.bvks.item.base.ItemBVKSPickaxe;
 import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 
 public class ItemObsidianPickaxe extends ItemBVKSPickaxe
 {

@@ -23,14 +23,12 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilSword, "i", "i", "s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilShovel, "i", "s", "s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilHoe, "ii", " s", " s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilHammer, "iii", "isi", " s ", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianPickaxe, "iii", " s ", " s ", 'i', "ingotObsidian", 's', "stickIron"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianAxe, "ii", "is", " s", 'i', "ingotObsidian", 's', "stickIron"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianSword, "i", "i", "s", 'i', "ingotObsidian", 's', "stickIron"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianShovel, "i", "s", "s", 'i', "ingotObsidian", 's', "stickIron"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianHoe, "ii", " s", " s", 'i', "ingotObsidian", 's', "stickIron"));
-        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianHammer, "iii", "isi", " s ", 'i', "ingotObsidian", 's', "stickIron"));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilHelmet, "iii", "i i", 'i', ModItems.DevilIngot));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilChestplate, "i i", "iii", "iii", 'i', ModItems.DevilIngot));
@@ -41,6 +39,14 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianChestplate, "i i", "iii", "iii", 'i', ModItems.ObsidianIngot));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianLeggings, "iii", "i i", "i i", 'i', ModItems.ObsidianIngot));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianBoots, "i i", "i i", 'i', ModItems.ObsidianIngot));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilHammer, "iii", "iii", " s ", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianHammer, "iii", "iii", " s ", 'i', "ingotObsidian", 's', "stickIron"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DiamondHammer, "iii", "iii", " s ", 'i', "gemDiamond", 's', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.GoldHammer, "iii", "iii", " s ", 'i', "ingotGold", 's', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.IronHammer, "iii", "iii", " s ", 'i', "ingotIron", 's', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.StoneHammer, "iii", "iii", " s ", 'i', "cobblestone", 's', "stickWood"));
+        GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.WoodHammer, "iii", "iii", " s ", 'i', "logWood", 's', "stickWood"));
 
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianRod, "o", "o", 'o', "ingotObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.IronRod, "o", "o", 'o', "ingotIron"));

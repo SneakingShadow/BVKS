@@ -8,7 +8,7 @@ public class ItemObsidianHammer extends ItemBVKSHammer
 {
     public ItemObsidianHammer()
     {
-        super(ItemToolMaterial.ObsidianHammer, 6,6,6);
+        super(ItemToolMaterial.ObsidianHammer, 4,4,4);
         this.setUnlocalizedName(Names.Items.ObsidianHammer);
     }
 }
