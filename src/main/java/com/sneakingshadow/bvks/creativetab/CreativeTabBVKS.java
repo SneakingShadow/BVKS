@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 
 public class CreativeTabBVKS
 {
-    public static final CreativeTabs tabItem = new CreativeTabs(Names.creativeTabs.Item)
+    public static final CreativeTabs tabItem = new CreativeTabs(Names.CreativeTabs.Item)
     {
         @Override
         public Item getTabIconItem() {
@@ -23,7 +23,7 @@ public class CreativeTabBVKS
         }
     };
 
-    public static final CreativeTabs tabBlock = new CreativeTabs(Names.creativeTabs.Block)
+    public static final CreativeTabs tabBlock = new CreativeTabs(Names.CreativeTabs.Block)
     {
         @Override
         public Item getTabIconItem() {

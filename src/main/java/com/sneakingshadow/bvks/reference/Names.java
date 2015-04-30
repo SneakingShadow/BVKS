@@ -55,6 +55,7 @@ public final class Names
         public static final String DebugItem = "debug_item";
         public static final String DevilCompound = "devil_compound";
         public static final String AdminHammer = "admin_hammer";
+        public static final String DevilVoid = "devil_void";
     }
 
     public static final class ArmorTextures
@@ -63,7 +64,7 @@ public final class Names
         public static final String Obsidian = "obsidian_armor";
     }
 
-    public static final class creativeTabs
+    public static final class CreativeTabs
     {
         public static final String Item = Ref.MOD_ID+"_item";
         public static final String Block = Ref.MOD_ID+"_block";
@@ -73,5 +74,18 @@ public final class Names
     {
         public static final String DevilTools = "Devil-tools!!";
         public static final String ObsidianTools = "Obsidian-tools";
+    }
+
+    public static final class ItemStorage
+    {
+        public static final String info = Ref.MOD_ID_+"storage";
+        public static final String storedAmount = "stored";
+        public static final String removingAmount = "remove";
+        public static final String id = "type";
+        public static final String name = "typeName";
+        public static final String meta = "meta";
+        public static final String active = "active";
+        public static final String stackTag = "stack";
+        public static final String stackTagNull = "stackNull";
     }
 }

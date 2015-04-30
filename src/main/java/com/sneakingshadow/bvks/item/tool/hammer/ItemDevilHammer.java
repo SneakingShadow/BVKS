@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.item.tool.hammer;
 
+import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import com.sneakingshadow.bvks.reference.ItemToolMaterial;
 import com.sneakingshadow.bvks.reference.Names;
@@ -12,7 +13,7 @@ public class ItemDevilHammer extends ItemBVKSHammer
 {
     public ItemDevilHammer()
     {
-        super(ItemToolMaterial.DevilHammer, 9, 9, 9);
+        super(ItemToolMaterial.DevilHammer, 9, 9, 9, ModItems.DevilShovel);
         this.setUnlocalizedName(Names.Items.DevilHammer);
     }
 

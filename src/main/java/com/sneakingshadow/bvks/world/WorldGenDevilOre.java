@@ -19,9 +19,11 @@ public class WorldGenDevilOre implements IWorldGenerator{
             case -1:
                 //Nether
                 generateNether(world, random, chunkX, chunkZ);
+                break;
             case 0:
                 //Overworld
                 generateSurface(world, random, chunkX, chunkZ);
+                break;
 
         }
     }
