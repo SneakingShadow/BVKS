@@ -15,7 +15,6 @@ public class BlockBVKS extends Block
     {
         super(material);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabBlock);
     }
 
     public BlockBVKS()

@@ -14,7 +14,6 @@ public class ItemBVKSSword extends ItemSword
     public ItemBVKSSword(ToolMaterial toolMaterial) {
         super(toolMaterial);this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabItem);
     }
 
     @Override

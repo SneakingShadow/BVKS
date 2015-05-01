@@ -1,5 +1,9 @@
 package sneakingshadow.bvks.init;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.item.*;
 import sneakingshadow.bvks.item.armor.devil.ItemDevilBoots;
 import sneakingshadow.bvks.item.armor.devil.ItemDevilChestplate;
@@ -19,13 +23,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import sneakingshadow.bvks.item.base.*;
 import sneakingshadow.bvks.item.tool.ItemAdminHammer;
 
+import java.util.List;
+
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
     /**
      *
      */
-    public static final ItemBVKS DevilGem = new ItemDevilGem();
+    public static final ItemBVKS DevilGem = (ItemBVKS)new ItemDevilGem().setCreativeTab(CreativeTabBVKS.tabItem);
     public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
     public static final ItemBVKS IronRod = new ItemIronRod();
     public static final ItemBVKS AssassinsKnife = new ItemAssassinsKnife();
@@ -123,5 +129,19 @@ public class ModItems
         GameRegistry.registerItem(DevilCompound, Names.Items.DevilCompound);
         GameRegistry.registerItem(AdminHammer, Names.Items.AdminHammer);
         GameRegistry.registerItem(BottomlessVoid, Names.Items.BottomlessVoid);
+    }
+
+    public static void addItems(){
+        CreativeTabBVKS.add(new Item[]
+                        {
+
+                                BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,     StoneHammer,     WoodHammer,
+                                DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilAxe,       DevilShovel,     DevilHoe,
+                                ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianAxe,    ObsidianShovel,  ObsidianHoe,
+                                AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,  ObsidianRod,     IronRod,
+
+                                DebugItem,
+                        }
+        );
     }
 }

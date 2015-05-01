@@ -16,7 +16,6 @@ public class ItemBVKS extends Item
         super();
         this.setMaxStackSize(64);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabItem);
         this.setNoRepair();
     }
 

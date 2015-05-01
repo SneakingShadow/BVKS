@@ -1,13 +1,22 @@
 package sneakingshadow.bvks.creativetab;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.init.ModBlocks;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.reference.Names;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
+import java.util.List;
+
 public class CreativeTabBVKS
 {
+    private static List listItem;
+    private static List listBlock;
+
     public static final CreativeTabs tabItem = new TabItem();
     public static final CreativeTabs tabBlock = new TabBlock();
 
@@ -18,14 +27,17 @@ public class CreativeTabBVKS
         }
 
         @Override
-        public Item getTabIconItem() {
-            return ModItems.DevilGem;
-        }
+        public Item getTabIconItem() { return ModItems.DevilGem; }
 
         @Override
-        public boolean hasSearchBar()
+        public boolean hasSearchBar() { return true; }
+
+        @SideOnly(Side.CLIENT)
+        @Override
+        public void displayAllReleventItems(List list)
         {
-            return true;
+            listItem = list;
+            ModItems.addItems();
         }
     }
 
@@ -44,6 +56,34 @@ public class CreativeTabBVKS
         public boolean hasSearchBar()
         {
             return true;
+        }
+
+        @SideOnly(Side.CLIENT)
+        @Override
+        public void displayAllReleventItems(List list)
+        {
+            listBlock = list;
+
+        }
+    }
+
+    public static void add(Item item) {
+        item.getSubItems(item, tabItem, listItem);
+    }
+
+    public static void add(Block block) {
+        block.getSubBlocks(new ItemStack(block).getItem(), tabBlock, listBlock);
+    }
+
+    public static void add(Item[] items) {
+        for(int i=0; i<items.length;i++){
+            add(items[i]);
+        }
+    }
+
+    public static void add(Block[] blocks) {
+        for(int i=0; i<blocks.length;i++){
+            add(blocks[i]);
         }
     }
 }

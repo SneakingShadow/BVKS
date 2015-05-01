@@ -14,7 +14,6 @@ public class ItemBVKSPickaxe extends ItemPickaxe
     public ItemBVKSPickaxe(ToolMaterial toolMaterial) {
         super(toolMaterial);this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabItem);
     }
 
     @Override

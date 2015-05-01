@@ -20,7 +20,6 @@ public class ItemBVKSArmor extends ItemArmor
     {
         super(material, 0, armorType);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabItem);
         texture = textureName;
         armor = armorType;
     }
