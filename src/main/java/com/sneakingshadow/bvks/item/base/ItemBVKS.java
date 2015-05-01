@@ -20,6 +20,12 @@ public class ItemBVKS extends Item
         this.setNoRepair();
     }
 
+    public ItemBVKS setBaseName(String string){
+        this.setUnlocalizedName(string);
+        this.setTextureName(Ref.MOD_ID+":"+string);
+        return this;
+    }
+
     @Override
     public String getUnlocalizedName()
     {

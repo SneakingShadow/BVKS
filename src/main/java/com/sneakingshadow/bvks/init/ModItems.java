@@ -33,7 +33,7 @@ public class ModItems
     public static final ItemBVKS DevilIngot = new ItemDevilIngot();
     public static final ItemBVKS ObsidianRod = new ItemObsidianRod();
     public static final ItemBVKS DevilCompound = new ItemDevilCompound();
-    public static final ItemBVKS DevilVoid = (ItemBVKS) new ItemBVKSStorage("Devil's Void").setUnlocalizedName(Names.Items.DevilVoid);
+    public static final ItemBVKS BottomlessVoid = (ItemBVKS) new ItemBVKSStorage().setDescription("Stores one type of item").setBaseName(Names.Items.BottomlessVoid);
 
     //Armor
     public static final ItemBVKSArmor DevilBoots = new ItemDevilBoots();
@@ -121,6 +121,6 @@ public class ModItems
         GameRegistry.registerItem(DebugItem, Names.Items.DebugItem);
         GameRegistry.registerItem(DevilCompound, Names.Items.DevilCompound);
         GameRegistry.registerItem(AdminHammer, Names.Items.AdminHammer);
-        GameRegistry.registerItem(DevilVoid, Names.Items.DevilVoid);
+        GameRegistry.registerItem(BottomlessVoid, Names.Items.BottomlessVoid);
     }
 }

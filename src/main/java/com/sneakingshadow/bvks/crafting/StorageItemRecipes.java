@@ -31,7 +31,6 @@ public class StorageItemRecipes implements IRecipe{
         storageTag.setInteger(Names.ItemStorage.meta, 0);
         storageTag.setLong(Names.ItemStorage.storedAmount, 0);
         storageTag.setString(Names.ItemStorage.name, "");
-        storageTag.setBoolean(Names.ItemStorage.active, false);
         storageTag.setTag(Names.ItemStorage.stackTag, new NBTTagCompound());
         storageTag.setBoolean(Names.ItemStorage.stackTagNull, true);
         storageTag.setInteger(Names.ItemStorage.removingAmount, 0);
@@ -97,6 +96,7 @@ public class StorageItemRecipes implements IRecipe{
 
         NBTTagCompound tag = itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info);
         if(itemStack2 != null) {
+            itemStack.setItemDamage(1);
             tag.setInteger(Names.ItemStorage.id, Item.getIdFromItem(itemStack2.getItem()));
             tag.setInteger(Names.ItemStorage.meta, itemStack2.getItemDamage());
             tag.setString(Names.ItemStorage.name, itemStack2.getDisplayName());
@@ -113,8 +113,6 @@ public class StorageItemRecipes implements IRecipe{
         }else{
             if(tag.getLong( Names.ItemStorage.storedAmount ) != 0) {
 
-                int[] nums = getStorageItemStackLocation(inventoryCrafting);
-                inventoryCrafting.getStackInRowAndColumn(nums[0],nums[1]).stackSize = 2;
 
                 output = new ItemStack(Item.getItemById(tag.getInteger(Names.ItemStorage.id)), 1, tag.getInteger(Names.ItemStorage.meta));
                 if (tag.getLong(Names.ItemStorage.storedAmount) > 64) {
@@ -127,7 +125,7 @@ public class StorageItemRecipes implements IRecipe{
                 if (!tag.getBoolean(Names.ItemStorage.stackTagNull))
                     output.stackTagCompound = tag.getCompoundTag(Names.ItemStorage.stackTag);
             }else{
-                output = new ItemStack(ModItems.DevilVoid);
+                output = new ItemStack(ModItems.BottomlessVoid);
             }
         }
         LogHelper.info("returning output");

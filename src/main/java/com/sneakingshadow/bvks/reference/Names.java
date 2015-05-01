@@ -55,7 +55,7 @@ public final class Names
         public static final String DebugItem = "debug_item";
         public static final String DevilCompound = "devil_compound";
         public static final String AdminHammer = "admin_hammer";
-        public static final String DevilVoid = "devil_void";
+        public static final String BottomlessVoid = "bottomless_void";
     }
 
     public static final class ArmorTextures
@@ -84,7 +84,6 @@ public final class Names
         public static final String id = "type";
         public static final String name = "typeName";
         public static final String meta = "meta";
-        public static final String active = "active";
         public static final String stackTag = "stack";
         public static final String stackTagNull = "stackNull";
     }

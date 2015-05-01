@@ -1,22 +1,24 @@
 package com.sneakingshadow.bvks.item.base;
 
 import com.sneakingshadow.bvks.reference.Names;
-import net.minecraft.block.Block;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ItemBVKSStorage extends ItemBVKS {
-    private static String displayName;
     private static String description;
+    private static int iconAmount = 3;
+    private static IIcon[] itemIcons;
 
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
@@ -39,10 +41,10 @@ public class ItemBVKSStorage extends ItemBVKS {
         }
     }
 
-    public ItemBVKSStorage(String DisplayName) {
+    public ItemBVKSStorage() {
         super();
         this.setMaxStackSize(1);
-        this.displayName = DisplayName;
+        //this.setHasSubtypes(true);
     }
 
     public ItemBVKSStorage setDescription(String str){
@@ -68,12 +70,21 @@ public class ItemBVKSStorage extends ItemBVKS {
             storageTag.setLong(Names.ItemStorage.storedAmount, 0);
         if (!storageTag.hasKey(Names.ItemStorage.name, 8))
             storageTag.setString(Names.ItemStorage.name, "");
-        if (!storageTag.hasKey(Names.ItemStorage.active))
-            storageTag.setBoolean(Names.ItemStorage.active, false);
         if(!storageTag.hasKey(Names.ItemStorage.stackTag, 10))
             storageTag.setTag(Names.ItemStorage.stackTag, new NBTTagCompound());
         if(!storageTag.hasKey(Names.ItemStorage.stackTagNull))
             storageTag.setBoolean(Names.ItemStorage.stackTagNull, true);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerIcons(IIconRegister iIconRegister)
+    {
+        this.itemIcon = iIconRegister.registerIcon(this.getIconString()+"_0");
+        this.itemIcons = new IIcon[iconAmount];
+        for(int i=0; i<iconAmount; i++){
+            this.itemIcons[i] = iIconRegister.registerIcon(this.getIconString()+"_"+i);
+        }
     }
 
     @Override
@@ -83,7 +94,10 @@ public class ItemBVKSStorage extends ItemBVKS {
             NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info);
 
             if(entityPlayer.isSneaking()) {
-                storageTag.setBoolean(Names.ItemStorage.active, !storageTag.getBoolean(Names.ItemStorage.active));
+                if(itemStack.getItemDamage() == 2)
+                    itemStack.setItemDamage(1);
+                else if(itemStack.getItemDamage() == 1)
+                    itemStack.setItemDamage(2);
             }else{
                 //Place block (if it is one...)
             }
@@ -104,7 +118,7 @@ public class ItemBVKSStorage extends ItemBVKS {
             setupTags(itemStack);
             NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info);
 
-            if(storageTag.getBoolean(Names.ItemStorage.active) && storageTag.getInteger(Names.ItemStorage.id) > 0) {
+            if(itemStack.getItemDamage() == 2 && storageTag.getInteger(Names.ItemStorage.id) > 0) {
                 InventoryPlayer inventory = entityPlayer.inventory;
                 for (int i = 0; i < inventory.mainInventory.length; ++i) {
                     if (inventory.mainInventory[i] != null && ( storageTag.getBoolean(Names.ItemStorage.stackTagNull) ? inventory.mainInventory[i].stackTagCompound == null : inventory.mainInventory[i].stackTagCompound != null ) ) {
@@ -125,18 +139,31 @@ public class ItemBVKSStorage extends ItemBVKS {
     }
 
     @Override
-    public String getItemStackDisplayName(ItemStack itemStack)
-    {
-        if(itemStack.stackTagCompound != null && itemStack.stackTagCompound.hasKey(Names.ItemStorage.info, 10) && itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info) != null && itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info).getBoolean(Names.ItemStorage.active))
-            return displayName+" (Activated)";
-        return displayName+" (Deactivated)";
-    }
-
-    @Override
     public void onCreated(ItemStack itemStack, World world, EntityPlayer player) {
         if(itemStack.stackTagCompound != null){
             NBTTagCompound tag = itemStack.stackTagCompound.getCompoundTag(Names.ItemStorage.info);
-            tag.setLong(Names.ItemStorage.storedAmount, tag.getLong(Names.ItemStorage.storedAmount) - tag.getInteger(Names.ItemStorage.removingAmount) );
+            tag.setLong(Names.ItemStorage.storedAmount, tag.getLong(Names.ItemStorage.storedAmount) - tag.getInteger(Names.ItemStorage.removingAmount));
         }
+    }
+
+    /**
+     * Gets an icon index based on an item's damage value
+     */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIconFromDamage(int meta)
+    {
+        return this.itemIcons[meta];
+    }
+
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack) {
+        switch(itemStack.getItemDamage()) {
+            case 2:
+                return super.getUnlocalizedName(itemStack) + "_active";
+            case 1:
+                return super.getUnlocalizedName(itemStack)+"_inactive";
+        }
+        return super.getUnlocalizedName(itemStack);
     }
 }
