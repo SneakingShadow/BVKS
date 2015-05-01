@@ -1,15 +1,15 @@
 [
 {
   "modid": "bvks",
-  "name": "Bearwalley's Killing Set",
+  "name": "Bearvalley's Killing Set",
   "description": "Join the devil, rule the world.",
-  "version": "0.0.1",
-  "mcversion": "",
+  "version": "${mod_version}",
+  "mcversion": "${minecraft_version}",
   "url": "",
   "updateUrl": "",
   "authorList": [
-    "Sneaking Shadow",
-    "Bear valley"
+    "Bear valley",
+    "Sneaking Shadow"
   ],
   "credits": "",
   "logoFile": "assets/bvks/textures/logo/logo.png",

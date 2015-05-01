@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-0.0.7" //remember to change version in reference class
+version = "1.7.10-0.0.8" //remember to change version in reference class
 group= "com.sneakingshadow.bvks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "bvks"
 

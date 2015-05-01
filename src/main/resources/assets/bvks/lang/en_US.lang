@@ -45,11 +45,12 @@ item.bvks:stone_hammer.name=Stone Hammer
 item.bvks:wood_hammer.name=Wood Hammer
 item.bvks:devil_compound.name=Devil Compound
 item.bvks:debug_item.name=Debug Item
-item.bvks:admin_hammer.name=Admin hammer
+item.bvks:admin_hammer_inactive.name=Admin hammer (Will not drop items)
+item.bvks:admin_hammer_active.name=Admin hammer (!!!)(Will drop items)
 item.bvks:bottomless_void.name=Bottomless Void
 item.bvks:bottomless_void_inactive.name=Bottomless Void (Inactive)
 item.bvks:bottomless_void_active.name=Bottomless Void (Active)
 
 # Creative tab localizations
-itemGroup.bvks_item=BVKS Items
-itemGroup.bvks_block=BVKS Blocks
+itemGroup.bvks:item=BVKS Items
+itemGroup.bvks:block=BVKS Blocks
