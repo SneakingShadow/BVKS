@@ -1,10 +1,10 @@
-[21:56:20] [main/INFO]: Logging in with username & password
-[21:56:26] [main/INFO]: Setting user: MariusBuilder
-[21:56:28] [Client thread/INFO]: LWJGL Version: 2.9.1
-[21:56:33] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearvalley's Killing Set, FMLFileResourcePack:Waila
-[21:56:34] [Sound Library Loader/INFO]: Sound engine started
-[21:56:36] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[21:56:36] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
+[22:03:25] [main/INFO]: Logging in with username & password
+[22:03:31] [main/INFO]: Setting user: MariusBuilder
+[22:03:33] [Client thread/INFO]: LWJGL Version: 2.9.1
+[22:03:38] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearvalley's Killing Set, FMLFileResourcePack:Waila
+[22:03:39] [Sound Library Loader/INFO]: Sound engine started
+[22:03:41] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[22:03:41] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
 java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -29,7 +29,7 @@ java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_0.png
+[22:03:41] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_0.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -53,7 +53,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_1.png
+[22:03:41] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_1.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -77,7 +77,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_2.png
+[22:03:41] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_2.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -101,7 +101,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/admin_hammer.png
+[22:03:41] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/admin_hammer.png
 java.io.FileNotFoundException: bvks:textures/items/admin_hammer.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -126,7 +126,7 @@ java.io.FileNotFoundException: bvks:textures/items/admin_hammer.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
+[22:03:41] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
 java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -151,9 +151,9 @@ java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:36] [Client thread/INFO]: Created: 512x512 textures/items-atlas
-[21:56:37] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearvalley's Killing Set, FMLFileResourcePack:Waila
-[21:56:37] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
+[22:03:41] [Client thread/INFO]: Created: 512x512 textures/items-atlas
+[22:03:42] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Not Enough Items, FMLFileResourcePack:Bearvalley's Killing Set, FMLFileResourcePack:Waila
+[22:03:42] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_compound.png
 java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -181,7 +181,7 @@ java.io.FileNotFoundException: bvks:textures/items/devil_compound.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_0.png
+[22:03:43] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_0.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -208,7 +208,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_1.png
+[22:03:43] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_1.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -235,7 +235,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_2.png
+[22:03:43] [Client thread/ERROR]: Unable to parse metadata from bvks:textures/items/bottomless_void_2.png
 java.lang.RuntimeException: broken aspect ratio and not an animation
 	at net.minecraft.client.renderer.texture.TextureAtlasSprite.loadSprite(TextureAtlasSprite.java:245) ~[TextureAtlasSprite.class:?]
 	at net.minecraft.client.renderer.texture.TextureMap.loadTextureAtlas(TextureMap.java:170) [TextureMap.class:?]
@@ -262,7 +262,7 @@ java.lang.RuntimeException: broken aspect ratio and not an animation
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/admin_hammer.png
+[22:03:43] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/admin_hammer.png
 java.io.FileNotFoundException: bvks:textures/items/admin_hammer.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -290,7 +290,7 @@ java.io.FileNotFoundException: bvks:textures/items/admin_hammer.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
+[22:03:43] [Client thread/ERROR]: Using missing texture, unable to load bvks:textures/items/devil_hoe.png
 java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at net.minecraft.client.resources.FallbackResourceManager.getResource(FallbackResourceManager.java:65) ~[FallbackResourceManager.class:?]
 	at net.minecraft.client.resources.SimpleReloadableResourceManager.getResource(SimpleReloadableResourceManager.java:67) ~[SimpleReloadableResourceManager.class:?]
@@ -318,14 +318,7 @@ java.io.FileNotFoundException: bvks:textures/items/devil_hoe.png
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.7.0_75]
 	at java.lang.reflect.Method.invoke(Method.java:606) ~[?:1.7.0_75]
 	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:140) [idea_rt.jar:?]
-[21:56:37] [Client thread/INFO]: Created: 512x512 textures/items-atlas
-[21:56:38] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[21:56:39] [Sound Library Loader/INFO]: Sound engine started
-[21:56:48] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
-[21:56:48] [Server thread/INFO]: Generating keypair
-[21:56:48] [Server thread/INFO]: Preparing start region for level 0
-[21:56:49] [Server thread/INFO]: Changing view distance to 12, from 10
-[21:56:50] [Server thread/INFO]: MariusBuilder[local:E:9407fde8] logged in with entity id 99 at (-134.30000001192093, 3.0, 609.0422606199966)
-[21:56:50] [Server thread/INFO]: MariusBuilder joined the game
-[21:58:50] [Client thread/INFO]: Stopping!
-[21:58:50] [Client Shutdown Thread/INFO]: Stopping server
+[22:03:43] [Client thread/INFO]: Created: 512x512 textures/items-atlas
+[22:03:43] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[22:03:44] [Sound Library Loader/INFO]: Sound engine started
+[22:04:00] [Client thread/INFO]: Stopping!
