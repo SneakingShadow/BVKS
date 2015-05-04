@@ -10,6 +10,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
+import java.util.List;
+
 public class ItemBVKSArmor extends ItemArmor
 {
     private String texture;
@@ -65,5 +67,15 @@ public class ItemBVKSArmor extends ItemArmor
 
     public void setInvisible(){
         isInvisible = true;
+    }
+
+    public static String description;
+    public Object setDescription(String str) {
+        description = str;
+        return this;
+    }
+    public static void addDescription(List list){
+        if (description != null)
+            list.add(description);
     }
 }

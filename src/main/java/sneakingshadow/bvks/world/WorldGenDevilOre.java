@@ -17,11 +17,9 @@ public class WorldGenDevilOre implements IWorldGenerator{
             case -1:
                 //Nether
                 generateNether(world, random, chunkX, chunkZ);
-                break;
             case 0:
                 //Overworld
                 generateSurface(world, random, chunkX, chunkZ);
-                break;
 
         }
     }
@@ -40,11 +38,12 @@ public class WorldGenDevilOre implements IWorldGenerator{
 
     public void generateSurface(World world, Random random, int chunkX, int chunkZ){
 
-        int randPosX = chunkX*16 + random.nextInt(16);
-        int randPosY = random.nextInt(25)+1;
-        int randPosZ = chunkZ*16 + random.nextInt(16);
+        for(int i = 1; i <= 10; i++) {
+            int randPosX = chunkX * 16 + random.nextInt(16);
+            int randPosY = random.nextInt(9) + 1;
+            int randPosZ = chunkZ * 16 + random.nextInt(16);
 
-        new WorldGenMinable(ModBlocks.DevilOre, 1).generate(world, random, randPosX, randPosY, randPosZ);
-
+            new WorldGenMinable(ModBlocks.DevilOre, 5).generate(world, random, randPosX, randPosY, randPosZ);
+        }
     }
 }

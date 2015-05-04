@@ -1,6 +1,11 @@
 package sneakingshadow.bvks.item.base;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
+import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,6 +13,9 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import sneakingshadow.bvks.util.BlockBreakingHelper;
+
+import java.util.List;
 
 public class ItemBVKS extends Item
 {
@@ -46,5 +54,27 @@ public class ItemBVKS extends Item
     protected String getUnwrappedUnlocalizedName(String unlocalizedName)
     {
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+    }
+
+    public static String description;
+    public ItemBVKS setDescription(String str) {
+        description = str;
+        return this;
+    }
+    public static void addDescription(List list){
+        if (description != null)
+            list.add(description);
+    }
+
+    @Override
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
+    {
+        if ((double)block.getBlockHardness(world, x, y, z) != 0.0D)
+        {
+            itemStack.damageItem(1, entityLivingBase);
+            BlockBreakingHelper.breakBlock(itemStack, world, block, x, y, z, entityLivingBase.getPosition(1F), BlockBreakingHelper.getBottomlessVoidList(entityLivingBase));
+        }
+
+        return false;
     }
 }

@@ -1,6 +1,9 @@
 package sneakingshadow.bvks.init;
 
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import sneakingshadow.bvks.block.*;
+import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -19,5 +22,16 @@ public class ModBlocks
         GameRegistry.registerBlock(DevilCobblestone, Names.Blocks.DevilCobblestone);
         GameRegistry.registerBlock(SmoothObsidian, Names.Blocks.SmoothObsidian);
         GameRegistry.registerBlock(DebugBlock, Names.Blocks.DebugBlock);
+    }
+
+    public static void add(){
+        CreativeTabBVKS.add(new Block[]
+                {
+
+                        DevilOre, SmoothObsidian, DevilCobblestone,
+
+                }
+        );
+        CreativeTabBVKS.add(DebugBlock);
     }
 }

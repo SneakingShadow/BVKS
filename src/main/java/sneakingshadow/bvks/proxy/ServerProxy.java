@@ -5,6 +5,11 @@ public class ServerProxy extends CommonProxy
 
     @Override
     public void registerKeyBindings() {
-        //NOOP
+        //NO-OP
+    }
+
+    @Override
+    public void registerCustomRender() {
+        //NO-OP
     }
 }

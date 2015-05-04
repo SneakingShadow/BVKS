@@ -31,6 +31,8 @@ public class ItemDebugItem extends ItemBVKS {
             } else {
                 LogHelper.info("standing");
             }
+            LogHelper.info(super.getUnlocalizedName());
+            LogHelper.info(super.getUnlocalizedName(itemStack));
         }
 
         return itemStack;

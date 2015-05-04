@@ -1,8 +1,10 @@
 package sneakingshadow.bvks.item.tool;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.item.EntityItem;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
-import sneakingshadow.bvks.item.base.ItemBVKSStorage;
+import sneakingshadow.bvks.item.ItemBottomlessVoid;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
@@ -33,27 +35,31 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
     {
-        Vec3 pos = entityLivingBase.getPosition(1F);
         boolean bool = false;
         ArrayList<ItemStack> storageItems = new ArrayList<ItemStack>();
         if(entityLivingBase instanceof EntityPlayer){
             EntityPlayer entityPlayer = (EntityPlayer)entityLivingBase;
             InventoryPlayer inventory = entityPlayer.inventory;
             for(int i = 0; i < inventory.mainInventory.length; ++i) {
-                if(inventory.mainInventory[i] != null && inventory.mainInventory[i].getItem() instanceof ItemBVKSStorage){
+                if(inventory.mainInventory[i] != null && inventory.mainInventory[i].getItemDamage() != 0 && inventory.mainInventory[i].getItem() instanceof ItemBottomlessVoid){
                     storageItems.add(inventory.mainInventory[i]);
                 }
             }
             bool = !storageItems.isEmpty();
         }
+        if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
+        {
+            breakBlock(itemStack, world, entityLivingBase, block, x, y, z, storageItems, bool);
+        }
+        world.setBlockToAir(x, y, z);
         for(int rx = x-( (widthX/2)-((widthX/2)%1) ); rx< x-((widthX/2)-((widthX/2)%1)) + widthX ;rx++){
             for(int ry = y-1; ry< y-1+widthY ;ry++) {
                 for(int rz = z-( (widthZ/2)-((widthZ/2)%1) ); rz< z-((widthZ/2)-((widthZ/2)%1)) + widthZ ;rz++){
                     Block blocky = world.getBlock(rx, ry, rz);
-                    if (!Block.isEqualTo(blocky, Blocks.bedrock)) {
-                        if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1) // do not drop items while restoring blockstates, prevents item dupe
+                    if (blocky.getMaterial() != Material.air && !Block.isEqualTo(blocky, Blocks.bedrock)) {
+                        if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
                         {
-                            breakBlock(itemStack, world, entityLivingBase, blocky, rx, ry, rz, pos, storageItems, bool);
+                            breakBlock(itemStack, world, entityLivingBase, blocky, rx, ry, rz, storageItems, bool);
                         }
                         world.setBlockToAir(rx, ry, rz);
                     }
@@ -64,24 +70,26 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         return false;
     }
 
-    public static void breakBlock(ItemStack itemStack, World world, EntityLivingBase entityLivingBase, Block blocky, int rx, int ry, int rz, Vec3 pos, ArrayList<ItemStack> storageItems, boolean bool){
+
+
+
+
+    public static void breakBlock(ItemStack itemStack, World world, EntityLivingBase entityLivingBase, Block blocky, int rx, int ry, int rz, ArrayList<ItemStack> storageItems, boolean bool){
         ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
+        Boolean bool2;
         for (ItemStack item1 : items)
         {
             if(bool){
                 for(ItemStack item2 : storageItems){
-                    ItemBVKSStorage.setupTags(item2);
-                    NBTTagCompound storageTag = item2.stackTagCompound.getCompoundTag(Ref.MOD_ID).getCompoundTag(Tags.Storage.info);
-
-                    if ((storageTag.getBoolean(Tags.Storage.stackTagNull) ? item1.stackTagCompound == null : item1.stackTagCompound != null)) {
+                    if (ItemBottomlessVoid.getStackTagNull(item2) ? item1.stackTagCompound == null : item1.stackTagCompound != null) {
                         boolean flag = true;
                         if (item1.stackTagCompound != null) {
-                            storageTag.getCompoundTag(Tags.Storage.stackTag).setByte("Count", item1.stackTagCompound.getByte("Count"));
-                            if (!storageTag.getCompoundTag(Tags.Storage.stackTag).equals(item1.stackTagCompound))
+                            ItemBottomlessVoid.getStackTag(item2).setByte("Count", item1.stackTagCompound.getByte("Count"));
+                            if (!ItemBottomlessVoid.getStackTag(item2).equals(item1.stackTagCompound))
                                 flag = false;
                         }
-                        if (flag && Item.getItemById(storageTag.getInteger(Tags.Storage.id)).equals(item1.getItem())) {
-                            storageTag.setLong(Tags.Storage.storedAmount, storageTag.getLong(Tags.Storage.storedAmount) + item1.stackSize);
+                        if (flag && ItemBottomlessVoid.getItem(item2).equals(item1.getItem())) {
+                            ItemBottomlessVoid.add(item2, item1.stackSize);
                         }
                     }
                 }

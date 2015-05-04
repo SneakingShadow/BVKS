@@ -38,6 +38,8 @@ public class BVKS
         ModBlocks.init();
         WorldGen.init();
 
+        //proxy.registerCustomRender();
+
         LogHelper.info("Pre Initialization Complete!");
     }
 

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -74,5 +75,12 @@ public class BlockDevilOre extends BlockBVKS
     public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
     {
         return random.nextInt(16);
+    }
+
+    /**
+     * Called whenever the block is added into the world. Args: world, x, y, z
+     */
+    public void onBlockAdded(World world, int x, int y, int z) {
+        LogHelper.info("Devil ore block added:    Dimension id: "+world.provider.dimensionId+" x: "+x+" y: "+y+" z: "+z);
     }
 }

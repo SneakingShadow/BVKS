@@ -1,6 +1,6 @@
 package sneakingshadow.bvks.init;
 
-import sneakingshadow.bvks.crafting.StorageItemRecipes;
+import sneakingshadow.bvks.crafting.RecipeBottomlessVoid;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -61,7 +61,9 @@ public class Recipes
     }
 
     public static void recipeHandlers(){
-        GameRegistry.addRecipe(new StorageItemRecipes(new ItemStack(ModItems.DebugItem, -1)));
+        GameRegistry.addRecipe(new RecipeBottomlessVoid.Extract());
+        GameRegistry.addRecipe(new RecipeBottomlessVoid.SetType());
+        GameRegistry.addRecipe(new RecipeBottomlessVoid.Clear());
     }
 
     public static void init(){

@@ -37,7 +37,7 @@ public class CreativeTabBVKS
         public void displayAllReleventItems(List list)
         {
             listItem = list;
-            ModItems.addItems();
+            ModItems.add();
         }
     }
 
@@ -63,7 +63,7 @@ public class CreativeTabBVKS
         public void displayAllReleventItems(List list)
         {
             listBlock = list;
-
+            ModBlocks.add();
         }
     }
 
@@ -73,6 +73,15 @@ public class CreativeTabBVKS
 
     public static void add(Block block) {
         block.getSubBlocks(new ItemStack(block).getItem(), tabBlock, listBlock);
+    }
+
+    public static void add(Object[] objects) {
+        for(int i=0; i<objects.length;i++){
+            if(objects[i] instanceof Item)
+                add((Item)objects[i]);
+            if(objects[i] instanceof Block)
+                add((Block)objects[i]);
+        }
     }
 
     public static void add(Item[] items) {
