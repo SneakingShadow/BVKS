@@ -8,18 +8,8 @@
 :compileApiJava UP-TO-DATE
 :processApiResources UP-TO-DATE
 :apiClasses UP-TO-DATE
-:sourceMainJava
-:compileJavawarning: [options] bootstrap class path not set in conjunction with -source 1.6
-C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\build\sources\java\com\sneakingshadow\bvks\util\EnchantmentHelper.java:10: warning: Log is internal proprietary API and may be removed in a future release
-import sun.rmi.runtime.Log;
-                      ^
-C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\build\sources\java\com\sneakingshadow\bvks\init\ModItems.java:6: warning: IntegerArray is internal proprietary API and may be removed in a future release
-import com.sneakingshadow.bvks.item.armor.devil.ItemDevilHelmet;
-                                     ^
-Note: Some input files use unchecked or unsafe operations.
-Note: Recompile with -Xlint:unchecked for details.
-3 warnings
-
+:sourceMainJava UP-TO-DATE
+:compileJava UP-TO-DATE
 :processResources
 :classes
 :jar
@@ -30,7 +20,7 @@ Note: Recompile with -Xlint:unchecked for details.
 :extractMcpData UP-TO-DATE
 :getVersionJson
 :extractUserDev UP-TO-DATE
-:genSrgs SKIPPED
+:genSrgs
 :reobf
 :assemble
 :check UP-TO-DATE
@@ -38,4 +28,4 @@ Note: Recompile with -Xlint:unchecked for details.
 
 BUILD SUCCESSFUL
 
-Total time: 1 mins 17.227 secs
+Total time: 13.58 secs

@@ -33,7 +33,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) //TODO Silk touch on hammer
     {
         boolean bool = false;
         ArrayList<ItemStack> storageItems = new ArrayList<ItemStack>();
@@ -49,7 +49,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         }
         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
         {
-            breakBlock(itemStack, world, entityLivingBase, block, x, y, z, storageItems, bool);
+            breakBlock(itemStack, world, block, x, y, z, storageItems, bool);
         }
         world.setBlockToAir(x, y, z);
         for(int rx = x-( (widthX/2)-((widthX/2)%1) ); rx< x-((widthX/2)-((widthX/2)%1)) + widthX ;rx++){
@@ -59,7 +59,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
                     if (blocky.getMaterial() != Material.air && !Block.isEqualTo(blocky, Blocks.bedrock)) {
                         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
                         {
-                            breakBlock(itemStack, world, entityLivingBase, blocky, rx, ry, rz, storageItems, bool);
+                            breakBlock(itemStack, world, blocky, rx, ry, rz, storageItems, bool);
                         }
                         world.setBlockToAir(rx, ry, rz);
                     }
@@ -70,11 +70,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         return false;
     }
 
-
-
-
-
-    public static void breakBlock(ItemStack itemStack, World world, EntityLivingBase entityLivingBase, Block blocky, int rx, int ry, int rz, ArrayList<ItemStack> storageItems, boolean bool){
+    public static void breakBlock(ItemStack itemStack, World world, Block blocky, int rx, int ry, int rz, ArrayList<ItemStack> storageItems, boolean bool){
         ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
         Boolean bool2;
         for (ItemStack item1 : items)
