@@ -1,5 +1,6 @@
 package sneakingshadow.bvks.item.base;
 
+import net.minecraft.item.Item;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.relauncher.Side;

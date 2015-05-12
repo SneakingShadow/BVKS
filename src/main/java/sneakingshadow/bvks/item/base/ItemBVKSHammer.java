@@ -22,7 +22,8 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class ItemBVKSHammer extends ItemBVKSPickaxe{
+public class ItemBVKSHammer extends ItemBVKSPickaxe
+{
 
     public final byte widthX;
     public final byte widthY;

@@ -61,7 +61,7 @@ public class ItemBVKS extends Item
         description = str;
         return this;
     }
-    public static void addDescription(List list){
+    public void addDescription(List list){
         if (description != null)
             list.add(description);
     }
@@ -78,3 +78,4 @@ public class ItemBVKS extends Item
         return false;
     }
 }
+

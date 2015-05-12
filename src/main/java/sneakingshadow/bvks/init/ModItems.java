@@ -27,104 +27,104 @@ public class ModItems
     /**
      *
      */
-    public static final ItemBVKS DevilGem = (ItemBVKS)new ItemDevilGem().setCreativeTab(CreativeTabBVKS.tabItem);
-    public static final ItemBVKS ObsidianIngot = new ItemObsidianIngot();
-    public static final ItemBVKS IronRod = new ItemIronRod();
-    public static final ItemBVKS AssassinsKnife = new ItemAssassinsKnife();
-    public static final ItemBVKS DevilArrow = new ItemDevilArrow();
-    public static final ItemBVKS DevilBow = new ItemDevilBow();
-    public static final ItemBVKS DevilIngot = new ItemDevilIngot();
-    public static final ItemBVKS ObsidianRod = new ItemObsidianRod();
-    public static final ItemBVKS DevilCompound = new ItemDevilCompound();
-    public static final ItemBVKS BottomlessVoid = new ItemBottomlessVoid().setDescription("Stores one type of item");
+    public static final Item DevilGem = new ItemDevilGem().setCreativeTab(CreativeTabBVKS.tabItem);
+    public static final Item ObsidianIngot = new ItemObsidianIngot();
+    public static final Item IronRod = new ItemIronRod();
+    public static final Item AssassinsKnife = new ItemAssassinsKnife();
+    public static final Item DevilArrow = new ItemDevilArrow();
+    public static final Item DevilBow = new ItemDevilBow();
+    public static final Item DevilIngot = new ItemDevilIngot();
+    public static final Item ObsidianRod = new ItemObsidianRod();
+    public static final Item DevilCompound = new ItemDevilCompound();
+    public static final Item BottomlessVoid = new ItemBottomlessVoid().setDescription("Stores one type of item");
 
     //Armor
-    public static final ItemBVKSArmor DevilBoots = new ItemDevilBoots();
-    public static final ItemBVKSArmor DevilLeggings = new ItemDevilLeggings();
-    public static final ItemBVKSArmor DevilChestplate = new ItemDevilChestplate();
-    public static final ItemBVKSArmor DevilHelmet = new ItemDevilHelmet();
-    public static final ItemBVKSArmor ObsidianBoots = new ItemObsidianBoots();
-    public static final ItemBVKSArmor ObsidianLeggings = new ItemObsidianLeggings();
-    public static final ItemBVKSArmor ObsidianChestplate = new ItemObsidianChestplate();
-    public static final ItemBVKSArmor ObsidianHelmet = new ItemObsidianHelmet();
+    public static final Item DevilBoots = new ItemDevilBoots();
+    public static final Item DevilLeggings = new ItemDevilLeggings();
+    public static final Item DevilChestplate = new ItemDevilChestplate();
+    public static final Item DevilHelmet = new ItemDevilHelmet();
+    public static final Item ObsidianBoots = new ItemObsidianBoots();
+    public static final Item ObsidianLeggings = new ItemObsidianLeggings();
+    public static final Item ObsidianChestplate = new ItemObsidianChestplate();
+    public static final Item ObsidianHelmet = new ItemObsidianHelmet();
 
     /**
      *    Tools
      */
     //Pickaxes
-    public static final ItemBVKSPickaxe DevilPickaxe = new ItemDevilPickaxe();
-    public static final ItemBVKSPickaxe ObsidianPickaxe = new ItemObsidianPickaxe();
+    public static final Item DevilPickaxe = new ItemDevilPickaxe();
+    public static final Item ObsidianPickaxe = new ItemObsidianPickaxe();
     //Axes
-    public static final ItemBVKSAxe DevilAxe = new ItemDevilAxe();
-    public static final ItemBVKSAxe ObsidianAxe = new ItemObsidianAxe();
+    public static final Item DevilAxe = new ItemDevilAxe();
+    public static final Item ObsidianAxe = new ItemObsidianAxe();
     //Shovels
-    public static final ItemBVKSShovel DevilShovel = new ItemDevilShovel();
-    public static final ItemBVKSShovel ObsidianShovel = new ItemObsidianShovel();
+    public static final Item DevilShovel = new ItemDevilShovel();
+    public static final Item ObsidianShovel = new ItemObsidianShovel();
     //Swords
-    public static final ItemBVKSSword DevilSword = new ItemDevilSword();
-    public static final ItemBVKSSword ObsidianSword = new ItemObsidianSword();
+    public static final Item DevilSword = new ItemDevilSword();
+    public static final Item ObsidianSword = new ItemObsidianSword();
     //Hoes
-    public static final ItemBVKSHoe DevilHoe = new ItemDevilHoe();
-    public static final ItemBVKSHoe ObsidianHoe = new ItemObsidianHoe();
+    public static final Item DevilHoe = new ItemDevilHoe();
+    public static final Item ObsidianHoe = new ItemObsidianHoe();
     //Hammers
-    public static final ItemBVKSHammer DevilHammer = new ItemDevilHammer();
-    public static final ItemBVKSHammer DiamondHammer = new ItemDiamondHammer();
-    public static final ItemBVKSHammer GoldHammer = new ItemGoldHammer();
-    public static final ItemBVKSHammer IronHammer = new ItemIronHammer();
-    public static final ItemBVKSHammer ObsidianHammer = new ItemObsidianHammer();
-    public static final ItemBVKSHammer StoneHammer = new ItemStoneHammer();
-    public static final ItemBVKSHammer WoodHammer = new ItemWoodHammer();
+    public static final Item DevilHammer = new ItemDevilHammer();
+    public static final Item DiamondHammer = new ItemDiamondHammer();
+    public static final Item GoldHammer = new ItemGoldHammer();
+    public static final Item IronHammer = new ItemIronHammer();
+    public static final Item ObsidianHammer = new ItemObsidianHammer();
+    public static final Item StoneHammer = new ItemStoneHammer();
+    public static final Item WoodHammer = new ItemWoodHammer();
 
     /**
      *   The common admin tools
      */
-    public static final ItemBVKSPickaxe AdminHammer = new ItemAdminHammer();
+    public static final Item AdminHammer = new ItemAdminHammer();
 
 
     /**
      *   The allmighty, holy debug tool!!!
      */
-    public static final ItemDebugItem DebugItem = new ItemDebugItem();
+    public static final Item DebugItem = new ItemDebugItem();
 
     public static void init()
     {
-        GameRegistry.registerItem(AssassinsKnife, Names.Items.AssassinsKnife);
-        GameRegistry.registerItem(DevilArrow, Names.Items.DevilArrow);
-        GameRegistry.registerItem(DevilAxe, Names.Items.DevilAxe);
-        GameRegistry.registerItem(DevilHoe, Names.Items.DevilHoe);
-        GameRegistry.registerItem(DevilBoots, Names.Items.DevilBoots);
-        GameRegistry.registerItem(DevilBow, Names.Items.DevilBow);
-        GameRegistry.registerItem(DevilChestplate, Names.Items.DevilChestplate);
-        GameRegistry.registerItem(DevilGem, Names.Items.DevilGem);
-        GameRegistry.registerItem(DevilHammer, Names.Items.DevilHammer);
-        GameRegistry.registerItem(DevilHelmet, Names.Items.DevilHelmet);
-        GameRegistry.registerItem(DevilIngot, Names.Items.DevilIngot);
-        GameRegistry.registerItem(DevilLeggings, Names.Items.DevilLeggings);
-        GameRegistry.registerItem(DevilPickaxe, Names.Items.DevilPickaxe);
-        GameRegistry.registerItem(DevilShovel, Names.Items.DevilShovel);
-        GameRegistry.registerItem(DevilSword, Names.Items.DevilSword);
-        GameRegistry.registerItem(DiamondHammer, Names.Items.DiamondHammer);
-        GameRegistry.registerItem(GoldHammer, Names.Items.GoldHammer);
-        GameRegistry.registerItem(IronHammer, Names.Items.IronHammer);
-        GameRegistry.registerItem(IronRod, Names.Items.IronRod);
-        GameRegistry.registerItem(ObsidianAxe, Names.Items.ObsidianAxe);
-        GameRegistry.registerItem(ObsidianBoots, Names.Items.ObsidianBoots);
-        GameRegistry.registerItem(ObsidianChestplate, Names.Items.ObsidianChestplate);
-        GameRegistry.registerItem(ObsidianHammer, Names.Items.ObsidianHammer);
-        GameRegistry.registerItem(ObsidianHelmet, Names.Items.ObsidianHelmet);
-        GameRegistry.registerItem(ObsidianHoe, Names.Items.ObsidianHoe);
-        GameRegistry.registerItem(ObsidianIngot, Names.Items.ObsidianIngot);
-        GameRegistry.registerItem(ObsidianLeggings, Names.Items.ObsidianLeggings);
-        GameRegistry.registerItem(ObsidianPickaxe, Names.Items.ObsidianPickaxe);
-        GameRegistry.registerItem(ObsidianRod, Names.Items.ObsidianRod);
-        GameRegistry.registerItem(ObsidianShovel, Names.Items.ObsidianShovel);
-        GameRegistry.registerItem(ObsidianSword, Names.Items.ObsidianSword);
-        GameRegistry.registerItem(StoneHammer, Names.Items.StoneHammer);
-        GameRegistry.registerItem(WoodHammer, Names.Items.WoodHammer);
-        GameRegistry.registerItem(DebugItem, Names.Items.DebugItem);
-        GameRegistry.registerItem(DevilCompound, Names.Items.DevilCompound);
-        GameRegistry.registerItem(AdminHammer, Names.Items.AdminHammer);
-        GameRegistry.registerItem(BottomlessVoid, Names.Items.BottomlessVoid);
+        registerItem(AssassinsKnife, Names.Items.AssassinsKnife);
+        registerItem(DevilArrow, Names.Items.DevilArrow);
+        registerItem(DevilAxe, Names.Items.DevilAxe);
+        registerItem(DevilHoe, Names.Items.DevilHoe);
+        registerItem(DevilBoots, Names.Items.DevilBoots);
+        registerItem(DevilBow, Names.Items.DevilBow);
+        registerItem(DevilChestplate, Names.Items.DevilChestplate);
+        registerItem(DevilGem, Names.Items.DevilGem);
+        registerItem(DevilHammer, Names.Items.DevilHammer);
+        registerItem(DevilHelmet, Names.Items.DevilHelmet);
+        registerItem(DevilIngot, Names.Items.DevilIngot);
+        registerItem(DevilLeggings, Names.Items.DevilLeggings);
+        registerItem(DevilPickaxe, Names.Items.DevilPickaxe);
+        registerItem(DevilShovel, Names.Items.DevilShovel);
+        registerItem(DevilSword, Names.Items.DevilSword);
+        registerItem(DiamondHammer, Names.Items.DiamondHammer);
+        registerItem(GoldHammer, Names.Items.GoldHammer);
+        registerItem(IronHammer, Names.Items.IronHammer);
+        registerItem(IronRod, Names.Items.IronRod);
+        registerItem(ObsidianAxe, Names.Items.ObsidianAxe);
+        registerItem(ObsidianBoots, Names.Items.ObsidianBoots);
+        registerItem(ObsidianChestplate, Names.Items.ObsidianChestplate);
+        registerItem(ObsidianHammer, Names.Items.ObsidianHammer);
+        registerItem(ObsidianHelmet, Names.Items.ObsidianHelmet);
+        registerItem(ObsidianHoe, Names.Items.ObsidianHoe);
+        registerItem(ObsidianIngot, Names.Items.ObsidianIngot);
+        registerItem(ObsidianLeggings, Names.Items.ObsidianLeggings);
+        registerItem(ObsidianPickaxe, Names.Items.ObsidianPickaxe);
+        registerItem(ObsidianRod, Names.Items.ObsidianRod);
+        registerItem(ObsidianShovel, Names.Items.ObsidianShovel);
+        registerItem(ObsidianSword, Names.Items.ObsidianSword);
+        registerItem(StoneHammer, Names.Items.StoneHammer);
+        registerItem(WoodHammer, Names.Items.WoodHammer);
+        registerItem(DebugItem, Names.Items.DebugItem);
+        registerItem(DevilCompound, Names.Items.DevilCompound);
+        registerItem(AdminHammer, Names.Items.AdminHammer);
+        registerItem(BottomlessVoid, Names.Items.BottomlessVoid);
     }
 
     public static void add(){
@@ -139,5 +139,9 @@ public class ModItems
                 }
         );
         CreativeTabBVKS.add(DebugItem);
+    }
+
+    private static void registerItem(Item item, String name){
+        GameRegistry.registerItem(item, Ref.RESOURCE_PREFIX + "item_" + name);
     }
 }

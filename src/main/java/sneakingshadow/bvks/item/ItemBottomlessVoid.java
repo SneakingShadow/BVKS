@@ -31,18 +31,14 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
         super.addDescription(list);
-        if (itemStack.stackTagCompound != null && itemStack.stackTagCompound.hasKey(Ref.MOD_ID, 10) && itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID).hasKey(Tags.Storage.info, 10)) {
-            NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID).getCompoundTag(Tags.Storage.info);
-            if (storageTag.getInteger(Tags.Storage.id) > 0) {
-                list.add("Type stored: " + storageTag.getString(Tags.Storage.name));
-                list.add("Amount stored: " + storageTag.getLong(Tags.Storage.storedAmount));
-                if (storageTag.getLong(Tags.Storage.storedAmount) <= 0)
-                    list.add("Place in crafting table to clear this item");
-                else
-                    list.add("Place in crafting table to get out items");
-            } else {
-                list.add("Combine with item in crafting table to set type");
-            }
+        if (itemStack.getItemDamage() != 0) {
+            NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
+            list.add("Type stored: " + storageTag.getString(Tags.Storage.name));
+            list.add("Amount stored: " + storageTag.getLong(Tags.Storage.storedAmount));
+            if (storageTag.getLong(Tags.Storage.storedAmount) <= 0)
+                list.add("Place in crafting table to clear this item");
+            else
+                list.add("Place in crafting table to get out items");
         } else {
             list.add("Combine with item in crafting table to set type");
         }
@@ -57,12 +53,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public static void setupTags(ItemStack itemStack) {
         Tags.setTags(itemStack);
 
-        NBTTagCompound bvksTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
-
-        if (!bvksTag.hasKey(Tags.Storage.info, 10))
-            bvksTag.setTag(Tags.Storage.info, new NBTTagCompound());
-
-        NBTTagCompound storageTag = bvksTag.getCompoundTag(Tags.Storage.info);
+        NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
 
         if (!storageTag.hasKey(Tags.Storage.id, 3))
             storageTag.setInteger(Tags.Storage.id, -1);
@@ -82,7 +73,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     private static NBTTagCompound get(ItemStack itemStack){
         setupTags(itemStack);
-        return itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID).getCompoundTag(Tags.Storage.info);
+        return itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
     }
     public static int getID(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.id); }
     public static int getMeta(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.meta); }
@@ -183,7 +174,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconFromDamage(int meta) {
-        if(meta > 2){
+        if(meta == 3){
             meta -= 2;
         }
         return this.itemIcons[meta];

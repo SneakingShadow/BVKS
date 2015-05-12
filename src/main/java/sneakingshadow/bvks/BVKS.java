@@ -59,3 +59,5 @@ public class BVKS
         LogHelper.info("Post Initialization Complete!");
     }
 }
+
+//TODO Add custom texture handler for devil tools to make them invisible..

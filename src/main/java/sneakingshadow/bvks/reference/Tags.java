@@ -5,9 +5,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
 public class Tags {
+
     public static final class Storage
     {
-        public static final String info = "storage";
         public static final String storedAmount = "stored";
         public static final String id = "id";
         public static final String name = "name";
@@ -16,6 +16,10 @@ public class Tags {
         public static final String stackTagNull = "stackNull";
         public static final String maxStackSize = "maxStackSize";
     }
+
+
+
+
 
     public static void setTags(ItemStack itemStack){
         if (itemStack.stackTagCompound == null)

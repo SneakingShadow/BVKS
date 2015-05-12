@@ -6,6 +6,7 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
+import sneakingshadow.bvks.util.LogHelper;
 
 public class RenderBottomlessVoid implements IItemRenderer{
 
@@ -13,7 +14,7 @@ public class RenderBottomlessVoid implements IItemRenderer{
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return (type == ItemRenderType.INVENTORY) && item.getItemDamage() != 0; // || type == EQUIPPED_FIRST_PERSON
+        return type == ItemRenderType.INVENTORY; // || type == EQUIPPED_FIRST_PERSON
     }
 
     @Override

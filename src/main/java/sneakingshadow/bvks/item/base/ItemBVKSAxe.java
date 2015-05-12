@@ -2,6 +2,7 @@ package sneakingshadow.bvks.item.base;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
@@ -15,7 +16,8 @@ import sneakingshadow.bvks.util.BlockBreakingHelper;
 
 import java.util.List;
 
-public class ItemBVKSAxe extends ItemAxe {
+public class ItemBVKSAxe extends ItemAxe
+{
 
     protected ItemBVKSAxe(ToolMaterial toolMaterial) {
         super(toolMaterial);this.maxStackSize = 1;
