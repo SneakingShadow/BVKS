@@ -1,4 +1,4 @@
-package sneakingshadow.bvks.render;
+package sneakingshadow.bvks.client.renderer;
 
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
@@ -6,9 +6,8 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
-import sneakingshadow.bvks.util.LogHelper;
 
-public class RenderBottomlessVoid implements IItemRenderer{
+public class RenderBottomlessVoid implements IItemRenderer{        //TODO Move to sneakingshadow.bvks.client.renderer.item
 
     private static RenderItem renderItem = new RenderItem();
 
@@ -26,7 +25,7 @@ public class RenderBottomlessVoid implements IItemRenderer{
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         // Get icon index for the texture
         IIcon icon = item.getIconIndex();
-        // Use vanilla code to render the icon in a 16x16 square of inventory slot
+        // Use vanilla code to renderer the icon in a 16x16 square of inventory slot
         renderItem.renderIcon(0, 0, ItemBottomlessVoid.itemTransparentIcons[ (item.getItemDamage()==2 ? 2:1) ], 16, 16);
         // Disable texturing, for now we only need colored shapes
         GL11.glDisable(GL11.GL_TEXTURE_2D);

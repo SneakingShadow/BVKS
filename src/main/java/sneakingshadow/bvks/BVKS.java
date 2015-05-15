@@ -2,10 +2,7 @@ package sneakingshadow.bvks;
 
 import sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import sneakingshadow.bvks.handler.ConfigurationHandler;
-import sneakingshadow.bvks.init.ModBlocks;
-import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.init.Recipes;
-import sneakingshadow.bvks.init.WorldGen;
+import sneakingshadow.bvks.init.*;
 import sneakingshadow.bvks.proxy.IProxy;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.util.LogHelper;
@@ -37,6 +34,7 @@ public class BVKS
         ModItems.init();
         ModBlocks.init();
         WorldGen.init();
+        ModEntities.init();
 
         //proxy.registerCustomRender();
 

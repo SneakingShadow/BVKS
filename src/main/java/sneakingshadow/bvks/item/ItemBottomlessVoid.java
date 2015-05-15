@@ -113,13 +113,13 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public void registerIcons(IIconRegister iIconRegister) {
         this.itemIcon = iIconRegister.registerIcon(this.getIconString() + "_0");
-        this.itemIcons = new IIcon[iconAmount];
+        itemIcons = new IIcon[iconAmount];
         for (int i = 0; i < iconAmount; i++) {
-            this.itemIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_" + i);
+            itemIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_" + i);
         }
-        this.itemTransparentIcons = new IIcon[iconAmount];
+        itemTransparentIcons = new IIcon[iconAmount];
         for (int i = 0; i < iconAmount; i++) {
-            this.itemTransparentIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_transparent_" + i);
+            itemTransparentIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_transparent_" + i);
         }
     }
 
@@ -177,7 +177,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
         if(meta == 3){
             meta -= 2;
         }
-        return this.itemIcons[meta];
+        return itemIcons[meta];
     }
 
     @Override

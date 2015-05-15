@@ -1,5 +1,6 @@
 package sneakingshadow.bvks.block;
 
+import net.minecraft.block.BlockRedstoneWire;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.reference.Names;
 import net.minecraft.entity.Entity;
@@ -40,7 +41,7 @@ public class BlockDevilOre extends BlockBVKS
     /**
      * This returns a complete list of items dropped from this block.
      *
-     * @param world The current world
+     * @param world The current worldgen
      * @param x X Position
      * @param y Y Position
      * @param z Z Position
@@ -55,32 +56,5 @@ public class BlockDevilOre extends BlockBVKS
         if(fortune > 0) ret.add(new ItemStack(ModItems.DevilGem, random.nextInt(fortune)+1));
         else ret.add(new ItemStack(ModItems.DevilGem, 1));
         return ret;
-    }
-
-    /**
-     * If this returns true, then comparators facing away from this block will use the value from
-     * getComparatorInputOverride instead of the actual redstone signal strength.
-     */
-    @Override
-    public boolean hasComparatorInputOverride()
-    {
-        return true;
-    }
-
-    /**
-     * If hasComparatorInputOverride returns true, the return value from this is used instead of the redstone signal
-     * strength when this block inputs to a comparator.
-     */
-    @Override
-    public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
-    {
-        return random.nextInt(16);
-    }
-
-    /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
-    public void onBlockAdded(World world, int x, int y, int z) {
-        LogHelper.info("Devil ore block added:    Dimension id: "+world.provider.dimensionId+" x: "+x+" y: "+y+" z: "+z);
     }
 }

@@ -1,12 +1,16 @@
 package sneakingshadow.bvks.proxy;
 
-import net.minecraft.item.Item;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraftforge.client.MinecraftForgeClient;
+import sneakingshadow.bvks.client.model.ModelAwesomeCow;
+import sneakingshadow.bvks.client.renderer.Entity.RenderAwesomeCow;
 import sneakingshadow.bvks.client.settings.Keybindings;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import sneakingshadow.bvks.entity.EntityAwesomeCow;
 import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.item.ItemBottomlessVoid;
-import sneakingshadow.bvks.render.RenderBottomlessVoid;
+import sneakingshadow.bvks.client.renderer.RenderBottomlessVoid;
 
 public class ClientProxy extends CommonProxy
 {
@@ -20,6 +24,6 @@ public class ClientProxy extends CommonProxy
     @Override
     public void registerCustomRender() {
         MinecraftForgeClient.registerItemRenderer(ModItems.BottomlessVoid, new RenderBottomlessVoid());
+        RenderingRegistry.registerEntityRenderingHandler(EntityAwesomeCow.class, new RenderAwesomeCow(new ModelAwesomeCow(), 0.5F));
     }
-
 }

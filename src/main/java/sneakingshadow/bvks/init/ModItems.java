@@ -131,10 +131,10 @@ public class ModItems
         CreativeTabBVKS.add(new Item[]
                 {
 
-                        BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,     StoneHammer,     WoodHammer,
-                        DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilAxe,       DevilShovel,     DevilHoe,
-                        ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianAxe,    ObsidianShovel,  ObsidianHoe,
-                        AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,  ObsidianRod,     IronRod,
+                        BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,      StoneHammer,     WoodHammer,
+                        DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilShovel,     DevilAxe,        DevilHoe,
+                        ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianShovel,  ObsidianAxe,     ObsidianHoe,
+                        AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,   ObsidianRod,     IronRod,
 
                 }
         );

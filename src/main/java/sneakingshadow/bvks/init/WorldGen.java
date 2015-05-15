@@ -1,6 +1,6 @@
 package sneakingshadow.bvks.init;
 
-import sneakingshadow.bvks.world.WorldGenDevilOre;
+import sneakingshadow.bvks.world.gen.WorldGenDevilOre;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class WorldGen {
