@@ -33,10 +33,12 @@ public class BVKS
 
         ModItems.init();
         ModBlocks.init();
+
         WorldGen.init();
+
         ModEntities.init();
 
-        //proxy.registerCustomRender();
+        proxy.registerCustomRender();
 
         LogHelper.info("Pre Initialization Complete!");
     }

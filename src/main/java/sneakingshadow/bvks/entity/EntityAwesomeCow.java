@@ -4,6 +4,9 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.block.BlockBVKS;
+import sneakingshadow.bvks.reference.Ref;
+
+import java.util.Random;
 
 public class EntityAwesomeCow extends EntityCreature{
 
@@ -36,25 +39,7 @@ public class EntityAwesomeCow extends EntityCreature{
     @Override
     public String getLivingSound()
     {
-        return "mob.cow.say";
-    }
-
-    /**
-     * Returns the sound this mob makes when it is hurt.
-     */
-    @Override
-    public String getHurtSound()
-    {
-        return "mob.cow.hurt";
-    }
-
-    /**
-     * Returns the sound this mob makes on death.
-     */
-    @Override
-    public String getDeathSound()
-    {
-        return "mob.cow.hurt";
+        return Ref.RESOURCE_PREFIX+"mob.awesomeCow";
     }
 
     /**

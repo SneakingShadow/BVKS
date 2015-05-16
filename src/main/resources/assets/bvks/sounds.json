@@ -1,0 +1,15 @@
+{
+  "mob.awesomeCow":
+  { "category": "neutral",
+    "sounds":
+    [
+      "mob/awesomeCow/moo_0",
+      "mob/awesomeCow/moo_1",
+      "mob/awesomeCow/moo_2",
+      "mob/awesomeCow/moo_3",
+      "mob/awesomeCow/moo_4",
+      "mob/awesomeCow/moo_5",
+      "mob/awesomeCow/moo_6"
+    ]
+  }
+}

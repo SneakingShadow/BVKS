@@ -8,17 +8,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.ResourceLocation;
+import sneakingshadow.bvks.client.model.ModelAwesomeCow;
 import sneakingshadow.bvks.entity.EntityAwesomeCow;
 import sneakingshadow.bvks.reference.Ref;
 
 @SideOnly(Side.CLIENT)
 public class RenderAwesomeCow extends RenderLiving
 {
-    private static final ResourceLocation cowTextures = new ResourceLocation(Ref.RESOURCE_PREFIX+"textures/entity/awesome_cow.png");
+    private ResourceLocation cowTextures;
 
-    public RenderAwesomeCow(ModelBase modelBase, float shadowSize)
+    public RenderAwesomeCow()
     {
-        super(modelBase, shadowSize);
+        super(new ModelAwesomeCow(), 0.5F);
+        this.cowTextures = new ResourceLocation(Ref.RESOURCE_PREFIX+"textures/entity/awesome_cow.png");
     }
 
     /**
@@ -27,7 +29,7 @@ public class RenderAwesomeCow extends RenderLiving
     @Override
     protected ResourceLocation getEntityTexture(Entity entity)
     {
-        return cowTextures;
+        return this.cowTextures;
     }
 
     @Override
