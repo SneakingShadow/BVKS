@@ -49,7 +49,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
         this.setBaseName(Names.Items.BottomlessVoid);
     }
 
-    public static void setupTags(ItemStack itemStack) { //
+    public static void setupTags(ItemStack itemStack) {
         Tags.setTags(itemStack);
 
         NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
