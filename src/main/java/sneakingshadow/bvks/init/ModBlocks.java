@@ -1,13 +1,15 @@
 package sneakingshadow.bvks.init;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
-import sneakingshadow.bvks.block.*;
-import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
-import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.reference.Names;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.tileentity.TileEntity;
+import sneakingshadow.bvks.block.BlockDebugBlock;
+import sneakingshadow.bvks.block.BlockDevilCobblestone;
+import sneakingshadow.bvks.block.BlockDevilOre;
+import sneakingshadow.bvks.block.BlockSmoothObsidian;
+import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
+import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
 @GameRegistry.ObjectHolder(Ref.MOD_ID)

@@ -1,14 +1,12 @@
 package sneakingshadow.bvks.block;
 
-import net.minecraft.block.BlockRedstoneWire;
-import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.reference.Names;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.util.LogHelper;
+import sneakingshadow.bvks.init.ModItems;
+import sneakingshadow.bvks.reference.Names;
 
 import java.util.ArrayList;
 import java.util.Random;

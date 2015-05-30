@@ -1,12 +1,10 @@
 package sneakingshadow.bvks.world.gen;
 
-import sneakingshadow.bvks.init.ModBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import sneakingshadow.bvks.util.LogHelper;
+import sneakingshadow.bvks.init.ModBlocks;
 
 import java.util.Random;
 

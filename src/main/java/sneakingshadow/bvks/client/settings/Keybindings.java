@@ -1,8 +1,8 @@
 package sneakingshadow.bvks.client.settings;
 
-import sneakingshadow.bvks.reference.Names;
 import net.minecraft.client.settings.KeyBinding;
 import org.lwjgl.input.Keyboard;
+import sneakingshadow.bvks.reference.Names;
 
 public class Keybindings
 {

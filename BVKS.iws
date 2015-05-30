@@ -1,36 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="Trying to clean up some stuff">
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\BVKS.iws" afterPath="" />
-    </list>
-    <list id="8c8cc534-6cf7-41fc-80c0-c7b1538c4c34" name="Rejected commit: Default" comment="." />
-    <list id="f023569a-fa58-44bb-bb77-5711c7000c33" name="Failed commit: Default" comment="." />
-    <list id="e75cc358-f228-42ff-88a4-5219e7824c1d" name="Failed commit: Default (2)" comment="Awesome Cow!!!!!!">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/MetricPrefixHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Model.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/RenderIds.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/ResourceLocationHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Textures.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/bvks/models/debug_model.obj" />
-      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\client\renderer\RenderBottomlessVoid.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/renderer/item/ItemRenderBottomlessVoid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/entity/EntityAwesomeCow.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/entity/EntityAwesomeCow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModEntities.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModEntities.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" />
-    </list>
-    <list id="6b82cb7e-133f-4483-9074-9ad9108d7ecc" name="Failed commit: Default (3)" comment="Trying to clean up some stuff">
+    <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/model/tileentity/TileentityModelDemonAlter.java" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\2.0\taskArtifacts\taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\.gradle\gradle.log" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\BVKS.iml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\BVKS.ipr" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\decompiled\.metadata\.plugins\org.eclipse.core.resources\.root\0.tree" afterPath="" />
@@ -57,9 +29,14 @@
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\decompiled\logs\latest.log" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\decompiled\options.txt" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\gradlew.bat" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\out\production\BVKS\mcmod.info" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\command\CommandBVKS.java" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\command\server\CommandBVKSSummon.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.0/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BVKS.iws" afterPath="$PROJECT_DIR$/BVKS.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/BVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/BVKS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockBVKS.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockContainerBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockContainerBVKS.java" />
@@ -101,6 +78,25 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/WorldGen.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/WorldGen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/world/gen/WorldGenDevilOre.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/world/gen/WorldGenDevilOre.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/gradle.log" afterPath="$PROJECT_DIR$/.gradle/gradle.log" />
+    </list>
+    <list id="8c8cc534-6cf7-41fc-80c0-c7b1538c4c34" name="Rejected commit: Default" comment="." />
+    <list id="f023569a-fa58-44bb-bb77-5711c7000c33" name="Failed commit: Default" comment="." />
+    <list id="e75cc358-f228-42ff-88a4-5219e7824c1d" name="Failed commit: Default (2)" comment="Awesome Cow!!!!!!">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/MetricPrefixHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Model.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/RenderIds.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/ResourceLocationHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Textures.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/bvks/models/debug_model.obj" />
+      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\client\renderer\RenderBottomlessVoid.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/renderer/item/ItemRenderBottomlessVoid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/entity/EntityAwesomeCow.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/entity/EntityAwesomeCow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModEntities.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModEntities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" />
     </list>
     <ignored path="BVKS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,7 +109,6 @@
     <file path="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/entity/EntityAwesomeCow.java" ignored="false" />
     <file path="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" ignored="false" />
-    <file path="$PROJECT_DIR$/BVKS.iws" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +174,7 @@
       <file leaf-file-name="BlockBreakingHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="13.851851">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
               <folding />
             </state>
@@ -191,9 +186,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -213,9 +206,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -223,8 +214,8 @@
       <file leaf-file-name="ItemBottomlessVoid.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15650173">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -422,7 +413,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
@@ -452,6 +442,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -462,7 +453,7 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -899,19 +890,7 @@
       <option name="project" value="LOCAL" />
       <updated>1431812298057</updated>
     </task>
-    <task id="LOCAL-00032" summary="Trying to clean up some stuff">
-      <created>1432990277599</created>
-      <option name="number" value="00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1432990277599</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Trying to clean up some stuff">
-      <created>1432990401265</created>
-      <option name="number" value="00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1432990401265</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -927,7 +906,6 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -935,23 +913,24 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3225108" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3225108" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21588486" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1006,10 +985,8 @@
     <MESSAGE value="Tested some more with tile entities." />
     <MESSAGE value="Testing entities" />
     <MESSAGE value="Awesome Cow!!!!!!" />
-    <MESSAGE value="Trying to clean up some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to clean up some stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Awesome Cow!!!!!!" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1257,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05685619">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1259,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11371238">
           <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1315,9 +1290,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="64" selection-start-line="34" selection-start-column="64" selection-end-line="34" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1360,9 +1333,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1384,16 +1355,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="13.851851">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BVKS.ipr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BVKS.iws">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7655501">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15650173">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
           <folding />
         </state>
       </provider>

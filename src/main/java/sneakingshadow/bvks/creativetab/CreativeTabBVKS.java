@@ -3,12 +3,12 @@ package sneakingshadow.bvks.creativetab;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.init.ModBlocks;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.reference.Names;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 
 import java.util.List;
 

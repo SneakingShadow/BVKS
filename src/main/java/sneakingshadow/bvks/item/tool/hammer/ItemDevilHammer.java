@@ -1,11 +1,11 @@
 package sneakingshadow.bvks.item.tool.hammer;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
 import java.util.List;
 

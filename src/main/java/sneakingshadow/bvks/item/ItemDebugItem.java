@@ -1,11 +1,11 @@
 package sneakingshadow.bvks.item;
 
-import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
-import sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.item.base.ItemBVKS;
+import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 

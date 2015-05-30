@@ -5,9 +5,6 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TileEntityDebugBlock extends TileEntity {
 
     private final String tagPlayerList = "players";

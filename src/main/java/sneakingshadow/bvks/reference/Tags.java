@@ -2,7 +2,6 @@ package sneakingshadow.bvks.reference;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
 public class Tags {
 

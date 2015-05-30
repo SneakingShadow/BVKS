@@ -1,27 +1,21 @@
 package sneakingshadow.bvks.item.tool;
 
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.item.EntityItem;
-import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.item.base.ItemBVKSHammer;
-import sneakingshadow.bvks.item.ItemBottomlessVoid;
-import sneakingshadow.bvks.reference.ItemToolMaterial;
-import sneakingshadow.bvks.reference.Names;
-import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.reference.Tags;
-import sneakingshadow.bvks.util.EnchantmentHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.init.ModItems;
+import sneakingshadow.bvks.item.ItemBottomlessVoid;
+import sneakingshadow.bvks.item.base.ItemBVKSHammer;
+import sneakingshadow.bvks.reference.ItemToolMaterial;
+import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.util.EnchantmentHelper;
 
 import java.util.ArrayList;
 import java.util.List;

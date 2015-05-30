@@ -1,8 +1,8 @@
 package sneakingshadow.bvks.util;
 
-import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
+import sneakingshadow.bvks.reference.Ref;
 
 public class LogHelper
 {

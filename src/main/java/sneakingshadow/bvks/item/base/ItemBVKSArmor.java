@@ -1,8 +1,5 @@
 package sneakingshadow.bvks.item.base;
 
-import net.minecraft.item.Item;
-import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
-import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +7,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
+import sneakingshadow.bvks.reference.Ref;
 
 import java.util.List;
 

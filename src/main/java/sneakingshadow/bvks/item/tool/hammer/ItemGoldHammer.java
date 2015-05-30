@@ -1,9 +1,9 @@
 package sneakingshadow.bvks.item.tool.hammer;
 
+import net.minecraft.init.Items;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
-import net.minecraft.init.Items;
 
 public class ItemGoldHammer extends ItemBVKSHammer
 {

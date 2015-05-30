@@ -2,9 +2,6 @@ package sneakingshadow.bvks.util;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-
-import java.util.UUID;
 
 public class NBTHelper
 {

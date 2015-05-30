@@ -1,5 +1,6 @@
 package sneakingshadow.bvks.init;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.item.*;
@@ -11,15 +12,13 @@ import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianBoots;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianChestplate;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianHelmet;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianLeggings;
+import sneakingshadow.bvks.item.tool.ItemAdminHammer;
 import sneakingshadow.bvks.item.tool.ItemAssassinsKnife;
 import sneakingshadow.bvks.item.tool.devil.*;
 import sneakingshadow.bvks.item.tool.hammer.*;
 import sneakingshadow.bvks.item.tool.obsidian.*;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
-import cpw.mods.fml.common.registry.GameRegistry;
-import sneakingshadow.bvks.item.base.*;
-import sneakingshadow.bvks.item.tool.ItemAdminHammer;
 
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems

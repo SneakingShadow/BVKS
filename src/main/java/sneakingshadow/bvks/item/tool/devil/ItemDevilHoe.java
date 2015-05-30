@@ -1,10 +1,10 @@
 package sneakingshadow.bvks.item.tool.devil;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.item.base.ItemBVKSHoe;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 
 import java.util.List;
 

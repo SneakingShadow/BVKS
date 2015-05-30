@@ -1,11 +1,11 @@
 package sneakingshadow.bvks.client.gui;
 
-import sneakingshadow.bvks.handler.ConfigurationHandler;
-import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
+import sneakingshadow.bvks.handler.ConfigurationHandler;
+import sneakingshadow.bvks.reference.Ref;
 
 public class ModGuiConfig extends GuiConfig
 {

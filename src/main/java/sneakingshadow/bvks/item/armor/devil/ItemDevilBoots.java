@@ -1,13 +1,13 @@
 package sneakingshadow.bvks.item.armor.devil;
 
-import sneakingshadow.bvks.item.base.ItemBVKSArmor;
-import sneakingshadow.bvks.reference.Armor;
-import sneakingshadow.bvks.reference.Names;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.item.base.ItemBVKSArmor;
+import sneakingshadow.bvks.reference.Armor;
+import sneakingshadow.bvks.reference.Names;
 
 public class ItemDevilBoots extends ItemBVKSArmor
 {

@@ -1,17 +1,17 @@
 package sneakingshadow.bvks;
 
-import sneakingshadow.bvks.client.handler.KeyInputEventHandler;
-import sneakingshadow.bvks.handler.ConfigurationHandler;
-import sneakingshadow.bvks.init.*;
-import sneakingshadow.bvks.proxy.IProxy;
-import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import sneakingshadow.bvks.client.handler.KeyInputEventHandler;
+import sneakingshadow.bvks.handler.ConfigurationHandler;
+import sneakingshadow.bvks.init.*;
+import sneakingshadow.bvks.proxy.IProxy;
+import sneakingshadow.bvks.reference.Ref;
+import sneakingshadow.bvks.util.LogHelper;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.VERSION, guiFactory = Ref.GUI_FACTORY_CLASS)
 public class BVKS

@@ -6,7 +6,7 @@ saturation:0.0
 renderDistance:12
 guiScale:0
 particles:0
-bobView:true
+bobView:false
 anaglyph3d:false
 advancedOpengl:false
 maxFps:120
@@ -92,7 +92,7 @@ key_waila.keybind.wailadisplay:79
 key_waila.keybind.liquid:80
 key_waila.keybind.recipe:81
 key_waila.keybind.usage:75
-soundCategory_master:0.08940397
+soundCategory_master:0.12913907
 soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0

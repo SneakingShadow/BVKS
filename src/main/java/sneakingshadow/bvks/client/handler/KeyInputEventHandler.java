@@ -1,9 +1,9 @@
 package sneakingshadow.bvks.client.handler;
 
-import sneakingshadow.bvks.client.settings.Keybindings;
-import sneakingshadow.bvks.reference.Key;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
+import sneakingshadow.bvks.client.settings.Keybindings;
+import sneakingshadow.bvks.reference.Key;
 
 public class KeyInputEventHandler
 {

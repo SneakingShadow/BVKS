@@ -1,13 +1,12 @@
 package sneakingshadow.bvks.block;
 
-import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import sneakingshadow.bvks.reference.Ref;
 
 public class BlockBVKS extends Block
 {

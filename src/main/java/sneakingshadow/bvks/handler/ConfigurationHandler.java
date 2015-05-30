@@ -1,9 +1,9 @@
 package sneakingshadow.bvks.handler;
 
-import sneakingshadow.bvks.reference.Ref;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
+import sneakingshadow.bvks.reference.Ref;
 
 import java.io.File;
 

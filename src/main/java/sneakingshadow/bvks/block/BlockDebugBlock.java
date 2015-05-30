@@ -1,17 +1,12 @@
 package sneakingshadow.bvks.block;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
-import sneakingshadow.bvks.util.LogHelper;
-
-import java.util.List;
 
 public class BlockDebugBlock extends BlockContainerBVKS{
 
