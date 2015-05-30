@@ -2,22 +2,32 @@ package sneakingshadow.bvks.entity;
 
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.block.BlockBVKS;
 import sneakingshadow.bvks.reference.Ref;
 
-import java.util.Random;
-
 public class EntityAwesomeCow extends EntityCreature{
+
+    private int red = 0;
+    private int blue = 0;
+    private int green = 0;
+    private int delay = 0;
+
+    public static final String RED_TAG = "red";
+    public static final String BLUE_TAG = "blue";
+    public static final String GREEN_TAG = "green";
+
+    public static final int size=4;
 
     public EntityAwesomeCow(World world)
     {
         super(world);
-        this.setSize(0.9F, 1.3F);
+        this.setSize(0.9F*size, 1.3F*size);
     }
 
     /**
-     * Returns true if the newer Entity AI code should be run
+     * Returns true if the newer entity AI code should be run
      */
     @Override
     public boolean isAIEnabled()
@@ -48,7 +58,7 @@ public class EntityAwesomeCow extends EntityCreature{
     @Override
     public float getSoundVolume()
     {
-        return 0.4F;
+        return 0.6F;
     }
 
     /**
@@ -69,5 +79,21 @@ public class EntityAwesomeCow extends EntityCreature{
     public boolean isEntityInvulnerable()
     {
         return true;
+    }
+
+    public void writeEntityToNBT(NBTTagCompound nbtTagCompound)
+    {
+        super.writeEntityToNBT(nbtTagCompound);
+        nbtTagCompound.setInteger("red", this.red);
+        nbtTagCompound.setInteger("blue", this.blue);
+        nbtTagCompound.setInteger("green", this.green);
+    }
+
+    public void readEntityFromNBT(NBTTagCompound nbtTagCompound)
+    {
+        super.readEntityFromNBT(nbtTagCompound);
+        this.red = nbtTagCompound.getInteger("red");
+        this.blue = nbtTagCompound.getInteger("blue");
+        this.green = nbtTagCompound.getInteger("green");
     }
 }

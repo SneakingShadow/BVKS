@@ -1,13 +1,16 @@
-package sneakingshadow.bvks.client.renderer;
+package sneakingshadow.bvks.client.renderer.item;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
+import sneakingshadow.bvks.util.MetricPrefixHelper;
 
-public class RenderBottomlessVoid implements IItemRenderer{        //TODO Move to sneakingshadow.bvks.client.renderer.item
+public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Move to sneakingshadow.bvks.client.renderer.item
 
     private static RenderItem renderItem = new RenderItem();
 
@@ -25,8 +28,8 @@ public class RenderBottomlessVoid implements IItemRenderer{        //TODO Move t
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         // Get icon index for the texture
         IIcon icon = item.getIconIndex();
-        // Use vanilla code to renderer the icon in a 16x16 square of inventory slot
-        renderItem.renderIcon(0, 0, ItemBottomlessVoid.itemTransparentIcons[ (item.getItemDamage()==2 ? 2:1) ], 16, 16);
+        // Use vanilla code to render the icon in a 16x16 square of inventory slot
+        renderItem.renderIcon(0, 0, icon, 16, 16);
         // Disable texturing, for now we only need colored shapes
         GL11.glDisable(GL11.GL_TEXTURE_2D);
         // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
@@ -37,14 +40,30 @@ public class RenderBottomlessVoid implements IItemRenderer{        //TODO Move t
         GL11.glBegin(GL11.GL_QUADS);
         // Set semi-transparent black color
         GL11.glColor4f(0F, 0F, 0F, 0.5F);
+
         // Draw a 8x8 square
         GL11.glVertex3d(0, 0, 0);
         GL11.glVertex3d(0, 8, 0);
         GL11.glVertex3d(8, 8, 0);
         GL11.glVertex3d(8, 0, 0);
+
         GL11.glEnd();
+
         // Turn off unneeded transparency flags
         GL11.glDepthMask(true);
         GL11.glDisable(GL11.GL_BLEND);
+
+        if(item.getItemDamage()!=0) {
+
+            FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
+
+            // Enable texturing, because Minecraft text font is actually a texture
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
+            // Get our text value
+            String text = MetricPrefixHelper.compress(ItemBottomlessVoid.getStored(item));
+            // Draw our text at (1, 1) with white color
+            fontRenderer.drawStringWithShadow(text, 1, 1, 0xFFFFFF);
+
+        }
     }
 }

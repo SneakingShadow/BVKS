@@ -2,8 +2,6 @@ package sneakingshadow.bvks.item.armor.devil;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKSArmor;
 import sneakingshadow.bvks.reference.Armor;
@@ -20,6 +18,7 @@ public class ItemDevilChestplate extends ItemBVKSArmor
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack armor) {
+        player.fallDistance = 0F;
         player.capabilities.allowFlying = true;
     }
 }

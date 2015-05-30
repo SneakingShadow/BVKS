@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class BlockBreakingHelper {
 
     /**
-     *
      * @param itemStack
      * @param world
      * @param block
@@ -43,7 +42,8 @@ public class BlockBreakingHelper {
                                     flag = false;
                             }
                             if (flag && ItemBottomlessVoid.getItem(item2).equals(item1.getItem())) {
-                                ItemBottomlessVoid.add(item2, item1.stackSize);
+                                if(ItemBottomlessVoid.getStored(item2) != Long.MAX_VALUE)
+                                    ItemBottomlessVoid.add(item2, item1.stackSize);
                                 bool2 = false;
                             }
                         }

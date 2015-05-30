@@ -1,13 +1,5 @@
 package sneakingshadow.bvks.item;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.nbt.NBTBase;
-import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
-import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.reference.Tags;
-import sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,11 +7,18 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import sneakingshadow.bvks.item.base.ItemBVKS;
+import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Ref;
+import sneakingshadow.bvks.reference.Tags;
+import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 
@@ -85,7 +84,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     public static boolean storesBlock(ItemStack itemStack){ return getItem(itemStack) instanceof ItemBlock; }
     public static Item getItem(ItemStack itemStack){ return Item.getItemById(getID(itemStack)); }
-    public static boolean hasType(ItemStack itemStack){ return getID(itemStack)>0; }
     public static boolean hasItems(ItemStack itemStack){ return getStored(itemStack)>0; }
 
     public static void setID(ItemStack itemStack, int id){ get(itemStack).setInteger(Tags.Storage.id, id); }
@@ -133,6 +131,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
                     itemStack.setItemDamage((itemStack.getItemDamage() == 2) ? 1 : 2);
             } else {
                 //Place block (if it is one...)
+                LogHelper.info(itemStack.stackTagCompound);
             }
         }
 
@@ -159,7 +158,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
                                 flag = false;
                         }
                         if (flag && getItem(itemStack).equals(inventory.mainInventory[i].getItem())) {
-                            add(itemStack, inventory.mainInventory[i].stackSize);
+                            if(getStored(itemStack) != Long.MAX_VALUE)
+                                add(itemStack, inventory.mainInventory[i].stackSize);
                             inventory.mainInventory[i] = null;
                         }
                     }
