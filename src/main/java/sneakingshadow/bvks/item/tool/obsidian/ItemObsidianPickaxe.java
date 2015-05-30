@@ -8,7 +8,7 @@ public class ItemObsidianPickaxe extends ItemBVKSPickaxe
 {
     public ItemObsidianPickaxe()
     {
-        super(ItemToolMaterial.Obsidian);
-        this.setUnlocalizedName(Names.Items.ObsidianPickaxe);
+        super(ItemToolMaterial.OBSIDIAN);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_PICKAXE);
     }
 }

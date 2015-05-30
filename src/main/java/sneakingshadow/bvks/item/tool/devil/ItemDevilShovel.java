@@ -8,8 +8,8 @@ public class ItemDevilShovel extends ItemBVKSShovel
 {
     public ItemDevilShovel()
     {
-        super(ItemToolMaterial.DevilShovel);
-        this.setUnlocalizedName(Names.Items.DevilShovel);
+        super(ItemToolMaterial.DEVIL_SHOVEL);
+        this.setUnlocalizedName(Names.Items.DEVIL_SHOVEL);
     }
 
     @Override

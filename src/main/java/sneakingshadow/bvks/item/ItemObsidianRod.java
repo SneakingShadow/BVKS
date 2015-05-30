@@ -8,6 +8,6 @@ public class ItemObsidianRod extends ItemBVKS
     public ItemObsidianRod()
     {
         super();
-        this.setUnlocalizedName(Names.Items.ObsidianRod);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_ROD);
     }
 }

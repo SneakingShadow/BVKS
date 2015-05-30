@@ -8,7 +8,7 @@ public class ItemObsidianShovel extends ItemBVKSShovel
 {
     public ItemObsidianShovel()
     {
-        super(ItemToolMaterial.Obsidian);
-        this.setUnlocalizedName(Names.Items.ObsidianShovel);
+        super(ItemToolMaterial.OBSIDIAN);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_SHOVEL);
     }
 }

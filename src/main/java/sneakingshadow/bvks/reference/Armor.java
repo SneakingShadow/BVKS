@@ -15,8 +15,8 @@ public class Armor
 
     public static class Material
     {
-        public static final ItemArmor.ArmorMaterial Devil = EnumHelper.addArmorMaterial(Ref.MOD_ID+".devil", 100000, new int[] {6, 16, 12, 6}, 30);
-        public static final ItemArmor.ArmorMaterial Obsidian = EnumHelper.addArmorMaterial(Ref.MOD_ID+".obsidian", 10000, new int[] {3,7,6,2}, 5);
+        public static final ItemArmor.ArmorMaterial DEVIL = EnumHelper.addArmorMaterial(Ref.MOD_ID+".devil", 100000, new int[] {6, 16, 12, 6}, 30);
+        public static final ItemArmor.ArmorMaterial OBSIDIAN = EnumHelper.addArmorMaterial(Ref.MOD_ID+".obsidian", 24, new int[] {2,7,6,2}, 5);
     }
 
     //CLOTH(5, new int[]{1, 3, 2, 1}, 15),          7

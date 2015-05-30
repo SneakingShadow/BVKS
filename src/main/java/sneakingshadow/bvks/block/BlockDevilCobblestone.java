@@ -7,6 +7,6 @@ public class BlockDevilCobblestone extends BlockBVKS
     public BlockDevilCobblestone()
     {
         super();
-        this.setBlockName(Names.Blocks.DevilCobblestone);
+        this.setBlockName(Names.Blocks.DEVIL_COBBLESTONE);
     }
 }

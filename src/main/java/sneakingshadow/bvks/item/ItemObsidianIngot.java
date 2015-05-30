@@ -8,6 +8,6 @@ public class ItemObsidianIngot extends ItemBVKS
     public ItemObsidianIngot()
     {
         super();
-        this.setUnlocalizedName(Names.Items.ObsidianIngot);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_INGOT);
     }
 }

@@ -8,7 +8,7 @@ public class ItemObsidianLeggings extends ItemBVKSArmor
 {
     public ItemObsidianLeggings()
     {
-        super(Names.ArmorTextures.Obsidian, Armor.Material.Obsidian, Armor.Type.LEGGINGS);
-        this.setUnlocalizedName(Names.Items.ObsidianLeggings);
+        super(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.LEGGINGS);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_LEGGINGS);
     }
 }

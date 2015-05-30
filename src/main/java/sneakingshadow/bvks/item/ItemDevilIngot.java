@@ -8,6 +8,6 @@ public class ItemDevilIngot extends ItemBVKS
     public ItemDevilIngot()
     {
         super();
-        this.setUnlocalizedName(Names.Items.DevilIngot);
+        this.setUnlocalizedName(Names.Items.DEVIL_INGOT);
     }
 }

@@ -1,0 +1,1766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="Adding a demon alter">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/model/ModelDemonAltar.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/renderer/tileentity/TileEntityRendererDemonAltar.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/assets/bvks/models/demon_altar.obj" />
+      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\client\model\tileentity\TileentityModelDemonAlter.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\reference\RenderIds.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\reference\Textures.java" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\block\BlockDemonAlter.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDemonAltar.java" />
+      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\client\model\entity\EntityModelAwesomeCow.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/model/ModelAwesomeCow.java" />
+      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\reference\Model.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Models.java" />
+      <change type="MOVED" beforePath="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\java\sneakingshadow\bvks\tileentity\TileEntityDemonAlter.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/tileentity/TileEntityDemonAltar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Armor.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Armor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockBVKS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockContainerBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockContainerBVKS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDebugBlock.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDebugBlock.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDevilCobblestone.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDevilCobblestone.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDevilOre.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDevilOre.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockSmoothObsidian.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockSmoothObsidian.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/creativetab/CreativeTabBVKS.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/creativetab/CreativeTabBVKS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/EnchantmentHelper.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/EnchantmentHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/IProxy.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/IProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAdminHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAdminHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDebugItem.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDebugItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilArrow.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilArrow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilBoots.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilBoots.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilBow.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilBow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilCompound.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilCompound.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilGem.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilGem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilHelmet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilIngot.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilIngot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilLeggings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDiamondHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDiamondHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemGoldHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemGoldHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemIronHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemIronHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemIronRod.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemIronRod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianAxe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianAxe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianBoots.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianBoots.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianChestplate.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianChestplate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemObsidianHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemObsidianHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianHelmet.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianHelmet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianHoe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianHoe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianIngot.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianIngot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianLeggings.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianLeggings.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianRod.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianRod.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianShovel.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianShovel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianSword.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianSword.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemStoneHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemStoneHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/ItemToolMaterial.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/ItemToolMaterial.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemWoodHammer.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemWoodHammer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Key.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Key.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModBlocks.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModBlocks.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModItems.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModItems.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Names.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Names.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ServerProxy.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ServerProxy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Tags.java" afterPath="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Tags.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" afterPath="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" />
+    </list>
+    <list id="8c8cc534-6cf7-41fc-80c0-c7b1538c4c34" name="Rejected commit: Default" comment="Adding demon alter" />
+    <list id="f023569a-fa58-44bb-bb77-5711c7000c33" name="Failed commit: Default" comment="." />
+    <ignored path="BVKS.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <file path="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/model/tileentity/TileEntityModelDemonAlter.java" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS" />
+  </component>
+  <component name="DebuggerManager">
+    <ui_properties converted="true" />
+    <breakpoint_any converted="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules converted="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="BVKS" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="BlockDemonAltar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDemonAltar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelDemonAltar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/model/ModelDemonAltar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileEntityRendererDemonAltar.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/renderer/tileentity/TileEntityRendererDemonAltar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22972973">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="FORCE_PUSH_ALLOWED" value="true" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockBVKS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDevilCobblestone.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockSmoothObsidian.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/assets/bvks/lang/en_US.lang" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/creativetab/CreativeTabBVKS.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilChestplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianLeggings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianHelmet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianChestplate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/obsidian/ItemObsidianBoots.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilLeggings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilHelmet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/armor/devil/ItemDevilBoots.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemWoodHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemStoneHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemObsidianHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemIronHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemGoldHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDiamondHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianAxe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianHoe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianShovel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianSword.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAdminHammer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianRod.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianIngot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemIronRod.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilIngot.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilGem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilCompound.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilBow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilArrow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDebugItem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/IProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ServerProxy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Models.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Names.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Key.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/ItemToolMaterial.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Tags.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Armor.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ModuleEditorState">
+    <option name="LAST_EDITED_MODULE_NAME" />
+    <option name="LAST_EDITED_TAB_NAME" />
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>General</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.sneakingshadow.bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="forgeSrc-1.7.10-10.13.2.1291.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="forgeSrc-1.7.10-10.13.2.1291.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="net" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="creative_inventory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BVKS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bvks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="renderer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="options.lastSelected" value="configurable.group.tools" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="299" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="301" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="975" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="292" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="293" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="968" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/util/DamageSource.java&#10;Render&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/client/renderer/entity/RenderLiving.java&#10;RenderLivingE&#9;PSI&#9;JAVA://net.minecraft.client.renderer.entity.RendererLivingEntity&#10;map&#9;PSI&#9;JAVA://scala.collection.immutable.Map&#10;BlockChest&#9;PSI&#9;JAVA://net.minecraft.block.BlockChest&#10;EntityPla&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/entity/player/EntityPlayer.java&#10;TileEntityFurnace&#9;PSI&#9;JAVA://net.minecraft.tileentity.TileEntityFurnace&#10;BlockF&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/BlockFurnace.java&#10;World&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/world/World.java&#10;ItemRenderType&#9;PSI&#9;JAVA://net.minecraftforge.client.IItemRenderer.ItemRenderType&#10;World &#9;PSI&#9;JAVA://net.minecraft.world.World&#10;OreD&#9;PSI&#9;JAVA://net.minecraftforge.oredict.OreDictionary&#10;Liq&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/block/BlockDynamicLiquid.java&#10;Enchant&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/enchantment/Enchantment.java&#10;Enchantment&#9;PSI&#9;JAVA://net.minecraft.enchantment.EnchantmentLootBonus&#10;enchan&#9;PSI&#9;JAVA://net.minecraft.enchantment.Enchantment&#10;Entity&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/entity/player/EntityPlayer.java&#10;net.minecraft.entity.Enti&#9;PSI&#9;JAVA://net.minecraft.entity.Entity&#10;Event.Entity&#9;PSI&#9;JAVA://net.minecraftforge.event.entity.EntityEvent&#10;BlockRedstone&#9;PSI&#9;JAVA://net.minecraft.block.BlockRedstoneOre&#10;redstone&#9;PSI&#9;JAVA://net.minecraft.item.ItemRedstone&#10;Ore&#9;FILE&#9;jar://C:/Users/Marius/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraftforge/oredict/OreDictionary.java&#10;OreDic&#9;PSI&#9;JAVA://net.minecraftforge.oredict.OreDictionary" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\resources\assets\bvks\models" />
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\resources\assets\bvks\textures\logo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\resources\assets\bvks\models" />
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\resources\assets\bvks\textures\items" />
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main\resources\assets\bvks\textures\blocks" />
+      <recent name="C:\Users\Marius\Documents\Minecraft development\1.7.10\BVKS\src\main" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sneakingshadow.bvks.item" />
+      <recent name="com.sneakingshadow.bvks.reference" />
+      <recent name="com.sneakingshadow.bvks.iteml" />
+      <recent name="com.sneakingshadow.bvks.item.tool" />
+      <recent name="com.sneakingshadow.bvks.client.gui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Minecraft Client">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="false" name="Minecraft Client" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="GradleStart" />
+      <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
+      <option name="PROGRAM_PARAMETERS" value="--username MariusBuilder --password giratina" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/decompiled" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BVKS" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Minecraft Server" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
+      <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/decompiled" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="BVKS" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Application.Minecraft Client" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Minecraft Server" />
+    </list>
+    <configuration default="true" name="&lt;template&gt;" selected="false" type="WebApp">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Marius\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4f89789-6a5a-4fcc-b87b-f192d0267145" name="Default" comment="" />
+      <created>1423686686241</created>
+      <option name="number" value="Default" />
+      <updated>1423686686241</updated>
+    </task>
+    <task id="LOCAL-00001" summary="..">
+      <created>1424610438426</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1424610438426</updated>
+    </task>
+    <task id="LOCAL-00002" summary="..">
+      <created>1424614295010</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1424614295010</updated>
+    </task>
+    <task id="LOCAL-00003" summary="..">
+      <created>1424614327442</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1424614327442</updated>
+    </task>
+    <task id="LOCAL-00004" summary="..">
+      <created>1424643107959</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1424643107959</updated>
+    </task>
+    <task id="LOCAL-00005" summary=".">
+      <created>1424730845709</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1424730845709</updated>
+    </task>
+    <task id="LOCAL-00006" summary=".">
+      <created>1424811025580</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1424811025580</updated>
+    </task>
+    <task id="LOCAL-00007" summary=".">
+      <created>1428590305295</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1428590305295</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update 0.0.3">
+      <created>1429034194086</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1429034194087</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update 0.0.3">
+      <created>1429034300940</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1429034300940</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update 0.0.4">
+      <created>1429034518669</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1429034518669</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update 0.0.4">
+      <created>1429037548439</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1429037548439</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update 0.0.5">
+      <created>1429190560409</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1429190560409</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update 0.0.5">
+      <created>1429190920102</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1429190920102</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update 0.0.5">
+      <created>1429211022879</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1429211022879</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update 0.0.5">
+      <created>1429562431869</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1429562431869</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update 0.0.5">
+      <created>1429822982914</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1429822982914</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Update 0.0.5">
+      <created>1429902896056</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1429902896056</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Update 0.0.5">
+      <created>1429903165020</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1429903165020</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Update 0.0.6">
+      <created>1429907262038</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1429907262038</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Update 0.0.6">
+      <created>1429917528432</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1429917528432</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update 0.0.7">
+      <created>1430436316825</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1430436316825</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Update 0.0.7">
+      <created>1430495597231</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1430495597231</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Update 0.0.8">
+      <created>1430517501477</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1430517501477</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Update 0.0.8">
+      <created>1430523432193</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1430523432193</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update 0.0.8">
+      <created>1430769568788</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1430769568788</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Update 0.0.9">
+      <created>1430770042702</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1430770042702</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Trying to add tile entities..">
+      <created>1431032949153</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1431032949153</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Textures">
+      <created>1431354698308</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1431354698308</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Tested some more with tile entities.">
+      <created>1431467948516</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1431467948516</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Testing entities">
+      <created>1431725264438</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1431725264438</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Awesome Cow!!!!!!">
+      <created>1431812298057</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1431812298057</updated>
+    </task>
+    <task id="LOCAL-00032" summary=".">
+      <created>1432990668501</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1432990668501</updated>
+    </task>
+    <task id="LOCAL-00033" summary=".">
+      <created>1432990748372</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1432990748372</updated>
+    </task>
+    <task id="LOCAL-00034" summary=".">
+      <created>1432990805176</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1432990805176</updated>
+    </task>
+    <task id="LOCAL-00035" summary=".">
+      <created>1432990834558</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1432990834558</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Adding a demon alter">
+      <created>1432995098361</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1432995098361</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3225108" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17803837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21588486" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19669509" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21588486" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=".." />
+    <MESSAGE value="Update 0.0.3" />
+    <MESSAGE value="Update 0.0.4" />
+    <MESSAGE value="Update 0.0.5" />
+    <MESSAGE value="Update 0.0.6" />
+    <MESSAGE value="Update 0.0.7" />
+    <MESSAGE value="Update 0.0.8" />
+    <MESSAGE value="Update 0.0.9" />
+    <MESSAGE value="Trying to add tile entities.." />
+    <MESSAGE value="Textures" />
+    <MESSAGE value="Tested some more with tile entities." />
+    <MESSAGE value="Testing entities" />
+    <MESSAGE value="Awesome Cow!!!!!!" />
+    <MESSAGE value="." />
+    <MESSAGE value="Adding demon alter" />
+    <MESSAGE value="Adding a demon alter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding a demon alter" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="32" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/hammer/ItemDevilHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilSword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilShovel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilPickaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilHoe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22972973">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/devil/ItemDevilAxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianAxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianHoe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianPickaxe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianShovel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/obsidian/ItemObsidianSword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAdminHammer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20101352">
+          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianRod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22972973">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemObsidianIngot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemIronRod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemGrenade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilIngot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilGem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilCompound.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilBow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDevilArrow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemDebugItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40202704">
+          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/ItemBottomlessVoid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8040541">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ClientProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/IProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/CommonProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/proxy/ServerProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/BVKS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14358108">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/world/gen/WorldGenDevilOre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.49324325">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/ResourceLocationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/MetricPrefixHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/NBTHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/LogHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/EnchantmentHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2635136">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/util/BlockBreakingHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/block/BlockDemonAltar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/tileentity/TileEntityDemonAltar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/tileentity/TileEntityDebugBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4189189">
+          <caret line="1499" column="28" selection-start-line="1499" selection-start-column="28" selection-end-line="1499" selection-end-column="28" />
+          <folding>
+            <element signature="e#74115#74116#0" expanded="true" />
+            <element signature="e#74177#74178#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Models.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1722973">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Names.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.8091216">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/item/tool/ItemAssassinsKnife.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25844595">
+          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModEntities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/init/ModItems.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1486486">
+          <caret line="44" column="66" selection-start-line="44" selection-start-column="66" selection-end-line="44" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11486486">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Ref.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28716215">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/ItemToolMaterial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0050676">
+          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Tags.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.265625">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/minecraft/net/minecraftforge/forge/1.7.10-10.13.2.1291/forgeSrc-1.7.10-10.13.2.1291-sources.jar!/net/minecraft/item/ItemArmor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="310" column="25" selection-start-line="310" selection-start-column="25" selection-end-line="310" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/reference/Armor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32254463">
+          <caret line="18" column="135" selection-start-line="18" selection-start-column="135" selection-end-line="18" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sneakingshadow/bvks/client/renderer/tileentity/TileEntityRendererDemonAltar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22972973">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>BVKS</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI" />
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

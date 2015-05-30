@@ -7,6 +7,6 @@ public class BlockSmoothObsidian extends BlockBVKS
     public BlockSmoothObsidian()
     {
         super();
-        this.setBlockName(Names.Blocks.SmoothObsidian);
+        this.setBlockName(Names.Blocks.SMOOTH_OBSIDIAN);
     }
 }

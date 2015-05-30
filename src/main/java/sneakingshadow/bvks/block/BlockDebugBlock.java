@@ -12,8 +12,8 @@ public class BlockDebugBlock extends BlockContainerBVKS{
 
     public BlockDebugBlock(){
         super();
-        this.setBlockName(Names.Blocks.DebugBlock);
-        TileEntity.addMapping(TileEntityDebugBlock.class, Ref.RESOURCE_PREFIX+Names.Blocks.DebugBlock);
+        this.setBlockName(Names.Blocks.DEBUG_BLOCK);
+        TileEntity.addMapping(TileEntityDebugBlock.class, Ref.RESOURCE_PREFIX+Names.Blocks.DEBUG_BLOCK);
     }
 
     @Override

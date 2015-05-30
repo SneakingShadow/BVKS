@@ -11,8 +11,8 @@ public class ItemDevilChestplate extends ItemBVKSArmor
 {
     public ItemDevilChestplate()
     {
-        super(Names.ArmorTextures.Devil, Armor.Material.Devil, Armor.Type.CHESTPLATE);
-        this.setUnlocalizedName(Names.Items.DevilChestplate);
+        super(Names.ArmorTextures.DEVIL, Armor.Material.DEVIL, Armor.Type.CHESTPLATE);
+        this.setUnlocalizedName(Names.Items.DEVIL_CHESTPLATE);
         this.setInvisible();
     }
 

@@ -11,8 +11,8 @@ import java.util.List;
 public class ItemDevilHoe extends ItemBVKSHoe
 {
     public ItemDevilHoe() {
-        super(ItemToolMaterial.DevilHoe);
-        this.setUnlocalizedName(Names.Items.DevilHoe);
+        super(ItemToolMaterial.DEVIL_HOE);
+        this.setUnlocalizedName(Names.Items.DEVIL_HOE);
     }
 
     @Override

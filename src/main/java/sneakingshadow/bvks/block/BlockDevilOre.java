@@ -18,7 +18,7 @@ public class BlockDevilOre extends BlockBVKS
     public BlockDevilOre()
     {
         super();
-        this.setBlockName(Names.Blocks.DevilOre);
+        this.setBlockName(Names.Blocks.DEVIL_ORE);
         this.setHardness(75F);
         this.setResistance(10000F);
         this.setHarvestLevel("pickaxe", 4);

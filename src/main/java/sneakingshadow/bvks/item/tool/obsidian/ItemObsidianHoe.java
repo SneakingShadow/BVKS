@@ -8,7 +8,7 @@ public class ItemObsidianHoe extends ItemBVKSHoe
 {
     public ItemObsidianHoe()
     {
-        super(ItemToolMaterial.Obsidian);
-        this.setUnlocalizedName(Names.Items.ObsidianHoe);
+        super(ItemToolMaterial.OBSIDIAN);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_HOE);
     }
 }

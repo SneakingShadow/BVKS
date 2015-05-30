@@ -32,9 +32,9 @@ public class ItemBottomlessVoid extends ItemBVKS {
         super.addDescription(list);
         if (itemStack.getItemDamage() != 0) {
             NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
-            list.add("Type stored: " + storageTag.getString(Tags.Storage.name));
-            list.add("Amount stored: " + storageTag.getLong(Tags.Storage.storedAmount));
-            if (storageTag.getLong(Tags.Storage.storedAmount) <= 0)
+            list.add("Type stored: " + storageTag.getString(Tags.Storage.NAME));
+            list.add("Amount stored: " + storageTag.getLong(Tags.Storage.STORED_AMOUNT));
+            if (storageTag.getLong(Tags.Storage.STORED_AMOUNT) <= 0)
                 list.add("Place in crafting table to clear this item");
             else
                 list.add("Place in crafting table to get out items");
@@ -46,7 +46,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public ItemBottomlessVoid() {
         super();
         this.setMaxStackSize(1);
-        this.setBaseName(Names.Items.BottomlessVoid);
+        this.setBaseName(Names.Items.BOTTOMLESS_VOID);
     }
 
     public static void setupTags(ItemStack itemStack) {
@@ -54,45 +54,45 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
         NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
 
-        if (!storageTag.hasKey(Tags.Storage.id, 3))
-            storageTag.setInteger(Tags.Storage.id, -1);
-        if (!storageTag.hasKey(Tags.Storage.meta, 3))
-            storageTag.setInteger(Tags.Storage.meta, 0);
-        if (!storageTag.hasKey(Tags.Storage.storedAmount, 4))
-            storageTag.setLong(Tags.Storage.storedAmount, 0);
-        if (!storageTag.hasKey(Tags.Storage.name, 8))
-            storageTag.setString(Tags.Storage.name, "");
-        if (!storageTag.hasKey(Tags.Storage.stackTag, 10))
-            storageTag.setTag(Tags.Storage.stackTag, new NBTTagCompound());
-        if (!storageTag.hasKey(Tags.Storage.stackTagNull))
-            storageTag.setBoolean(Tags.Storage.stackTagNull, true);
-        if (!storageTag.hasKey(Tags.Storage.maxStackSize, 1))
-            storageTag.setByte(Tags.Storage.stackTagNull, (byte)1);
+        if (!storageTag.hasKey(Tags.Storage.ID, 3))
+            storageTag.setInteger(Tags.Storage.ID, -1);
+        if (!storageTag.hasKey(Tags.Storage.META, 3))
+            storageTag.setInteger(Tags.Storage.META, 0);
+        if (!storageTag.hasKey(Tags.Storage.STORED_AMOUNT, 4))
+            storageTag.setLong(Tags.Storage.STORED_AMOUNT, 0);
+        if (!storageTag.hasKey(Tags.Storage.NAME, 8))
+            storageTag.setString(Tags.Storage.NAME, "");
+        if (!storageTag.hasKey(Tags.Storage.STACK_TAG, 10))
+            storageTag.setTag(Tags.Storage.STACK_TAG, new NBTTagCompound());
+        if (!storageTag.hasKey(Tags.Storage.STACK_TAG_NULL))
+            storageTag.setBoolean(Tags.Storage.STACK_TAG_NULL, true);
+        if (!storageTag.hasKey(Tags.Storage.MAX_STACK_SIZE, 1))
+            storageTag.setByte(Tags.Storage.STACK_TAG_NULL, (byte)1);
     }
 
     private static NBTTagCompound get(ItemStack itemStack){
         setupTags(itemStack);
         return itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
     }
-    public static int getID(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.id); }
-    public static int getMeta(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.meta); }
-    public static long getStored(ItemStack itemStack){ return get(itemStack).getLong(Tags.Storage.storedAmount); }
-    public static String getName(ItemStack itemStack){ return get(itemStack).getString(Tags.Storage.name); }
-    public static NBTTagCompound getStackTag(ItemStack itemStack){ return get(itemStack).getCompoundTag(Tags.Storage.stackTag); }
-    public static boolean getStackTagNull(ItemStack itemStack){ return get(itemStack).getBoolean(Tags.Storage.stackTagNull); }
-    public static int getMaxStackSize(ItemStack itemStack){ return get(itemStack).getByte(Tags.Storage.maxStackSize); }
+    public static int getID(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.ID); }
+    public static int getMeta(ItemStack itemStack){ return get(itemStack).getInteger(Tags.Storage.META); }
+    public static long getStored(ItemStack itemStack){ return get(itemStack).getLong(Tags.Storage.STORED_AMOUNT); }
+    public static String getName(ItemStack itemStack){ return get(itemStack).getString(Tags.Storage.NAME); }
+    public static NBTTagCompound getStackTag(ItemStack itemStack){ return get(itemStack).getCompoundTag(Tags.Storage.STACK_TAG); }
+    public static boolean getStackTagNull(ItemStack itemStack){ return get(itemStack).getBoolean(Tags.Storage.STACK_TAG_NULL); }
+    public static int getMaxStackSize(ItemStack itemStack){ return get(itemStack).getByte(Tags.Storage.MAX_STACK_SIZE); }
 
     public static boolean storesBlock(ItemStack itemStack){ return getItem(itemStack) instanceof ItemBlock; }
     public static Item getItem(ItemStack itemStack){ return Item.getItemById(getID(itemStack)); }
     public static boolean hasItems(ItemStack itemStack){ return getStored(itemStack)>0; }
 
-    public static void setID(ItemStack itemStack, int id){ get(itemStack).setInteger(Tags.Storage.id, id); }
-    public static void setMeta(ItemStack itemStack, int meta){ get(itemStack).setInteger(Tags.Storage.meta, meta); }
-    public static void setStored(ItemStack itemStack, long stored){ get(itemStack).setLong(Tags.Storage.storedAmount, stored); }
-    public static void setName(ItemStack itemStack, String name){ get(itemStack).setString(Tags.Storage.name, name); }
-    public static void setStackTag(ItemStack itemStack, NBTTagCompound tag){ get(itemStack).setTag(Tags.Storage.stackTag, tag); }
-    public static void setStackTagNull(ItemStack itemStack, boolean bool){ get(itemStack).setBoolean(Tags.Storage.stackTagNull, bool); }
-    public static void setMaxStackSize(ItemStack itemStack, int size){ get(itemStack).setByte(Tags.Storage.maxStackSize, (byte) size); }
+    public static void setID(ItemStack itemStack, int id){ get(itemStack).setInteger(Tags.Storage.ID, id); }
+    public static void setMeta(ItemStack itemStack, int meta){ get(itemStack).setInteger(Tags.Storage.META, meta); }
+    public static void setStored(ItemStack itemStack, long stored){ get(itemStack).setLong(Tags.Storage.STORED_AMOUNT, stored); }
+    public static void setName(ItemStack itemStack, String name){ get(itemStack).setString(Tags.Storage.NAME, name); }
+    public static void setStackTag(ItemStack itemStack, NBTTagCompound tag){ get(itemStack).setTag(Tags.Storage.STACK_TAG, tag); }
+    public static void setStackTagNull(ItemStack itemStack, boolean bool){ get(itemStack).setBoolean(Tags.Storage.STACK_TAG_NULL, bool); }
+    public static void setMaxStackSize(ItemStack itemStack, int size){ get(itemStack).setByte(Tags.Storage.MAX_STACK_SIZE, (byte) size); }
 
     public static boolean remove(ItemStack itemStack, long remove){
         Long stored = getStored(itemStack);

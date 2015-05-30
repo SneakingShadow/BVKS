@@ -1,3 +1,13 @@
+#
+#         ____ __      __ _  __  _____
+#        |  _ \\ \    / /| |/ / / ____|
+#        | |_) |\ \  / / | ' / | (___
+#        |  _ <  \ \/ /  |  <   \___ \
+#        | |_) |  \  /   | . \  ____) |
+#        |____/    \/    |_|\_\|_____/
+#
+#
+
 # Keys
 keys.bvks.category = Bear Valley's Killing-Set
 keys.bvks.charge = Pointless button
@@ -7,13 +17,13 @@ keys.bvks.release = Pointless button
 tile.bvks:devil_ore.name = Devil Ore
 tile.bvks:devil_cobblestone.name = Devil Cobblestone
 tile.bvks:smooth_obsidian.name = Smooth Obsidian
-tile.bvks:debug_block.name = Debug Block
+tile.bvks:demon_altar.name = Demon Altar
 
 # Item localizations
 item.bvks:assassins_knife.name = Assassins Knife
 item.bvks:devil_arrow.name = Devil Arrow
 item.bvks:devil_axe.name = Devil Axe
-item.bvks:devil_hoe.name = Death's schyte
+item.bvks:devil_hoe.name = Death's Scythe
 item.bvks:devil_boots.name = Devil Boots
 item.bvks:devil_bow.name = Devil Bow
 item.bvks:devil_chestplate.name = Devil Chestplate
@@ -44,7 +54,6 @@ item.bvks:obsidian_sword.name = Obsidian Sword
 item.bvks:stone_hammer.name = Stone Hammer
 item.bvks:wood_hammer.name = Wood Hammer
 item.bvks:devil_compound.name = Devil Compound
-item.bvks:debug_item.name = Debug Item
 item.bvks:admin_hammer_inactive.name = Admin hammer (Will not drop items)
 item.bvks:admin_hammer_active.name = Admin hammer (!!!)(Will drop items)
 item.bvks:bottomless_void.name = Bottomless Void
@@ -56,4 +65,9 @@ itemGroup.bvks:item = BVKS Items
 itemGroup.bvks:block = BVKS Blocks
 
 # Entity localizations
+
+
+# Debug localizations
+tile.bvks:debug_block.name = Debug Block
+item.bvks:debug_item.name = Debug Item
 entity.bvks.awesome_cow.name = Awesome Cow (debug entity)

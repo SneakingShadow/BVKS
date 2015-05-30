@@ -8,6 +8,6 @@ public class ItemIronRod extends ItemBVKS
     public ItemIronRod()
     {
         super();
-        this.setUnlocalizedName(Names.Items.IronRod);
+        this.setUnlocalizedName(Names.Items.IRON_ROD);
     }
 }

@@ -8,8 +8,8 @@ public class ItemDevilSword extends ItemBVKSSword
 {
     public ItemDevilSword()
     {
-        super(ItemToolMaterial.DevilSword);
-        this.setUnlocalizedName(Names.Items.DevilSword);
+        super(ItemToolMaterial.DEVIL_SWORD);
+        this.setUnlocalizedName(Names.Items.DEVIL_SWORD);
     }
 
     @Override

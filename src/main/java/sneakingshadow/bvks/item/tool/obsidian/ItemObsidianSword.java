@@ -8,7 +8,7 @@ public class ItemObsidianSword extends ItemBVKSSword
 {
     public ItemObsidianSword()
     {
-        super(ItemToolMaterial.Obsidian);
-        this.setUnlocalizedName(Names.Items.ObsidianSword);
+        super(ItemToolMaterial.OBSIDIAN);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_SWORD);
     }
 }

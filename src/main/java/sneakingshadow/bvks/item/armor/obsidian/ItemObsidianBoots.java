@@ -8,7 +8,7 @@ public class ItemObsidianBoots extends ItemBVKSArmor
 {
     public ItemObsidianBoots()
     {
-        super(Names.ArmorTextures.Obsidian, Armor.Material.Obsidian, Armor.Type.BOOTS);
-        this.setUnlocalizedName(Names.Items.ObsidianBoots);
+        super(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.BOOTS);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_BOOTS);
     }
 }

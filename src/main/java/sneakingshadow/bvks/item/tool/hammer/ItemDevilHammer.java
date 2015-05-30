@@ -13,8 +13,8 @@ public class ItemDevilHammer extends ItemBVKSHammer
 {
     public ItemDevilHammer()
     {
-        super(ItemToolMaterial.DevilHammer, 9, 9, 9, ModItems.DevilShovel);
-        this.setUnlocalizedName(Names.Items.DevilHammer);
+        super(ItemToolMaterial.DEVIL_HAMMER, 9, 9, 9, ModItems.DevilShovel);
+        this.setUnlocalizedName(Names.Items.DEVIL_HAMMER);
     }
 
     @Override

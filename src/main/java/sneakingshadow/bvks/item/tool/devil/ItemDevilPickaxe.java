@@ -8,8 +8,8 @@ public class ItemDevilPickaxe extends ItemBVKSPickaxe
 {
     public ItemDevilPickaxe()
     {
-        super(ItemToolMaterial.DevilPickaxe);
-        this.setUnlocalizedName(Names.Items.DevilPickaxe);
+        super(ItemToolMaterial.DEVIL_PICKAXE);
+        this.setUnlocalizedName(Names.Items.DEVIL_PICKAXE);
     }
 
     @Override

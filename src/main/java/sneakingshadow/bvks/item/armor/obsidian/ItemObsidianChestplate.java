@@ -8,7 +8,7 @@ public class ItemObsidianChestplate extends ItemBVKSArmor
 {
     public ItemObsidianChestplate()
     {
-        super(Names.ArmorTextures.Obsidian, Armor.Material.Obsidian, Armor.Type.CHESTPLATE);
-        this.setUnlocalizedName(Names.Items.ObsidianChestplate);
+        super(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.CHESTPLATE);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_CHESTPLATE);
     }
 }

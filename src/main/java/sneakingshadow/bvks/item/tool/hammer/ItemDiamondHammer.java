@@ -9,7 +9,7 @@ public class ItemDiamondHammer extends ItemBVKSHammer
 {
     public ItemDiamondHammer()
     {
-        super(ItemToolMaterial.DiamondHammer, 5,5,5, Items.diamond_shovel);
-        this.setUnlocalizedName(Names.Items.DiamondHammer);
+        super(ItemToolMaterial.DIAMOND_HAMMER, 5,5,5, Items.diamond_shovel);
+        this.setUnlocalizedName(Names.Items.DIAMOND_HAMMER);
     }
 }

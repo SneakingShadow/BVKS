@@ -9,7 +9,7 @@ public class ItemGoldHammer extends ItemBVKSHammer
 {
     public ItemGoldHammer()
     {
-        super(ItemToolMaterial.GoldHammer, 3,3,3, Items.golden_shovel);
-        this.setUnlocalizedName(Names.Items.GoldHammer);
+        super(ItemToolMaterial.GOLD_HAMMER, 3,3,3, Items.golden_shovel);
+        this.setUnlocalizedName(Names.Items.GOLD_HAMMER);
     }
 }

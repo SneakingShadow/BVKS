@@ -3,10 +3,7 @@ package sneakingshadow.bvks.init;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
-import sneakingshadow.bvks.block.BlockDebugBlock;
-import sneakingshadow.bvks.block.BlockDevilCobblestone;
-import sneakingshadow.bvks.block.BlockDevilOre;
-import sneakingshadow.bvks.block.BlockSmoothObsidian;
+import sneakingshadow.bvks.block.*;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
@@ -15,19 +12,22 @@ import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModBlocks
 {
+    public static final Block DebugBlock = new BlockDebugBlock();
+
     public static final Block DevilOre = new BlockDevilOre();
     public static final Block DevilCobblestone = new BlockDevilCobblestone();
     public static final Block SmoothObsidian = new BlockSmoothObsidian();
-    public static final Block DebugBlock = new BlockDebugBlock();
+    public static final Block DemonAltar = new BlockDemonAltar();
 
-    public static void init()
-    {
-        registerBlock(DevilOre, Names.Blocks.DevilOre);
-        registerBlock(DevilCobblestone, Names.Blocks.DevilCobblestone);
-        registerBlock(SmoothObsidian, Names.Blocks.SmoothObsidian);
-        registerBlock(DebugBlock, Names.Blocks.DebugBlock);
+    public static void init(){
+        registerBlock(DebugBlock, Names.Blocks.DEBUG_BLOCK);
+        registerTile(TileEntityDebugBlock.class, Names.Blocks.DEBUG_BLOCK);
 
-        registerTile(TileEntityDebugBlock.class, Names.Blocks.DebugBlock);
+
+        registerBlock(DevilOre, Names.Blocks.DEVIL_ORE);
+        registerBlock(DevilCobblestone, Names.Blocks.DEVIL_COBBLESTONE);
+        registerBlock(SmoothObsidian, Names.Blocks.SMOOTH_OBSIDIAN);
+        registerBlock(DemonAltar, Names.Blocks.DEMON_ALTAR);
     }
 
     private static void registerBlock(Block block, String name){
@@ -42,7 +42,7 @@ public class ModBlocks
         CreativeTabBVKS.add(new Block[]
                 {
 
-                        DevilOre, SmoothObsidian, DevilCobblestone,
+                        DevilOre, SmoothObsidian, DevilCobblestone, DemonAltar
 
                 }
         );

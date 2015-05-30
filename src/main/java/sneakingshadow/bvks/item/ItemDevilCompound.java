@@ -8,6 +8,6 @@ public class ItemDevilCompound extends ItemBVKS
     public ItemDevilCompound()
     {
         super();
-        this.setUnlocalizedName(Names.Items.DevilCompound);
+        this.setUnlocalizedName(Names.Items.DEVIL_COMPOUND);
     }
 }

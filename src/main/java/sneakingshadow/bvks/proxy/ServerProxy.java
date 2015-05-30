@@ -12,4 +12,5 @@ public class ServerProxy extends CommonProxy
     public void registerCustomRender() {
         //NO-OP
     }
+
 }

@@ -3,7 +3,6 @@ package sneakingshadow.bvks.reference;
 public class Ref
 {
     public static final String MOD_ID = "bvks";
-    public static final String MOD_ID_ = MOD_ID+".";
     public static final String MOD_NAME = "Bearvalley's Killing Set";
     public static final String VERSION = "1.7.10-0.0.10";
     private static final String ROOT_FOLDER = "sneakingshadow.bvks";

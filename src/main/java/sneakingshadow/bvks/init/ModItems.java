@@ -74,11 +74,12 @@ public class ModItems
     public static final Item StoneHammer = new ItemStoneHammer();
     public static final Item WoodHammer = new ItemWoodHammer();
 
+
+
     /**
      *   The common admin tools
      */
     public static final Item AdminHammer = new ItemAdminHammer();
-
 
     /**
      *   The allmighty, holy debug tool!!!
@@ -87,43 +88,43 @@ public class ModItems
 
     public static void init()
     {
-        registerItem(AssassinsKnife, Names.Items.AssassinsKnife);
-        registerItem(DevilArrow, Names.Items.DevilArrow);
-        registerItem(DevilAxe, Names.Items.DevilAxe);
-        registerItem(DevilHoe, Names.Items.DevilHoe);
-        registerItem(DevilBoots, Names.Items.DevilBoots);
-        registerItem(DevilBow, Names.Items.DevilBow);
-        registerItem(DevilChestplate, Names.Items.DevilChestplate);
-        registerItem(DevilGem, Names.Items.DevilGem);
-        registerItem(DevilHammer, Names.Items.DevilHammer);
-        registerItem(DevilHelmet, Names.Items.DevilHelmet);
-        registerItem(DevilIngot, Names.Items.DevilIngot);
-        registerItem(DevilLeggings, Names.Items.DevilLeggings);
-        registerItem(DevilPickaxe, Names.Items.DevilPickaxe);
-        registerItem(DevilShovel, Names.Items.DevilShovel);
-        registerItem(DevilSword, Names.Items.DevilSword);
-        registerItem(DiamondHammer, Names.Items.DiamondHammer);
-        registerItem(GoldHammer, Names.Items.GoldHammer);
-        registerItem(IronHammer, Names.Items.IronHammer);
-        registerItem(IronRod, Names.Items.IronRod);
-        registerItem(ObsidianAxe, Names.Items.ObsidianAxe);
-        registerItem(ObsidianBoots, Names.Items.ObsidianBoots);
-        registerItem(ObsidianChestplate, Names.Items.ObsidianChestplate);
-        registerItem(ObsidianHammer, Names.Items.ObsidianHammer);
-        registerItem(ObsidianHelmet, Names.Items.ObsidianHelmet);
-        registerItem(ObsidianHoe, Names.Items.ObsidianHoe);
-        registerItem(ObsidianIngot, Names.Items.ObsidianIngot);
-        registerItem(ObsidianLeggings, Names.Items.ObsidianLeggings);
-        registerItem(ObsidianPickaxe, Names.Items.ObsidianPickaxe);
-        registerItem(ObsidianRod, Names.Items.ObsidianRod);
-        registerItem(ObsidianShovel, Names.Items.ObsidianShovel);
-        registerItem(ObsidianSword, Names.Items.ObsidianSword);
-        registerItem(StoneHammer, Names.Items.StoneHammer);
-        registerItem(WoodHammer, Names.Items.WoodHammer);
-        registerItem(DebugItem, Names.Items.DebugItem);
-        registerItem(DevilCompound, Names.Items.DevilCompound);
-        registerItem(AdminHammer, Names.Items.AdminHammer);
-        registerItem(BottomlessVoid, Names.Items.BottomlessVoid);
+        registerItem(AssassinsKnife, Names.Items.ASSASSINS_KNIFE);
+        registerItem(DevilArrow, Names.Items.DEVIL_ARROW);
+        registerItem(DevilAxe, Names.Items.DEVIL_AXE);
+        registerItem(DevilHoe, Names.Items.DEVIL_HOE);
+        registerItem(DevilBoots, Names.Items.DEVIL_BOOTS);
+        registerItem(DevilBow, Names.Items.DEVIL_BOW);
+        registerItem(DevilChestplate, Names.Items.DEVIL_CHESTPLATE);
+        registerItem(DevilGem, Names.Items.DEVIL_GEM);
+        registerItem(DevilHammer, Names.Items.DEVIL_HAMMER);
+        registerItem(DevilHelmet, Names.Items.DEVIL_HELMET);
+        registerItem(DevilIngot, Names.Items.DEVIL_INGOT);
+        registerItem(DevilLeggings, Names.Items.DEVIL_LEGGINGS);
+        registerItem(DevilPickaxe, Names.Items.DEVIL_PICKAXE);
+        registerItem(DevilShovel, Names.Items.DEVIL_SHOVEL);
+        registerItem(DevilSword, Names.Items.DEVIL_SWORD);
+        registerItem(DiamondHammer, Names.Items.DIAMOND_HAMMER);
+        registerItem(GoldHammer, Names.Items.GOLD_HAMMER);
+        registerItem(IronHammer, Names.Items.IRON_HAMMER);
+        registerItem(IronRod, Names.Items.IRON_ROD);
+        registerItem(ObsidianAxe, Names.Items.OBSIDIAN_AXE);
+        registerItem(ObsidianBoots, Names.Items.OBSIDIAN_BOOTS);
+        registerItem(ObsidianChestplate, Names.Items.OBSIDIAN_CHESTPLATE);
+        registerItem(ObsidianHammer, Names.Items.OBSIDIAN_HAMMER);
+        registerItem(ObsidianHelmet, Names.Items.OBSIDIAN_HELMET);
+        registerItem(ObsidianHoe, Names.Items.OBSIDIAN_HOE);
+        registerItem(ObsidianIngot, Names.Items.OBSIDIAN_INGOT);
+        registerItem(ObsidianLeggings, Names.Items.OBSIDIAN_LEGGINGS);
+        registerItem(ObsidianPickaxe, Names.Items.OBSIDIAN_PICKAXE);
+        registerItem(ObsidianRod, Names.Items.OBSIDIAN_ROD);
+        registerItem(ObsidianShovel, Names.Items.OBSIDIAN_SHOVEL);
+        registerItem(ObsidianSword, Names.Items.OBSIDIAN_SWORD);
+        registerItem(StoneHammer, Names.Items.STONE_HAMMER);
+        registerItem(WoodHammer, Names.Items.WOOD_HAMMER);
+        registerItem(DebugItem, Names.Items.DEBUG_ITEM);
+        registerItem(DevilCompound, Names.Items.DEVIL_COMPOUND);
+        registerItem(AdminHammer, Names.Items.ADMIN_HAMMER);
+        registerItem(BottomlessVoid, Names.Items.BOTTOMLESS_VOID);
     }
 
     public static void add(){

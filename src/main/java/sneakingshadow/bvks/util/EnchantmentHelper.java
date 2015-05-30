@@ -13,7 +13,7 @@ public class EnchantmentHelper
     public static int getLevel(int id, NBTTagList tagList) {
         if(tagList != null){
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if (tagList.getCompoundTagAt(i).getShort("id") == id) {
+                if (tagList.getCompoundTagAt(i).getShort("ID") == id) {
                     return tagList.getCompoundTagAt(i).getShort("lvl");
                 }
             }
@@ -30,7 +30,7 @@ public class EnchantmentHelper
         if(tagList != null){
             boolean booly = true;
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if (tagList.getCompoundTagAt(i).getShort("id") == enchantment.effectId) {
+                if (tagList.getCompoundTagAt(i).getShort("ID") == enchantment.effectId) {
                     tagList.getCompoundTagAt(i).setShort("lvl", (short) level);
 
                     booly = false;
@@ -38,7 +38,7 @@ public class EnchantmentHelper
             }
             if(booly){
                 NBTTagCompound tagCompound = new NBTTagCompound();
-                tagCompound.setShort("id", (short)enchantment.effectId);
+                tagCompound.setShort("ID", (short)enchantment.effectId);
                 tagCompound.setShort("lvl", (short)level);
                 tagList.appendTag( tagCompound );
             }
@@ -53,7 +53,7 @@ public class EnchantmentHelper
 
         if(tagList != null) {
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if(tagList.getCompoundTagAt(i).getShort("id") == id) {
+                if(tagList.getCompoundTagAt(i).getShort("ID") == id) {
                     tagList.removeTag(i);
                 }
             }
@@ -83,7 +83,7 @@ public class EnchantmentHelper
     public static boolean hasEnchant(int id, NBTTagList tagList){
         if(tagList != null) {
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if(tagList.getCompoundTagAt(i).getShort("id") == id) {
+                if(tagList.getCompoundTagAt(i).getShort("ID") == id) {
                     return true;
                 }
             }
@@ -97,7 +97,7 @@ public class EnchantmentHelper
     public static boolean hasEnchantOtherThan(int id, NBTTagList tagList){
         if(tagList != null) {
             for (int i = 0; i < tagList.tagCount(); i++) {
-                if(tagList.getCompoundTagAt(i).getShort("id") != id) {
+                if(tagList.getCompoundTagAt(i).getShort("ID") != id) {
                     return true;
                 }
             }
@@ -111,13 +111,13 @@ public class EnchantmentHelper
     public static List<Short> getEnchants(NBTTagList tagList){
         List<Short> list = new ArrayList<Short>();
         for(int i = tagList.tagCount()-1; i >= 0; i--){
-            list.add(tagList.getCompoundTagAt(i).getShort("id"));
+            list.add(tagList.getCompoundTagAt(i).getShort("ID"));
         }
         return list;
     }
     public static List<Short> getEnchants(ItemStack itemStack) { return getEnchants(itemStack.getEnchantmentTagList()); }
 
-    public static Short getEnchant(NBTTagList tagList){ return tagList.getCompoundTagAt(0).getShort("id"); }
+    public static Short getEnchant(NBTTagList tagList){ return tagList.getCompoundTagAt(0).getShort("ID"); }
     public static Short getEnchant(ItemStack itemStack) { return getEnchant( itemStack.getEnchantmentTagList() ); }
 
 }

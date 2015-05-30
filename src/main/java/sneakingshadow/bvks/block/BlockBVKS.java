@@ -16,10 +16,7 @@ public class BlockBVKS extends Block
         this.setCreativeTab(CreativeTabs.tabAllSearch);
     }
 
-    public BlockBVKS()
-    {
-        this(Material.rock);
-    }
+    public BlockBVKS() { this(Material.rock); }
 
     @Override
     public String getUnlocalizedName()

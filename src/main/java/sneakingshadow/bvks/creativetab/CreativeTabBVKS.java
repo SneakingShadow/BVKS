@@ -22,8 +22,8 @@ public class CreativeTabBVKS
 
     public static class TabItem extends CreativeTabs{
         public TabItem(){
-            super(Names.CreativeTabs.Item);
-            this.setBackgroundImageName(Names.CreativeTabs.Background);
+            super(Names.CreativeTabs.ITEM);
+            this.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
         }
 
         @Override
@@ -43,8 +43,8 @@ public class CreativeTabBVKS
 
     public static class TabBlock extends CreativeTabs{
         public TabBlock(){
-            super(Names.CreativeTabs.Block);
-            this.setBackgroundImageName(Names.CreativeTabs.Background);
+            super(Names.CreativeTabs.BLOCK);
+            this.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
         }
 
         @Override
@@ -66,6 +66,12 @@ public class CreativeTabBVKS
             ModBlocks.add();
         }
     }
+
+    /**
+     *
+     *
+     *
+     */
 
     public static void add(Item item) {
         item.getSubItems(item, tabItem, listItem);

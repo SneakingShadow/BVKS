@@ -8,6 +8,6 @@ public class ItemDevilBow extends ItemBVKS
     public ItemDevilBow()
     {
         super();
-        this.setUnlocalizedName(Names.Items.DevilBow);
+        this.setUnlocalizedName(Names.Items.DEVIL_BOW);
     }
 }

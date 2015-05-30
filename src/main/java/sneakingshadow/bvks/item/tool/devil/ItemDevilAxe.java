@@ -8,8 +8,8 @@ public class ItemDevilAxe extends ItemBVKSAxe
 {
     public ItemDevilAxe()
     {
-        super(ItemToolMaterial.DevilAxe);
-        this.setUnlocalizedName(Names.Items.DevilAxe);
+        super(ItemToolMaterial.DEVIL_AXE);
+        this.setUnlocalizedName(Names.Items.DEVIL_AXE);
     }
 
     @Override

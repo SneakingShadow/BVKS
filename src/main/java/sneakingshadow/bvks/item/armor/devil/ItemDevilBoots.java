@@ -13,8 +13,8 @@ public class ItemDevilBoots extends ItemBVKSArmor
 {
     public ItemDevilBoots()
     {
-        super(Names.ArmorTextures.Devil, Armor.Material.Devil, Armor.Type.BOOTS);
-        this.setUnlocalizedName(Names.Items.DevilBoots);
+        super(Names.ArmorTextures.DEVIL, Armor.Material.DEVIL, Armor.Type.BOOTS);
+        this.setUnlocalizedName(Names.Items.DEVIL_BOOTS);
         this.setInvisible();
     }
 

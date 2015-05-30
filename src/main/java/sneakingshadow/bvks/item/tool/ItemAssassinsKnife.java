@@ -8,6 +8,6 @@ public class ItemAssassinsKnife extends ItemBVKS
     public ItemAssassinsKnife()
     {
         super();
-        this.setUnlocalizedName(Names.Items.AssassinsKnife);
+        this.setUnlocalizedName(Names.Items.ASSASSINS_KNIFE);
     }
 }

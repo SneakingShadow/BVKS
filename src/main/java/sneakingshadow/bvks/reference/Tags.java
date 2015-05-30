@@ -7,13 +7,13 @@ public class Tags {
 
     public static final class Storage
     {
-        public static final String storedAmount = "stored";
-        public static final String id = "id";
-        public static final String name = "name";
-        public static final String meta = "meta";
-        public static final String stackTag = "stack";
-        public static final String stackTagNull = "stackNull";
-        public static final String maxStackSize = "maxStackSize";
+        public static final String STORED_AMOUNT = "stored";
+        public static final String ID = "ID";
+        public static final String NAME = "NAME";
+        public static final String META = "META";
+        public static final String STACK_TAG = "stack";
+        public static final String STACK_TAG_NULL = "stackNull";
+        public static final String MAX_STACK_SIZE = "MAX_STACK_SIZE";
     }
 
 

@@ -8,7 +8,7 @@ public class ItemObsidianAxe extends ItemBVKSAxe
 {
     public ItemObsidianAxe()
     {
-        super(ItemToolMaterial.Obsidian);
-        this.setUnlocalizedName(Names.Items.ObsidianAxe);
+        super(ItemToolMaterial.OBSIDIAN);
+        this.setUnlocalizedName(Names.Items.OBSIDIAN_AXE);
     }
 }

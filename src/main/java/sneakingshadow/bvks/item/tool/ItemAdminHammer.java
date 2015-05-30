@@ -22,8 +22,8 @@ import java.util.List;
 
 public class ItemAdminHammer extends ItemBVKSHammer{
     public ItemAdminHammer(){
-        super(ItemToolMaterial.AdminHammer, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
-        this.setUnlocalizedName(Names.Items.AdminHammer);
+        super(ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
+        this.setUnlocalizedName(Names.Items.ADMIN_HAMMER);
     }
 
     @Override
