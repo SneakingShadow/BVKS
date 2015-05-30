@@ -1,4 +1,4 @@
-package sneakingshadow.bvks.client.model;
+package sneakingshadow.bvks.client.model.entity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -6,9 +6,9 @@ import net.minecraft.client.model.ModelQuadruped;
 import net.minecraft.client.model.ModelRenderer;
 
 @SideOnly(Side.CLIENT)
-public class ModelAwesomeCow extends ModelQuadruped
+public class EntityModelAwesomeCow extends ModelQuadruped
 {
-    public ModelAwesomeCow()
+    public EntityModelAwesomeCow()
     {
         super(12, 0.0F);
         this.head = new ModelRenderer(this, 0, 0);
