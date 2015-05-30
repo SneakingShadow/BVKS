@@ -1,0 +1,59 @@
+# Keys
+keys.bvks.category = Bear Valley's Killing-Set
+keys.bvks.charge = Pointless button
+keys.bvks.release = Pointless button
+
+# Block localizations
+tile.bvks:devil_ore.name = Devil Ore
+tile.bvks:devil_cobblestone.name = Devil Cobblestone
+tile.bvks:smooth_obsidian.name = Smooth Obsidian
+tile.bvks:debug_block.name = Debug Block
+
+# Item localizations
+item.bvks:assassins_knife.name = Assassins Knife
+item.bvks:devil_arrow.name = Devil Arrow
+item.bvks:devil_axe.name = Devil Axe
+item.bvks:devil_hoe.name = Death's schyte
+item.bvks:devil_boots.name = Devil Boots
+item.bvks:devil_bow.name = Devil Bow
+item.bvks:devil_chestplate.name = Devil Chestplate
+item.bvks:devil_gem.name = Devil Gem
+item.bvks:devil_hammer.name = Devil Hammer
+item.bvks:devil_helmet.name = Devil Helmet
+item.bvks:devil_ingot.name = Devil Ingot
+item.bvks:devil_leggings.name = Devil Leggings
+item.bvks:devil_pickaxe.name = Devil Pickaxe
+item.bvks:devil_shovel.name = Devil Shovel
+item.bvks:devil_blade.name = Devil Blade
+item.bvks:diamond_hammer.name = Diamond Hammer
+item.bvks:gold_hammer.name = Gold Hammer
+item.bvks:iron_hammer.name = Iron Hammer
+item.bvks:iron_rod.name = Iron Rod
+item.bvks:obsidian_axe.name = Obsidian Axe
+item.bvks:obsidian_boots.name = Obsidian Boots
+item.bvks:obsidian_chestplate.name = Obsidian Chestplate
+item.bvks:obsidian_hammer.name = Obsidian Hammer
+item.bvks:obsidian_helmet.name = Obsidian Helmet
+item.bvks:obsidian_hoe.name = Obsidian Hoe
+item.bvks:obsidian_ingot.name = Obsidian Ingot
+item.bvks:obsidian_leggings.name = Obsidian Leggings
+item.bvks:obsidian_pickaxe.name = Obsidian Pickaxe
+item.bvks:obsidian_rod.name = Obsidian Rod
+item.bvks:obsidian_shovel.name = Obsidian Shovel
+item.bvks:obsidian_sword.name = Obsidian Sword
+item.bvks:stone_hammer.name = Stone Hammer
+item.bvks:wood_hammer.name = Wood Hammer
+item.bvks:devil_compound.name = Devil Compound
+item.bvks:debug_item.name = Debug Item
+item.bvks:admin_hammer_inactive.name = Admin hammer (Will not drop items)
+item.bvks:admin_hammer_active.name = Admin hammer (!!!)(Will drop items)
+item.bvks:bottomless_void.name = Bottomless Void
+item.bvks:bottomless_void_inactive.name = Bottomless Void (Inactive)
+item.bvks:bottomless_void_active.name = Bottomless Void (Active)
+
+# Creative tab localizations
+itemGroup.bvks:item = BVKS Items
+itemGroup.bvks:block = BVKS Blocks
+
+# Entity localizations
+entity.bvks.awesome_cow.name = Awesome Cow (debug entity)
