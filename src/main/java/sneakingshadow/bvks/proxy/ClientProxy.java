@@ -9,6 +9,7 @@ import sneakingshadow.bvks.client.renderer.tileentity.TileEntityRendererDemonAlt
 import sneakingshadow.bvks.client.settings.Keybindings;
 import sneakingshadow.bvks.entity.EntityAwesomeCow;
 import sneakingshadow.bvks.init.ModItems;
+import sneakingshadow.bvks.reference.RenderIds;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
 
 public class ClientProxy extends CommonProxy
@@ -26,6 +27,7 @@ public class ClientProxy extends CommonProxy
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAwesomeCow.class, new EntityRenderAwesomeCow());
 
+        RenderIds.demonAltar = RenderingRegistry.getNextAvailableRenderId();
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonAltar.class, new TileEntityRendererDemonAltar());
     }
 }

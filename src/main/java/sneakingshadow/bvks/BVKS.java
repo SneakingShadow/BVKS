@@ -33,12 +33,8 @@ public class BVKS
 
         ModItems.init();
         ModBlocks.init();
-
         WorldGen.init();
-
         ModEntities.init();
-
-        proxy.registerCustomRender();
 
         LogHelper.info("Pre Initialization Complete!");
     }
@@ -49,6 +45,8 @@ public class BVKS
         Recipes.init();
 
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+
+        proxy.registerCustomRender();
 
         LogHelper.info("Initialization Complete!");
     }
