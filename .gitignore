@@ -1,0 +1,33 @@
+Thumbs.db
+
+
+/decompiled
+
+## gradle
+/.gradle
+/build
+
+## ForgeGradle
+/run
+
+## eclipse
+/.settings
+/.metadata
+/.classpath
+/.project
+/bin
+
+## intellij
+/out
+/.idea
+/atlassian-ide-plugin.xml
+/BVKS.iml
+/BVKS.ipr
+/BVKS.iws
+
+## Private Stuffs
+/private.properties
+
+## Jars
+*.jar
+!/gradle/wrapper/gradle-wrapper.jar
