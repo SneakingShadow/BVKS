@@ -58,4 +58,4 @@ public class BVKS
     }
 }
 
-//TODO Add custom texture handler for devil tools to make them invisible..
+//TODO Add custom texture handler for devil tools to make them invisible.
