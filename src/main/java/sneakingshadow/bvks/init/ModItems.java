@@ -23,9 +23,6 @@ import sneakingshadow.bvks.reference.Ref;
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
-    /**
-     *
-     */
     public static final Item DevilGem = new ItemDevilGem().setCreativeTab(CreativeTabBVKS.tabItem);
     public static final Item ObsidianIngot = new ItemObsidianIngot();
     public static final Item IronRod = new ItemIronRod();
@@ -128,16 +125,12 @@ public class ModItems
     }
 
     public static void add(){
-        CreativeTabBVKS.add(new Item[]
-                {
-
-                        BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,      StoneHammer,     WoodHammer,
-                        DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilShovel,     DevilAxe,        DevilHoe,
-                        ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianShovel,  ObsidianAxe,     ObsidianHoe,
-                        AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,   ObsidianRod,     IronRod,
-
-                }
-        );
+        CreativeTabBVKS.add(new Item[]{
+                BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,      StoneHammer,     WoodHammer,
+                DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilShovel,     DevilAxe,        DevilHoe,
+                ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianShovel,  ObsidianAxe,     ObsidianHoe,
+                AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,   ObsidianRod,     IronRod,
+        });
         CreativeTabBVKS.add(DebugItem);
     }
 
