@@ -32,7 +32,8 @@ public class ModItems
     public static final Item DevilIngot = new ItemDevilIngot();
     public static final Item ObsidianRod = new ItemObsidianRod();
     public static final Item DevilCompound = new ItemDevilCompound();
-    public static final Item BottomlessVoid = new ItemBottomlessVoid().setDescription("Stores one type of item");
+    public static final Item BottomlessVoid = new ItemBottomlessVoid();
+    public static final Item CobbleGen = new ItemStoneGen();
 
     //Armor
     public static final Item DevilBoots = new ItemDevilBoots();
@@ -71,16 +72,7 @@ public class ModItems
     public static final Item StoneHammer = new ItemStoneHammer();
     public static final Item WoodHammer = new ItemWoodHammer();
 
-
-
-    /**
-     *   The common admin tools
-     */
     public static final Item AdminHammer = new ItemAdminHammer();
-
-    /**
-     *   The allmighty, holy debug tool!!!
-     */
     public static final Item DebugItem = new ItemDebugItem();
 
     public static void init()
@@ -122,14 +114,48 @@ public class ModItems
         registerItem(DevilCompound, Names.Items.DEVIL_COMPOUND);
         registerItem(AdminHammer, Names.Items.ADMIN_HAMMER);
         registerItem(BottomlessVoid, Names.Items.BOTTOMLESS_VOID);
+        registerItem(CobbleGen, Names.Items.STONE_GEN);
     }
 
     public static void add(){
         CreativeTabBVKS.add(new Item[]{
-                BottomlessVoid,  AdminHammer,         DevilHammer,       ObsidianHammer,  DiamondHammer,  GoldHammer,       IronHammer,      StoneHammer,     WoodHammer,
-                DevilHelmet,     DevilChestplate,     DevilLeggings,     DevilBoots,      DevilSword,     DevilPickaxe,     DevilShovel,     DevilAxe,        DevilHoe,
-                ObsidianHelmet,  ObsidianChestplate,  ObsidianLeggings,  ObsidianBoots,   ObsidianSword,  ObsidianPickaxe,  ObsidianShovel,  ObsidianAxe,     ObsidianHoe,
-                AssassinsKnife,  DevilBow,            DevilArrow,        DevilGem,        DevilIngot,     DevilCompound,    ObsidianIngot,   ObsidianRod,     IronRod,
+                BottomlessVoid,
+                AdminHammer,
+                DevilHammer,
+                ObsidianHammer,
+                DiamondHammer,
+                GoldHammer,
+                IronHammer,
+                StoneHammer,
+                WoodHammer,
+                DevilHelmet,
+                DevilChestplate,
+                DevilLeggings,
+                DevilBoots,
+                DevilSword,
+                DevilPickaxe,
+                DevilShovel,
+                DevilAxe,
+                DevilHoe,
+                ObsidianHelmet,
+                ObsidianChestplate,
+                ObsidianLeggings,
+                ObsidianBoots,
+                ObsidianSword,
+                ObsidianPickaxe,
+                ObsidianShovel,
+                ObsidianAxe,
+                ObsidianHoe,
+                CobbleGen,
+                AssassinsKnife,
+                DevilBow,
+                DevilArrow,
+                DevilGem,
+                DevilIngot,
+                DevilCompound,
+                ObsidianIngot,
+                ObsidianRod,
+                IronRod,
         });
         CreativeTabBVKS.add(DebugItem);
     }

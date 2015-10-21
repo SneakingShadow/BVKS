@@ -29,7 +29,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        super.addDescription(list);
+        list.add("Stores one type of item");
         if (itemStack.getItemDamage() != 0) {
             NBTTagCompound storageTag = itemStack.stackTagCompound.getCompoundTag(Ref.MOD_ID);
             list.add("Type stored: " + storageTag.getString(Tags.Storage.NAME));

@@ -53,16 +53,6 @@ public class ItemBVKS extends Item
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
-    public static String description;
-    public ItemBVKS setDescription(String str) {
-        description = str;
-        return this;
-    }
-    public void addDescription(List list){
-        if (description != null)
-            list.add(description);
-    }
-
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
     {

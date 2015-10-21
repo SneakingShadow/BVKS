@@ -59,6 +59,7 @@ item.bvks:admin_hammer_active.name = Admin hammer (!!!)(Will drop items)
 item.bvks:bottomless_void.name = Bottomless Void
 item.bvks:bottomless_void_inactive.name = Bottomless Void (Inactive)
 item.bvks:bottomless_void_active.name = Bottomless Void (Active)
+item.bvks:stone_generator.name = Portable Stone Generator
 
 # Creative tab localizations
 itemGroup.bvks:item = BVKS Items

@@ -58,6 +58,7 @@ public final class Names
         public static final String DEVIL_COMPOUND = "devil_compound";
         public static final String ADMIN_HAMMER = "admin_hammer";
         public static final String BOTTOMLESS_VOID = "bottomless_void";
+        public static final String STONE_GEN = "stone_generator";
     }
 
     public static final class ArmorTextures
