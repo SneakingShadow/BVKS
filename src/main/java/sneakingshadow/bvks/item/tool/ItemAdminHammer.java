@@ -7,7 +7,9 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.init.ModItems;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAdminHammer extends ItemBVKSHammer{
+
     public ItemAdminHammer(){
         super(ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
         this.setUnlocalizedName(Names.Items.ADMIN_HAMMER);
@@ -30,30 +33,30 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) //TODO Silk touch on hammer
     {
         boolean bool = false;
-        ArrayList<ItemStack> storageItems = new ArrayList<ItemStack>();
+        ArrayList<ItemStack> bottomlessVoids = new ArrayList<ItemStack>();
         if(entityLivingBase instanceof EntityPlayer){
             EntityPlayer entityPlayer = (EntityPlayer)entityLivingBase;
-            InventoryPlayer inventory = entityPlayer.inventory;
-            for(int i = 0; i < inventory.mainInventory.length; ++i) {
-                if(inventory.mainInventory[i] != null && inventory.mainInventory[i].getItemDamage() != 0 && inventory.mainInventory[i].getItem() instanceof ItemBottomlessVoid){
-                    storageItems.add(inventory.mainInventory[i]);
+            ItemStack[] itemStacks = entityPlayer.inventory.mainInventory;
+            for(int i = 0; i < itemStacks.length; ++i) {
+                if(itemStacks[i] != null && itemStacks[i].getItem() instanceof ItemBottomlessVoid && itemStacks[i].getItemDamage() != 0){
+                    bottomlessVoids.add(itemStacks[i]);
                 }
             }
-            bool = !storageItems.isEmpty();
+            bool = !bottomlessVoids.isEmpty();
         }
         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
         {
-            breakBlock(itemStack, world, block, x, y, z, storageItems, bool);
+            breakBlock(itemStack, world, block, x, y, z, bottomlessVoids, bool);
         }
         world.setBlockToAir(x, y, z);
-        for(int rx = x-( (widthX/2)-((widthX/2)%1) ); rx< x-((widthX/2)-((widthX/2)%1)) + widthX ;rx++){
+        for(int rx = x-(widthX/2); rx< x-(widthX/2) + widthX ;rx++){
             for(int ry = y-1; ry< y-1+widthY ;ry++) {
-                for(int rz = z-( (widthZ/2)-((widthZ/2)%1) ); rz< z-((widthZ/2)-((widthZ/2)%1)) + widthZ ;rz++){
+                for(int rz = z-(widthZ/2); rz< z-(widthZ/2) + widthZ ;rz++){
                     Block blocky = world.getBlock(rx, ry, rz);
                     if (blocky.getMaterial() != Material.air && !Block.isEqualTo(blocky, Blocks.bedrock)) {
                         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
                         {
-                            breakBlock(itemStack, world, blocky, rx, ry, rz, storageItems, bool);
+                            breakBlock(itemStack, world, blocky, rx, ry, rz, bottomlessVoids, bool);
                         }
                         world.setBlockToAir(rx, ry, rz);
                     }
@@ -64,27 +67,16 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         return false;
     }
 
-    public static void breakBlock(ItemStack itemStack, World world, Block blocky, int rx, int ry, int rz, ArrayList<ItemStack> storageItems, boolean bool){
+    public static void breakBlock(ItemStack itemStack, World world, Block blocky, int rx, int ry, int rz, ArrayList<ItemStack> bottomlessVoids, boolean bool){
         ArrayList<ItemStack> items = blocky.getDrops(world, rx, ry, rz, world.getBlockMetadata(rx, ry, rz), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
-        Boolean bool2;
-        for (ItemStack item1 : items)
-        {
-            if(bool){
-                for(ItemStack item2 : storageItems){
-                    if (ItemBottomlessVoid.getStackTagNull(item2) ? item1.stackTagCompound == null : item1.stackTagCompound != null) {
-                        boolean flag = true;
-                        if (item1.stackTagCompound != null) {
-                            ItemBottomlessVoid.getStackTag(item2).setByte("Count", item1.stackTagCompound.getByte("Count"));
-                            if (!ItemBottomlessVoid.getStackTag(item2).equals(item1.stackTagCompound))
-                                flag = false;
-                        }
-                        if (flag && ItemBottomlessVoid.getItem(item2).equals(item1.getItem())) {
-                            ItemBottomlessVoid.add(item2, item1.stackSize);
-                        }
-                    }
+        if(bool)
+            for (ItemStack itemStack1 : items)
+                for(ItemStack itemStack2 : bottomlessVoids) {
+                    NBTTagCompound itemCompound = itemStack1.getTagCompound();
+                    NBTTagCompound voidCompound = itemStack2.getTagCompound().getCompoundTag("Item");
+                    if ( ItemBottomlessVoid.isItemsEqual(itemCompound, voidCompound) )
+                        ItemBottomlessVoid.raiseItemCount(voidCompound, (long)itemCompound.getShort("Count"));
                 }
-            }
-        }
     }
 
     @Override

@@ -59,3 +59,7 @@ public class BVKS
 }
 
 //TODO Add custom texture handler for devil tools to make them invisible.
+
+//TODO Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
+//Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
+//Check if you can get the player name any other way.

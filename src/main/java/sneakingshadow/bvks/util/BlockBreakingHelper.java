@@ -11,22 +11,13 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 
 public class BlockBreakingHelper {
 
-    /**
-     * @param itemStack
-     * @param world
-     * @param block
-     * @param x
-     * @param y
-     * @param z
-     * @param pos
-     * @param storageItems   Empty list and it will not be used
-     */
     public static void breakBlock(ItemStack itemStack, World world, Block block, int x, int y, int z, Vec3 pos, ArrayList<ItemStack> storageItems){
-        if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")){
+        /*if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")){
             ArrayList<ItemStack> items = block.getDrops(world, x, y, z, world.getBlockMetadata(x, y, z), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
             Boolean bool2;
             for (ItemStack item1 : items)
@@ -60,6 +51,7 @@ public class BlockBreakingHelper {
             }
         }
         world.setBlockToAir(x, y, z);
+        */
     }
 
     public static ArrayList<ItemStack> getBottomlessVoidList(EntityLivingBase entityLivingBase){

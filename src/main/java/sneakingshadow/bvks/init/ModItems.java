@@ -64,6 +64,7 @@ public class ModItems
     public static final Item DevilHoe = new ItemDevilHoe();
     public static final Item ObsidianHoe = new ItemObsidianHoe();
     //Hammers
+
     public static final Item DevilHammer = new ItemDevilHammer();
     public static final Item DiamondHammer = new ItemDiamondHammer();
     public static final Item GoldHammer = new ItemGoldHammer();

@@ -25,9 +25,9 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
     }
 
     @Override
-    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+    public void renderItem(ItemRenderType type, ItemStack itemStack, Object... data) {
         // Get icon index for the texture
-        IIcon icon = item.getIconIndex();
+        IIcon icon = itemStack.getIconIndex();
         // Use vanilla code to render the icon in a 16x16 square of inventory slot
         renderItem.renderIcon(0, 0, icon, 16, 16);
         // Disable texturing, for now we only need colored shapes
@@ -53,14 +53,14 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
         GL11.glDepthMask(true);
         GL11.glDisable(GL11.GL_BLEND);
 
-        if(item.getItemDamage()!=0) {
+        if(itemStack.getItemDamage()!=0) {
 
             FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 
             // Enable texturing, because Minecraft text font is actually a texture
             GL11.glEnable(GL11.GL_TEXTURE_2D);
             // Get our text value
-            String text = MetricPrefixHelper.compress(ItemBottomlessVoid.getStored(item));
+            String text = MetricPrefixHelper.compress(itemStack.getTagCompound().getCompoundTag("Item").getLong("Count"));
             // Draw our text at (1, 1) with white color
             fontRenderer.drawStringWithShadow(text, 1, 1, 0xFFFFFF);
 
