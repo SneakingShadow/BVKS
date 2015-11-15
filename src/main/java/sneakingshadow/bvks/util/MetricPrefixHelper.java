@@ -11,8 +11,8 @@ public class MetricPrefixHelper {
             "P",                              // | peta   |   P    |   10^15     | 1,000,000,000,000,000
             "E",                              // | exa    |   E    |   10^18     | 1,000,000,000,000,000,000
             "Z",                              // | zetta  |   Z    |   10^21     | 1,000,000,000,000,000,000,000
-            "Y"                               // | yotta  |   Y    |   10^24     | 1,000,000,000,000,000,000,000,000
-    };                                        //
+            "Y",                              // | yotta  |   Y    |   10^24     | 1,000,000,000,000,000,000,000,000
+    };
 
     private static String compress(long num, int prefix){
         if(Long.toString(num).length() >= 4 && prefixes.length > prefix)

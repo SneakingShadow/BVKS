@@ -41,6 +41,6 @@ public class EntityRenderAwesomeCow extends RenderLiving
 
     protected void preRenderCallback(EntityAwesomeCow entity, float f)
     {
-        GL11.glScalef(1F*size, 1F*size, 1F*size);
+        GL11.glScalef(size, size, size);
     }
 }
