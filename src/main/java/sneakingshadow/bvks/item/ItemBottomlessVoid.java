@@ -53,6 +53,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     public static ItemStack extractStack(ItemStack itemStack) {
         NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        //TODO Fix so it doesn't add the "Count" tag to the item, but rather gives the propper tag and amount.
         ItemStack itemStack1 = getItemStackStored(itemStack);
         if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
             itemStack1.getTagCompound().setByte("Count", (byte)nbtTagCompound.getLong("Count"));
@@ -130,10 +131,13 @@ public class ItemBottomlessVoid extends ItemBVKS {
                 list.add("Item ID: " + itemTagCompound.getShort("id"));
                 list.add("Item metadata: " + itemTagCompound.getShort("Damage"));
 
-                if (itemTagCompound.hasKey("display", 10)) {
+                if (itemTagCompound.hasKey("display")) {
                     NBTTagCompound nbttagcompound = itemTagCompound.getCompoundTag("display");
-                    if (nbttagcompound.hasKey("Name", 8))
+                    if (nbttagcompound.hasKey("Name"))
                         list.add("Display name: " + nbttagcompound.getString("Name"));
+                }
+                if (itemTagCompound.hasKey("ench")){
+                    //TODO
                 }
                 list.add("Stores a block: " + isItemBlock(itemTagCompound));
             }else

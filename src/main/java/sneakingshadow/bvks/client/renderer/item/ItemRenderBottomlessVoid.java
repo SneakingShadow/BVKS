@@ -16,7 +16,7 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type == ItemRenderType.INVENTORY; // || type == EQUIPPED_FIRST_PERSON
+        return type == ItemRenderType.INVENTORY;// || type == EQUIPPED_FIRST_PERSON
     }
 
     @Override
@@ -32,24 +32,25 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
         renderItem.renderIcon(0, 0, icon, 16, 16);
         // Disable texturing, for now we only need colored shapes
         GL11.glDisable(GL11.GL_TEXTURE_2D);
-        // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glDepthMask(false);
-        GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        // Set drawing mode (see first tutorial link above).
-        GL11.glBegin(GL11.GL_QUADS);
-        // Set semi-transparent black color
-        GL11.glColor4f(0F, 0F, 0F, 0.5F);
-
-        // Draw a 8x8 square
-        GL11.glVertex3d(0, 0, 0);
-        GL11.glVertex3d(0, 8, 0);
-        GL11.glVertex3d(8, 8, 0);
-        GL11.glVertex3d(8, 0, 0);
-
-        GL11.glEnd();
 
         if(itemStack.getItemDamage()!=0) {
+
+            // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
+            GL11.glEnable(GL11.GL_BLEND);
+            GL11.glDepthMask(false);
+            GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+            // Set drawing mode (see first tutorial link above).
+            GL11.glBegin(GL11.GL_QUADS);
+            // Set semi-transparent black color
+            GL11.glColor4f(0F, 0F, 0F, 0.5F);
+
+            // Draw a 8x8 square
+            GL11.glVertex3d(0, 0, 0);
+            GL11.glVertex3d(0, 8, 0);
+            GL11.glVertex3d(8, 8, 0);
+            GL11.glVertex3d(8, 0, 0);
+
+            GL11.glEnd();
 
             // Turn off unneeded transparency flags
             GL11.glDepthMask(true);
