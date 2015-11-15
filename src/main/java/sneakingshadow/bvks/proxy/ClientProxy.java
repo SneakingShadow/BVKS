@@ -4,10 +4,12 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.client.MinecraftForgeClient;
 import sneakingshadow.bvks.client.renderer.entity.EntityRenderAwesomeCow;
+import sneakingshadow.bvks.client.renderer.entity.EntityRenderMiniSteve;
 import sneakingshadow.bvks.client.renderer.item.ItemRenderBottomlessVoid;
 import sneakingshadow.bvks.client.renderer.tileentity.TileEntityRendererDemonAltar;
 import sneakingshadow.bvks.client.settings.Keybindings;
 import sneakingshadow.bvks.entity.EntityAwesomeCow;
+import sneakingshadow.bvks.entity.EntityMiniSteve;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.reference.RenderIds;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
@@ -26,6 +28,7 @@ public class ClientProxy extends CommonProxy
         MinecraftForgeClient.registerItemRenderer(ModItems.BottomlessVoid, new ItemRenderBottomlessVoid());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAwesomeCow.class, new EntityRenderAwesomeCow());
+        RenderingRegistry.registerEntityRenderingHandler(EntityMiniSteve.class, new EntityRenderMiniSteve());
 
         RenderIds.demonAltar = RenderingRegistry.getNextAvailableRenderId();
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonAltar.class, new TileEntityRendererDemonAltar());
