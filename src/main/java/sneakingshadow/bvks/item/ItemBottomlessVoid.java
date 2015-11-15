@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
-import sneakingshadow.bvks.util.LogHelper;
+
 import java.util.List;
 
 public class ItemBottomlessVoid extends ItemBVKS {
@@ -52,14 +52,14 @@ public class ItemBottomlessVoid extends ItemBVKS {
     }
 
     public static ItemStack extractStack(ItemStack itemStack) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        //TODO Fix so it doesn't add the "Count" tag to the item, but rather gives the propper tag and amount.
-        ItemStack itemStack1 = getItemStackStored(itemStack);
+        NBTTagCompound nbtTagCompound = (NBTTagCompound)itemStack.getTagCompound().getCompoundTag("Item").copy();
+        ItemStack itemStack1 = getItemStackStored(nbtTagCompound);
         if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemStack1.getTagCompound().setByte("Count", (byte)nbtTagCompound.getLong("Count"));
+            itemStack1.stackSize = (int)nbtTagCompound.getLong("Count");
         }else{
-            itemStack1.getTagCompound().setByte("Count", (byte) itemStack1.getMaxStackSize());
+            itemStack1.stackSize = itemStack1.getMaxStackSize();
         }
+        itemStack1.readFromNBT(nbtTagCompound);
         return itemStack1;
     }
 
@@ -67,10 +67,10 @@ public class ItemBottomlessVoid extends ItemBVKS {
         NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
         ItemStack itemStack1 = getItemStackStored(itemStack);
         if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemStack1.getTagCompound().setByte("Count", (byte)nbtTagCompound.getLong("Count"));
+            itemStack1.stackSize = (int)nbtTagCompound.getLong("Count");
             nbtTagCompound.setLong("Count", 0);
         }else{
-            itemStack1.getTagCompound().setByte("Count", (byte) itemStack1.getMaxStackSize());
+            itemStack1.stackSize = itemStack1.getMaxStackSize();
             nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-itemStack1.getMaxStackSize());
         }
         return itemStack1;
@@ -87,10 +87,9 @@ public class ItemBottomlessVoid extends ItemBVKS {
         raiseItemCount(nbtTagCompound, l);
     }
 
-    public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l)
-    {
+    public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l) {
         nbtTagCompound.setLong("Count",
-                (nbtTagCompound.getLong("Count")+l) <= (2^63 -308) ?
+                (nbtTagCompound.getLong("Count") + l) <= (2 ^ 63 -308) ?
                         nbtTagCompound.getLong("Count") :
                         (2^63 -308)
         );
