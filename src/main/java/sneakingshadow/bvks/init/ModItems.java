@@ -75,6 +75,7 @@ public class ModItems
 
     public static final Item AdminHammer = new ItemAdminHammer();
     public static final Item DebugItem = new ItemDebugItem();
+    public static final Item NBTDebugItem = new ItemNBTDebugItem();
 
     public static void init()
     {
@@ -112,6 +113,7 @@ public class ModItems
         registerItem(StoneHammer, Names.Items.STONE_HAMMER);
         registerItem(WoodHammer, Names.Items.WOOD_HAMMER);
         registerItem(DebugItem, Names.Items.DEBUG_ITEM);
+        registerItem(NBTDebugItem, Names.Items.NBT_DEBUG_ITEM);
         registerItem(DevilCompound, Names.Items.DEVIL_COMPOUND);
         registerItem(AdminHammer, Names.Items.ADMIN_HAMMER);
         registerItem(BottomlessVoid, Names.Items.BOTTOMLESS_VOID);
@@ -159,6 +161,7 @@ public class ModItems
                 IronRod,
         });
         CreativeTabBVKS.add(DebugItem);
+        CreativeTabBVKS.add(NBTDebugItem);
     }
 
     private static void registerItem(Item item, String name){

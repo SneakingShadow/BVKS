@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.util.LogHelper;
@@ -38,7 +39,10 @@ public class ItemBottomlessVoid extends ItemBVKS {
     */
 
     public static ItemStack getItemStackStored(ItemStack itemStack) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        return getItemStackStored(itemStack.getTagCompound().getCompoundTag("Item"));
+    }
+
+    public static ItemStack getItemStackStored(NBTTagCompound nbtTagCompound) {
         NBTTagCompound itemCompound = new NBTTagCompound();
         itemCompound.setShort("id", nbtTagCompound.getShort("id"));
         itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
@@ -52,10 +56,21 @@ public class ItemBottomlessVoid extends ItemBVKS {
         ItemStack itemStack1 = getItemStackStored(itemStack);
         if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
             itemStack1.getTagCompound().setByte("Count", (byte)nbtTagCompound.getLong("Count"));
+        }else{
+            itemStack1.getTagCompound().setByte("Count", (byte) itemStack1.getMaxStackSize());
+        }
+        return itemStack1;
+    }
+
+    public static ItemStack extractStackWithRemoval(ItemStack itemStack) {
+        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        ItemStack itemStack1 = getItemStackStored(itemStack);
+        if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
+            itemStack1.getTagCompound().setByte("Count", (byte)nbtTagCompound.getLong("Count"));
             nbtTagCompound.setLong("Count", 0);
         }else{
             itemStack1.getTagCompound().setByte("Count", (byte) itemStack1.getMaxStackSize());
-            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count") - itemStack1.getMaxStackSize());
+            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-itemStack1.getMaxStackSize());
         }
         return itemStack1;
     }
@@ -64,6 +79,11 @@ public class ItemBottomlessVoid extends ItemBVKS {
         return itemCompound.getShort("id") == bottomlessVoidCompound.getShort("id") &&
                 itemCompound.getByte("Damage") == bottomlessVoidCompound.getByte("Damage") &&
                 itemCompound.getCompoundTag("tag").equals(bottomlessVoidCompound.getCompoundTag("tag"));
+    }
+
+    public static void raiseItemCount(ItemStack itemStack, long l){
+        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        raiseItemCount(nbtTagCompound, l);
     }
 
     public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l)
@@ -75,25 +95,54 @@ public class ItemBottomlessVoid extends ItemBVKS {
         );
     }
 
+    public static boolean isItemBlock(ItemStack itemStack){
+        return isItemBlock(itemStack.getTagCompound().getCompoundTag("Item"));
+    }
+
+    public static boolean isItemBlock(NBTTagCompound nbtTagCompound){
+        NBTTagCompound nbtTagCompound1 = (NBTTagCompound)nbtTagCompound.copy();
+        nbtTagCompound1.setByte("Count", (byte) 1);
+        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(nbtTagCompound1);
+        return itemStack1 != null && itemStack1.getItem() != null && itemStack1.getItem() instanceof ItemBlock;
+    }
+
+    @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add("Stores one type of item/block");
         if (itemStack.getItemDamage() != 0) {
-            NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
             ItemStack itemStack1 = getItemStackStored(itemStack);
 
-            LogHelper.info(itemStack.getTagCompound());
-            LogHelper.info(itemStack1.getItem());
-            LogHelper.info(itemStack1.getItem() instanceof ItemBlock);
-            list.add("Item stored: " + itemStack1.getDisplayName());
-            list.add("Amount stored: " + nbtTagCompound.getLong("Count"));
-            if (nbtTagCompound.getLong("Count") == 0)
-                list.add("Place in crafting table to clear this item");
+            NBTTagCompound voidTagCompound = itemStack.getTagCompound();
+            NBTTagCompound itemTagCompound = voidTagCompound.getCompoundTag("Item");
+            NBTTagCompound stackTagCompound = itemStack1.getTagCompound();
+
+            if (itemTagCompound.getLong("Count") == 0)
+                list.add("Place in crafting table to clear the bottomless void of set item");
             else
                 list.add("Place in crafting table to get out items");
-        } else
-            list.add("Combine with item in crafting table to set type");
 
+            list.add("Item stored: " + itemStack1.getItem().getItemStackDisplayName(itemStack1));
+            list.add("Amount stored: " + itemTagCompound.getLong("Count"));
+
+            if ( Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT )) {
+                //TODO if player is sneaking, show extra information. Enchantments, custom name, etc..
+
+                list.add("Item ID: " + itemTagCompound.getShort("id"));
+                list.add("Item metadata: " + itemTagCompound.getShort("Damage"));
+
+                if (itemTagCompound.hasKey("display", 10)) {
+                    NBTTagCompound nbttagcompound = itemTagCompound.getCompoundTag("display");
+                    if (nbttagcompound.hasKey("Name", 8))
+                        list.add("Display name: " + nbttagcompound.getString("Name"));
+                }
+                list.add("Stores a block: " + isItemBlock(itemTagCompound));
+            }else
+                list.add("Press shift for more info");
+
+        } else {
+            list.add("Stores one type of item/block");
+            list.add("Combine with item in crafting table to set type");
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -123,7 +172,10 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         if (!world.isRemote && !world.restoringBlockSnapshots) {
             if (entityPlayer.isSneaking()) {
-                itemStack.setItemDamage( itemStack.getItemDamage() == 0 ? 0 : ((itemStack.getItemDamage() == 2) ? 1 : 2));
+                itemStack.setItemDamage(
+                        itemStack.getItemDamage() == 0 ? 0:
+                                itemStack.getItemDamage() == 1 ? 2:1
+                );
             } else {
 
             }
@@ -140,7 +192,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean bool) {
         if (entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) entity;
-            //TODO: Find items in inventory
+            //TODO: Find items in inventory, then only make it update on pickup, and always keep a stack in the inventory, but not more.
         }
     }
 
@@ -153,7 +205,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack itemStack1 = itemStack.copy();
-        if(itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0) return itemStack1;
+        if(hasContainerItem(itemStack)) return itemStack1;
         return null;
     }
 
@@ -164,7 +216,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     @Override
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
-        return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
+        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
     }
 
     //TODO Fix what's below and make the item suck tings up on playerpickup and not just steal everything from their inventory.

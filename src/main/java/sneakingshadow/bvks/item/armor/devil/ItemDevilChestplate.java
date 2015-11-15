@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKSArmor;
 import sneakingshadow.bvks.reference.Armor;
 import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.util.LogHelper;
 
 public class ItemDevilChestplate extends ItemBVKSArmor
 {

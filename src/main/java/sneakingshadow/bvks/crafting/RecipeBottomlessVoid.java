@@ -1,6 +1,8 @@
 package sneakingshadow.bvks.crafting;
 
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
@@ -9,6 +11,10 @@ import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
 public class RecipeBottomlessVoid {
 
+    public static boolean extract(ItemStack itemStack){
+        return itemStack.getItem() instanceof ItemBottomlessVoid && itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
+    }
+
     public static class Extract implements IRecipe {
 
         @Override
@@ -16,9 +22,9 @@ public class RecipeBottomlessVoid {
             boolean flag = false;
 
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
-                ItemStack stack = inventoryCrafting.getStackInSlot(i);
-                if (stack != null) {
-                    if (stack.getItem() instanceof ItemBottomlessVoid && stack.getItemDamage() != 0 && stack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0 && !flag)
+                ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
+                if (itemStack != null) {
+                    if (!flag && extract(itemStack))
                         flag = true;
                     else return false;
                 }
@@ -31,9 +37,9 @@ public class RecipeBottomlessVoid {
         public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting) {
             ItemStack itemStack = null;
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
-                ItemStack stack = inventoryCrafting.getStackInSlot(i);
-                if (stack != null)
-                    itemStack = stack;
+                ItemStack itemStack1 = inventoryCrafting.getStackInSlot(i);
+                if (itemStack1 != null)
+                    itemStack = itemStack1;
             }
 
             return ItemBottomlessVoid.extractStack(itemStack);
@@ -76,8 +82,8 @@ public class RecipeBottomlessVoid {
 
         @Override
         public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting) {
-            ItemStack itemStack1 = null; // Bottomless Void
-            ItemStack itemStack2 = null;
+            ItemStack itemStack1 = new ItemStack(Items.apple); // Bottomless Void
+            ItemStack itemStack2 = new ItemStack(Items.apple);
 
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack stack = inventoryCrafting.getStackInSlot(i);
@@ -90,13 +96,16 @@ public class RecipeBottomlessVoid {
 
             ItemStack itemStack = itemStack1.copy();
             itemStack.setItemDamage(1);
+            if(itemStack.getTagCompound() == null)
+                itemStack.setTagCompound(new NBTTagCompound());
             NBTTagCompound nbtTagCompound = new NBTTagCompound();
-            NBTTagCompound itemCompound = itemStack2.getTagCompound();
-            nbtTagCompound.setShort("id", itemCompound.getShort("id"));
-            nbtTagCompound.setTag("tag", itemCompound.getCompoundTag("tag"));
-            nbtTagCompound.setShort("Damage", itemCompound.getShort("Damage"));
+            nbtTagCompound.setShort("id", (short)Item.getIdFromItem(itemStack2.getItem()));
+            if(itemStack2.getTagCompound() != null)
+                nbtTagCompound.setTag("tag", itemStack2.getTagCompound());
+            else
+                nbtTagCompound.setTag("tag", new NBTTagCompound());
+            nbtTagCompound.setShort("Damage", (short) itemStack2.getItemDamage());
             nbtTagCompound.setLong("Count", 1);
-            itemStack.getTagCompound().removeTag("Item");
             itemStack.getTagCompound().setTag("Item", nbtTagCompound);
 
             return itemStack;
@@ -104,7 +113,7 @@ public class RecipeBottomlessVoid {
 
         @Override
         public int getRecipeSize() {
-            return 1;
+            return 2;
         }
 
         @Override
@@ -121,9 +130,9 @@ public class RecipeBottomlessVoid {
             boolean flag = false;
 
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
-                ItemStack stack = inventoryCrafting.getStackInSlot(i);
-                if (stack != null) {
-                    if (stack.getItem() instanceof ItemBottomlessVoid && stack.getItemDamage() != 0 && stack.getTagCompound().getCompoundTag("Item").getLong("Count") == 0 && !flag)
+                ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
+                if (itemStack != null) {
+                    if (!flag && itemStack.getItem() instanceof ItemBottomlessVoid && itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") == 0)
                         flag = true;
                     else return false;
                 }

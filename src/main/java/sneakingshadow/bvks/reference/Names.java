@@ -55,6 +55,7 @@ public final class Names
         public static final String STONE_HAMMER = "stone_hammer";
         public static final String WOOD_HAMMER = "wood_hammer";
         public static final String DEBUG_ITEM = "debug_item";
+        public static final String NBT_DEBUG_ITEM = "nbt_debug_item";
         public static final String DEVIL_COMPOUND = "devil_compound";
         public static final String ADMIN_HAMMER = "admin_hammer";
         public static final String BOTTOMLESS_VOID = "bottomless_void";

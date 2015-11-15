@@ -49,11 +49,11 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
 
         GL11.glEnd();
 
-        // Turn off unneeded transparency flags
-        GL11.glDepthMask(true);
-        GL11.glDisable(GL11.GL_BLEND);
-
         if(itemStack.getItemDamage()!=0) {
+
+            // Turn off unneeded transparency flags
+            GL11.glDepthMask(true);
+            GL11.glDisable(GL11.GL_BLEND);
 
             FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 
