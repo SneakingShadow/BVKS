@@ -70,7 +70,7 @@ public class EntityAwesomeCow extends EntityCreature{
         if(this.worldObj.getBlock(x,y,z) instanceof BlockBVKS)
             return 100000F;
         return -1.0F;
-    };
+    }
 
     /**
      * Return whether this entity is invulnerable to damage.
