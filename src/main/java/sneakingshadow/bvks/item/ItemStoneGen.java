@@ -11,7 +11,7 @@ import sneakingshadow.bvks.reference.Names;
 import java.util.List;
 
 public class ItemStoneGen extends ItemBVKS{
-    private static Block[] blocks = {Blocks.cobblestone, Blocks.stone};
+    private static Block[] blocks = {Blocks.cobblestone, Blocks.stone, Blocks.stonebrick};
 
     public ItemStoneGen(){
         super();
@@ -22,12 +22,15 @@ public class ItemStoneGen extends ItemBVKS{
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
     {
-        int i = itemStack.getItemDamage();
-        int j = i==1?0:1;
-        list.add("This is a portable cobblestone/stone generator.");
-        list.add("It is set to place "+blocks[i].getLocalizedName()+" upon right click.");
-        list.add("To change this, shift-right-click the air,");
-        list.add("and it will be set to place "+blocks[j].getLocalizedName()+".");
+        list.add("This is a portable stone-based generator.");
+        list.add("It will place selected stone-based blocks upon right click.");
+        list.add("It is set to place "+blocks[itemStack.getItemDamage()].getLocalizedName()+" upon right click.");
+        list.add("To change this, shift-right-click the air, and it will cycle to the next block in the list.");
+        String s = "";
+        for(int j=0;j<blocks.length;j++){
+            s = s+blocks[j].getLocalizedName() + (j==(blocks.length -1)?".":", ");
+        }
+        list.add("Possible blocks to place: "+s);
     }
 
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
