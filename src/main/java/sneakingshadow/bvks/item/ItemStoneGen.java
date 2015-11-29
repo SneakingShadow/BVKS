@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
@@ -11,7 +13,7 @@ import sneakingshadow.bvks.reference.Names;
 import java.util.List;
 
 public class ItemStoneGen extends ItemBVKS{
-    private static Block[] blocks = {Blocks.cobblestone, Blocks.stone};
+    private static Block[] blocks = {Blocks.cobblestone, Blocks.stone, Blocks.stonebrick};
 
     public ItemStoneGen(){
         super();
@@ -20,23 +22,32 @@ public class ItemStoneGen extends ItemBVKS{
     }
 
     @Override
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        return super.getItemStackDisplayName(itemStack) + ": " + blocks[itemStack.getItemDamage()].getLocalizedName();
+    }
+
+    @Override
+    public IIcon getIconIndex(ItemStack itemStack){
+        return blocks[itemStack.getItemDamage()].getIcon(0,0);
+    }
+
+    @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
     {
-        int i = itemStack.getItemDamage();
-        int j = i==1?0:1;
-        list.add("This is a portable cobblestone/stone generator.");
-        list.add("It is set to place "+blocks[i].getLocalizedName()+" upon right click.");
-        list.add("To change this, shift-right-click the air,");
-        list.add("and it will be set to place "+blocks[j].getLocalizedName()+".");
+        list.add("Shift+Right Click");
+        list.add("to change block.");
+        list.add("Placeable blocks:");
+        for(int j=0;j<blocks.length;j++){
+            list.add(blocks[j].getLocalizedName());
+        }
     }
 
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         if(!world.isRemote && !world.restoringBlockSnapshots && entityPlayer.isSneaking()){
-            int i = itemStack.getItemDamage();
-            if(i==0){
-                itemStack.setItemDamage(1);
-            }else{
+            if(itemStack.getItemDamage()==blocks.length-1){
                 itemStack.setItemDamage(0);
+            }else{
+                itemStack.setItemDamage(itemStack.getItemDamage()+1);
             }
         }
         return itemStack;
