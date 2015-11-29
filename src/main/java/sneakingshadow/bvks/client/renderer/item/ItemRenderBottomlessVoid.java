@@ -7,16 +7,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
-import sneakingshadow.bvks.item.ItemBottomlessVoid;
 import sneakingshadow.bvks.util.MetricPrefixHelper;
 
-public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Move to sneakingshadow.bvks.client.renderer.item
+public class ItemRenderBottomlessVoid implements IItemRenderer{
 
     private static RenderItem renderItem = new RenderItem();
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return type == ItemRenderType.INVENTORY;// || type == EQUIPPED_FIRST_PERSON
+
     }
 
     @Override
@@ -30,11 +30,11 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
         IIcon icon = itemStack.getIconIndex();
         // Use vanilla code to render the icon in a 16x16 square of inventory slot
         renderItem.renderIcon(0, 0, icon, 16, 16);
-        // Disable texturing, for now we only need colored shapes
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
 
         if(itemStack.getItemDamage()!=0) {
 
+            // Disable texturing, for now we only need colored shapes
+            GL11.glDisable(GL11.GL_TEXTURE_2D);
             // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
             GL11.glEnable(GL11.GL_BLEND);
             GL11.glDepthMask(false);

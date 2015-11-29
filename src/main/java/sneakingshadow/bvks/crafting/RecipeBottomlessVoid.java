@@ -1,6 +1,5 @@
 package sneakingshadow.bvks.crafting;
 
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

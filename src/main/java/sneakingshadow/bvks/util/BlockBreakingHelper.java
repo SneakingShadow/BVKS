@@ -11,37 +11,43 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 
 public class BlockBreakingHelper {
 
-    public static void breakBlock(ItemStack itemStack, World world, Block block, int x, int y, int z, Vec3 pos, ArrayList<ItemStack> storageItems){
-        /*if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")){
-            ArrayList<ItemStack> items = block.getDrops(world, x, y, z, world.getBlockMetadata(x, y, z), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
-            Boolean bool2;
-            for (ItemStack item1 : items)
+    public static void breakBlock(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase){
+
+        ArrayList<ItemStack> storageItems = new ArrayList<ItemStack>();
+        if(entityLivingBase instanceof EntityPlayer){
+            for(ItemStack itemStack1 : ((EntityPlayer) entityLivingBase).inventory.mainInventory) {
+                if (itemStack1 != null && itemStack1.getItemDamage() != 0 && itemStack1.getItem() instanceof ItemBottomlessVoid) {
+                    storageItems.add(itemStack1);
+                }
+            }
+        }
+
+        Vec3 pos = entityLivingBase.getPosition(1F);
+
+        if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops")){
+            ArrayList<ItemStack> itemStacks = block.getDrops(world, x, y, z, world.getBlockMetadata(x, y, z), EnchantmentHelper.getLevel(Enchantment.fortune, itemStack));
+            Boolean bool = false;
+            for (ItemStack itemStack1 : itemStacks)
             {
-                bool2 = true;
-                if(!storageItems.isEmpty()){
-                    for(ItemStack item2 : storageItems){
-                        if (ItemBottomlessVoid.getStackTagNull(item2) ? item1.stackTagCompound == null : item1.stackTagCompound != null) {
-                            boolean flag = true;
-                            if (item1.stackTagCompound != null) {
-                                ItemBottomlessVoid.getStackTag(item2).setByte("Count", item1.stackTagCompound.getByte("Count"));
-                                if (!ItemBottomlessVoid.getStackTag(item2).equals(item1.stackTagCompound))
-                                    flag = false;
-                            }
-                            if (flag && ItemBottomlessVoid.getItem(item2).equals(item1.getItem())) {
-                                if(ItemBottomlessVoid.getStored(item2) != Long.MAX_VALUE)
-                                    ItemBottomlessVoid.add(item2, item1.stackSize);
-                                bool2 = false;
-                            }
+                if (!storageItems.isEmpty()){
+                    for(ItemStack itemStack2 : storageItems){
+                        if ( ItemBottomlessVoid.isItemsEqual(itemStack1, itemStack2) ){
+                            ItemBottomlessVoid.raiseItemCount(itemStack2, itemStack1.stackSize);
+                            bool = true;
                         }
                     }
                 }
-                if(bool2) {
-                    EntityItem entityItem = new EntityItem(world, pos.xCoord, pos.yCoord + 0.2F, pos.zCoord, item1);
+
+                if (!bool && entityLivingBase instanceof EntityPlayer && ((EntityPlayer) entityLivingBase).inventory.addItemStackToInventory(itemStack1)) {
+                    bool = true;
+                }
+
+                if (!bool) {
+                    EntityItem entityItem = new EntityItem(world, pos.xCoord, pos.yCoord + 0.2F, pos.zCoord, itemStack1);
                     entityItem.delayBeforeCanPickup = 0;
                     entityItem.motionX = 0D;
                     entityItem.motionY = 0D;
@@ -51,20 +57,5 @@ public class BlockBreakingHelper {
             }
         }
         world.setBlockToAir(x, y, z);
-        */
-    }
-
-    public static ArrayList<ItemStack> getBottomlessVoidList(EntityLivingBase entityLivingBase){
-        ArrayList<ItemStack> storageItems = new ArrayList<ItemStack>();
-        if(entityLivingBase instanceof EntityPlayer){
-            EntityPlayer entityPlayer = (EntityPlayer)entityLivingBase;
-            InventoryPlayer inventory = entityPlayer.inventory;
-            for(int i = 0; i < inventory.mainInventory.length; ++i) {
-                if (inventory.mainInventory[i] != null && inventory.mainInventory[i].getItemDamage() != 0 && inventory.mainInventory[i].getItem() instanceof ItemBottomlessVoid) {
-                    storageItems.add(inventory.mainInventory[i]);
-                }
-            }
-        }
-        return storageItems;
     }
 }

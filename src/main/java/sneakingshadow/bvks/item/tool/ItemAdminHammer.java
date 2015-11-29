@@ -5,9 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
@@ -30,7 +28,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) //TODO Silk touch on hammer
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase) //TODO Silk touch on hammer
     {
         boolean bool = false;
         ArrayList<ItemStack> bottomlessVoids = new ArrayList<ItemStack>();
@@ -46,12 +44,12 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         }
         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
         {
-            breakBlock(itemStack, world, block, x, y, z, bottomlessVoids, bool);
+            breakBlock(itemStack, world, block, xPos, yPos, zPos, bottomlessVoids, bool);
         }
-        world.setBlockToAir(x, y, z);
-        for(int rx = x-(widthX/2); rx< x-(widthX/2) + widthX ;rx++){
-            for(int ry = y-1; ry< y-1+widthY ;ry++) {
-                for(int rz = z-(widthZ/2); rz< z-(widthZ/2) + widthZ ;rz++){
+        world.setBlockToAir(xPos, yPos, zPos);
+        for(int rx = xPos -(widthX/2); rx< xPos -(widthX/2) + widthX ;rx++){
+            for(int ry = yPos -1; ry< yPos -1+widthY ;ry++) {
+                for(int rz = zPos -(widthZ/2); rz< zPos -(widthZ/2) + widthZ ;rz++){
                     Block blocky = world.getBlock(rx, ry, rz);
                     if (blocky.getMaterial() != Material.air && !Block.isEqualTo(blocky, Blocks.bedrock)) {
                         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
@@ -74,8 +72,8 @@ public class ItemAdminHammer extends ItemBVKSHammer{
                 for(ItemStack itemStack2 : bottomlessVoids) {
                     NBTTagCompound itemCompound = itemStack1.getTagCompound();
                     NBTTagCompound voidCompound = itemStack2.getTagCompound().getCompoundTag("Item");
-                    if ( ItemBottomlessVoid.isItemsEqual(itemCompound, voidCompound) )
-                        ItemBottomlessVoid.raiseItemCount(voidCompound, (long)itemCompound.getShort("Count"));
+                    if ( ItemBottomlessVoid.isItemsEqual(itemStack1, itemStack2) )
+                        ItemBottomlessVoid.raiseItemCount(voidCompound, (long) itemCompound.getShort("Count"));
                 }
     }
 

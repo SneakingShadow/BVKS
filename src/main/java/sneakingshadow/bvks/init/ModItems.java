@@ -1,7 +1,10 @@
 package sneakingshadow.bvks.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.item.*;
 import sneakingshadow.bvks.item.armor.devil.ItemDevilBoots;
@@ -12,13 +15,16 @@ import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianBoots;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianChestplate;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianHelmet;
 import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianLeggings;
+import sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import sneakingshadow.bvks.item.tool.ItemAdminHammer;
 import sneakingshadow.bvks.item.tool.ItemAssassinsKnife;
 import sneakingshadow.bvks.item.tool.devil.*;
-import sneakingshadow.bvks.item.tool.hammer.*;
 import sneakingshadow.bvks.item.tool.obsidian.*;
+import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
+
+import java.util.List;
 
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
@@ -33,7 +39,7 @@ public class ModItems
     public static final Item ObsidianRod = new ItemObsidianRod();
     public static final Item DevilCompound = new ItemDevilCompound();
     public static final Item BottomlessVoid = new ItemBottomlessVoid();
-    public static final Item CobbleGen = new ItemStoneGen();
+    public static final Item StoneGen = new ItemStoneGen();
 
     //Armor
     public static final Item DevilBoots = new ItemDevilBoots();
@@ -65,13 +71,22 @@ public class ModItems
     public static final Item ObsidianHoe = new ItemObsidianHoe();
     //Hammers
 
-    public static final Item DevilHammer = new ItemDevilHammer();
-    public static final Item DiamondHammer = new ItemDiamondHammer();
-    public static final Item GoldHammer = new ItemGoldHammer();
-    public static final Item IronHammer = new ItemIronHammer();
-    public static final Item ObsidianHammer = new ItemObsidianHammer();
-    public static final Item StoneHammer = new ItemStoneHammer();
-    public static final Item WoodHammer = new ItemWoodHammer();
+    public static final Item DevilHammer = new ItemBVKSHammer(ItemToolMaterial.DEVIL_HAMMER, 9, ModItems.DevilShovel){
+        @Override
+        public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
+        {
+            list.add("The devil has a taste for worlds");
+        }
+
+        @Override
+        public boolean isDamageable() { return false; }
+    }.setUnlocalizedName(Names.Items.DEVIL_HAMMER);
+    public static final Item ObsidianHammer = new ItemBVKSHammer(ItemToolMaterial.OBSIDIAN_HAMMER, 4, ModItems.ObsidianShovel).setUnlocalizedName(Names.Items.OBSIDIAN_HAMMER);
+    public static final Item DiamondHammer = new ItemBVKSHammer(ItemToolMaterial.DIAMOND_HAMMER, 5, Items.diamond_shovel).setUnlocalizedName(Names.Items.DIAMOND_HAMMER);
+    public static final Item GoldHammer = new ItemBVKSHammer(ItemToolMaterial.GOLD_HAMMER, 3, Items.golden_shovel).setUnlocalizedName(Names.Items.GOLD_HAMMER);
+    public static final Item IronHammer = new ItemBVKSHammer(ItemToolMaterial.IRON_HAMMER, 3, Items.iron_shovel).setUnlocalizedName(Names.Items.IRON_HAMMER);
+    public static final Item StoneHammer = new ItemBVKSHammer(ItemToolMaterial.STONE_HAMMER, 2, Items.stone_shovel).setUnlocalizedName(Names.Items.STONE_HAMMER);
+    public static final Item WoodHammer = new ItemBVKSHammer(ItemToolMaterial.WOOD_HAMMER, 1, Items.wooden_shovel).setUnlocalizedName(Names.Items.WOOD_HAMMER);
 
     public static final Item AdminHammer = new ItemAdminHammer();
     public static final Item DebugItem = new ItemDebugItem();
@@ -117,7 +132,7 @@ public class ModItems
         registerItem(DevilCompound, Names.Items.DEVIL_COMPOUND);
         registerItem(AdminHammer, Names.Items.ADMIN_HAMMER);
         registerItem(BottomlessVoid, Names.Items.BOTTOMLESS_VOID);
-        registerItem(CobbleGen, Names.Items.STONE_GEN);
+        registerItem(StoneGen, Names.Items.STONE_GEN);
     }
 
     public static void add(){
@@ -149,7 +164,7 @@ public class ModItems
                 ObsidianShovel,
                 ObsidianAxe,
                 ObsidianHoe,
-                CobbleGen,
+                StoneGen,
                 AssassinsKnife,
                 DevilBow,
                 DevilArrow,

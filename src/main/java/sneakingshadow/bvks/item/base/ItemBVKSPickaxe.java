@@ -60,7 +60,7 @@ public class ItemBVKSPickaxe extends ItemPickaxe
         if ((double)block.getBlockHardness(world, x, y, z) != 0.0D)
         {
             itemStack.damageItem(1, entityLivingBase);
-            BlockBreakingHelper.breakBlock(itemStack, world, block, x, y, z, entityLivingBase.getPosition(1F), BlockBreakingHelper.getBottomlessVoidList(entityLivingBase));
+            BlockBreakingHelper.breakBlock(itemStack, world, block, x, y, z, entityLivingBase);
         }
 
         return false;
