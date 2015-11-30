@@ -44,7 +44,11 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe
         if(this.func_150897_b(block)){
             if (entityLivingBase instanceof EntityPlayer){
                 int side = Minecraft.getMinecraft().objectMouseOver.sideHit;
-                if (side == 2) {
+                if (side == 0) {
+                    zPos += widthY/2;
+                }else if (side == 1) {
+                    zPos -= ((float)widthY)%2f == 0.5f ? widthY/2+1 : widthY/2;
+                }else if (side == 2) {
                     zPos += widthZ/2;
                 }else if (side == 3)
                 {
