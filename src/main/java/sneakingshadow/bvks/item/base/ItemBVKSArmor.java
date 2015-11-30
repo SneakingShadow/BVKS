@@ -10,8 +10,6 @@ import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.reference.Ref;
 
-import java.util.List;
-
 public class ItemBVKSArmor extends ItemArmor
 {
     private String texture;

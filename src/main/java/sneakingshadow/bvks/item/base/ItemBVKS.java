@@ -12,8 +12,6 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
 
-import java.util.List;
-
 public class ItemBVKS extends Item
 {
     public ItemBVKS()

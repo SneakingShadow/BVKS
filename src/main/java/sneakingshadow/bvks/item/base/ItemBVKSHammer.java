@@ -6,13 +6,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
-
-import java.util.ArrayList;
 
 public class ItemBVKSHammer extends ItemBVKSPickaxe
 {

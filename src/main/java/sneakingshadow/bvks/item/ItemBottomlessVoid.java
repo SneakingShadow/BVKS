@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
-import sneakingshadow.bvks.util.LogHelper;
+
 import java.util.List;
 
 public class ItemBottomlessVoid extends ItemBVKS {

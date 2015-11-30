@@ -8,8 +8,6 @@ import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.util.LogHelper;
 
-import java.util.List;
-
 public class ItemNBTDebugItem extends ItemBVKS {
 
     public ItemNBTDebugItem() {
