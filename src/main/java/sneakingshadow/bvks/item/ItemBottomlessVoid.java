@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -52,46 +53,63 @@ public class ItemBottomlessVoid extends ItemBVKS {
     }
 
     public static ItemStack extractStack(ItemStack itemStack) {
-        NBTTagCompound nbtTagCompound = (NBTTagCompound)itemStack.getTagCompound().getCompoundTag("Item").copy();
-        ItemStack itemStack1 = getItemStackStored(nbtTagCompound);
+        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        NBTTagCompound itemCompound = new NBTTagCompound();
+        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
+        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
+        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
+        itemCompound.setByte("Count", (byte) 1);
+        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
         if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemStack1.stackSize = (int)nbtTagCompound.getLong("Count");
+            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
         }else{
-            itemStack1.stackSize = itemStack1.getMaxStackSize();
+            itemCompound.setByte("Count", (byte) itemStack1.getMaxStackSize());
         }
-        itemStack1.readFromNBT(nbtTagCompound);
-        return itemStack1;
+        return ItemStack.loadItemStackFromNBT(itemCompound);
     }
 
-    public static ItemStack extractStackWithRemoval(ItemStack itemStack) {
+    public static ItemStack extractWithRemoval(ItemStack itemStack, int size) {
         NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        ItemStack itemStack1 = getItemStackStored(itemStack);
-        if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemStack1.stackSize = (int)nbtTagCompound.getLong("Count");
+        NBTTagCompound itemCompound = new NBTTagCompound();
+        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
+        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
+        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
+        itemCompound.setByte("Count", (byte) 1);
+        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
+        if(nbtTagCompound.getLong("Count") < size){
+            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
             nbtTagCompound.setLong("Count", 0);
         }else{
-            itemStack1.stackSize = itemStack1.getMaxStackSize();
-            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-itemStack1.getMaxStackSize());
+            itemCompound.setByte("Count", (byte) size);
+            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-size);
         }
-        return itemStack1;
+        return ItemStack.loadItemStackFromNBT(itemCompound);
     }
 
-    public static Boolean isItemsEqual(NBTTagCompound itemCompound, NBTTagCompound bottomlessVoidCompound){
-        return itemCompound.getShort("id") == bottomlessVoidCompound.getShort("id") &&
-                itemCompound.getByte("Damage") == bottomlessVoidCompound.getByte("Damage") &&
-                itemCompound.getCompoundTag("tag").equals(bottomlessVoidCompound.getCompoundTag("tag"));
+    public static Boolean isItemsEqual(ItemStack itemStack, NBTTagCompound bottomlessVoidCompound){
+        NBTTagCompound nbtTagCompound = bottomlessVoidCompound.getCompoundTag("Item");
+        return Item.getIdFromItem(itemStack.getItem()) == nbtTagCompound.getShort("id") &&
+                itemStack.getItemDamage() == nbtTagCompound.getByte("Damage") &&
+                (itemStack.getTagCompound() == null ?
+                        nbtTagCompound.getCompoundTag("tag").hasNoTags() :
+                        itemStack.getTagCompound().equals(nbtTagCompound.getCompoundTag("tag"))
+                );
+    }
+
+    public static Boolean isItemsEqual(ItemStack itemStack, ItemStack itemStackBottomlessVoid){
+        return isItemsEqual(itemStack, itemStackBottomlessVoid.getTagCompound());
     }
 
     public static void raiseItemCount(ItemStack itemStack, long l){
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        raiseItemCount(nbtTagCompound, l);
+        raiseItemCount(itemStack.getTagCompound().getCompoundTag("Item"), l);
     }
 
-    public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l) {
+    public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l)
+    {
         nbtTagCompound.setLong("Count",
-                (nbtTagCompound.getLong("Count") + l) <= (2 ^ 63 -308) ?
-                        nbtTagCompound.getLong("Count") :
-                        (2^63 -308)
+                (nbtTagCompound.getLong("Count")) <= (Math.pow(2,63) -308) ?
+                        nbtTagCompound.getLong("Count")+l :
+                        (long)(Math.pow(2,63) -308)
         );
     }
 
@@ -187,6 +205,21 @@ public class ItemBottomlessVoid extends ItemBVKS {
         return itemStack;
     }
 
+    @Override
+    public String getUnlocalizedName(ItemStack itemStack) {
+        int meta = itemStack.getItemDamage();
+        return super.getUnlocalizedName(itemStack) + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
+    }
+
+    @Override
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    {
+        //TODO place block if it stores a block, with correct metadata and nbtdata.
+        return false;
+    }
+
+    //TODO Fix what's below and make the item suck tings up on playerpickup and not just steal everything from their inventory.
+
     /**
      * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
      * update it's contents.
@@ -194,17 +227,17 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean bool) {
         if (entity instanceof EntityPlayer) {
-            EntityPlayer entityPlayer = (EntityPlayer) entity;
+            ItemStack[] mainInventory = ((EntityPlayer) entity).inventory.mainInventory;
+            for (int i = 0; i<mainInventory.length; i++){
+
+            }
             //TODO: Find items in inventory, then only make it update on pickup, and always keep a stack in the inventory, but not more.
         }
     }
 
-    @Override
-    public String getUnlocalizedName(ItemStack itemStack) {
-        int meta = itemStack.getItemDamage();
-        return super.getUnlocalizedName(itemStack) + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
-    }
-
+/*
+                Crafting
+*/
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack itemStack1 = itemStack.copy();
@@ -213,21 +246,14 @@ public class ItemBottomlessVoid extends ItemBVKS {
     }
 
     @Override
-    public boolean  hasContainerItem(ItemStack itemStack) {
+    public boolean hasContainerItem(ItemStack itemStack) {
         return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
     }
 
     @Override
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
-        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
-    }
-
-    //TODO Fix what's below and make the item suck tings up on playerpickup and not just steal everything from their inventory.
-
-    @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
-    {
-        //TODO place block if it stores a block, with correct metadata and nbtdata.
-        return false;
+        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") == 0;
     }
 }
+
+

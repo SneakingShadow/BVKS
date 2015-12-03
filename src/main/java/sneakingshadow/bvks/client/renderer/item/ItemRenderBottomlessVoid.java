@@ -6,15 +6,17 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 import sneakingshadow.bvks.util.MetricPrefixHelper;
 
-public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Move to sneakingshadow.bvks.client.renderer.item
+public class ItemRenderBottomlessVoid implements IItemRenderer{
 
     private static RenderItem renderItem = new RenderItem();
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return type == ItemRenderType.INVENTORY;// || type == EQUIPPED_FIRST_PERSON
+
     }
 
     @Override
@@ -30,7 +32,8 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
         renderItem.renderIcon(0, 0, icon, 16, 16);
 
         if(itemStack.getItemDamage()!=0) {
-            /* Disable texturing, for now we only need colored shapes
+
+            // Disable texturing, for now we only need colored shapes
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
             GL11.glEnable(GL11.GL_BLEND);
@@ -53,13 +56,10 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{        //TODO Mo
             GL11.glDepthMask(true);
             GL11.glDisable(GL11.GL_BLEND);
 
-            // Enable texturing, because Minecraft text font is actually a texture
-            GL11.glEnable(GL11.GL_TEXTURE_2D);
-            */
-
-            //TODO Scale down the text
             FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 
+            // Enable texturing, because Minecraft text font is actually a texture
+            GL11.glEnable(GL11.GL_TEXTURE_2D);
             // Get our text value
             String text = MetricPrefixHelper.compress(itemStack.getTagCompound().getCompoundTag("Item").getLong("Count"));
             // Draw our text at (1, 1) with white color
