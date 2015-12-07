@@ -1,4 +1,4 @@
-package sneakingshadow.bvks.item.tool;
+package sneakingshadow.bvks.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,7 +11,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.item.ItemBottomlessVoid;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;

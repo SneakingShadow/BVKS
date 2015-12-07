@@ -12,13 +12,12 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
 
-import java.util.List;
-
 public class ItemBVKSAxe extends ItemAxe
 {
 
-    protected ItemBVKSAxe(ToolMaterial toolMaterial) {
-        super(toolMaterial);this.maxStackSize = 1;
+    public ItemBVKSAxe(ToolMaterial toolMaterial) {
+        super(toolMaterial);
+        this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
     }
 
@@ -45,19 +44,10 @@ public class ItemBVKSAxe extends ItemAxe
         return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
     }
 
-    public static String description;
-    public Object setDescription(String str) {
-        description = str;
-        return this;
-    }
-    public static void addDescription(List list){
-        if (description != null)
-            list.add(description);
-    }
-
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
     {
+        //TODO Make it check if it's a devil tool, if it's implementing some devil class, or just a boolean value, but that's boooooriiiiiiing
         if ((double)block.getBlockHardness(world, x, y, z) != 0.0D)
         {
             itemStack.damageItem(1, entityLivingBase);
