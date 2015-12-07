@@ -12,6 +12,8 @@ import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
+import java.util.List;
+
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModBlocks
 {
@@ -40,13 +42,13 @@ public class ModBlocks
         GameRegistry.registerTileEntity(clazz, Ref.RESOURCE_PREFIX + "tile_" + name);
     }
 
-    public static void add(){
-        CreativeTabBVKS.add(new Block[]{
+    public static void add(List list){
+        CreativeTabBVKS.add(list, new Block[]{
                 DevilOre,
                 SmoothObsidian,
                 DevilCobblestone,
                 DemonAltar
         });
-        CreativeTabBVKS.add(DebugBlock);
+        CreativeTabBVKS.add(list, DebugBlock);
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import sneakingshadow.bvks.init.ModBlocks;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.reference.Names;
@@ -14,39 +15,25 @@ import java.util.List;
 
 public class CreativeTabBVKS
 {
-    private static List listItem;
-    private static List listBlock;
-
-    public static final CreativeTabs tabItem = new TabItem();
-    public static final CreativeTabs tabBlock = new TabBlock();
-
-    public static class TabItem extends CreativeTabs{
-        public TabItem(){
-            super(Names.CreativeTabs.ITEM);
-            this.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
+    public static final CreativeTabs tabItem = new CreativeTabs(Names.CreativeTabs.ITEM) {
+        @Override
+        public Item getTabIconItem() {
+            return ModItems.DevilGem;
         }
 
         @Override
-        public Item getTabIconItem() { return ModItems.DevilGem; }
-
-        @Override
-        public boolean hasSearchBar() { return true; }
+        public boolean hasSearchBar() {
+            return true;
+        }
 
         @SideOnly(Side.CLIENT)
         @Override
         public void displayAllReleventItems(List list)
         {
-            listItem = list;
-            ModItems.add();
+            ModItems.add(list);
         }
-    }
-
-    public static class TabBlock extends CreativeTabs{
-        public TabBlock(){
-            super(Names.CreativeTabs.BLOCK);
-            this.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
-        }
-
+    }.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
+    public static final CreativeTabs tabBlock = new CreativeTabs(Names.CreativeTabs.BLOCK) {
         @Override
         public Item getTabIconItem() {
             return Item.getItemFromBlock(ModBlocks.DevilOre);
@@ -62,10 +49,9 @@ public class CreativeTabBVKS
         @Override
         public void displayAllReleventItems(List list)
         {
-            listBlock = list;
-            ModBlocks.add();
+            ModBlocks.add(list);
         }
-    }
+    }.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
 
     /**
      *
@@ -73,32 +59,51 @@ public class CreativeTabBVKS
      *
      */
 
-    public static void add(Item item) {
-        item.getSubItems(item, tabItem, listItem);
+    public static void add(List list, Item item) {
+        list.add(new ItemStack(item, 1, 0));
     }
 
-    public static void add(Block block) {
-        block.getSubBlocks(new ItemStack(block).getItem(), tabBlock, listBlock);
+    public static void add(List list, Item item, int metadata) {
+        list.add(new ItemStack(item, 1, metadata));
     }
 
-    public static void add(Object[] objects) {
-        for(int i=0; i<objects.length;i++){
-            if(objects[i] instanceof Item)
-                add((Item)objects[i]);
-            if(objects[i] instanceof Block)
-                add((Block)objects[i]);
-        }
+    public static void add(List list, Block block) {
+        list.add(new ItemStack(block, 1, 0));
     }
 
-    public static void add(Item[] items) {
-        for(int i=0; i<items.length;i++){
-            add(items[i]);
-        }
+    public static void add(List list, Block block, int metadata) {
+        list.add(new ItemStack(block, 1, metadata));
     }
 
-    public static void add(Block[] blocks) {
-        for(int i=0; i<blocks.length;i++){
-            add(blocks[i]);
+    public static void add(List list, NBTTagCompound nbtTagCompound) {
+        list.add(ItemStack.loadItemStackFromNBT(nbtTagCompound));
+    }
+
+    public static void add(List list, Object[] objects) {
+        int temp = 0;
+        for(Object obj : objects){
+            if (obj instanceof Item)
+
+                if (temp == 0)
+                    add(list, (Item)obj);
+                else
+                    add(list, (Item)obj, temp);
+
+            else if (obj instanceof Block)
+
+                if (temp == 0)
+                    add(list, (Block)obj);
+                else
+                    add(list, (Block)obj, temp);
+
+            else if (obj instanceof NBTTagCompound)
+
+                add(list, (NBTTagCompound)obj);
+
+            else if (obj instanceof Integer)
+                temp = (Integer)obj;
+            else
+                temp = 0;
         }
     }
 }

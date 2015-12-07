@@ -121,8 +121,8 @@ public class ModItems
         registerItem(StoneGen, Names.Items.STONE_GEN);
     }
 
-    public static void add(){
-        CreativeTabBVKS.add(new Item[]{
+    public static void add(List list){
+        CreativeTabBVKS.add(list, new Item[]{
                 BottomlessVoid,
                 AdminHammer,
                 DevilHammer,
@@ -161,8 +161,8 @@ public class ModItems
                 ObsidianRod,
                 IronRod,
         });
-        CreativeTabBVKS.add(DebugItem);
-        CreativeTabBVKS.add(NBTDebugItem);
+        CreativeTabBVKS.add(list, DebugItem);
+        CreativeTabBVKS.add(list, NBTDebugItem);
     }
 
     private static void registerItem(Item item, String name){
