@@ -75,7 +75,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
         itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
         itemCompound.setByte("Count", (byte) 1);
         ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
-        if(nbtTagCompound.getLong("Count") < size){
+        size = size > itemStack1.getMaxStackSize() ? itemStack1.getMaxStackSize() : size;
+        if (nbtTagCompound.getLong("Count") < size){
             itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
             nbtTagCompound.setLong("Count", 0);
         }else{

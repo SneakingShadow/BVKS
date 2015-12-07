@@ -81,8 +81,8 @@ public class RecipeBottomlessVoid {
 
         @Override
         public ItemStack getCraftingResult(InventoryCrafting inventoryCrafting) {
-            ItemStack itemStack1 = null;// = new ItemStack(Items.apple); // Bottomless Void
-            ItemStack itemStack2 = null;// = new ItemStack(Items.apple);
+            ItemStack itemStack1 = null; // Bottomless Void
+            ItemStack itemStack2 = null;
 
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack stack = inventoryCrafting.getStackInSlot(i);
