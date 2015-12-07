@@ -3,11 +3,11 @@ package sneakingshadow.bvks.item;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Names;
 
-public class ItemDevilArrow extends ItemBVKS
+public class ItemAssassinsKnife extends ItemBVKS
 {
-    public ItemDevilArrow()
+    public ItemAssassinsKnife()
     {
         super();
-        this.setUnlocalizedName(Names.Items.DEVIL_ARROW);
+        this.setUnlocalizedName(Names.Items.ASSASSINS_KNIFE);
     }
 }

@@ -7,19 +7,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.item.*;
-import sneakingshadow.bvks.item.armor.devil.ItemDevilBoots;
-import sneakingshadow.bvks.item.armor.devil.ItemDevilChestplate;
-import sneakingshadow.bvks.item.armor.devil.ItemDevilHelmet;
-import sneakingshadow.bvks.item.armor.devil.ItemDevilLeggings;
-import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianBoots;
-import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianChestplate;
-import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianHelmet;
-import sneakingshadow.bvks.item.armor.obsidian.ItemObsidianLeggings;
-import sneakingshadow.bvks.item.base.ItemBVKSHammer;
-import sneakingshadow.bvks.item.tool.ItemAdminHammer;
-import sneakingshadow.bvks.item.tool.ItemAssassinsKnife;
-import sneakingshadow.bvks.item.tool.devil.*;
-import sneakingshadow.bvks.item.tool.obsidian.*;
+import sneakingshadow.bvks.item.base.*;
+import sneakingshadow.bvks.reference.Armor;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
 import sneakingshadow.bvks.reference.Ref;
@@ -29,48 +18,45 @@ import java.util.List;
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
-    public static final Item DevilGem = new ItemDevilGem().setCreativeTab(CreativeTabBVKS.tabItem);
-    public static final Item ObsidianIngot = new ItemObsidianIngot();
-    public static final Item IronRod = new ItemIronRod();
-    public static final Item AssassinsKnife = new ItemAssassinsKnife();
-    public static final Item DevilArrow = new ItemDevilArrow();
-    public static final Item DevilBow = new ItemDevilBow();
-    public static final Item DevilIngot = new ItemDevilIngot();
-    public static final Item ObsidianRod = new ItemObsidianRod();
-    public static final Item DevilCompound = new ItemDevilCompound();
+    public static final Item DevilGem = new ItemBVKS().setUnlocalizedName(Names.Items.DEVIL_GEM).setCreativeTab(CreativeTabBVKS.tabItem);
+    public static final Item ObsidianIngot = new ItemBVKS().setUnlocalizedName(Names.Items.OBSIDIAN_INGOT);
+    public static final Item IronRod = new ItemBVKS().setUnlocalizedName(Names.Items.IRON_ROD);
+    public static final Item DevilArrow = new ItemBVKS().setUnlocalizedName(Names.Items.DEVIL_ARROW);
+    public static final Item DevilIngot = new ItemBVKS().setUnlocalizedName(Names.Items.DEVIL_INGOT);
+    public static final Item ObsidianRod = new ItemBVKS().setUnlocalizedName(Names.Items.OBSIDIAN_ROD);
+    public static final Item DevilCompound = new ItemBVKS().setUnlocalizedName(Names.Items.DEVIL_COMPOUND);
     public static final Item BottomlessVoid = new ItemBottomlessVoid();
     public static final Item StoneGen = new ItemStoneGen();
+    public static final Item DevilBow = new ItemDevilBow();
+    public static final Item AssassinsKnife = new ItemAssassinsKnife();
 
     //Armor
-    public static final Item DevilBoots = new ItemDevilBoots();
-    public static final Item DevilLeggings = new ItemDevilLeggings();
-    public static final Item DevilChestplate = new ItemDevilChestplate();
-    public static final Item DevilHelmet = new ItemDevilHelmet();
-    public static final Item ObsidianBoots = new ItemObsidianBoots();
-    public static final Item ObsidianLeggings = new ItemObsidianLeggings();
-    public static final Item ObsidianChestplate = new ItemObsidianChestplate();
-    public static final Item ObsidianHelmet = new ItemObsidianHelmet();
+    public static final Item DevilBoots = new ItemArmorDevilBoots();
+    public static final Item DevilLeggings = new ItemArmorDevilLeggings();
+    public static final Item DevilChestplate = new ItemArmorDevilChestplate();
+    public static final Item DevilHelmet = new ItemArmorDevilHelmet();
+    public static final Item ObsidianBoots = new ItemBVKSArmor(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.BOOTS).setUnlocalizedName(Names.Items.OBSIDIAN_BOOTS);
+    public static final Item ObsidianLeggings = new ItemBVKSArmor(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.LEGGINGS).setUnlocalizedName(Names.Items.OBSIDIAN_LEGGINGS);
+    public static final Item ObsidianChestplate = new ItemBVKSArmor(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.CHESTPLATE).setUnlocalizedName(Names.Items.OBSIDIAN_CHESTPLATE);
+    public static final Item ObsidianHelmet = new ItemBVKSArmor(Names.ArmorTextures.OBSIDIAN, Armor.Material.OBSIDIAN, Armor.Type.HELMET).setUnlocalizedName(Names.Items.OBSIDIAN_HELMET);
 
     /**
      *    Tools
      */
-    //Pickaxes
-    public static final Item DevilPickaxe = new ItemDevilPickaxe();
-    public static final Item ObsidianPickaxe = new ItemObsidianPickaxe();
-    //Axes
-    public static final Item DevilAxe = new ItemDevilAxe();
-    public static final Item ObsidianAxe = new ItemObsidianAxe();
-    //Shovels
-    public static final Item DevilShovel = new ItemDevilShovel();
-    public static final Item ObsidianShovel = new ItemObsidianShovel();
-    //Swords
-    public static final Item DevilSword = new ItemDevilSword();
-    public static final Item ObsidianSword = new ItemObsidianSword();
-    //Hoes
-    public static final Item DevilHoe = new ItemDevilHoe();
-    public static final Item ObsidianHoe = new ItemObsidianHoe();
-    //Hammers
+    //Devil
+    public static final Item DevilPickaxe = new ItemToolDevilPickaxe();
+    public static final Item DevilShovel = new ItemToolDevilShovel();
+    public static final Item DevilSword = new ItemToolDevilSword();
+    public static final Item DevilAxe = new ItemToolDevilAxe();
+    public static final Item DevilHoe = new ItemToolDevilHoe();
+    //Obsidian
+    public static final Item ObsidianPickaxe = new ItemBVKSPickaxe(ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Names.Items.OBSIDIAN_PICKAXE);
+    public static final Item ObsidianShovel = new ItemBVKSShovel(ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Names.Items.OBSIDIAN_SHOVEL);
+    public static final Item ObsidianSword = new ItemBVKSSword(ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Names.Items.OBSIDIAN_SWORD);
+    public static final Item ObsidianAxe = new ItemBVKSAxe(ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Names.Items.OBSIDIAN_AXE);
+    public static final Item ObsidianHoe = new ItemBVKSHoe(ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Names.Items.OBSIDIAN_HOE);
 
+    //Hammers
     public static final Item DevilHammer = new ItemBVKSHammer(ItemToolMaterial.DEVIL_HAMMER, 9, ModItems.DevilShovel){
         @Override
         public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)

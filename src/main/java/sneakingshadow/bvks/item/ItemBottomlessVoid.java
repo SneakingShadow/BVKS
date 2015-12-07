@@ -13,7 +13,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public ItemBottomlessVoid() {
         super();
         this.setMaxStackSize(1);
-        this.setBaseName(Names.Items.BOTTOMLESS_VOID);
+        //this.setBaseName(Names.Items.BOTTOMLESS_VOID);
     }
 
     //TODO add metadata 3 back again, add tag "Decrease", make Extract recipe extract right amount, currently only gives one item, fix SetType recipe, make Extract recipe not delete void when it's empty, and make Extract let the void stay in the crafting window.

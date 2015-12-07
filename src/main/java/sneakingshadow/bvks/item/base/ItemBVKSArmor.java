@@ -14,7 +14,6 @@ public class ItemBVKSArmor extends ItemArmor
 {
     private String texture;
     private int armor;
-    private static boolean isInvisible = false;
 
     public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType)
     {
@@ -59,11 +58,6 @@ public class ItemBVKSArmor extends ItemArmor
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
     {
-        if(entity.isInvisible() && isInvisible) return Ref.RESOURCE_PREFIX+"textures/armor/invisible_armor.png";
         return Ref.RESOURCE_PREFIX+"textures/armor/" + this.texture + "_" + (this.armor == 2 ? "2" : "1") + ".png";
-    }
-
-    public void setInvisible(){
-        isInvisible = true;
     }
 }

@@ -1,12 +1,12 @@
-package sneakingshadow.bvks.item.tool.devil;
+package sneakingshadow.bvks.item;
 
 import sneakingshadow.bvks.item.base.ItemBVKSAxe;
 import sneakingshadow.bvks.reference.ItemToolMaterial;
 import sneakingshadow.bvks.reference.Names;
 
-public class ItemDevilAxe extends ItemBVKSAxe
+public class ItemToolDevilAxe extends ItemBVKSAxe
 {
-    public ItemDevilAxe()
+    public ItemToolDevilAxe()
     {
         super(ItemToolMaterial.DEVIL_AXE);
         this.setUnlocalizedName(Names.Items.DEVIL_AXE);

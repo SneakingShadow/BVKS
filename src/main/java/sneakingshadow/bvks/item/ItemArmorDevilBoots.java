@@ -1,4 +1,4 @@
-package sneakingshadow.bvks.item.armor.devil;
+package sneakingshadow.bvks.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,13 +13,12 @@ import sneakingshadow.bvks.reference.Names;
 
 import java.util.List;
 
-public class ItemDevilBoots extends ItemBVKSArmor
+public class ItemArmorDevilBoots extends ItemBVKSArmor
 {
-    public ItemDevilBoots()
+    public ItemArmorDevilBoots()
     {
         super(Names.ArmorTextures.DEVIL, Armor.Material.DEVIL, Armor.Type.BOOTS);
         this.setUnlocalizedName(Names.Items.DEVIL_BOOTS);
-        this.setInvisible();
     }
 
     @Override
@@ -30,6 +29,7 @@ public class ItemDevilBoots extends ItemBVKSArmor
 
     @SideOnly(Side.CLIENT)
     public static void addInformation(List list){
-        list.add("Also called the opposite-hello-kitty armor");
+        list.add("Also called:");
+        list.add("The opposite-hello-kitty armor");
     }
 }
