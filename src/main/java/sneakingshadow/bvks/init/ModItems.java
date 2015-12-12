@@ -2,7 +2,6 @@ package sneakingshadow.bvks.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
@@ -56,7 +55,7 @@ public class ModItems
     public static final Item ObsidianHoe = new ItemBVKSHoe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_HOE);
 
     //Hammers
-    public static final Item DevilHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DEVIL_HAMMER, 9, ModItems.DevilShovel){
+    public static final Item DevilHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DEVIL_HAMMER, 9){
         @Override
         public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
         {
@@ -66,12 +65,12 @@ public class ModItems
         @Override
         public boolean isDamageable() { return false; }
     }.setUnlocalizedName(Name.Item.DEVIL_HAMMER);
-    public static final Item ObsidianHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.OBSIDIAN_HAMMER, 4, ModItems.ObsidianShovel).setUnlocalizedName(Name.Item.OBSIDIAN_HAMMER);
-    public static final Item DiamondHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DIAMOND_HAMMER, 5, Items.diamond_shovel).setUnlocalizedName(Name.Item.DIAMOND_HAMMER);
-    public static final Item GoldHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.GOLD_HAMMER, 3, Items.golden_shovel).setUnlocalizedName(Name.Item.GOLD_HAMMER);
-    public static final Item IronHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.IRON_HAMMER, 3, Items.iron_shovel).setUnlocalizedName(Name.Item.IRON_HAMMER);
-    public static final Item StoneHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.STONE_HAMMER, 2, Items.stone_shovel).setUnlocalizedName(Name.Item.STONE_HAMMER);
-    public static final Item WoodHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.WOOD_HAMMER, 1, Items.wooden_shovel).setUnlocalizedName(Name.Item.WOOD_HAMMER);
+    public static final Item ObsidianHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.OBSIDIAN_HAMMER, 4).setUnlocalizedName(Name.Item.OBSIDIAN_HAMMER);
+    public static final Item DiamondHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DIAMOND_HAMMER, 5).setUnlocalizedName(Name.Item.DIAMOND_HAMMER);
+    public static final Item GoldHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.GOLD_HAMMER, 3).setUnlocalizedName(Name.Item.GOLD_HAMMER);
+    public static final Item IronHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.IRON_HAMMER, 3).setUnlocalizedName(Name.Item.IRON_HAMMER);
+    public static final Item StoneHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.STONE_HAMMER, 2).setUnlocalizedName(Name.Item.STONE_HAMMER);
+    public static final Item WoodHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.WOOD_HAMMER, 1).setUnlocalizedName(Name.Item.WOOD_HAMMER);
 
     public static final Item AdminHammer = new ItemAdminHammer();
     public static final Item DebugItem = new ItemDebugItem();

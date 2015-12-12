@@ -11,12 +11,13 @@ public final class Name
 
     public static final class Block
     {
-        public static final String DEBUG_BLOCK = "debug_block";
-
         public static final String DEVIL_ORE = "devil_ore";
         public static final String DEVIL_COBBLESTONE = "devil_cobblestone";
         public static final String SMOOTH_OBSIDIAN = "smooth_obsidian";
         public static final String DEMON_ALTAR = "demon_altar";
+        public static final String DEMON_FURNACE = "demon_furnace";
+
+        public static final String DEBUG_BLOCK = "debug_block";
     }
 
     public static final class Item

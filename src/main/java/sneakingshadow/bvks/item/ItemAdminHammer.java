@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.reference.Tool;
@@ -22,7 +21,7 @@ import java.util.List;
 public class ItemAdminHammer extends ItemBVKSHammer{
 
     public ItemAdminHammer(){
-        super(Tool.ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
+        super(Tool.ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE);
         this.setUnlocalizedName(Name.Item.ADMIN_HAMMER);
     }
 

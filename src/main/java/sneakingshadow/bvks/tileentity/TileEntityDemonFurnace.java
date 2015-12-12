@@ -3,6 +3,9 @@ package sneakingshadow.bvks.tileentity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import sneakingshadow.bvks.util.NBTHelper;
 
 public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
 
@@ -17,19 +20,64 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     ItemStack[] itemStacks = new ItemStack[24];
     //TODO Make the block explode on 666th use
 
+    public void readFromNBT(NBTTagCompound nbtTagCompound)
+    {
+        super.readFromNBT(nbtTagCompound);
+        itemStacks = NBTHelper.nbtToItems( (NBTTagList)nbtTagCompound.getTag("Items") );
+    }
+
+    public void writeToNBT(NBTTagCompound nbtTagCompound){
+        super.writeToNBT(nbtTagCompound);
+        nbtTagCompound.setTag( "Items", NBTHelper.itemsToNBT(itemStacks) );
+    }
+
     public void updateEntity() {
-
         for (int i : slotsImport) {
-            ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
-            if (itemStack != null)
-                for (int j : slotsExport) {
-                    if (itemStacks[j] == null)
-                        itemStacks[j] = itemStack;
+            if (itemStacks[i] != null) {
+                ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
+                int num = canSmelt(itemStack);
+                if (num != 0) {
+                    sortExport(itemStack, num);
                 }
+            }
         }
+    }
 
+    private void sortExport(ItemStack itemStack, int num) {
+        if(num == 2)
+            for (int i : slotsExport) {
+                if (itemStacks[i].isItemEqual(itemStack)){
+                    int num2 = itemStack.getMaxStackSize()-itemStacks[i].stackSize;
+                    if (itemStack.stackSize <= num2) {
+                        itemStacks[i].stackSize += itemStack.stackSize;
+                        return;
+                    }else{
+                        itemStacks[i].stackSize += num2;
+                        itemStack.stackSize -= num2;
+                    }
+                }
+            }
+        else
+            for (int i : slotsExport) {
+                if (itemStacks[i] == null) {
+                    itemStacks[i] = itemStack;
+                    return;
+                }
+            }
+    }
 
-
+    private int canSmelt(ItemStack itemStack){
+        if (itemStack == null)
+            return 0;
+        int size = itemStack.stackSize;
+        boolean flag = false;
+        for (int i : slotsExport) {
+            if (itemStacks[i] == null)
+                flag = true;
+            if (itemStacks[i].isItemEqual(itemStack))
+                size -= itemStack.getMaxStackSize() - itemStacks[i].stackSize;
+        }
+        return size <= 0 ? 2: flag ? 1:0;
     }
 
 

@@ -5,6 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.reference.Ref;
+import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
 public abstract class BlockContainerBVKS extends BlockBVKS implements ITileEntityProvider{
 
@@ -18,9 +20,21 @@ public abstract class BlockContainerBVKS extends BlockBVKS implements ITileEntit
         this(Material.rock);
     }
 
-    public boolean onBlockEventReceived(World world, int x, int y, int z, int EventID, int EventParameter)
+    public BlockContainerBVKS setTileEntity(Class tileEntity, String name){
+        TileEntity.addMapping(tileEntity, Ref.RESOURCE_PREFIX + name);
+        return this;
+    }
+
+    /**
+     * Called whenever the block is added into the world. Args: world, x, y, z
+     */
+    public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
     {
-        TileEntity tileentity = world.getTileEntity(x, y, z);
-        return tileentity != null && tileentity.receiveClientEvent(EventID, EventParameter);
+        super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
+    }
+
+    @Override
+    public TileEntity createNewTileEntity(World world, int metadata) {
+        return new TileEntityDebugBlock();
     }
 }

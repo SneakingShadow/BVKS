@@ -257,7 +257,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
      * update it's contents.
      */
     @Override
-    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean bool) {
+    public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean currentItem) {
         if (entity instanceof EntityPlayer) {
             ItemStack[] mainInventory = ((EntityPlayer) entity).inventory.mainInventory;
             for (int i = 0; i<mainInventory.length; i++){
