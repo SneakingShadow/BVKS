@@ -10,7 +10,7 @@ import sneakingshadow.bvks.item.ItemBottomlessVoid;
 
 public class RecipeBottomlessVoid {
 
-    public static boolean extract(ItemStack itemStack){
+    public static boolean extractCheck(ItemStack itemStack){
         return itemStack.getItem() instanceof ItemBottomlessVoid && itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
     }
 
@@ -23,7 +23,7 @@ public class RecipeBottomlessVoid {
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
                 if (itemStack != null) {
-                    if (!flag && extract(itemStack))
+                    if (!flag && extractCheck(itemStack))
                         flag = true;
                     else return false;
                 }

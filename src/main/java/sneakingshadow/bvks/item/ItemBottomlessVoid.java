@@ -13,6 +13,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
+import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 
@@ -24,10 +26,10 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public ItemBottomlessVoid() {
         super();
         this.setMaxStackSize(1);
-        //this.setBaseName(Names.Items.BOTTOMLESS_VOID);
+        this.setUnlocalizedName(Name.Item.BOTTOMLESS_VOID);
     }
 
-    //TODO add metadata 3 back again, add tag "Decrease", make Extract recipe extract right amount, currently only gives one item, fix SetType recipe, make Extract recipe not delete void when it's empty, and make Extract let the void stay in the crafting window.
+    //TODO add metadata 3 back again, add tag "Decrease", make Extract recipe extractCheck right amount, currently only gives one item, fix SetType recipe, make Extract recipe not delete void when it's empty, and make Extract let the void stay in the crafting window.
     /*Tags:
     *   Item:
     *       {
@@ -83,7 +85,37 @@ public class ItemBottomlessVoid extends ItemBVKS {
             itemCompound.setByte("Count", (byte) size);
             nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-size);
         }
+        LogHelper.info(itemCompound);
+        LogHelper.info(itemCompound.getCompoundTag("tag"));
+        LogHelper.info(itemCompound.getCompoundTag("tag").hasNoTags());
+        LogHelper.info(itemCompound.getCompoundTag("tag").equals(new NBTTagCompound()));
+        if ( itemCompound.getCompoundTag("tag").hasNoTags() )
+            itemCompound.removeTag("tag");
         return ItemStack.loadItemStackFromNBT(itemCompound);
+    }
+
+    public static ItemStack extractWithRemoval(ItemStack itemStack) {
+        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
+        NBTTagCompound itemCompound = new NBTTagCompound();
+        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
+        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
+        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
+        itemCompound.setByte("Count", (byte) 1);
+        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
+        if (nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
+            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
+            nbtTagCompound.setLong("Count", 0);
+        }else{
+            itemCompound.setByte("Count", (byte) itemStack1.getMaxStackSize());
+            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-itemStack1.getMaxStackSize());
+        }
+        if (itemCompound.getCompoundTag("tag").hasNoTags()) {
+            LogHelper.info("Has no tags!!");
+            itemCompound.removeTag("tag");
+            LogHelper.info(itemCompound);
+        }
+        itemStack1.readFromNBT(itemCompound);
+        return itemStack1;
     }
 
     public static Boolean isItemsEqual(ItemStack itemStack, NBTTagCompound bottomlessVoidCompound){
@@ -240,19 +272,17 @@ public class ItemBottomlessVoid extends ItemBVKS {
 */
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-        ItemStack itemStack1 = itemStack.copy();
-        if(hasContainerItem(itemStack)) return itemStack1;
+        if ( hasContainerItem(itemStack) ) {
+            ItemStack itemStack1 = itemStack.copy();
+            extractWithRemoval(itemStack1);
+            return itemStack1;
+        }
         return null;
     }
 
     @Override
     public boolean hasContainerItem(ItemStack itemStack) {
         return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
-    }
-
-    @Override
-    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack) {
-        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") == 0;
     }
 }
 

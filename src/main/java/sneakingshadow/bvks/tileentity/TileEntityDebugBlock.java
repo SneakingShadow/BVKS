@@ -25,6 +25,11 @@ public class TileEntityDebugBlock extends TileEntity {
         nbtTagCompound.setTag(tagPlayerList, players);
     }
 
+    @Override
+    public void updateEntity() {
+
+    }
+
     public void addPlayer(String player){
         this.players.appendTag(new NBTTagString(player));
     }
