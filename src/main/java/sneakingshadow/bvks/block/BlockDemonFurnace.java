@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
+import java.util.Random;
+
 public class BlockDemonFurnace extends BlockContainerBVKS {
 
     private IIcon north;
@@ -46,5 +48,9 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     @Override
     public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileEntityDemonFurnace();
+    }
+
+    public void updateTick(World world, int x, int y, int z, Random random) {
+
     }
 }

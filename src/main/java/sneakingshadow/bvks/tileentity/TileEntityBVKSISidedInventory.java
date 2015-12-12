@@ -21,6 +21,13 @@ public class TileEntityBVKSISidedInventory extends TileEntityBVKSIInventory impl
         return integer;
     }
 
+    public static boolean exists(int slot, int[] slots) {
+        for (int i : slots)
+            if (i==slot)
+                return true;
+        return false;
+    }
+
     /**
      * Returns an array containing the indices of the slots that can be accessed by automation on the given side of this
      * block.

@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntityFurnace;
 import sneakingshadow.bvks.util.NBTHelper;
 
 public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
@@ -32,14 +33,19 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     }
 
     public void updateEntity() {
-        for (int i : slotsImport) {
-            if (itemStacks[i] != null) {
-                ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
-                int num = canSmelt(itemStack);
-                if (num != 0) {
-                    sortExport(itemStack, num);
+        if (this.worldObj != null && !this.worldObj.isRemote) {
+            for (int i : slotsImport) {
+                if (itemStacks[i] != null) {
+                    ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
+                    int num = canSmelt(itemStack);
+                    if (num != 0) {
+                        sortExport(itemStack, num);
+                        markDirty();
+                    }
                 }
             }
+
+            //TODO Make the furnace auto-eject items
         }
     }
 
@@ -74,13 +80,13 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
         for (int i : slotsExport) {
             if (itemStacks[i] == null)
                 flag = true;
-            if (itemStacks[i].isItemEqual(itemStack))
+            else if (itemStacks[i].isItemEqual(itemStack))
                 size -= itemStack.getMaxStackSize() - itemStacks[i].stackSize;
         }
         return size <= 0 ? 2: flag ? 1:0;
     }
 
-
+    /*----------------------------------------------------------------------------------------------------------------------*/
 
     /**
      * Returns the number of slots in the inventory.
@@ -97,7 +103,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return null;
+        return itemStacks[slot];
     }
 
     /**
@@ -109,7 +115,9 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public ItemStack decrStackSize(int slot, int amount) {
-        return null;
+        if (itemStacks[slot] == null)
+            return null;
+        return itemStacks[slot].splitStack(amount);
     }
 
     /**
@@ -125,13 +133,14 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
 
     /**
      * Sets the given item stack to the specified slot in the inventory (can be crafting or armor sections).
-     *
      * @param slot
      * @param itemStack
      */
     @Override
     public void setInventorySlotContents(int slot, ItemStack itemStack) {
-
+        if (!this.isItemValidForSlot(slot, itemStack))
+            return;
+        itemStacks[slot] = itemStack;
     }
 
     /**
@@ -155,7 +164,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public int getInventoryStackLimit() {
-        return 0;
+        return 64;
     }
 
     /**
@@ -186,10 +195,10 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return false;
+        return exists(slot, slotsImport) && canSmelt(itemStack) != 0 || (exists(slot, slotsFuel) && TileEntityFurnace.isItemFuel(itemStack));
     }
 
-
+    /*----------------------------------------------------------------------------------------------------------------------*/
 
     /**
      * Returns an array containing the indices of the slots that can be accessed by automation on the given side of this
@@ -209,7 +218,9 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
-        return false;
+        if (side == top)
+            return exists(slot, slotsTop);
+        return side != bottom && !exists(slot, slotsBottom) && !exists(slot, slotsTop);
     }
 
     /**
@@ -218,7 +229,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
-        return false;
+        return side == bottom && exists(slot, slotsBottom);
     }
 
 }
