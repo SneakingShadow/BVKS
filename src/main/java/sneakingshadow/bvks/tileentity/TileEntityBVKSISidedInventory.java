@@ -5,14 +5,6 @@ import net.minecraft.item.ItemStack;
 
 public class TileEntityBVKSISidedInventory extends TileEntityBVKSIInventory implements ISidedInventory {
 
-    public static final int bottom = 0;
-    public static final int top = 1;
-    public static final int north = 2;
-    public static final int south = 3;
-    public static final int west = 4;
-    public static final int east = 5;
-
-
     public static int[] slots(int start, int end) {
         int[] integer = new int[end-start+1];
         for (int i=0;i<(end-start+1);i++) {

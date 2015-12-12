@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityFurnace;
+import sneakingshadow.bvks.reference.Dir;
 import sneakingshadow.bvks.util.NBTHelper;
 
 public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
@@ -52,7 +53,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     private void sortExport(ItemStack itemStack, int num) {
         if(num == 2)
             for (int i : slotsExport) {
-                if (itemStacks[i].isItemEqual(itemStack)){
+                if (itemStacks[i] != null && itemStacks[i].isItemEqual(itemStack)){
                     int num2 = itemStack.getMaxStackSize()-itemStacks[i].stackSize;
                     if (itemStack.stackSize <= num2) {
                         itemStacks[i].stackSize += itemStack.stackSize;
@@ -206,8 +207,8 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
-        return side == top ?
-                slotsTop : side == bottom ?
+        return side == Dir.up ?
+                slotsTop : side == Dir.down ?
                 slotsBottom :
                 slotsSide;
     }
@@ -218,9 +219,9 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
-        if (side == top)
+        if (side == Dir.up)
             return exists(slot, slotsTop);
-        return side != bottom && !exists(slot, slotsBottom) && !exists(slot, slotsTop);
+        return side != Dir.down && !exists(slot, slotsBottom) && !exists(slot, slotsTop);
     }
 
     /**
@@ -229,7 +230,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
-        return side == bottom && exists(slot, slotsBottom);
+        return side == Dir.down && exists(slot, slotsBottom);
     }
 
 }
