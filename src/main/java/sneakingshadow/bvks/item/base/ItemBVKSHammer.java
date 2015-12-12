@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.reference.Tool;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
 
 public class ItemBVKSHammer extends ItemBVKSPickaxe
@@ -16,22 +16,17 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe
     public final byte widthX;
     public final byte widthY;
     public final byte widthZ;
-    private static Item itemShovel;
 
-    public ItemBVKSHammer(ToolMaterial toolMaterial, int x, int y, int z, Item shovel){
+    public ItemBVKSHammer(ToolMaterial toolMaterial, int x, int y, int z){
         super(toolMaterial);
         widthX = (byte) x;
         widthY = (byte) y;
         widthZ = (byte) z;
-        itemShovel = shovel;
+        setHarvestLevel(Tool.Type.SHOVEL, toolMaterial.getHarvestLevel());
     }
 
-    public ItemBVKSHammer(ToolMaterial toolMaterial, int size, Item shovel){
-        super(toolMaterial);
-        widthX = (byte) size;
-        widthY = (byte) size;
-        widthZ = (byte) size;
-        itemShovel = shovel;
+    public ItemBVKSHammer(ToolMaterial toolMaterial, int size){
+        this(toolMaterial, size, size, size);
     }
 
     @Override
@@ -77,7 +72,4 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe
 
         return false;
     }
-
-    @Override
-    public boolean func_150897_b(Block block){ return super.func_150897_b(block) || itemShovel.func_150897_b(block); }
 }

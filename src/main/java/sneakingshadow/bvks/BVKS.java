@@ -63,3 +63,14 @@ public class BVKS
 //TODO Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
 //Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
 //Check if you can get the player name any other way.
+//TODO Hammer workbench, tier 1-3
+//Tier 1: makes wood, turns wood to stone, and stone to iron
+//Tier 2: turns iron to gold, and gold to diamond
+//Tier 3: turns diamond to obsidian and obsidian to devil
+//Can be upgraded with sword, shovel, pickaxe, and other tools.
+//Can only be upgraded as far as the hammer, and has to be upgraded the same way as the hammer along with it.
+//You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
+//TODO Multiple gates that open with redstone
+//Opens with a sliding animation
+//TODO Use for demon altar
+//
