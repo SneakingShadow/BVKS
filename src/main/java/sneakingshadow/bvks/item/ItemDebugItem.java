@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
@@ -26,7 +26,7 @@ public class ItemDebugItem extends ItemBVKS {
     public ItemDebugItem() {
         super();
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Names.Items.DEBUG_ITEM);
+        this.setUnlocalizedName(Name.Item.DEBUG_ITEM);
         this.setFull3D();
     }
 

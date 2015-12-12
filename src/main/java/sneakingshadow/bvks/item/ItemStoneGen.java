@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class ItemStoneGen extends ItemBVKS{
     public ItemStoneGen(){
         super();
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Names.Items.STONE_GEN);
+        this.setUnlocalizedName(Name.Item.STONE_GEN);
     }
 
     @Override

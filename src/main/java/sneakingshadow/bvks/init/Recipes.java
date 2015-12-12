@@ -8,6 +8,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import sneakingshadow.bvks.crafting.RecipeBottomlessVoid;
+import sneakingshadow.bvks.crafting.RecipeDebugRecipe;
 
 public class Recipes
 {
@@ -64,6 +65,7 @@ public class Recipes
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Extract());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.SetType());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Clear());
+        GameRegistry.addRecipe(new RecipeDebugRecipe());
     }
 
     public static void init(){

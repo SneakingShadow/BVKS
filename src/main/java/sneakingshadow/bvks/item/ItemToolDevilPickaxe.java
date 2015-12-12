@@ -1,15 +1,15 @@
 package sneakingshadow.bvks.item;
 
 import sneakingshadow.bvks.item.base.ItemBVKSPickaxe;
-import sneakingshadow.bvks.reference.ItemToolMaterial;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.reference.Tool;
 
 public class ItemToolDevilPickaxe extends ItemBVKSPickaxe
 {
     public ItemToolDevilPickaxe()
     {
-        super(ItemToolMaterial.DEVIL_PICKAXE);
-        this.setUnlocalizedName(Names.Items.DEVIL_PICKAXE);
+        super(Tool.ItemToolMaterial.DEVIL_PICKAXE);
+        this.setUnlocalizedName(Name.Item.DEVIL_PICKAXE);
     }
 
     @Override

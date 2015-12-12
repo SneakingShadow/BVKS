@@ -3,16 +3,16 @@ package sneakingshadow.bvks.item;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.item.base.ItemBVKSHoe;
-import sneakingshadow.bvks.reference.ItemToolMaterial;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.reference.Tool;
 
 import java.util.List;
 
 public class ItemToolDevilHoe extends ItemBVKSHoe
 {
     public ItemToolDevilHoe() {
-        super(ItemToolMaterial.DEVIL_HOE);
-        this.setUnlocalizedName(Names.Items.DEVIL_HOE);
+        super(Tool.ItemToolMaterial.DEVIL_HOE);
+        this.setUnlocalizedName(Name.Item.DEVIL_HOE);
     }
 
     @Override

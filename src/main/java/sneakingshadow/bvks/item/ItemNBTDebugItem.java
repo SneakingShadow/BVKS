@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.util.LogHelper;
 
 public class ItemNBTDebugItem extends ItemBVKS {
@@ -13,7 +13,7 @@ public class ItemNBTDebugItem extends ItemBVKS {
     public ItemNBTDebugItem() {
         super();
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Names.Items.NBT_DEBUG_ITEM);
+        this.setUnlocalizedName(Name.Item.NBT_DEBUG_ITEM);
         this.setFull3D();
     }
 

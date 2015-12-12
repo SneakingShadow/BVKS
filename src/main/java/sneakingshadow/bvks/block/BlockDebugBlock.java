@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
@@ -12,8 +12,8 @@ public class BlockDebugBlock extends BlockContainerBVKS{
 
     public BlockDebugBlock(){
         super();
-        this.setBlockName(Names.Blocks.DEBUG_BLOCK);
-        TileEntity.addMapping(TileEntityDebugBlock.class, Ref.RESOURCE_PREFIX+Names.Blocks.DEBUG_BLOCK);
+        this.setBlockName(Name.Block.DEBUG_BLOCK);
+        TileEntity.addMapping(TileEntityDebugBlock.class, Ref.RESOURCE_PREFIX+ Name.Block.DEBUG_BLOCK);
     }
 
     @Override

@@ -12,8 +12,8 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.init.ModItems;
 import sneakingshadow.bvks.item.base.ItemBVKSHammer;
-import sneakingshadow.bvks.reference.ItemToolMaterial;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.reference.Tool;
 import sneakingshadow.bvks.util.EnchantmentHelper;
 
 import java.util.ArrayList;
@@ -22,8 +22,8 @@ import java.util.List;
 public class ItemAdminHammer extends ItemBVKSHammer{
 
     public ItemAdminHammer(){
-        super(ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
-        this.setUnlocalizedName(Names.Items.ADMIN_HAMMER);
+        super(Tool.ItemToolMaterial.ADMIN_HAMMER, Byte.MAX_VALUE, Byte.MAX_VALUE, Byte.MAX_VALUE, ModItems.DevilShovel);
+        this.setUnlocalizedName(Name.Item.ADMIN_HAMMER);
     }
 
     @Override

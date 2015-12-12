@@ -6,7 +6,7 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,7 +18,7 @@ public class BlockDevilOre extends BlockBVKS
     public BlockDevilOre()
     {
         super();
-        this.setBlockName(Names.Blocks.DEVIL_ORE);
+        this.setBlockName(Name.Block.DEVIL_ORE);
         this.setHardness(75F);
         this.setResistance(10000F);
         this.setHarvestLevel("pickaxe", 4);

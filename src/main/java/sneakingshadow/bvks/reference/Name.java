@@ -1,15 +1,15 @@
 package sneakingshadow.bvks.reference;
 
-public final class Names
+public final class Name
 {
-    public static final class Keys
+    public static final class Key
     {
         public static final String CATEGORY = "keys.bvks.category";
         public static final String CHARGE = "keys.bvks.charge";
         public static final String RELEASE = "keys.bvks.release";
     }
 
-    public static final class Blocks
+    public static final class Block
     {
         public static final String DEBUG_BLOCK = "debug_block";
 
@@ -19,7 +19,7 @@ public final class Names
         public static final String DEMON_ALTAR = "demon_altar";
     }
 
-    public static final class Items
+    public static final class Item
     {
         public static final String ASSASSINS_KNIFE = "assassins_knife";
         public static final String DEVIL_ARROW = "devil_arrow";
@@ -62,13 +62,13 @@ public final class Names
         public static final String STONE_GEN = "stone_generator";
     }
 
-    public static final class ArmorTextures
+    public static final class Armor
     {
         public static final String DEVIL = "devil_armor";
         public static final String OBSIDIAN = "obsidian_armor";
     }
 
-    public static final class CreativeTabs
+    public static final class CreativeTab
     {
         public static final String ITEM = Ref.RESOURCE_PREFIX + "item";
         public static final String BLOCK = Ref.RESOURCE_PREFIX + "block";

@@ -9,13 +9,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import sneakingshadow.bvks.init.ModBlocks;
 import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 
 import java.util.List;
 
 public class CreativeTabBVKS
 {
-    public static final CreativeTabs tabItem = new CreativeTabs(Names.CreativeTabs.ITEM) {
+    public static final CreativeTabs tabItem = new CreativeTabs(Name.CreativeTab.ITEM) {
         @Override
         public Item getTabIconItem() {
             return ModItems.DevilGem;
@@ -32,8 +32,8 @@ public class CreativeTabBVKS
         {
             ModItems.add(list);
         }
-    }.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
-    public static final CreativeTabs tabBlock = new CreativeTabs(Names.CreativeTabs.BLOCK) {
+    }.setBackgroundImageName(Name.CreativeTab.BACKGROUND);
+    public static final CreativeTabs tabBlock = new CreativeTabs(Name.CreativeTab.BLOCK) {
         @Override
         public Item getTabIconItem() {
             return Item.getItemFromBlock(ModBlocks.DevilOre);
@@ -51,7 +51,7 @@ public class CreativeTabBVKS
         {
             ModBlocks.add(list);
         }
-    }.setBackgroundImageName(Names.CreativeTabs.BACKGROUND);
+    }.setBackgroundImageName(Name.CreativeTab.BACKGROUND);
 
     /**
      *

@@ -8,8 +8,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKSArmor;
-import sneakingshadow.bvks.reference.Armor;
-import sneakingshadow.bvks.reference.Names;
+import sneakingshadow.bvks.reference.Name;
 
 import java.util.List;
 
@@ -17,8 +16,8 @@ public class ItemArmorDevilBoots extends ItemBVKSArmor
 {
     public ItemArmorDevilBoots()
     {
-        super(Names.ArmorTextures.DEVIL, Armor.Material.DEVIL, Armor.Type.BOOTS);
-        this.setUnlocalizedName(Names.Items.DEVIL_BOOTS);
+        super(Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.BOOTS);
+        this.setUnlocalizedName(Name.Item.DEVIL_BOOTS);
     }
 
     @Override
