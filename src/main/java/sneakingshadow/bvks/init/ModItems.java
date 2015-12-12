@@ -3,6 +3,7 @@ package sneakingshadow.bvks.init;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.item.*;
@@ -16,46 +17,46 @@ import java.util.List;
 @GameRegistry.ObjectHolder(Ref.MOD_ID)
 public class ModItems
 {
-    public static final net.minecraft.item.Item DevilGem = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_GEM).setCreativeTab(CreativeTabBVKS.tabItem);
-    public static final net.minecraft.item.Item ObsidianIngot = new ItemBVKS().setUnlocalizedName(Name.Item.OBSIDIAN_INGOT);
-    public static final net.minecraft.item.Item IronRod = new ItemBVKS().setUnlocalizedName(Name.Item.IRON_ROD);
-    public static final net.minecraft.item.Item DevilArrow = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_ARROW);
-    public static final net.minecraft.item.Item DevilIngot = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_INGOT);
-    public static final net.minecraft.item.Item ObsidianRod = new ItemBVKS().setUnlocalizedName(Name.Item.OBSIDIAN_ROD);
-    public static final net.minecraft.item.Item DevilCompound = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_COMPOUND);
-    public static final net.minecraft.item.Item BottomlessVoid = new ItemBottomlessVoid();
-    public static final net.minecraft.item.Item StoneGen = new ItemStoneGen();
-    public static final net.minecraft.item.Item DevilBow = new ItemDevilBow();
-    public static final net.minecraft.item.Item AssassinsKnife = new ItemAssassinsKnife();
+    public static final Item DevilGem = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_GEM).setCreativeTab(CreativeTabBVKS.tabItem);
+    public static final Item ObsidianIngot = new ItemBVKS().setUnlocalizedName(Name.Item.OBSIDIAN_INGOT);
+    public static final Item IronRod = new ItemBVKS().setUnlocalizedName(Name.Item.IRON_ROD);
+    public static final Item DevilArrow = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_ARROW);
+    public static final Item DevilIngot = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_INGOT);
+    public static final Item ObsidianRod = new ItemBVKS().setUnlocalizedName(Name.Item.OBSIDIAN_ROD);
+    public static final Item DevilCompound = new ItemBVKS().setUnlocalizedName(Name.Item.DEVIL_COMPOUND);
+    public static final Item BottomlessVoid = new ItemBottomlessVoid();
+    public static final Item StoneGen = new ItemStoneGen();
+    public static final Item DevilBow = new ItemDevilBow();
+    public static final Item AssassinsKnife = new ItemAssassinsKnife();
 
     //Armor
-    public static final net.minecraft.item.Item DevilBoots = new ItemArmorDevilBoots();
-    public static final net.minecraft.item.Item DevilLeggings = new ItemArmorDevilLeggings();
-    public static final net.minecraft.item.Item DevilChestplate = new ItemArmorDevilChestplate();
-    public static final net.minecraft.item.Item DevilHelmet = new ItemArmorDevilHelmet();
-    public static final net.minecraft.item.Item ObsidianBoots = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.BOOTS).setUnlocalizedName(Name.Item.OBSIDIAN_BOOTS);
-    public static final net.minecraft.item.Item ObsidianLeggings = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.LEGGINGS).setUnlocalizedName(Name.Item.OBSIDIAN_LEGGINGS);
-    public static final net.minecraft.item.Item ObsidianChestplate = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.CHESTPLATE).setUnlocalizedName(Name.Item.OBSIDIAN_CHESTPLATE);
-    public static final net.minecraft.item.Item ObsidianHelmet = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.HELMET).setUnlocalizedName(Name.Item.OBSIDIAN_HELMET);
+    public static final Item DevilBoots = new ItemArmorDevilBoots();
+    public static final Item DevilLeggings = new ItemArmorDevilLeggings();
+    public static final Item DevilChestplate = new ItemArmorDevilChestplate();
+    public static final Item DevilHelmet = new ItemArmorDevilHelmet();
+    public static final Item ObsidianBoots = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.BOOTS).setUnlocalizedName(Name.Item.OBSIDIAN_BOOTS);
+    public static final Item ObsidianLeggings = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.LEGGINGS).setUnlocalizedName(Name.Item.OBSIDIAN_LEGGINGS);
+    public static final Item ObsidianChestplate = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.CHESTPLATE).setUnlocalizedName(Name.Item.OBSIDIAN_CHESTPLATE);
+    public static final Item ObsidianHelmet = new ItemBVKSArmor(Name.Armor.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Material.OBSIDIAN, sneakingshadow.bvks.reference.Armor.Type.HELMET).setUnlocalizedName(Name.Item.OBSIDIAN_HELMET);
 
     /**
      *    Tools
      */
     //Devil
-    public static final net.minecraft.item.Item DevilPickaxe = new ItemToolDevilPickaxe();
-    public static final net.minecraft.item.Item DevilShovel = new ItemToolDevilShovel();
-    public static final net.minecraft.item.Item DevilSword = new ItemToolDevilSword();
-    public static final net.minecraft.item.Item DevilAxe = new ItemToolDevilAxe();
-    public static final net.minecraft.item.Item DevilHoe = new ItemToolDevilHoe();
+    public static final Item DevilPickaxe = new ItemToolDevilPickaxe();
+    public static final Item DevilShovel = new ItemToolDevilShovel();
+    public static final Item DevilSword = new ItemToolDevilSword();
+    public static final Item DevilAxe = new ItemToolDevilAxe();
+    public static final Item DevilHoe = new ItemToolDevilHoe();
     //Obsidian
-    public static final net.minecraft.item.Item ObsidianPickaxe = new ItemBVKSPickaxe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_PICKAXE);
-    public static final net.minecraft.item.Item ObsidianShovel = new ItemBVKSShovel(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_SHOVEL);
-    public static final net.minecraft.item.Item ObsidianSword = new ItemBVKSSword(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_SWORD);
-    public static final net.minecraft.item.Item ObsidianAxe = new ItemBVKSAxe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_AXE);
-    public static final net.minecraft.item.Item ObsidianHoe = new ItemBVKSHoe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_HOE);
+    public static final Item ObsidianPickaxe = new ItemBVKSPickaxe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_PICKAXE);
+    public static final Item ObsidianShovel = new ItemBVKSShovel(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_SHOVEL);
+    public static final Item ObsidianSword = new ItemBVKSSword(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_SWORD);
+    public static final Item ObsidianAxe = new ItemBVKSAxe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_AXE);
+    public static final Item ObsidianHoe = new ItemBVKSHoe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_HOE);
 
     //Hammers
-    public static final net.minecraft.item.Item DevilHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DEVIL_HAMMER, 9, ModItems.DevilShovel){
+    public static final Item DevilHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DEVIL_HAMMER, 9, ModItems.DevilShovel){
         @Override
         public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
         {
@@ -65,16 +66,16 @@ public class ModItems
         @Override
         public boolean isDamageable() { return false; }
     }.setUnlocalizedName(Name.Item.DEVIL_HAMMER);
-    public static final net.minecraft.item.Item ObsidianHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.OBSIDIAN_HAMMER, 4, ModItems.ObsidianShovel).setUnlocalizedName(Name.Item.OBSIDIAN_HAMMER);
-    public static final net.minecraft.item.Item DiamondHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DIAMOND_HAMMER, 5, Items.diamond_shovel).setUnlocalizedName(Name.Item.DIAMOND_HAMMER);
-    public static final net.minecraft.item.Item GoldHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.GOLD_HAMMER, 3, Items.golden_shovel).setUnlocalizedName(Name.Item.GOLD_HAMMER);
-    public static final net.minecraft.item.Item IronHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.IRON_HAMMER, 3, Items.iron_shovel).setUnlocalizedName(Name.Item.IRON_HAMMER);
-    public static final net.minecraft.item.Item StoneHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.STONE_HAMMER, 2, Items.stone_shovel).setUnlocalizedName(Name.Item.STONE_HAMMER);
-    public static final net.minecraft.item.Item WoodHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.WOOD_HAMMER, 1, Items.wooden_shovel).setUnlocalizedName(Name.Item.WOOD_HAMMER);
+    public static final Item ObsidianHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.OBSIDIAN_HAMMER, 4, ModItems.ObsidianShovel).setUnlocalizedName(Name.Item.OBSIDIAN_HAMMER);
+    public static final Item DiamondHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DIAMOND_HAMMER, 5, Items.diamond_shovel).setUnlocalizedName(Name.Item.DIAMOND_HAMMER);
+    public static final Item GoldHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.GOLD_HAMMER, 3, Items.golden_shovel).setUnlocalizedName(Name.Item.GOLD_HAMMER);
+    public static final Item IronHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.IRON_HAMMER, 3, Items.iron_shovel).setUnlocalizedName(Name.Item.IRON_HAMMER);
+    public static final Item StoneHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.STONE_HAMMER, 2, Items.stone_shovel).setUnlocalizedName(Name.Item.STONE_HAMMER);
+    public static final Item WoodHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.WOOD_HAMMER, 1, Items.wooden_shovel).setUnlocalizedName(Name.Item.WOOD_HAMMER);
 
-    public static final net.minecraft.item.Item AdminHammer = new ItemAdminHammer();
-    public static final net.minecraft.item.Item DebugItem = new ItemDebugItem();
-    public static final net.minecraft.item.Item NBTDebugItem = new ItemNBTDebugItem();
+    public static final Item AdminHammer = new ItemAdminHammer();
+    public static final Item DebugItem = new ItemDebugItem();
+    public static final Item NBTDebugItem = new ItemNBTDebugItem();
 
     public static void init()
     {
@@ -120,7 +121,7 @@ public class ModItems
     }
 
     public static void add(List list){
-        CreativeTabBVKS.add(list, new net.minecraft.item.Item[]{
+        CreativeTabBVKS.add(list, new Item[]{
                 BottomlessVoid,
                 AdminHammer,
                 DevilHammer,
@@ -163,7 +164,7 @@ public class ModItems
         CreativeTabBVKS.add(list, NBTDebugItem);
     }
 
-    private static void registerItem(net.minecraft.item.Item item, String name){
+    private static void registerItem(Item item, String name){
         GameRegistry.registerItem(item, Ref.RESOURCE_PREFIX + "item_" + name);
     }
 }

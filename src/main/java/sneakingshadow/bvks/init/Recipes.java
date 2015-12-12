@@ -8,18 +8,20 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import sneakingshadow.bvks.crafting.RecipeBottomlessVoid;
-import sneakingshadow.bvks.crafting.RecipeDebugRecipe;
 
 public class Recipes
 {
-    public static void recipes()
-    {
+    public static void registerOreDic() {
         OreDictionary.registerOre("blockObsidian", Blocks.obsidian);
         OreDictionary.registerOre("ingotObsidian", ModItems.ObsidianIngot);
         OreDictionary.registerOre("gemDevil", ModItems.DevilGem);
         OreDictionary.registerOre("ingotDevil", ModItems.DevilIngot);
         OreDictionary.registerOre("stickIron", ModItems.IronRod);
         OreDictionary.registerOre("stickObsidian", ModItems.ObsidianRod);
+    }
+
+    public static void shapedRecipes()
+    {
 
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilPickaxe, "iii", " s ", " s ", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilAxe, "ii", "is", " s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
@@ -54,9 +56,13 @@ public class Recipes
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.ObsidianRod, "o", "o", 'o', "ingotObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.IronRod, "o", "o", 'o', "ingotIron"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilCompound, "idi", "dgd", "idi", 'i', "ingotIron", 'd', "gemDiamond", 'g', ModItems.DevilGem));
+    }
 
+    public static void shapelessRecipes() {
         GameRegistry.addRecipe(new ShapelessOreRecipe(Items.iron_ingot, new ItemStack(Blocks.obsidian, -1)));
+    }
 
+    public static void smelting() {
         GameRegistry.addSmelting(Blocks.obsidian, new ItemStack(ModItems.ObsidianIngot), 0.01F);
         GameRegistry.addSmelting(ModItems.DevilCompound, new ItemStack(ModItems.DevilIngot), 1F);
     }
@@ -65,11 +71,13 @@ public class Recipes
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Extract());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.SetType());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Clear());
-        GameRegistry.addRecipe(new RecipeDebugRecipe());
     }
 
     public static void init(){
+        registerOreDic();
         recipeHandlers();
-        recipes();
+        shapedRecipes();
+        shapelessRecipes();
+        smelting();
     }
 }

@@ -1,28 +1,22 @@
 package sneakingshadow.bvks.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityDebugBlock extends TileEntity {
-
-    private final String tagPlayerList = "players";
-
-    public NBTTagList players = new NBTTagList();
+public class TileEntityDebugBlock extends TileEntity{
 
     @Override
     public void readFromNBT(NBTTagCompound nbtTagCompound)
     {
         super.readFromNBT(nbtTagCompound);
-        this.players = nbtTagCompound.getTagList(tagPlayerList, 8);
+
     }
 
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound)
     {
         super.writeToNBT(nbtTagCompound);
-        nbtTagCompound.setTag(tagPlayerList, players);
+
     }
 
     @Override
@@ -30,15 +24,20 @@ public class TileEntityDebugBlock extends TileEntity {
 
     }
 
-    public void addPlayer(String player){
-        this.players.appendTag(new NBTTagString(player));
+    /**
+     * Determines if this TileEntity requires update calls.
+     * @return True if you want updateEntity() to be called, false if not
+     */
+    public boolean canUpdate()
+    {
+        return true;
     }
 
-    public boolean hasPlayer(String player){
-        for(int i = 0; i < this.players.tagCount(); i++){
-            if(this.players.getStringTagAt(i).equals(player))
-                return true;
-        }
-        return false;
+    /**
+     * Called when the chunk this TileEntity is on is Unloaded.
+     */
+    public void onChunkUnload()
+    {
+
     }
 }

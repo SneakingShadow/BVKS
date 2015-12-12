@@ -17,22 +17,10 @@ public class BlockDebugBlock extends BlockContainerBVKS{
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
         TileEntityDebugBlock tileEntity = (TileEntityDebugBlock) world.getTileEntity(x, y, z);
-        if (player.isSneaking()) {
-            if(tileEntity.players.tagCount() != 0){
-                if(!world.isRemote && !world.restoringBlockSnapshots) {
-                    player.addChatComponentMessage(new ChatComponentText("All the players who have clicked this block:"));
-                    for (int i = 0; i < tileEntity.players.tagCount(); i++) {
-                        player.addChatComponentMessage(new ChatComponentText(tileEntity.players.getStringTagAt(i)));
-                    }
-                }
-            }else
-                if(!world.isRemote && !world.restoringBlockSnapshots)
-                    player.addChatComponentMessage(new ChatComponentText("No'one has clicked this block yet"));
-        }else if(!tileEntity.hasPlayer(player.getDisplayName()))
-            tileEntity.addPlayer(player.getDisplayName());
+        entityPlayer.addChatMessage(new ChatComponentText(Integer.toString(p_149727_6_)));
         return false;
     }
 
