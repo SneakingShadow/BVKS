@@ -3,8 +3,11 @@ package sneakingshadow.bvks.block;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Dir;
 import sneakingshadow.bvks.reference.Name;
@@ -18,6 +21,7 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     private IIcon west;
     private IIcon top;
     private IIcon bottom;
+    public IIcon[] sides = new IIcon[4];
 
     public BlockDemonFurnace() {
         super();
@@ -35,6 +39,7 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
         west = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_west")));
         top = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_top")));
         bottom = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_bottom")));
+        sides = new IIcon[]{north, east, south, west};
     }
 
     /**
@@ -49,16 +54,27 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     }
 
     /**
+     * Called when the block is placed in the world.
+     */
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
+    {
+        int l = MathHelper.floor_double((double)(entityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        world.setBlockMetadataWithNotify(x, y, z, l==3 ? 1:l==1 ? 3:l, 2);
+    }
+
+    /**
      * Gets the block's texture. Args: side, meta
      */
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
-        return side == Dir.up ? top :
-                side == Dir.down ? bottom :
-                        side == Dir.north ? north:
-                                side == Dir.south ? south:
-                                        side == Dir.east ? east:
-                                                west;
+        if (side == Dir.down)
+            return bottom;
+        if (side == Dir.up)
+            return top;
+        side = side == Dir.north ? 0 :
+                side == Dir.east ? 1 :
+                        side == Dir.south ? 2 : 3;
+        return sides[(side+meta)>3 ? side+meta-4 : side+meta];
     }
 }

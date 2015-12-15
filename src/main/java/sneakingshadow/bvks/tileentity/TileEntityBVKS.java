@@ -2,6 +2,6 @@ package sneakingshadow.bvks.tileentity;
 
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityBVKS extends TileEntity {
+public abstract class TileEntityBVKS extends TileEntity {
 
 }
