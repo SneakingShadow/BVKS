@@ -51,8 +51,10 @@ public class BlockDevilOre extends BlockBVKS
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        if(fortune > 0) ret.add(new ItemStack(ModItems.DevilGem, random.nextInt(fortune)+1));
-        else ret.add(new ItemStack(ModItems.DevilGem, 1));
+        if(fortune > 0)
+            ret.add(new ItemStack(ModItems.DevilGem, random.nextInt(fortune)+1));
+        else
+            ret.add(new ItemStack(ModItems.DevilGem, 1));
         return ret;
     }
 }

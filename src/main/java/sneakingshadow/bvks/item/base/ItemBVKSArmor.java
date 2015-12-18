@@ -7,7 +7,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import sneakingshadow.bvks.reference.Ref;
 
 public class ItemBVKSArmor extends ItemArmor
@@ -27,7 +26,6 @@ public class ItemBVKSArmor extends ItemArmor
     {
         super(material, renderIndex, armorType);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
-        this.setCreativeTab(CreativeTabBVKS.tabItem);
         texture = textureName;
         armor = armorType;
     }

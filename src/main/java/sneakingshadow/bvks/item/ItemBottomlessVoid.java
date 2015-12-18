@@ -201,7 +201,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iIconRegister) {
-        this.itemIcon = iIconRegister.registerIcon(this.getIconString() + "_0");
         itemIcons = new IIcon[iconAmount];
         for (int i = 0; i < iconAmount; i++) {
             itemIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_" + i);
