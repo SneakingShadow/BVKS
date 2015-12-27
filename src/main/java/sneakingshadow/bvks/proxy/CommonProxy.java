@@ -2,6 +2,10 @@ package sneakingshadow.bvks.proxy;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.client.gui.GuiDemonFurnace;
+import sneakingshadow.bvks.inventory.ContainerDemonFurnace;
+import sneakingshadow.bvks.reference.GuiID;
+import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 public abstract class CommonProxy implements IProxy
 {
@@ -9,7 +13,7 @@ public abstract class CommonProxy implements IProxy
      * Returns a Server side Container to be displayed to the user.
      *
      * @param ID     The Gui ID Number
-     * @param player The player viewing the Gui
+     * @param entityPlayer The player viewing the Gui
      * @param world  The current world
      * @param x      X Position
      * @param y      Y Position
@@ -17,7 +21,9 @@ public abstract class CommonProxy implements IProxy
      * @return A GuiScreen/Container to be displayed to the user, null if none.
      */
     @Override
-    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+    public Object getServerGuiElement(int ID, EntityPlayer entityPlayer, World world, int x, int y, int z) {
+        if (ID == GuiID.DEMON_FURNACE)
+            return new ContainerDemonFurnace(entityPlayer.inventory, (TileEntityDemonFurnace)world.getTileEntity(x,y,z));
         return null;
     }
 
@@ -27,7 +33,7 @@ public abstract class CommonProxy implements IProxy
      * return a instance of Container
      *
      * @param ID     The Gui ID Number
-     * @param player The player viewing the Gui
+     * @param entityPlayer The player viewing the Gui
      * @param world  The current world
      * @param x      X Position
      * @param y      Y Position
@@ -35,7 +41,9 @@ public abstract class CommonProxy implements IProxy
      * @return A GuiScreen/Container to be displayed to the user, null if none.
      */
     @Override
-    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+    public Object getClientGuiElement(int ID, EntityPlayer entityPlayer, World world, int x, int y, int z) {
+        if (ID == GuiID.DEMON_FURNACE)
+            return new GuiDemonFurnace(entityPlayer.inventory, (TileEntityDemonFurnace)world.getTileEntity(x,y,z));
         return null;
     }
 }

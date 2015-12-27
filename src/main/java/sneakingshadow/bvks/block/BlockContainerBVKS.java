@@ -6,7 +6,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
 public abstract class BlockContainerBVKS extends BlockBVKS implements ITileEntityProvider{
 
@@ -31,10 +30,5 @@ public abstract class BlockContainerBVKS extends BlockBVKS implements ITileEntit
     public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
     {
         super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
-    }
-
-    @Override
-    public TileEntity createNewTileEntity(World world, int metadata) {
-        return new TileEntityDebugBlock();
     }
 }

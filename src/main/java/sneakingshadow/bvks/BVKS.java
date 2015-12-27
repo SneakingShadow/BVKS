@@ -6,6 +6,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import sneakingshadow.bvks.handler.ConfigurationHandler;
 import sneakingshadow.bvks.init.*;
@@ -47,6 +48,7 @@ public class BVKS
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
 
         proxy.registerCustomRender();
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
 
         LogHelper.info("Initialization Complete!");
     }

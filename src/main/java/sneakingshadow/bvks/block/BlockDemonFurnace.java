@@ -4,12 +4,15 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import sneakingshadow.bvks.BVKS;
 import sneakingshadow.bvks.reference.Dir;
+import sneakingshadow.bvks.reference.GuiID;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
@@ -76,5 +79,16 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
                 side == Dir.east ? 1 :
                         side == Dir.south ? 2 : 3;
         return sides[(side+meta)>3 ? side+meta-4 : side+meta];
+    }
+
+    /**
+     * Called upon block activation (right click on the block.)
+     */
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
+    {
+        if (!world.isRemote) {
+            entityPlayer.openGui(BVKS.instance, GuiID.DEMON_FURNACE, world, x,y,z);
+        }
+        return true;
     }
 }

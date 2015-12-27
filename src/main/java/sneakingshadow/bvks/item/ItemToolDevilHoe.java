@@ -18,7 +18,7 @@ public class ItemToolDevilHoe extends ItemBVKSHoe
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer entityPlayer, List list, boolean par4)
     {
-        list.add("I think death dropped something...");
+        list.add("I think death dropped something..");
         list.add("Also functions like a hoe");
         list.add("Gotta love them hoes");
     }

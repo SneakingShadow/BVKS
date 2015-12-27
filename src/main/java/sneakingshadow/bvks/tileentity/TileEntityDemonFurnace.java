@@ -174,8 +174,9 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      * @param entityPlayer
      */
     @Override
-    public boolean isUseableByPlayer(EntityPlayer entityPlayer) {
-        return false;
+    public boolean isUseableByPlayer(EntityPlayer entityPlayer)
+    {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) == this && entityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
     @Override
@@ -232,5 +233,4 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
         return side == Dir.down && exists(slot, slotsBottom);
     }
-
 }
