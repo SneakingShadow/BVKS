@@ -4,11 +4,12 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import sneakingshadow.bvks.inventory.ContainerDemonFurnace;
+import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 public class GuiDemonFurnace extends GuiContainerBVKS {
 
-    private static final ResourceLocation furnaceGuiTextures = new ResourceLocation("textures/gui/container/furnace.png");
+    private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(Ref.RESOURCE_PREFIX+"textures/gui/container/demon_furnace.png");
 
     public GuiDemonFurnace(InventoryPlayer inventoryPlayer, TileEntityDemonFurnace tileEntity) {
         super(new ContainerDemonFurnace(inventoryPlayer, tileEntity));

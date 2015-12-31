@@ -12,7 +12,7 @@ public abstract class TileEntityBVKSISidedInventory extends TileEntityBVKSIInven
         return integer;
     }
 
-    public static boolean exists(int slot, int[] slots) {
+    public static boolean slotExists(int slot, int[] slots) {
         for (int i : slots)
             if (i==slot)
                 return true;

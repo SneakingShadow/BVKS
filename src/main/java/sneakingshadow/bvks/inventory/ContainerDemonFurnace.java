@@ -18,36 +18,49 @@ public class ContainerDemonFurnace extends ContainerBVKS {
         this.tileEntity = tile;
 
         //Fuel
-        this.addSlotToContainer(new Slot(tile, 0, 10, 42));
-        this.addSlotToContainer(new Slot(tile, 1, 26, 42));
-        this.addSlotToContainer(new Slot(tile, 2, 42, 42));
-        this.addSlotToContainer(new Slot(tile, 3, 58, 42));
+        this.addSlotToContainer(new Slot(tile, 0, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 1, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 2, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 3, 0, 0));
 
         //Import
-        this.addSlotToContainer(new Slot(tile, 4, 10, 10));
-        this.addSlotToContainer(new Slot(tile, 5, 26, 10));
-        this.addSlotToContainer(new Slot(tile, 6, 42, 10));
-        this.addSlotToContainer(new Slot(tile, 7, 58, 10));
-        this.addSlotToContainer(new Slot(tile, 8, 10, 26));
-        this.addSlotToContainer(new Slot(tile, 9, 26, 26));
-        this.addSlotToContainer(new Slot(tile, 10, 42, 26));
-        this.addSlotToContainer(new Slot(tile, 11, 58, 26));
+        this.addSlotToContainer(new Slot(tile, 4, 16, 0));
+        this.addSlotToContainer(new Slot(tile, 5, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 6, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 7, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 8, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 9, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 10, 0, 0));
+        this.addSlotToContainer(new Slot(tile, 11, 0, 0));
 
         //Waste
-        this.addSlotToContainer(new SlotExport(tile, 12, 90, 42));
-        this.addSlotToContainer(new SlotExport(tile, 13, 106, 42));
-        this.addSlotToContainer(new SlotExport(tile, 14, 122, 42));
-        this.addSlotToContainer(new SlotExport(tile, 15, 138, 42));
+        this.addSlotToContainer(new SlotExport(tile, 12, 0, 0));
+        this.addSlotToContainer(new SlotExport(tile, 13, 0, 0));
+        this.addSlotToContainer(new SlotExport(tile, 14, 0, 0));
+        this.addSlotToContainer(new SlotExport(tile, 15, 0, 0));
 
         //Export
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 16, 90, 10));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 17, 106, 10));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 18, 122, 10));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 19, 138, 10));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 20, 90, 26));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 21, 106, 26));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 22, 122, 26));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 23, 138, 26));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 16, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 17, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 18, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 19, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 20, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 21, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 22, 0, 0));
+        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 23, 0, 0));
+
+        for (int i = 0; i < 3; ++i)
+        {
+            for (int j = 0; j < 9; ++j)
+            {
+                this.addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            }
+        }
+
+        for (int i = 0; i < 9; ++i)
+        {
+            this.addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+        }
     }
 
     /*

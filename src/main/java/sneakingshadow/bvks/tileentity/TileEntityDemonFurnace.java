@@ -9,15 +9,17 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import sneakingshadow.bvks.reference.Dir;
 import sneakingshadow.bvks.util.NBTHelper;
 
+import java.util.ArrayList;
+
 public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
 
-    int[] slotsTop = slots(4,11);
-    int[] slotsSide = slots(0,3);
-    int[] slotsBottom = slots(12,23);
-    int[] slotsFuel = slots(0,3);
-    int[] slotsWaste = slots(12,15);
-    int[] slotsImport = slots(4,11);
-    int[] slotsExport = slots(16,23);
+    public static final int[] slotsTop = slots(4,11);
+    public static final int[] slotsSide = slots(0,3);
+    public static final int[] slotsBottom = slots(12,23);
+    public static final int[] slotsFuel = slots(0,3);
+    public static final int[] slotsWaste = slots(12,15);
+    public static final int[] slotsImport = slots(4,11);
+    public static final int[] slotsExport = slots(16,23);
 
     ItemStack[] itemStacks = new ItemStack[24];
     //TODO Make the block explode on 666th use
@@ -34,14 +36,31 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     }
 
     public void updateEntity() {
-        if (this.worldObj != null && !this.worldObj.isRemote) {
-            for (int i : slotsImport) {
-                if (itemStacks[i] != null) {
-                    ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
-                    int num = canSmelt(itemStack);
-                    if (num != 0) {
-                        sortExport(itemStack, num);
-                        markDirty();
+        for (int i : slotsImport) {
+            if (itemStacks[i] != null) {
+                ItemStack itemStack = FurnaceRecipes.smelting().getSmeltingResult(itemStacks[i]);
+                if (itemStack != null) {
+                    ArrayList<Integer> list = getValidSlots(itemStack);
+                    if (!list.isEmpty()) {
+                        int num = emptySpace(list, itemStack);
+                        num = ((int) (num / itemStack.stackSize));
+                        num = num > itemStacks[i].stackSize ? itemStacks[i].stackSize : num;
+                        itemStacks[i].stackSize -= num;
+                        if (itemStacks[i].stackSize == 0)
+                            itemStacks[i] = null;
+                        num = num*itemStack.stackSize;
+                        for (int j : list) {
+                            if (num == 0)
+                                break;
+                            if (itemStacks[j] == null) {
+                                itemStacks[j] = itemStack.copy();
+                                itemStacks[j].stackSize = 0;
+                            }
+                            int num2 = itemStack.getMaxStackSize() - itemStacks[j].stackSize;
+                            itemStacks[j].stackSize += num2 > num ? num : num2;
+                            num -= num2 > num ? num : num2;
+                        }
+                        this.markDirty();
                     }
                 }
             }
@@ -50,41 +69,25 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
         }
     }
 
-    private void sortExport(ItemStack itemStack, int num) {
-        if(num == 2)
-            for (int i : slotsExport) {
-                if (itemStacks[i] != null && itemStacks[i].isItemEqual(itemStack)){
-                    int num2 = itemStack.getMaxStackSize()-itemStacks[i].stackSize;
-                    if (itemStack.stackSize <= num2) {
-                        itemStacks[i].stackSize += itemStack.stackSize;
-                        return;
-                    }else{
-                        itemStacks[i].stackSize += num2;
-                        itemStack.stackSize -= num2;
-                    }
-                }
-            }
-        else
-            for (int i : slotsExport) {
-                if (itemStacks[i] == null) {
-                    itemStacks[i] = itemStack;
-                    return;
-                }
-            }
+    private ArrayList<Integer> getValidSlots(ItemStack itemStack) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int i : slotsExport)
+            if ( itemStacks[i] != null && itemStacks[i].isItemEqual(itemStack) && itemStack.getMaxStackSize() != itemStacks[i].stackSize)
+                list.add(i);
+        for (int i : slotsExport) // Making sure the empty slots are last, because I want to fill partially filled slots first.
+            if (itemStacks[i] == null)
+                list.add(i);
+        return list;
     }
 
-    private int canSmelt(ItemStack itemStack){
-        if (itemStack == null)
-            return 0;
-        int size = itemStack.stackSize;
-        boolean flag = false;
-        for (int i : slotsExport) {
+    private int emptySpace(ArrayList<Integer> list, ItemStack itemStack) {
+        int num = 0;
+        for (int i : list)
             if (itemStacks[i] == null)
-                flag = true;
-            else if (itemStacks[i].isItemEqual(itemStack))
-                size -= itemStack.getMaxStackSize() - itemStacks[i].stackSize;
-        }
-        return size <= 0 ? 2: flag ? 1:0;
+                num += itemStack.getMaxStackSize();
+            else
+                num += itemStack.getMaxStackSize() - itemStacks[i].stackSize;
+        return num;
     }
 
     /*----------------------------------------------------------------------------------------------------------------------*/
@@ -116,9 +119,15 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public ItemStack decrStackSize(int slot, int amount) {
-        if (itemStacks[slot] == null)
-            return null;
-        return itemStacks[slot].splitStack(amount);
+        if (itemStacks[slot] != null)
+            if (itemStacks[slot].stackSize > amount)
+                return itemStacks[slot].splitStack(amount);
+            else{
+                ItemStack itemStack = itemStacks[slot];
+                itemStacks[slot] = null;
+                return itemStack;
+            }
+        return null;
     }
 
     /**
@@ -197,7 +206,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return exists(slot, slotsImport) && canSmelt(itemStack) != 0 || (exists(slot, slotsFuel) && TileEntityFurnace.isItemFuel(itemStack));
+        return slotExists(slot, slotsImport) && itemStack != null && FurnaceRecipes.smelting().getSmeltingResult(itemStack) != null || (slotExists(slot, slotsFuel) && TileEntityFurnace.isItemFuel(itemStack));
     }
 
     /*----------------------------------------------------------------------------------------------------------------------*/
@@ -220,9 +229,7 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
-        if (side == Dir.up)
-            return exists(slot, slotsTop);
-        return side != Dir.down && !exists(slot, slotsBottom) && !exists(slot, slotsTop);
+        return slotExists( slot, this.getAccessibleSlotsFromSide(side) ) && this.isItemValidForSlot(slot, itemStack);
     }
 
     /**
@@ -231,6 +238,6 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
      */
     @Override
     public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
-        return side == Dir.down && exists(slot, slotsBottom);
+        return side == Dir.down && slotExists(slot, slotsBottom);
     }
 }
