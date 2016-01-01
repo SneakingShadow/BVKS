@@ -7,4 +7,14 @@ import net.minecraft.inventory.Container;
  */
 public abstract class ContainerBVKS extends Container {
 
+    private int ID;
+
+    public void setID(int id){
+        this.ID = id;
+    }
+
+    public int getID(){
+        return ID;
+    }
+
 }

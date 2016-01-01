@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
@@ -33,7 +34,7 @@ public class ItemStoneGen extends ItemBVKS{
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
     {
-        list.add("Shift+Right Click");
+        list.add(EnumChatFormatting.UNDERLINE + "Shift+Right Click");
         list.add("to change block.");
         list.add("Placeable blocks:");
         for(int j=0;j<blocks.length;j++){

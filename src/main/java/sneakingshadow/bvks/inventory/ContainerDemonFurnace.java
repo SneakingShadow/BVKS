@@ -1,10 +1,14 @@
 package sneakingshadow.bvks.inventory;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import sneakingshadow.bvks.inventory.Slot.SlotExport;
+import sneakingshadow.bvks.inventory.Slot.SlotImport;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 /**
@@ -17,49 +21,31 @@ public class ContainerDemonFurnace extends ContainerBVKS {
     public ContainerDemonFurnace(InventoryPlayer inventoryPlayer, TileEntityDemonFurnace tile) {
         this.tileEntity = tile;
 
-        //Fuel
-        this.addSlotToContainer(new Slot(tile, 0, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 1, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 2, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 3, 0, 0));
+        int i, j;
+        int offset = 170, betweenSlots = 17, startX = 8, startTopY = 16, startBottomY = 56;
+        for (i = 0; i < 4; i++) //Fuel
+            this.addSlotToContainer(new SlotImport(tile, i, startX + i*betweenSlots, startBottomY));
+        for (j = 0; j < 2; j++) //Import
+            for (i = 0; i < 4; i++)
+                this.addSlotToContainer(new SlotImport(tile, 4 + i + j*4, startX + i*betweenSlots, startTopY + j*betweenSlots));
+        for (i = 0; i < 4; i++) //Waste
+            this.addSlotToContainer(new SlotExport(tile, i + 12, startX + i*betweenSlots + offset, startBottomY));
+        for (j = 0; j < 2; j++) //Export
+            for (i = 0; i < 4; i++)
+                this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 4 + i + j*4 + 12, startX + i*betweenSlots + offset, startTopY + j*betweenSlots));
 
-        //Import
-        this.addSlotToContainer(new Slot(tile, 4, 16, 0));
-        this.addSlotToContainer(new Slot(tile, 5, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 6, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 7, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 8, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 9, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 10, 0, 0));
-        this.addSlotToContainer(new Slot(tile, 11, 0, 0));
 
-        //Waste
-        this.addSlotToContainer(new SlotExport(tile, 12, 0, 0));
-        this.addSlotToContainer(new SlotExport(tile, 13, 0, 0));
-        this.addSlotToContainer(new SlotExport(tile, 14, 0, 0));
-        this.addSlotToContainer(new SlotExport(tile, 15, 0, 0));
-
-        //Export
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 16, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 17, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 18, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 19, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 20, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 21, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 22, 0, 0));
-        this.addSlotToContainer(new SlotFurnace(inventoryPlayer.player, tile, 23, 0, 0));
-
-        for (int i = 0; i < 3; ++i)
+        for (i = 0; i < 3; ++i)
         {
-            for (int j = 0; j < 9; ++j)
+            for (j = 0; j < 9; ++j)
             {
-                this.addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+                this.addSlotToContainer(new Slot(inventoryPlayer, j + i * 9 + 9, 48 + j * 18, 82 + i * 18));
             }
         }
 
-        for (int i = 0; i < 9; ++i)
+        for (i = 0; i < 9; ++i)
         {
-            this.addSlotToContainer(new Slot(inventoryPlayer, i, 8 + i * 18, 142));
+            this.addSlotToContainer(new Slot(inventoryPlayer, i, 48 + i * 18, 140));
         }
     }
 
@@ -81,10 +67,24 @@ public class ContainerDemonFurnace extends ContainerBVKS {
         return this.tileEntity.isUseableByPlayer(entityPlayer);
     }
 
+    public void addCraftingToCrafters(ICrafting iCrafting)
+    {
+        super.addCraftingToCrafters(iCrafting);
+        iCrafting.sendProgressBarUpdate(this, 0, 0);
+    }
+
     /**
      * Looks for changes made in the container, sends them to every listener.
      */
-    public void detectAndSendChanges(){
+    public void detectAndSendChanges()
+    {
+        super.detectAndSendChanges();
+        for (Object iCrafting: this.crafters)
+        ((ICrafting)iCrafting).sendProgressBarUpdate(this, 0,0);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public void updateProgressBar(int p_75137_1_, int p_75137_2_){
 
     }
 
