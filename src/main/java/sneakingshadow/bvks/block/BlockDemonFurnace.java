@@ -11,8 +11,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.BVKS;
+import sneakingshadow.bvks.init.ModGuis;
 import sneakingshadow.bvks.reference.Dir;
-import sneakingshadow.bvks.reference.Gui;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 import sneakingshadow.bvks.util.LogHelper;
@@ -90,7 +90,7 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
         if (!world.isRemote) {
-            entityPlayer.openGui(BVKS.instance, Gui.ID.DEMON_FURNACE, world, x,y,z);
+            entityPlayer.openGui(BVKS.instance, ModGuis.guiDemonFurnace.getID(), world, x,y,z);
         }
         return true;
     }

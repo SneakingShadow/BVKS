@@ -12,6 +12,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
+import sneakingshadow.bvks.BVKS;
+import sneakingshadow.bvks.init.ModGuis;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
 
@@ -98,18 +100,26 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
-        if (!world.isRemote && !world.restoringBlockSnapshots) {
-            if (entityPlayer.isSneaking()) {
+        if (entityPlayer.isSneaking()) {
+            if (!world.isRemote && !world.restoringBlockSnapshots) {
                 itemStack.setItemDamage(
-                        itemStack.getItemDamage() == 0 ? 0:
-                                itemStack.getItemDamage() == 1 ? 2:1
+                    itemStack.getItemDamage() == 0 ? 0:
+                            itemStack.getItemDamage() == 1 ? 2:1
                 );
             } else {
 
             }
-        }
+        } else
+            entityPlayer.openGui(BVKS.instance, ModGuis.guiBottomlessVoid.getID(), world, findItemStack(itemStack, entityPlayer.inventory.mainInventory) ,0,0);
 
         return itemStack;
+    }
+
+    private int findItemStack(ItemStack itemStack, ItemStack[] mainInventory) {
+        for (int i = 0; i<mainInventory.length; i++)
+            if (itemStack == mainInventory[i])
+                return i;
+        return -1;
     }
 
     @Override
@@ -148,7 +158,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public String getItemStackDisplayName(ItemStack itemStack) {
         ItemStack itemStack1 = itemStack.getItemDamage() == 0 ? null : ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
-        return super.getItemStackDisplayName(itemStack) + (itemStack.getItemDamage() == 0 ? "" : itemStack1.getItem().getItemStackDisplayName(itemStack1));
+        return super.getItemStackDisplayName(itemStack) + (itemStack.getItemDamage() == 0 ? "" : (": '" + itemStack1.getItem().getItemStackDisplayName(itemStack1) + "'"));
     }
 
     @Override

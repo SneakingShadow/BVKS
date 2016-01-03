@@ -1,26 +1,33 @@
 package sneakingshadow.bvks.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemStack;
+import sneakingshadow.bvks.inventory.Slot.SlotImport;
+import sneakingshadow.bvks.inventory.item.InventoryBottomlessVoid;
+
+import java.util.ArrayList;
 
 public class ContainerBottomlessVoid extends ContainerBVKS {
 
-    ItemStack itemStack;
+    private InventoryBottomlessVoid inventory;
 
-    public ContainerBottomlessVoid (InventoryPlayer inventoryPlayer, ItemStack itemStack) {
-        this.itemStack = itemStack;
+    public ContainerBottomlessVoid (EntityPlayer entityPlayer, int slot) {
+        this.inventory = new InventoryBottomlessVoid( entityPlayer.inventory.mainInventory[slot] );
 
-
-
-        this.addPlayerInventory(inventoryPlayer, 8, 54);
+        this.entityPlayer = entityPlayer;
+        this.updateSlots();
     }
 
-    //80, 8
-
     @Override
-    public boolean canInteractWith(EntityPlayer p_75145_1_) {
-        return false;
+    public boolean canInteractWith(EntityPlayer entityPlayer) {
+        return this.inventory.isUseableByPlayer(entityPlayer);
+    }
+
+
+    private EntityPlayer entityPlayer;
+    public void updateSlots(){
+        this.inventorySlots = new ArrayList();
+        this.addSlotToContainer(new SlotImport(inventory, 0, 80,8));
+        this.addPlayerInventory(entityPlayer.inventory, 8, 54);
     }
 
 }

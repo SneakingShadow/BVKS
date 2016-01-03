@@ -9,16 +9,6 @@ import net.minecraft.inventory.Slot;
  */
 public abstract class ContainerBVKS extends Container {
 
-    private int ID;
-
-    public void setID(int id){
-        this.ID = id;
-    }
-
-    public int getID(){
-        return ID;
-    }
-
     public ContainerBVKS addPlayerInventory(InventoryPlayer inventoryPlayer, int xPos, int yPos){
         int i,j;
         for (i = 0; i < 3; ++i)
@@ -37,4 +27,10 @@ public abstract class ContainerBVKS extends Container {
         return this;
     }
 
+
+    /*------------------DEBUG--------------------*/
+
+    public void updateSlots() {
+
+    }
 }

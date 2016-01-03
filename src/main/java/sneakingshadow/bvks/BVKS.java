@@ -6,9 +6,11 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import sneakingshadow.bvks.handler.ConfigurationHandler;
+import sneakingshadow.bvks.handler.GuiHandler;
 import sneakingshadow.bvks.init.*;
 import sneakingshadow.bvks.proxy.IProxy;
 import sneakingshadow.bvks.reference.Ref;
@@ -22,6 +24,8 @@ public class BVKS
 
     @SidedProxy(clientSide = Ref.CLIENT_PROXY_CLASS, serverSide = Ref.SERVER_PROXY_CLASS)
     public static IProxy proxy;
+
+    public static IGuiHandler guiHandler = new GuiHandler();
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -45,11 +49,12 @@ public class BVKS
     public void init(FMLInitializationEvent event)
     {
         Recipes.init();
+        ModGuis.init();
 
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
 
         proxy.registerCustomRender();
-        NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
+        NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
 
         LogHelper.info("Initialization Complete!");
     }

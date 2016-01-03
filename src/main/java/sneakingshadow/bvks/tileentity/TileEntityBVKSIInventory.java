@@ -34,13 +34,22 @@ public abstract class TileEntityBVKSIInventory extends TileEntityBVKS implements
     }
 
     /**
+     * Returns the maximum stack size for a inventory slot.
+     */
+    @Override
+    public int getInventoryStackLimit() {
+        return 64;
+    }
+
+    /**
      * Do not make give this method the name canInteractWith because it clashes with Container
      *
      * @param entityPlayer
      */
     @Override
-    public boolean isUseableByPlayer(EntityPlayer entityPlayer) {
-        return false;
+    public boolean isUseableByPlayer(EntityPlayer entityPlayer)
+    {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) == this && entityPlayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
     @Override

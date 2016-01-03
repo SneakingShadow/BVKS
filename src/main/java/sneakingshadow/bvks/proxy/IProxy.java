@@ -1,8 +1,6 @@
 package sneakingshadow.bvks.proxy;
 
-import cpw.mods.fml.common.network.IGuiHandler;
-
-public interface IProxy extends IGuiHandler {
+public interface IProxy {
 
     void registerKeyBindings();
 

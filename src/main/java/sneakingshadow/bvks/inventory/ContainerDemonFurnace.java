@@ -21,10 +21,10 @@ public class ContainerDemonFurnace extends ContainerBVKS {
         this.tileEntity = tile;
         this.inventoryPlayer = inventoryPlayer;
 
-        UpdateSlots();
+        updateSlots();
     }
 
-    public void UpdateSlots(){
+    public void updateSlots(){
         this.inventorySlots = new ArrayList();
         int i,j;
         int offset = 106, betweenSlots = 18, startX = 34, startTopY = 27, startBottomY = 67;

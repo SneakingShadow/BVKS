@@ -1,24 +1,30 @@
 package sneakingshadow.bvks.client.gui;
 
-import net.minecraft.inventory.Container;
-import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import sneakingshadow.bvks.inventory.ContainerBottomlessVoid;
+import sneakingshadow.bvks.reference.Name;
 
 public class GuiBottomlessVoid extends GuiContainerBVKS{
 
-    private final ResourceLocation textureLocation = new ResourceLocation(this.location + "bottomless_void.png");
+    public ItemStack itemStack;
 
-    public GuiBottomlessVoid(Container container) {
-        super(container);
+    public GuiBottomlessVoid(EntityPlayer entityPlayer, int slot) {
+        super( new ContainerBottomlessVoid( entityPlayer, slot ) , 176, 136);
+        this.itemStack = entityPlayer.inventory.mainInventory[slot];
+        this.setTextureLocation(Name.Item.BOTTOMLESS_VOID);
+
+        this.setDebug();
     }
 
     @Override
-    public void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
-        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        this.mc.getTextureManager().bindTexture(textureLocation);
-        int k = (this.width - xSize) / 2;
-        int l = (this.height - this.ySize) / 2;
-        this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+    /**
+     * Draw the foreground layer for the GuiContainer (everything in front of the items)
+     */
+    public void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_)
+    {
+        String s = itemStack.getTagCompound().hasKey("Count") ? String.valueOf(itemStack.getTagCompound().getLong("Count")) : "";
+        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
+        //this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }
-
 }
