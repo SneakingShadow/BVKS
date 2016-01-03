@@ -47,7 +47,6 @@ public class ItemBVKSAxe extends ItemAxe
     @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase)
     {
-        //TODO Make it check if it's a devil tool, if it's implementing some devil class, or just a boolean value, but that's boooooriiiiiiing
         if ((double)block.getBlockHardness(world, x, y, z) != 0.0D)
         {
             itemStack.damageItem(1, entityLivingBase);

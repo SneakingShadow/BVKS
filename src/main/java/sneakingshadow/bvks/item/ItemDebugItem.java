@@ -61,7 +61,7 @@ public class ItemDebugItem extends ItemBVKS {
         if(entityPlayer.isSneaking()) {
             LogHelper.info("onItemUse");
         }
-            //TODO
+
         if (block == Blocks.snow_layer && (meta & 7) < 1)
         {
             side = 1;
@@ -118,7 +118,7 @@ public class ItemDebugItem extends ItemBVKS {
             if (placeBlockAt(itemBlock, entityPlayer, world, x, y, z, side, hitX, hitY, hitZ, metaB, nbtTagCompound))
             {
                 world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), placeBlock.stepSound.func_150496_b(), (placeBlock.stepSound.getVolume() + 1.0F) / 2.0F, placeBlock.stepSound.getPitch() * 0.8F);
-                --itemBlock.stackSize; //TODO
+                --itemBlock.stackSize;
             }
 
             return true;

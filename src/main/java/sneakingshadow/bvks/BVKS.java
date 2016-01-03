@@ -71,6 +71,16 @@ public class BVKS
 //TODO:
 
 Add custom texture handler for devil tools to make them invisible.
+Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item.
+
+Clean up the block breaking.
+Make sure it handles enchantments
+
+Bottomless void
+Make it find items in inventory, then only make it update on pickup-event, and always keep a stack in the inventory, but not more.
+Also if two stacks are split, it will leave each stack by making it check for the hovering item in inventory if you can
+Make it so it can place blocks and drop event will drop items in the orb if you don't hold shift
+Show extra information in gui. Have to different parts of the gui, the simple and the informal.
 
 Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
 Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
@@ -95,5 +105,9 @@ Metadata != 0:
 
 Use for demon altar
 Make it a 5x5 multiblock
+
+Make the demon furnace explode on 666th use or atleast something funny on the devil's number
+Sort out ejection or extraction posibility with the demon furnace.
+
 
 */

@@ -26,7 +26,7 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase) //TODO Silk touch on hammer
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase)
     {
         boolean bool = false;
         ArrayList<ItemStack> bottomlessVoids = new ArrayList<ItemStack>();

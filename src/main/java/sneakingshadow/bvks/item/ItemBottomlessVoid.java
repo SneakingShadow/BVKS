@@ -39,8 +39,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
             long count = itemStack.getTagCompound().getLong("Count");
 
             if ( Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT )) {
-                //TODO if player is sneaking, show extra information. Enchantments, custom name, etc..
-
                 list.add("Place in crafting table");
                 if (count == 0)
                     list.add("to clear");
@@ -131,11 +129,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        //TODO place block if it stores a block, with correct metadata and nbtdata.
         return false;
     }
-
-    //TODO Fix what's below and make the item suck tings up on playerpickup and not just steal everything from their inventory.
 
     /**
      * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
@@ -148,7 +143,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
             for (int i = 0; i<mainInventory.length; i++){
 
             }
-            //TODO: Find items in inventory, then only make it update on pickup, and always keep a stack in the inventory, but not more.
         }
     }
 

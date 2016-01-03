@@ -30,9 +30,8 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase) //TODO Silk touch on hammers
+    public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase)
     {
-        //TODO Fix this thing up...
         if ((double)block.getBlockHardness(world, xPos, yPos, zPos) != 0.0D && this.isDamageable())
         {
             itemStack.damageItem(1, entityLivingBase);

@@ -21,7 +21,6 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
     public static final int[] slotsExport = slots(16,23);
 
     ItemStack[] itemStacks = new ItemStack[24];
-    //TODO Make the block explode on 666th use
 
     public void readFromNBT(NBTTagCompound nbtTagCompound)
     {
@@ -63,8 +62,6 @@ public class TileEntityDemonFurnace extends TileEntityBVKSISidedInventory {
                     }
                 }
             }
-
-            //TODO Make the furnace auto-eject items
         }
     }
 
