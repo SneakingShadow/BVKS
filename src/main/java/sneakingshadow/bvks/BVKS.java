@@ -66,19 +66,27 @@ public class BVKS
     }
 }
 
-//TODO Add custom texture handler for devil tools to make them invisible.
+/*
 
-//TODO Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
-//Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
-//Check if you can get the player name any other way.
-//TODO Hammer workbench, tier 1-3
-//Tier 1: makes wood, turns wood to stone, and stone to iron
-//Tier 2: turns iron to gold, and gold to diamond
-//Tier 3: turns diamond to obsidian and obsidian to devil
-//Can be upgraded with sword, shovel, pickaxe, axe, hoe, (bow?), (shears?), (bucket?), (flint-and-steel), and other tools.
-//Can only be upgraded as far as the hammer, and has to be upgraded the same way as the hammer along with it.
-//You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
-//TODO Multiple gates that open with redstone
-//Opens with a sliding animation
-//TODO Use for demon altar
-//
+//TODO:
+
+Add custom texture handler for devil tools to make them invisible.
+
+Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
+Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
+Check if you can get the player name any other way.
+
+Hammer workbench, tier 1-3
+Tier 1: makes wood, turns wood to stone, and stone to iron
+Tier 2: turns iron to gold, and gold to diamond
+Tier 3: turns diamond to obsidian and obsidian to devil
+Can be upgraded with sword, shovel, pickaxe, axe, hoe, (bow?), (shears?), (bucket?), (flint-and-steel), and other tools.
+Can only be upgraded as far as the hammer, and has to be upgraded the same way as the hammer along with it.
+You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
+
+Multiple gates that open with redstone
+Opens with a sliding animation
+
+Use for demon altar
+
+*/
