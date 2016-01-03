@@ -70,7 +70,7 @@ public class BVKS
 //Tier 1: makes wood, turns wood to stone, and stone to iron
 //Tier 2: turns iron to gold, and gold to diamond
 //Tier 3: turns diamond to obsidian and obsidian to devil
-//Can be upgraded with sword, shovel, pickaxe, and other tools.
+//Can be upgraded with sword, shovel, pickaxe, axe, hoe, (bow?), (shears?), (bucket?), (flint-and-steel), and other tools.
 //Can only be upgraded as far as the hammer, and has to be upgraded the same way as the hammer along with it.
 //You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
 //TODO Multiple gates that open with redstone

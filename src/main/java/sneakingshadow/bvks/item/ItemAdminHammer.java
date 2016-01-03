@@ -68,10 +68,9 @@ public class ItemAdminHammer extends ItemBVKSHammer{
         if(bool)
             for (ItemStack itemStack1 : items)
                 for(ItemStack itemStack2 : bottomlessVoids) {
-                    NBTTagCompound itemCompound = itemStack1.getTagCompound();
-                    NBTTagCompound voidCompound = itemStack2.getTagCompound().getCompoundTag("Item");
-                    if ( ItemBottomlessVoid.isItemsEqual(itemStack1, itemStack2) )
-                        ItemBottomlessVoid.raiseItemCount(voidCompound, (long) itemCompound.getShort("Count"));
+                    NBTTagCompound voidCompound = itemStack2.getTagCompound();
+                    if ( ItemStack.loadItemStackFromNBT(voidCompound.getCompoundTag("Item")).isItemEqual(itemStack1) )
+                        voidCompound.setLong("Count", voidCompound.getLong("Count" + itemStack1.stackSize));
                 }
     }
 

@@ -28,6 +28,7 @@ public class ItemDebugItem extends ItemBVKS {
         this.setMaxStackSize(1);
         this.setUnlocalizedName(Name.Item.DEBUG_ITEM);
         this.setFull3D();
+        this.setMaxDamage(10);
     }
 
     @Override

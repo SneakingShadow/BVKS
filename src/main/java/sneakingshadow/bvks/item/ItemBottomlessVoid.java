@@ -3,18 +3,17 @@ package sneakingshadow.bvks.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
-import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 
@@ -29,172 +28,49 @@ public class ItemBottomlessVoid extends ItemBVKS {
         this.setUnlocalizedName(Name.Item.BOTTOMLESS_VOID);
     }
 
-    //TODO add metadata 3 back again, add tag "Decrease", make Extract recipe extractCheck right amount, currently only gives one item, fix SetType recipe, make Extract recipe not delete void when it's empty, and make Extract let the void stay in the crafting window.
-    /*Tags:
-    *   Item:
-    *       {
-    *           Count: ..l
-    *           id: ..s,
-    *           tag: {..},
-    *           Damage: ..s,
-    *       }
-    */
-
-    public static ItemStack getItemStackStored(ItemStack itemStack) {
-        return getItemStackStored(itemStack.getTagCompound().getCompoundTag("Item"));
-    }
-
-    public static ItemStack getItemStackStored(NBTTagCompound nbtTagCompound) {
-        NBTTagCompound itemCompound = new NBTTagCompound();
-        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
-        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
-        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
-        itemCompound.setByte("Count", (byte) 1);
-        return ItemStack.loadItemStackFromNBT(itemCompound);
-    }
-
-    public static ItemStack extractStack(ItemStack itemStack) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        NBTTagCompound itemCompound = new NBTTagCompound();
-        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
-        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
-        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
-        itemCompound.setByte("Count", (byte) 1);
-        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
-        if(nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
-        }else{
-            itemCompound.setByte("Count", (byte) itemStack1.getMaxStackSize());
-        }
-        return ItemStack.loadItemStackFromNBT(itemCompound);
-    }
-
-    public static ItemStack extractWithRemoval(ItemStack itemStack, int size) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        NBTTagCompound itemCompound = new NBTTagCompound();
-        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
-        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
-        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
-        itemCompound.setByte("Count", (byte) 1);
-        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
-        size = size > itemStack1.getMaxStackSize() ? itemStack1.getMaxStackSize() : size;
-        if (nbtTagCompound.getLong("Count") < size){
-            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
-            nbtTagCompound.setLong("Count", 0);
-        }else{
-            itemCompound.setByte("Count", (byte) size);
-            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-size);
-        }
-        LogHelper.info(itemCompound);
-        LogHelper.info(itemCompound.getCompoundTag("tag"));
-        LogHelper.info(itemCompound.getCompoundTag("tag").hasNoTags());
-        LogHelper.info(itemCompound.getCompoundTag("tag").equals(new NBTTagCompound()));
-        if ( itemCompound.getCompoundTag("tag").hasNoTags() )
-            itemCompound.removeTag("tag");
-        return ItemStack.loadItemStackFromNBT(itemCompound);
-    }
-
-    public static ItemStack extractWithRemoval(ItemStack itemStack) {
-        NBTTagCompound nbtTagCompound = itemStack.getTagCompound().getCompoundTag("Item");
-        NBTTagCompound itemCompound = new NBTTagCompound();
-        itemCompound.setShort("id", nbtTagCompound.getShort("id"));
-        itemCompound.setTag("tag", nbtTagCompound.getCompoundTag("tag"));
-        itemCompound.setShort("Damage", nbtTagCompound.getShort("Damage"));
-        itemCompound.setByte("Count", (byte) 1);
-        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemCompound);
-        if (nbtTagCompound.getLong("Count") < itemStack1.getMaxStackSize()){
-            itemCompound.setByte("Count", (byte) nbtTagCompound.getLong("Count"));
-            nbtTagCompound.setLong("Count", 0);
-        }else{
-            itemCompound.setByte("Count", (byte) itemStack1.getMaxStackSize());
-            nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count")-itemStack1.getMaxStackSize());
-        }
-        if (itemCompound.getCompoundTag("tag").hasNoTags()) {
-            LogHelper.info("Has no tags!!");
-            itemCompound.removeTag("tag");
-            LogHelper.info(itemCompound);
-        }
-        itemStack1.readFromNBT(itemCompound);
-        return itemStack1;
-    }
-
-    public static Boolean isItemsEqual(ItemStack itemStack, NBTTagCompound bottomlessVoidCompound){
-        NBTTagCompound nbtTagCompound = bottomlessVoidCompound.getCompoundTag("Item");
-        return Item.getIdFromItem(itemStack.getItem()) == nbtTagCompound.getShort("id") &&
-                itemStack.getItemDamage() == nbtTagCompound.getByte("Damage") &&
-                (itemStack.getTagCompound() == null ?
-                        nbtTagCompound.getCompoundTag("tag").hasNoTags() :
-                        itemStack.getTagCompound().equals(nbtTagCompound.getCompoundTag("tag"))
-                );
-    }
-
-    public static Boolean isItemsEqual(ItemStack itemStack, ItemStack itemStackBottomlessVoid){
-        return isItemsEqual(itemStack, itemStackBottomlessVoid.getTagCompound());
-    }
-
-    public static void raiseItemCount(ItemStack itemStack, long l){
-        raiseItemCount(itemStack.getTagCompound().getCompoundTag("Item"), l);
-    }
-
-    public static void raiseItemCount(NBTTagCompound nbtTagCompound, long l)
-    {
-        nbtTagCompound.setLong("Count",
-                (nbtTagCompound.getLong("Count")) <= (Math.pow(2,63) -308) ?
-                        nbtTagCompound.getLong("Count")+l :
-                        (long)(Math.pow(2,63) -308)
-        );
-    }
-
-    public static boolean isItemBlock(ItemStack itemStack){
-        return isItemBlock(itemStack.getTagCompound().getCompoundTag("Item"));
-    }
-
-    public static boolean isItemBlock(NBTTagCompound nbtTagCompound){
-        NBTTagCompound nbtTagCompound1 = (NBTTagCompound)nbtTagCompound.copy();
-        nbtTagCompound1.setByte("Count", (byte) 1);
-        ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(nbtTagCompound1);
-        return itemStack1 != null && itemStack1.getItem() != null && itemStack1.getItem() instanceof ItemBlock;
-    }
-
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
         if (itemStack.getItemDamage() != 0) {
-            ItemStack itemStack1 = getItemStackStored(itemStack);
-
-            NBTTagCompound voidTagCompound = itemStack.getTagCompound();
-            NBTTagCompound itemTagCompound = voidTagCompound.getCompoundTag("Item");
-            NBTTagCompound stackTagCompound = itemStack1.getTagCompound();
-
-            if (itemTagCompound.getLong("Count") == 0)
-                list.add("Place in crafting table to clear the bottomless void of set item");
-            else
-                list.add("Place in crafting table to get out items");
-
-            list.add("Item stored: " + itemStack1.getItem().getItemStackDisplayName(itemStack1));
-            list.add("Amount stored: " + itemTagCompound.getLong("Count"));
+            ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+            NBTTagCompound itemTagCompound = itemStack1.getTagCompound();
+            long count = itemStack.getTagCompound().getLong("Count");
 
             if ( Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT )) {
                 //TODO if player is sneaking, show extra information. Enchantments, custom name, etc..
 
-                list.add("Item ID: " + itemTagCompound.getShort("id"));
-                list.add("Item metadata: " + itemTagCompound.getShort("Damage"));
+                list.add("Place in crafting table");
+                if (count == 0)
+                    list.add("to clear");
+                else
+                    list.add("to get out items");
+                list.add("");
+                list.add("Item: " + itemStack1.getItem().getItemStackDisplayName(itemStack1));
+                list.add("Amount: " + count);
+                list.add("Damage: " + itemStack1.getItemDamage());
+                list.add("Custom display-name:");
+                list.add(itemStack1.hasDisplayName() ? itemStack1.getDisplayName() : "Has none");
+                list.add("Enchantments: " + (itemStack1.isItemEnchanted() ? "" : "none"));
+                NBTTagList tagList = itemStack1.getEnchantmentTagList();
+                if (tagList != null)
+                    for (int i = 0; i < tagList.tagCount(); ++i)
+                    {
+                        short short1 = tagList.getCompoundTagAt(i).getShort("id");
+                        short short2 = tagList.getCompoundTagAt(i).getShort("lvl");
 
-                if (itemTagCompound.hasKey("display")) {
-                    NBTTagCompound nbttagcompound = itemTagCompound.getCompoundTag("display");
-                    if (nbttagcompound.hasKey("Name"))
-                        list.add("Display name: " + nbttagcompound.getString("Name"));
-                }
-                if (itemTagCompound.hasKey("ench")){
-                    //TODO
-                }
-                list.add("Stores a block: " + isItemBlock(itemTagCompound));
+                        if (Enchantment.enchantmentsList[short1] != null)
+                        {
+                            list.add(Enchantment.enchantmentsList[short1].getTranslatedName(short2));
+                        }
+                    }
             }else
-                list.add("Press shift for more info");
+                list.add("Hold shift for info");
 
         } else {
-            list.add("Stores one type of item/block");
-            list.add("Combine with item in crafting table to set type");
+            list.add("Stores items.");
+            list.add("To set type:");
+            list.add("Combine with item");
+            list.add("in crafting table");
         }
     }
 
@@ -239,7 +115,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
         int meta = itemStack.getItemDamage();
-        return super.getUnlocalizedName(itemStack) + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
+        return super.getUnlocalizedName() + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
     }
 
     @Override
@@ -270,18 +146,28 @@ public class ItemBottomlessVoid extends ItemBVKS {
                 Crafting
 */
     @Override
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        ItemStack itemStack1 = itemStack.getItemDamage() == 0 ? null : ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+        return super.getItemStackDisplayName(itemStack) + (itemStack.getItemDamage() == 0 ? "" : itemStack1.getItem().getItemStackDisplayName(itemStack1));
+    }
+
+    @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-        if ( hasContainerItem(itemStack) ) {
-            ItemStack itemStack1 = itemStack.copy();
-            extractWithRemoval(itemStack1);
-            return itemStack1;
-        }
-        return null;
+        ItemStack itemStack1 = itemStack.copy();
+        NBTTagCompound tag = itemStack1.getTagCompound();
+        ItemStack itemStack2 = ItemStack.loadItemStackFromNBT(itemStack1.getTagCompound().getCompoundTag("Item"));
+        tag.setLong("Count", tag.getLong("Count") - (tag.getLong("Count") > itemStack2.getMaxStackSize() ? itemStack2.getMaxStackSize() : tag.getLong("Count")));
+        return itemStack1;
     }
 
     @Override
     public boolean hasContainerItem(ItemStack itemStack) {
-        return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getCompoundTag("Item").getLong("Count") != 0;
+        return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getLong("Count") != 0;
+    }
+
+    @Override
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack){
+        return itemStack.getTagCompound().getLong("Count") == 0;
     }
 }
 

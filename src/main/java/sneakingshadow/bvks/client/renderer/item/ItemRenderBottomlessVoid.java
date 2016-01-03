@@ -61,7 +61,7 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{
             // Enable texturing, because Minecraft text font is actually a texture
             GL11.glEnable(GL11.GL_TEXTURE_2D);
             // Get our text value
-            String text = MetricPrefixHelper.compress(itemStack.getTagCompound().getCompoundTag("Item").getLong("Count"));
+            String text = MetricPrefixHelper.compress(itemStack.getTagCompound().getLong("Count"));
             // Draw our text at (1, 1) with white color
             fontRenderer.drawStringWithShadow(text, 1, 1, 0xFFFFFF);
 

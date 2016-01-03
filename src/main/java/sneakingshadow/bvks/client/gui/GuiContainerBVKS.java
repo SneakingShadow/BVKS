@@ -2,8 +2,11 @@ package sneakingshadow.bvks.client.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.inventory.Container;
+import sneakingshadow.bvks.reference.Ref;
 
 public abstract class GuiContainerBVKS extends GuiContainer{
+
+    public String location = Ref.RESOURCE_PREFIX+"textures/gui/container/";
 
     /**
      * @param x set to 0 to not change value

@@ -12,9 +12,10 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.BVKS;
 import sneakingshadow.bvks.reference.Dir;
-import sneakingshadow.bvks.reference.GuiID;
+import sneakingshadow.bvks.reference.Gui;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
+import sneakingshadow.bvks.util.LogHelper;
 
 public class BlockDemonFurnace extends BlockContainerBVKS {
 
@@ -32,19 +33,6 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
         this.setTileEntity(TileEntityDemonFurnace.class, Name.Block.DEMON_FURNACE);
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister)
-    {
-        north = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_north")));
-        south = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_south")));
-        east = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_east")));
-        west = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_west")));
-        top = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_top")));
-        bottom = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_bottom")));
-        sides = new IIcon[]{north, east, south, west};
-    }
-
     /**
      * Returns a new instance of a block's tile entity class. Called on placing the block.
      *
@@ -54,6 +42,21 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     @Override
     public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileEntityDemonFurnace();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister iconRegister)
+    {
+        LogHelper.info(getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_north"));
+        LogHelper.info(this.getUnlocalizedName() + "_north");
+        north = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_north")));
+        south = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_south")));
+        east = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_east")));
+        west = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_west")));
+        top = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_top")));
+        bottom = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_bottom")));
+        sides = new IIcon[]{north, east, south, west};
     }
 
     /**
@@ -87,7 +90,7 @@ public class BlockDemonFurnace extends BlockContainerBVKS {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
         if (!world.isRemote) {
-            entityPlayer.openGui(BVKS.instance, GuiID.DEMON_FURNACE, world, x,y,z);
+            entityPlayer.openGui(BVKS.instance, Gui.ID.DEMON_FURNACE, world, x,y,z);
         }
         return true;
     }

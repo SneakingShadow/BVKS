@@ -6,6 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.ItemBottomlessVoid;
@@ -34,8 +35,9 @@ public class BlockBreakingHelper {
             {
                 if (!storageItems.isEmpty()){
                     for(ItemStack itemStack2 : storageItems){
-                        if ( ItemBottomlessVoid.isItemsEqual(itemStack1, itemStack2) ){
-                            ItemBottomlessVoid.raiseItemCount(itemStack2, itemStack1.stackSize);
+                        NBTTagCompound voidCompound = itemStack2.getTagCompound();
+                        if ( ItemStack.loadItemStackFromNBT(voidCompound.getCompoundTag("Item")).isItemEqual(itemStack1) ) {
+                            voidCompound.setLong("Count", voidCompound.getLong("Count" + itemStack1.stackSize));
                             bool = true;
                         }
                     }

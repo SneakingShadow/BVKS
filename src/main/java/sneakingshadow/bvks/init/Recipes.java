@@ -2,11 +2,9 @@ package sneakingshadow.bvks.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import sneakingshadow.bvks.crafting.RecipeBottomlessVoid;
 
 public class Recipes
@@ -20,9 +18,10 @@ public class Recipes
         OreDictionary.registerOre("stickObsidian", ModItems.ObsidianRod);
     }
 
+    //OreDictionary.WILDCARD_VALUE
+
     public static void shapedRecipes()
     {
-
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilPickaxe, "iii", " s ", " s ", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilAxe, "ii", "is", " s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
         GameRegistry.addRecipe(new ShapedOreRecipe(ModItems.DevilSword, "i", "i", "s", 'i', ModItems.DevilIngot, 's', "stickObsidian"));
@@ -59,7 +58,7 @@ public class Recipes
     }
 
     public static void shapelessRecipes() {
-        GameRegistry.addRecipe(new ShapelessOreRecipe(Items.iron_ingot, new ItemStack(Blocks.obsidian, -1)));
+
     }
 
     public static void smelting() {
@@ -67,7 +66,7 @@ public class Recipes
         GameRegistry.addSmelting(ModItems.DevilCompound, new ItemStack(ModItems.DevilIngot), 1F);
     }
 
-    public static void recipeHandlers(){
+    public static void customRecipes(){
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Extract());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.SetType());
         GameRegistry.addRecipe(new RecipeBottomlessVoid.Clear());
@@ -75,7 +74,7 @@ public class Recipes
 
     public static void init(){
         registerOreDic();
-        recipeHandlers();
+        customRecipes();
         shapedRecipes();
         shapelessRecipes();
         smelting();
