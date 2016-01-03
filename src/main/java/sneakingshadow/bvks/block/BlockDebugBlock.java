@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
-public class BlockDebugBlock extends BlockContainerBVKS{
+public class BlockDebugBlock extends BlockBVKSContainer {
 
     public BlockDebugBlock(){
         super();

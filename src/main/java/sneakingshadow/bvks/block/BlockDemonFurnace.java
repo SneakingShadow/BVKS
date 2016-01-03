@@ -17,7 +17,7 @@ import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 import sneakingshadow.bvks.util.LogHelper;
 
-public class BlockDemonFurnace extends BlockContainerBVKS {
+public class BlockDemonFurnace extends BlockBVKSContainer {
 
     private IIcon north;
     private IIcon south;

@@ -7,19 +7,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 
-public abstract class BlockContainerBVKS extends BlockBVKS implements ITileEntityProvider{
+public abstract class BlockBVKSContainer extends BlockBVKS implements ITileEntityProvider{
 
-    public BlockContainerBVKS(Material material){
+    public BlockBVKSContainer(Material material){
         super(material);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.isBlockContainer = true;
     }
 
-    public BlockContainerBVKS(){
+    public BlockBVKSContainer(){
         this(Material.rock);
     }
 
-    public BlockContainerBVKS setTileEntity(Class tileEntity, String name){
+    public BlockBVKSContainer setTileEntity(Class tileEntity, String name){
         TileEntity.addMapping(tileEntity, Ref.RESOURCE_PREFIX + name);
         return this;
     }

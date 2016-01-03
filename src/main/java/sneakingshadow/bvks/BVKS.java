@@ -87,6 +87,13 @@ You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it w
 Multiple gates that open with redstone
 Opens with a sliding animation
 
+Make class BlockBVKSMultiblock that extends BlockContainerBVKS.
+Metadata = 0:
+    tileEntity center, stores all information.
+Metadata != 0:
+    blocks around the center block, that will find the tileEntity and open gui on right-click
+
 Use for demon altar
+Make it a 5x5 multiblock
 
 */

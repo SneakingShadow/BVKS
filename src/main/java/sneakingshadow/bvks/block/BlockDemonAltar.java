@@ -6,7 +6,7 @@ import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.reference.RenderIds;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
 
-public class BlockDemonAltar extends BlockContainerBVKS{
+public class BlockDemonAltar extends BlockBVKSContainer {
 
     public BlockDemonAltar(){
         super();
