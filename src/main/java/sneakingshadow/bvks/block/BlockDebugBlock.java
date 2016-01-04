@@ -22,5 +22,5 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int metadata) { return new TileEntityDebugBlock(); }
+    public TileEntity createNewTileEntity(World world, int metadata) { return null; }
 }

@@ -14,7 +14,7 @@ public class BlockDemonAltar extends BlockBVKSContainer {
     }
 
     @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) { return new TileEntityDemonAltar(); }
+    public TileEntity createNewTileEntity(World world, int metadata) { return new TileEntityDemonAltar(); }
 
 
     @Override

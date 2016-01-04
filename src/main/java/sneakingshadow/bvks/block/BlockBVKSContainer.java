@@ -31,4 +31,13 @@ public abstract class BlockBVKSContainer extends BlockBVKS implements ITileEntit
     {
         super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
     }
+
+    /**
+     * Returns a new instance of a block's tile entity class. Called on placing the block.
+     *
+     * @param world
+     * @param metadata
+     */
+    @Override
+    abstract public TileEntity createNewTileEntity(World world, int metadata);
 }
