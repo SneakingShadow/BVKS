@@ -71,4 +71,20 @@ public class ItemBVKSHammer extends ItemBVKSPickaxe
 
         return false;
     }
+
+    private boolean devilTool = false;
+
+    public ItemBVKSHammer setDevilTool() {
+        devilTool = true;
+        return this;
+    }
+
+    public boolean devilBreakBlock(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase entityLivingBase) {
+        if ((double)block.getBlockHardness(world, x, y, z) != 0.0D)
+        {
+            itemStack.damageItem(1, entityLivingBase);
+            BlockBreakingHelper.breakBlock(itemStack, world, block, x, y, z, entityLivingBase);
+        }
+        return false;
+    }
 }

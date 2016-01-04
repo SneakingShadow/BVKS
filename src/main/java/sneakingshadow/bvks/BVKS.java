@@ -66,9 +66,11 @@ public class BVKS
     }
 }
 
-/*
+/*----------------------------------------------------------------------------------------------------------------------
 
-//TODO:
+TODO:
+
+Make a single ItemBVKSTool class that extends ItemBVKS and either make ItemBVKSPickaxe, ItemBVKSAxe.. extend ItemBVKSTool
 
 Add custom texture handler for devil tools to make them invisible.
 Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item.

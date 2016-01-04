@@ -42,11 +42,11 @@ public class ModItems
      *    Tools
      */
     //Devil
-    public static final Item DevilPickaxe = new ItemToolDevilPickaxe();
-    public static final Item DevilShovel = new ItemToolDevilShovel();
-    public static final Item DevilSword = new ItemToolDevilSword();
-    public static final Item DevilAxe = new ItemToolDevilAxe();
-    public static final Item DevilHoe = new ItemToolDevilHoe();
+    public static final Item DevilPickaxe = new ItemToolDevilPickaxe().setDevilTool();
+    public static final Item DevilShovel = new ItemToolDevilShovel().setDevilTool();
+    public static final Item DevilSword = new ItemToolDevilSword().setDevilTool();
+    public static final Item DevilAxe = new ItemToolDevilAxe().setDevilTool();
+    public static final Item DevilHoe = new ItemToolDevilHoe().setDevilTool();
     //Obsidian
     public static final Item ObsidianPickaxe = new ItemBVKSPickaxe(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_PICKAXE);
     public static final Item ObsidianShovel = new ItemBVKSShovel(Tool.ItemToolMaterial.OBSIDIAN).setUnlocalizedName(Name.Item.OBSIDIAN_SHOVEL);
@@ -64,7 +64,7 @@ public class ModItems
 
         @Override
         public boolean isDamageable() { return false; }
-    }.setUnlocalizedName(Name.Item.DEVIL_HAMMER);
+    }.setDevilTool().setUnlocalizedName(Name.Item.DEVIL_HAMMER);
     public static final Item ObsidianHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.OBSIDIAN_HAMMER, 4).setUnlocalizedName(Name.Item.OBSIDIAN_HAMMER);
     public static final Item DiamondHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.DIAMOND_HAMMER, 5).setUnlocalizedName(Name.Item.DIAMOND_HAMMER);
     public static final Item GoldHammer = new ItemBVKSHammer(Tool.ItemToolMaterial.GOLD_HAMMER, 3).setUnlocalizedName(Name.Item.GOLD_HAMMER);
