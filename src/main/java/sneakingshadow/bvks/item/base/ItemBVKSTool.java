@@ -1,6 +1,11 @@
 package sneakingshadow.bvks.item.base;
 
+import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
 
@@ -9,14 +14,15 @@ import net.minecraftforge.common.ForgeHooks;
 */
 public class ItemBVKSTool extends ItemBVKS{
 
-    private int maxUses;
     private float efficiencyOnProperMaterial;
     private float damageVsEntity;
     private int enchantability;
 
     public ItemBVKSTool(int maxUses, float efficiencyOnProperMaterial, float damageVsEntity, int enchantability) {
         this.setMaxDamage(maxUses);
-
+        this.enchantability = enchantability;
+        this.damageVsEntity = damageVsEntity;
+        this.efficiencyOnProperMaterial = efficiencyOnProperMaterial;
     }
 
     public ItemBVKSTool setPickaxe(int level) {
@@ -36,29 +42,42 @@ public class ItemBVKSTool extends ItemBVKS{
         return this;
     }
 
+    /**
+     * Return the enchantability factor of the item, most of the time is based on material.
+     */
+    public int getItemEnchantability()
+    {
+        return enchantability;
+    }
 
     /**
-     * ItemStack sensitive version of getItemEnchantability
-     *
-     * @param stack The ItemStack
-     * @return the item echantability value
+     * Current implementations of this method in child classes do not use the entry argument beside ev. They just raise
+     * the damage on the stack.
      */
-    public int getItemEnchantability(ItemStack stack)
+    public boolean hitEntity(ItemStack itemStack, EntityLivingBase entityLivingBase, EntityLivingBase entityPlayer)
     {
-        /**
-         * Return the enchantability factor of the item, most of the time is based on material.
-         */
-        return getItemEnchantability();
+        itemStack.damageItem(this.getHarvestLevel(itemStack, "sword") != -1 ? 1 : 2, entityPlayer);
+        return true;
     }
 
     @Override
-    public float getDigSpeed(ItemStack stack, Block block, int meta)
+    public float getDigSpeed(ItemStack itemStack, Block block, int metadata)
     {
-        if (ForgeHooks.isToolEffective(stack, block, meta))
+        if (ForgeHooks.isToolEffective(itemStack, block, metadata) || this.getHarvestLevel(itemStack, "sword") != -1 && block == Blocks.web)
         {
-            return efficiencyOnProperMaterial;
+            return this.efficiencyOnProperMaterial;
         }
-        return super.getDigSpeed(stack, block, meta);
+        return super.getDigSpeed(itemStack, block, metadata);
+    }
+
+    /**
+     * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+     */
+    public Multimap getItemAttributeModifiers()
+    {
+        Multimap multimap = super.getItemAttributeModifiers();
+        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.damageVsEntity, 0));
+        return multimap;
     }
 
 }

@@ -68,6 +68,9 @@ public class BVKS
 
 /*----------------------------------------------------------------------------------------------------------------------
 
+
+
+
 TODO:
 
 Make a single ItemBVKSTool class that extends ItemBVKS and either make ItemBVKSPickaxe, ItemBVKSAxe.. extend ItemBVKSTool
@@ -114,4 +117,6 @@ Make the demon furnace explode on 666th use or atleast something funny on the de
 Sort out ejection or extraction posibility with the demon furnace.
 
 
-*/
+
+
+*///--------------------------------------------------------------------------------------------------------------------
