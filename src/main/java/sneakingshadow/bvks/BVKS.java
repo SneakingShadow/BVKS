@@ -95,6 +95,8 @@ Tier 3: turns diamond to obsidian and obsidian to devil
 Can be upgraded with sword, shovel, pickaxe, axe, hoe, (bow?), (shears?), (bucket?), (flint-and-steel), and other tools.
 Can only be upgraded as far as the hammer, and has to be upgraded the same way as the hammer along with it.
 You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
+Hammer has special overlay when it has special items.
+Starts out with nothing, not even wood level.
 
 Multiple gates that open with redstone
 Opens with a sliding animation
