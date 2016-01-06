@@ -73,7 +73,8 @@ public class BVKS
 
 TODO:
 
-Make a single ItemBVKSTool class that extends ItemBVKS and either make ItemBVKSPickaxe, ItemBVKSAxe.. extend ItemBVKSTool
+Make a single ItemBVKSTool class that extends ItemBVKS and make ItemBVKSPickaxe, ItemBVKSAxe.. extend ItemBVKSTool
+Fix with toolMaterial on some items as they clearly don't need it, and just input the needed information.
 
 Add custom texture handler for devil tools to make them invisible.
 Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item.

@@ -25,7 +25,8 @@ public class ItemAssassinsKnife extends ItemBVKS
      * */
     @Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int position, boolean currentItem){
-
+        if (entity.isSneaking())
+            return;
     }
 
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)

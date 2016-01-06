@@ -2,6 +2,7 @@ package sneakingshadow.bvks.item.base;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -23,6 +24,11 @@ public class ItemBVKSTool extends ItemBVKS{
         this.enchantability = enchantability;
         this.damageVsEntity = damageVsEntity;
         this.efficiencyOnProperMaterial = efficiencyOnProperMaterial;
+        this.maxStackSize = 1;
+        this.setCreativeTab(CreativeTabs.tabAllSearch);
+    }
+    public ItemBVKSTool (ToolMaterial toolMaterial, float damageBoost) {
+        this(toolMaterial.getMaxUses(), toolMaterial.getEfficiencyOnProperMaterial(), toolMaterial.getDamageVsEntity() + damageBoost, toolMaterial.getEnchantability());
     }
 
     public ItemBVKSTool setPickaxe(int level) {

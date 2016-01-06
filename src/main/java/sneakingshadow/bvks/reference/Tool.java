@@ -21,12 +21,12 @@ public class Tool {
         public static net.minecraft.item.Item.ToolMaterial ADMIN_HAMMER = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX + Name.Item.ADMIN_HAMMER, Integer.MAX_VALUE, Integer.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Integer.MAX_VALUE);
 
         //devil stuff
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_PICKAXE = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_PICKAXE, 100, 30000, 10000F, 5F, 30);
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_SHOVEL = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_SHOVEL, 100, 30000, 10000F, 5F, 30);
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_SWORD = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_SWORD, 100, 30000, 100F, 100000F, 30);
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_AXE = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_AXE, 100, 30000, 10000F, 5F, 30);
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_HOE = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_HOE, 100, 1000000, 100000, 1000000, 30);
-        public static net.minecraft.item.Item.ToolMaterial DEVIL_HAMMER = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_HAMMER, 100, 1000000, 100000, 1000000, 30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_PICKAXE = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_PICKAXE, 100, 30000,   10000F, 5F,      30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_SHOVEL  = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_SHOVEL , 100, 30000,   10000F, 5F,      30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_SWORD   = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_SWORD  , 100, 30000,   100F,   100000F, 30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_AXE     = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_AXE    , 100, 30000,   10000F, 5F,      30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_HOE     = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_HOE    , 100, 1000000, 100000, 1000000, 30);
+        public static net.minecraft.item.Item.ToolMaterial DEVIL_HAMMER  = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.DEVIL_HAMMER , 100, 1000000, 100000, 1000000, 30);
 
         public static net.minecraft.item.Item.ToolMaterial OBSIDIAN = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX+ Name.Item.OBSIDIAN_PICKAXE, 4, 1000, 6.4F, 4F, 12);
         //Hammers
@@ -38,20 +38,12 @@ public class Tool {
         public static net.minecraft.item.Item.ToolMaterial OBSIDIAN_HAMMER = EnumHelper.addToolMaterial(Ref.RESOURCE_PREFIX + Name.Item.OBSIDIAN_HAMMER, OBSIDIAN.getHarvestLevel(), OBSIDIAN.getMaxUses(), BaseHammerEfficiency * OBSIDIAN.getEfficiencyOnProperMaterial(), OBSIDIAN.getDamageVsEntity(), OBSIDIAN.getEnchantability());
     }
 
-    public static class Type {
-        public static String PICKAXE = "pickaxe";
-        public static String AXE = "axe";
-        public static String SHOVEL = "shovel";
-
-    }
-
     public static class Level {
         public static int WOOD = 0;
         public static int STONE = 1;
         public static int IRON = 2;
         public static int DIAMOND = 3;
         public static int GOLD = 0;
-
     }
 
 }
