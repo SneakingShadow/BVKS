@@ -15,7 +15,7 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{
 
     @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return type == ItemRenderType.INVENTORY;// || type == EQUIPPED_FIRST_PERSON
+        return type == ItemRenderType.INVENTORY;// || type == ItemRenderType.EQUIPPED_FIRST_PERSON;
 
     }
 

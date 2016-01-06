@@ -12,7 +12,7 @@ import sneakingshadow.bvks.util.BlockBreakingHelper;
 public class ItemBVKSHammer extends ItemBVKSTool
 {
 
-    private final int size;
+    public final int size;
 
     public ItemBVKSHammer(ToolMaterial toolMaterial, int size) {
         this(toolMaterial.getMaxUses(), toolMaterial.getEfficiencyOnProperMaterial(), toolMaterial.getDamageVsEntity(), toolMaterial.getEnchantability(), toolMaterial.getHarvestLevel(), size);

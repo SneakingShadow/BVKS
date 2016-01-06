@@ -45,9 +45,9 @@ public class ItemAdminHammer extends ItemBVKSHammer{
             breakBlock(itemStack, world, block, xPos, yPos, zPos, bottomlessVoids, bool);
         }
         world.setBlockToAir(xPos, yPos, zPos);
-        for(int rx = xPos -(widthX/2); rx< xPos -(widthX/2) + widthX ;rx++){
-            for(int ry = yPos -1; ry< yPos -1+widthY ;ry++) {
-                for(int rz = zPos -(widthZ/2); rz< zPos -(widthZ/2) + widthZ ;rz++){
+        for(int rx = xPos -(this.size/2); rx< xPos -(this.size/2) + this.size ;rx++){
+            for(int ry = yPos -1; ry< yPos -1+this.size ;ry++) {
+                for(int rz = zPos -(this.size/2); rz< zPos -(this.size/2) + this.size ;rz++){
                     Block blocky = world.getBlock(rx, ry, rz);
                     if (blocky.getMaterial() != Material.air && !Block.isEqualTo(blocky, Blocks.bedrock)) {
                         if (!world.isRemote && !world.restoringBlockSnapshots && world.getGameRules().getGameRuleBooleanValue("doTileDrops") && itemStack.getItemDamage() == 1)
