@@ -40,11 +40,11 @@ Starts out with nothing, not even wood level.
 Multiple gates that open with redstone
 Opens with a sliding animation
 
-Make class BlockBVKSMultiblock that extends BlockContainerBVKS.
+BlockDemonAltar
 Metadata = 0:
-    tileEntity center, stores all information.
+    tileEntity center, stores all information. Opens gui on right-click.
 Metadata != 0:
-    blocks around the center block, that will find the tileEntity and open gui on right-click
+    blocks around the center block. Will find tileentity and open gui.
 
 Use for demon altar
 Make it a 5x5 multiblock
