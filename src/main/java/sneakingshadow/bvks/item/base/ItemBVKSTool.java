@@ -26,6 +26,7 @@ public class ItemBVKSTool extends ItemBVKS{
         this.efficiencyOnProperMaterial = efficiencyOnProperMaterial;
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
+
     }
     public ItemBVKSTool (ToolMaterial toolMaterial, float damageBoost) {
         this(toolMaterial.getMaxUses(), toolMaterial.getEfficiencyOnProperMaterial(), toolMaterial.getDamageVsEntity() + damageBoost, toolMaterial.getEnchantability());

@@ -11,7 +11,7 @@
 # Keys
 keys.bvks.category=Bear Valley's Killing-Set
 keys.bvks.charge=Pointless button
-keys.bvks.release=Release
+keys.bvks.release=Pointless button
 
 # Block localizations
 tile.bvks:devil_ore.name=Devil Ore
