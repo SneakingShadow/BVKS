@@ -1,6 +1,7 @@
 package sneakingshadow.bvks.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -119,8 +120,8 @@ public class ModItems
         registerItem(StoneGen, Name.Item.STONE_GEN);
     }
 
-    public static void add(List list){
-        CreativeTabBVKS.add(list, new Item[]{
+    public static void add(List list, CreativeTabs creativeTab){
+        CreativeTabBVKS.add(list, creativeTab, new Item[]{
                 BottomlessVoid,
                 AdminHammer,
                 DevilHammer,
@@ -159,8 +160,8 @@ public class ModItems
                 ObsidianRod,
                 IronRod,
         });
-        CreativeTabBVKS.add(list, DebugItem);
-        CreativeTabBVKS.add(list, NBTDebugItem);
+        CreativeTabBVKS.add(list, creativeTab, DebugItem);
+        CreativeTabBVKS.add(list, creativeTab, NBTDebugItem);
     }
 
     private static void registerItem(Item item, String name){

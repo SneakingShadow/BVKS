@@ -6,13 +6,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.reference.Dir;
 import sneakingshadow.bvks.reference.Ref;
+
+import java.util.List;
 
 public class BlockBVKS extends Block
 {
@@ -32,6 +33,32 @@ public class BlockBVKS extends Block
 
     public BlockBVKS() {
         this(Material.rock);
+    }
+
+    private int amount = 0;
+    /**
+     * sets how many sub-blocks the block has
+     */
+    public void setSubBlocks(int amount) {
+        this.amount = amount;
+    }
+    public boolean hasSubBlocks() {
+        return this.amount != 0;
+    }
+
+    @Override
+    /**
+     * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
+     */
+    @SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
+    {
+        if (!hasSubBlocks())
+            list.add(new ItemStack(item, 1,0));
+        for (int i = 0; i < this.amount; ++i)
+        {
+            list.add(new ItemStack(item, 1, i));
+        }
     }
 
     @Override
@@ -58,10 +85,16 @@ public class BlockBVKS extends Block
         bottom = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_bottom")));
     }
 
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
+    {
+        return false;
+    }
+
     /**
      * Gets the block's texture. Args: side, meta
      */
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta)
     {
         return side == Dir.up ? top :
@@ -70,12 +103,12 @@ public class BlockBVKS extends Block
                                 side == Dir.south ? south:
                                         side == Dir.east ? east:
                                                 west;
-    }
+    }*/
 
     /**
      * Called when the block is placed in the world.
      */
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
+    /*public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLivingBase, ItemStack itemStack)
     {
         int l = MathHelper.floor_double((double)(entityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 
@@ -103,5 +136,5 @@ public class BlockBVKS extends Block
         {
             world.setBlockMetadataWithNotify(x, y, z, 4, 2);
         }
-    }
+    }*/
 }

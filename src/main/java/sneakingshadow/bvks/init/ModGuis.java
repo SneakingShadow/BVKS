@@ -12,7 +12,8 @@ import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 public class ModGuis {
 
-    public static GuiBVKS guiDemonFurnace = new GuiBVKS() {
+    public static GuiBVKS guiDemonFurnace = new GuiBVKS()
+    {
         @Override
         public Object getContainer(EntityPlayer entityPlayer, World world, int x, int y, int z) {
             return new ContainerDemonFurnace(entityPlayer.inventory, (TileEntityDemonFurnace)world.getTileEntity(x,y,z));
@@ -23,7 +24,8 @@ public class ModGuis {
             return new GuiDemonFurnace((ContainerDemonFurnace) this.getContainer(entityPlayer, world, x, y, z));
         }
     };
-    public static GuiBVKS guiBottomlessVoid = new GuiBVKS() {
+    public static GuiBVKS guiBottomlessVoid = new GuiBVKS()
+    {
         @Override
         public Object getContainer(EntityPlayer entityPlayer, World world, int x, int y, int z) {
             return new ContainerBottomlessVoid(entityPlayer, x);
@@ -34,10 +36,23 @@ public class ModGuis {
             return new GuiBottomlessVoid(entityPlayer, x);
         }
     };
+    public static GuiBVKS guiDemonAltar = new GuiBVKS()
+    {
+        @Override
+        public Object getContainer(EntityPlayer entityPlayer, World world, int x, int y, int z) {
+            return null;
+        }
+
+        @Override
+        public Object getGui(EntityPlayer entityPlayer, World world, int x, int y, int z) {
+            return null;
+        }
+    };
 
     public static void init(){
         GuiHandler.registerGUI(guiDemonFurnace);
         GuiHandler.registerGUI(guiBottomlessVoid);
+        GuiHandler.registerGUI(guiDemonAltar);
     }
 
 }

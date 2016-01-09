@@ -25,14 +25,6 @@ public abstract class BlockBVKSContainer extends BlockBVKS implements ITileEntit
     }
 
     /**
-     * Called whenever the block is added into the world. Args: world, x, y, z
-     */
-    public void onBlockAdded(World p_149726_1_, int p_149726_2_, int p_149726_3_, int p_149726_4_)
-    {
-        super.onBlockAdded(p_149726_1_, p_149726_2_, p_149726_3_, p_149726_4_);
-    }
-
-    /**
      * Returns a new instance of a block's tile entity class. Called on placing the block.
      *
      * @param world

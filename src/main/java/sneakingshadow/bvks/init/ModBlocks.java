@@ -2,6 +2,7 @@ package sneakingshadow.bvks.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
 import sneakingshadow.bvks.block.*;
 import sneakingshadow.bvks.creativetab.CreativeTabBVKS;
@@ -50,14 +51,14 @@ public class ModBlocks
         GameRegistry.registerTileEntity(clazz, Ref.RESOURCE_PREFIX + "tile_" + name);
     }
 
-    public static void add(List list){
-        CreativeTabBVKS.add(list, new Block[]{
+    public static void add(List list, CreativeTabs creativeTab){
+        CreativeTabBVKS.add(list, creativeTab, new Block[]{
                 DevilOre,
                 SmoothObsidian,
                 DevilCobblestone,
                 DemonAltar,
                 DemonFurnace,
         });
-        CreativeTabBVKS.add(list, DebugBlock);
+        CreativeTabBVKS.add(list, creativeTab, DebugBlock);
     }
 }

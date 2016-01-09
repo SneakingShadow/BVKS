@@ -30,7 +30,7 @@ public class CreativeTabBVKS
         @Override
         public void displayAllReleventItems(List list)
         {
-            ModItems.add(list);
+            ModItems.add(list, this);
         }
     }.setBackgroundImageName(Name.CreativeTab.BACKGROUND);
 
@@ -50,9 +50,10 @@ public class CreativeTabBVKS
         @Override
         public void displayAllReleventItems(List list)
         {
-            ModBlocks.add(list);
+            ModBlocks.add(list, this);
         }
     }.setBackgroundImageName(Name.CreativeTab.BACKGROUND);
+
 
     /**
      *
@@ -60,16 +61,16 @@ public class CreativeTabBVKS
      *
      */
 
-    public static void add(List list, Item item) {
-        list.add(new ItemStack(item, 1, 0));
+    public static void add(List list, CreativeTabs creativeTab, Item item) {
+        item.getSubItems(item, creativeTab, list);
     }
 
     public static void add(List list, Item item, int metadata) {
         list.add(new ItemStack(item, 1, metadata));
     }
 
-    public static void add(List list, Block block) {
-        list.add(new ItemStack(block, 1, 0));
+    public static void add(List list, CreativeTabs creativeTab, Block block) {
+        block.getSubBlocks(Item.getItemFromBlock(block), creativeTab, list);
     }
 
     public static void add(List list, Block block, int metadata) {
@@ -80,31 +81,26 @@ public class CreativeTabBVKS
         list.add(ItemStack.loadItemStackFromNBT(nbtTagCompound));
     }
 
-    public static void add(List list, Object[] objects) {
-        int temp = 0;
+    public static void add(List list, CreativeTabs creativeTab, Object[] objects) {
+        int num = 0;
         for(Object obj : objects){
-            if (obj instanceof Item)
+            if (obj instanceof Item) {
+                if (num == 0) {
+                    add(list, creativeTab, (Item) obj);
+                } else {
+                    add(list, (Item) obj, num);
+                }
+            } else if (obj instanceof Block) {
+                if (num == 0) {
+                    add(list, creativeTab, (Block) obj);
+                } else {
+                    add(list, (Block) obj, num);
+                }
+            } else if (obj instanceof NBTTagCompound) {
+                add(list, (NBTTagCompound) obj);
+            }
 
-                if (temp == 0)
-                    add(list, (Item)obj);
-                else
-                    add(list, (Item)obj, temp);
-
-            else if (obj instanceof Block)
-
-                if (temp == 0)
-                    add(list, (Block)obj);
-                else
-                    add(list, (Block)obj, temp);
-
-            else if (obj instanceof NBTTagCompound)
-
-                add(list, (NBTTagCompound)obj);
-
-            else if (obj instanceof Integer)
-                temp = (Integer)obj;
-            else
-                temp = 0;
+            num = obj instanceof Integer ? (Integer) obj : 0;
         }
     }
 }
