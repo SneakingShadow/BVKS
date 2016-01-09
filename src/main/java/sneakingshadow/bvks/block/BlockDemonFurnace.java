@@ -15,7 +15,6 @@ import sneakingshadow.bvks.init.ModGuis;
 import sneakingshadow.bvks.reference.Dir;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
-import sneakingshadow.bvks.util.LogHelper;
 
 public class BlockDemonFurnace extends BlockBVKSContainer {
 
@@ -48,8 +47,6 @@ public class BlockDemonFurnace extends BlockBVKSContainer {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        LogHelper.info(getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_north"));
-        LogHelper.info(this.getUnlocalizedName() + "_north");
         north = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_north")));
         south = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_south")));
         east = iconRegister.registerIcon(String.format("%s", getUnwrappedUnlocalizedName(this.getUnlocalizedName() + "_east")));

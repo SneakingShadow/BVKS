@@ -28,7 +28,7 @@ public class MultiBlockStructure {
             for (int j=0; j<height; j++) {
                 for (int i=0; i<width; i++) {
                     if (blockMatch( this.structure[i][j][k], world, x,y,z )) {
-                        positions.add(new Position(i,k,j));
+                        positions.add(new Position(i,j,k));
                     }
                 }
             }
@@ -52,9 +52,9 @@ public class MultiBlockStructure {
             this.minX = minPos.x;
             this.minY = minPos.y;
             this.minZ = minPos.z;
-            this.minX = maxPos.x;
-            this.minY = maxPos.y;
-            this.minZ = maxPos.z;
+            this.maxX = maxPos.x;
+            this.maxY = maxPos.y;
+            this.maxZ = maxPos.z;
             this.turns = turns;
         }
 
@@ -93,9 +93,6 @@ public class MultiBlockStructure {
             objectArrayList.remove(i);
         objects = objectArrayList.toArray();
 
-        LogHelper.info(objects);
-        LogHelper.info(objects.length);
-
         int x=0,y=0,z=0;
         for (Object obj : objects)
         {
@@ -124,14 +121,20 @@ public class MultiBlockStructure {
             for (int w = 0; w < this.structure.length; w++)
                 for (int h = 0; h < this.structure[w].length; h++)
                     for (int l = 0; l < this.structure[w][h].length; l++) {
-                        Position pos = new Position(w + x-position.x, h + y-position.y, l + z-position.z).turn(i);
+                        Position pos = new Position(w + x-position.x, h + y-position.y, l + z-position.z,  x-position.x, y-position.y, z-position.z).turn(i);
                         flag = flag && blockMatch(this.structure[w][h][l], world, pos.x, pos.y, pos.z);
+                        //world.setBlock(pos.x,pos.y,pos.z, Blocks.cobblestone);
                     }
             if (flag)
-                return new MultiBlockInWorld(new Position(x-position.x, y-position.y, z-position.z).turn(i),
-                        new Position(x-position.x + this.structure.length, y-position.y + this.structure[0].length, z-position.z + this.structure[0][0].length).turn(i),
+            {
+                LogHelper.info("x: "+x);
+                LogHelper.info("y: "+y);
+                LogHelper.info("z: "+z);
+                return new MultiBlockInWorld(new Position(x - position.x, y - position.y, z - position.z).turn(i),
+                        new Position(x - position.x + this.structure.length-1, y - position.y + this.structure[0].length-1, z - position.z + this.structure[0][0].length-1).turn(i),
                         i
                 );
+            }
         }
         return null;
     }
@@ -148,11 +151,21 @@ public class MultiBlockStructure {
     private class Position {
 
         public int x=0,y=0,z=0;
+        public int rx=0,ry=0,rz=0; // The point this point turns around
 
         public Position(int x, int y, int z) {
             this.x=x;
             this.y=y;
             this.z=z;
+        }
+
+        public Position(int x, int y, int z, int rx, int ry, int rz) {
+            this.x=x;
+            this.y=y;
+            this.z=z;
+            this.rx=rx;
+            this.ry=ry;
+            this.rz=rz;
         }
 
         public Position turn(int i) {
