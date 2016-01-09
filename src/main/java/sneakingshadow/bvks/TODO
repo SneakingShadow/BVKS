@@ -55,3 +55,6 @@ Sort out ejection or extraction posibility with the demon furnace.
 make ninja armor.
 
 Fix BlockBVKS so placing with different rotations work better.
+
+Multiblock
+Fix rotation-logic
