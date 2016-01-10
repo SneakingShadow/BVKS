@@ -59,6 +59,7 @@ Fix BlockBVKS so placing with different rotations work better.
 MultiBlockStructure
 fix rotation logic
 add check for if the multiblock is still valid
+Add function that will try to find a block based on one block in the multiblock and how far away it may be at worst scenario, search the widest area it could possibly be and find it, no matter rotation
 
 MultiBlock
 add check for if the multiblock is still valid
