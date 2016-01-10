@@ -2,14 +2,16 @@ package sneakingshadow.bvks.block.MultiBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 import sneakingshadow.bvks.util.LogHelper;
+import sneakingshadow.bvks.util.Position;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class MultiBlockStructure {
 
@@ -20,48 +22,6 @@ public class MultiBlockStructure {
         this.length = length;
         this.height = height;
         this.structure = sortObjects(objects);
-    }
-
-    public MultiBlockInWorld findMultiBlock(World world, int x, int y, int z) {
-        ArrayList<Position> positions = new ArrayList<Position>();
-        for (int k=0; k<length; k++) {
-            for (int j=0; j<height; j++) {
-                for (int i=0; i<width; i++) {
-                    if (blockMatch( this.structure[i][j][k], world, x,y,z )) {
-                        positions.add(new Position(i,j,k));
-                    }
-                }
-            }
-        }
-        for (Position pos : positions) {
-            MultiBlockInWorld multiBlock = matches(world, x, y, z, pos);
-            if (multiBlock != null)
-                return multiBlock;
-        }
-
-        return null;
-    }
-
-    public class MultiBlockInWorld {
-
-        public int minX,minY,minZ;
-        public int maxX,maxY,maxZ;
-        private int turns;
-
-        public MultiBlockInWorld(Position minPos, Position maxPos, int turns) {
-            this.minX = minPos.x;
-            this.minY = minPos.y;
-            this.minZ = minPos.z;
-            this.maxX = maxPos.x;
-            this.maxY = maxPos.y;
-            this.maxZ = maxPos.z;
-            this.turns = turns;
-        }
-
-        public Block getBlockAtMapPosition(World world, int x, int y, int z) {
-            Position pos = new Position(x,y,z).turn(turns);
-            return world.getBlock(minX+pos.x, minY+pos.y, minZ+pos.z);
-        }
     }
 
     private Object[][][] sortObjects (Object[] objects) {
@@ -98,7 +58,9 @@ public class MultiBlockStructure {
         {
             if (obj instanceof Character)
                 obj = hashMap.get(obj);
-            if (obj == null || obj instanceof Block || obj instanceof ItemStack || obj instanceof Material || obj instanceof String) {
+            if (obj instanceof String)
+                obj = OreDictionary.getOres((String)obj);
+            if (obj == null || obj instanceof Block || obj instanceof ItemStack || obj instanceof Material || obj instanceof ArrayList) {
                 returnObjects[x][y][z] = obj;
                 x++;
                 if (x == this.width) {
@@ -114,26 +76,48 @@ public class MultiBlockStructure {
         return returnObjects;
     }
 
-    private MultiBlockInWorld matches (World world, int x, int y, int z, Position position) {
+    public MultiBlock findMultiBlock(World world, int x, int y, int z) {
+        ArrayList<Position> positions = new ArrayList<Position>();
+        for (int k=0; k<length; k++) {
+            for (int j=0; j<height; j++) {
+                for (int i=0; i<width; i++) {
+                    if (blockMatch( this.structure[i][j][k], world, x,y,z )) {
+                        positions.add(new Position(i,j,k));
+                    }
+                }
+            }
+        }
+        for (Position pos : positions) {
+            MultiBlock multiBlock = matches(world, x, y, z, pos);
+            if (multiBlock != null)
+                return multiBlock;
+        }
+
+        return null;
+    }
+
+    /*public boolean multiBlockValid(int minX, int minY, int minZ, int maxX, int maxY, int maxZ, int rotation) {
+
+    }*/
+
+    private MultiBlock matches (World world, int x, int y, int z, Position position) {
         boolean flag;
         for (int i=0; i<4; i++) {
             flag = true;
             for (int w = 0; w < this.structure.length; w++)
                 for (int h = 0; h < this.structure[w].length; h++)
                     for (int l = 0; l < this.structure[w][h].length; l++) {
-                        Position pos = new Position(w + x-position.x, h + y-position.y, l + z-position.z,  x-position.x, y-position.y, z-position.z).turn(i);
+                        Position pos = new Position(w + x-position.x, h + y-position.y, l + z-position.z).turn(i, position.x, position.z);
                         flag = flag && blockMatch(this.structure[w][h][l], world, pos.x, pos.y, pos.z);
-                        //world.setBlock(pos.x,pos.y,pos.z, Blocks.cobblestone);
+                        if (blockMatch(this.structure[w][h][l], world, pos.x, pos.y, pos.z)&& false)
+                            world.setBlock(pos.x,pos.y,pos.z, Blocks.cobblestone);
                     }
+            LogHelper.info(flag);
             if (flag)
             {
-                LogHelper.info("x: "+x);
-                LogHelper.info("y: "+y);
-                LogHelper.info("z: "+z);
-                return new MultiBlockInWorld(new Position(x - position.x, y - position.y, z - position.z).turn(i),
-                        new Position(x - position.x + this.structure.length-1, y - position.y + this.structure[0].length-1, z - position.z + this.structure[0][0].length-1).turn(i),
-                        i
-                );
+                return new MultiBlock(new Position(x - position.x, y - position.y, z - position.z).turn(i, position.x, position.z),
+                        new Position(x - position.x + this.structure.length-1, y - position.y + this.structure[0].length-1, z - position.z + this.structure[0][0].length-1).turn(i, position.x, position.z),
+                        i, position.x, position.z, this.getID());
             }
         }
         return null;
@@ -141,42 +125,24 @@ public class MultiBlockStructure {
 
     private boolean blockMatch (Object object, World world, int x, int y, int z) {
         Block block = world.getBlock(x,y,z);
+        if(object instanceof ArrayList) {
+            boolean flag = false;
+            Iterator<ItemStack> iterator = ((ArrayList<ItemStack>)object).iterator();
+            while (iterator.hasNext() && !flag)
+                flag = OreDictionary.itemMatches(iterator.next(), new ItemStack(block, 1, world.getBlockMetadata(x,y,z)), false);
+            if (flag)
+                return true;
+        }
         return object == null && block.isAir(world, x,y,z)
                 || object instanceof Block && object == block
                 || object instanceof ItemStack && Block.getBlockFromItem(((ItemStack)object).getItem()) == block && world.getBlockMetadata(x,y,z) == ((ItemStack)object).getItemDamage()
-                || object instanceof Material && object == block.getMaterial()
-                || object instanceof String && OreDictionary.getOreName(Item.getIdFromItem(Item.getItemFromBlock(block))).equals(object);
+                || object instanceof Material && object == block.getMaterial();
     }
 
-    private class Position {
-
-        public int x=0,y=0,z=0;
-        public int rx=0,ry=0,rz=0; // The point this point turns around
-
-        public Position(int x, int y, int z) {
-            this.x=x;
-            this.y=y;
-            this.z=z;
-        }
-
-        public Position(int x, int y, int z, int rx, int ry, int rz) {
-            this.x=x;
-            this.y=y;
-            this.z=z;
-            this.rx=rx;
-            this.ry=ry;
-            this.rz=rz;
-        }
-
-        public Position turn(int i) {
-            int num;
-            for (int j = 0; j < i; j++) {
-                num = x;
-                x = z;
-                z = -num;
-            }
-            return this;
-        }
-
+    private int id=0;
+    public void setID(int ID) {
+        this.id = ID;
     }
+    public int getID() { return this.id; }
+
 }

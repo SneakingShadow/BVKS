@@ -56,5 +56,9 @@ make ninja armor.
 
 Fix BlockBVKS so placing with different rotations work better.
 
-Multiblock
-Fix rotation-logic
+MultiBlockStructure
+fix rotation logic
+add check for if the multiblock is still valid
+
+MultiBlock
+add check for if the multiblock is still valid

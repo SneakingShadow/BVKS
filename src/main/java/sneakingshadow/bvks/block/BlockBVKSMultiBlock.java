@@ -1,8 +1,7 @@
-package sneakingshadow.bvks.block.MultiBlock;
+package sneakingshadow.bvks.block;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import sneakingshadow.bvks.block.BlockBVKSContainer;
 
 abstract public class BlockBVKSMultiBlock extends BlockBVKSContainer {
 
