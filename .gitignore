@@ -1,15 +1,12 @@
 Thumbs.db
 
-
-## Maybe remove these ignores
-/gradle
-
 ## Minecraft
 /decompiled
 /minecraft
 
 ## gradle
 /.gradle
+/gradle
 /build
 /gradlew*
 
