@@ -8,6 +8,8 @@
 
 TODO:
 
+Clean up Lang file and add descriptions to the lang file.
+
 Make a single ItemBVKSTool class that extends ItemBVKS and make ItemBVKSPickaxe, ItemBVKSAxe.. extend ItemBVKSTool
 Fix with toolMaterial on some items as they clearly don't need it, and just input the needed information.
 
