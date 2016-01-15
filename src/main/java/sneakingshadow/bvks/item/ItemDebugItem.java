@@ -9,6 +9,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.DescHelper;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
@@ -20,7 +21,7 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add("Use at own risk!");
+        list.add(DescHelper.getDescription( Name.Item.DEBUG_ITEM ) );
     }
 
     public ItemDebugItem() {

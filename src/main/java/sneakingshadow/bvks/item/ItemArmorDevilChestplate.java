@@ -1,12 +1,11 @@
 package sneakingshadow.bvks.item;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKSArmor;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.DescHelper;
 
 import java.util.List;
 
@@ -24,8 +23,8 @@ public class ItemArmorDevilChestplate extends ItemBVKSArmor
         player.capabilities.allowFlying = true;
     }
 
-    @SideOnly(Side.CLIENT)
-    public static void addInformation(List list){
-        list.add("The hearth of a devil");
+    @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
+        list.add( DescHelper.getDescription( Name.Item.DEVIL_CHESTPLATE ) );
     }
 }

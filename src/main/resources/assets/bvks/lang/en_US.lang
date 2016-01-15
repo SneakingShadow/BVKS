@@ -81,3 +81,7 @@ tile.bvks:debug_block.name=Debug Block
 item.bvks:debug_item.name=Debug Item
 item.bvks:nbt_debug_item.name=NBT Debug Item
 entity.bvks.awesome_cow.name=Awesome Cow (debug entity)
+
+# Descriptions
+description.bvks:debug_item=Use at own risk!
+desctiption.bvks:devil_chestplate=The hearth of a devil

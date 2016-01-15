@@ -55,11 +55,8 @@ public class CreativeTabBVKS
     }.setBackgroundImageName(Name.CreativeTab.BACKGROUND);
 
 
-    /**
-     *
-     *
-     *
-     */
+    //---------------------------Adding to list---------------------------------------//
+
 
     public static void add(List list, CreativeTabs creativeTab, Item item) {
         item.getSubItems(item, creativeTab, list);
