@@ -84,4 +84,9 @@ entity.bvks.awesome_cow.name=Awesome Cow (debug entity)
 
 # Descriptions
 description.bvks:debug_item=Use at own risk!
-desctiption.bvks:devil_chestplate=The hearth of a devil
+description.bvks:devil_chestplate=The heart of a devil
+description.bvks:admin_hammer=Aren't you going a little too far?..
+description.bvks:admin_hammer.stored=Mined blocks will be placed in bottomless voids
+description.bvks:admin_hammer.deleted=Mined blocks will not drop items
+description.bvks:devil_leggings=Saitama's leggings
+description.bvks:devil_helmet=No reason to have a dark view at life

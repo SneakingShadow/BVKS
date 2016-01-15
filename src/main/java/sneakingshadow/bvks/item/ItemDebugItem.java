@@ -9,20 +9,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
-import sneakingshadow.bvks.util.DescHelper;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemDebugItem extends ItemBVKS {
 
     private static Block placeBlock = Blocks.cobblestone;
-
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add(DescHelper.getDescription( Name.Item.DEBUG_ITEM ) );
-    }
 
     public ItemDebugItem() {
         super();

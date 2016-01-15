@@ -9,19 +9,12 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
 
-import java.util.List;
-
 public class ItemAssassinsKnife extends ItemBVKS {
     public ItemAssassinsKnife() {
         super();
         this.setUnlocalizedName(Name.Item.ASSASSINS_KNIFE);
         this.setMaxStackSize(1);
         this.setFull3D();
-    }
-
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add("...");
     }
 
     /**

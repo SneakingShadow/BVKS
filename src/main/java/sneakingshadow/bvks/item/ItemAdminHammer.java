@@ -26,6 +26,13 @@ public class ItemAdminHammer extends ItemBVKSHammer{
     }
 
     @Override
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
+    {
+        list.add( this.getDescription() );
+        list.add(itemStack.getItemDamage() == 1 ? this.getDescription(".stored") : this.getDescription(".deleted"));
+    }
+
+    @Override
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int xPos, int yPos, int zPos, EntityLivingBase entityLivingBase)
     {
         boolean bool = false;
@@ -84,13 +91,6 @@ public class ItemAdminHammer extends ItemBVKSHammer{
             entityPlayer.addChatComponentMessage(new ChatComponentText("Can crash the server.. not my fault!"));
         }
         return itemStack;
-    }
-
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
-    {
-        list.add("Aren't you going a little too far?..");
-        list.add(itemStack.getItemDamage() == 1 ? "Mined blocks will be placed in storage voids" : "Mined blocks will not drop items");
     }
 
     @Override

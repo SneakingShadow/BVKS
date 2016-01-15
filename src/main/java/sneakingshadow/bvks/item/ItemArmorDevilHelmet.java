@@ -8,8 +8,6 @@ import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKSArmor;
 import sneakingshadow.bvks.reference.Name;
 
-import java.util.List;
-
 public class ItemArmorDevilHelmet extends ItemBVKSArmor
 {
     public ItemArmorDevilHelmet()
@@ -22,11 +20,5 @@ public class ItemArmorDevilHelmet extends ItemBVKSArmor
     public void onArmorTick(World world, EntityPlayer player, ItemStack armor) {
         player.setAir(300);
         player.addPotionEffect(new PotionEffect(Potion.nightVision.getId(), 11, 12, true));
-    }
-
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add("No reason to have");
-        list.add("a dark view at life");
     }
 }
