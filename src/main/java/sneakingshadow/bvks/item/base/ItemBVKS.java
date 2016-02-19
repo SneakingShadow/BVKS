@@ -27,11 +27,14 @@ public class ItemBVKS extends Item
 
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add(this.getDescription());
+        if ( !"".equals( this.getDescription() ) )
+            list.add( this.getDescription() );
     }
 
     public String getDescription(String string) {
-        return DescHelper.getDescription( getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string );
+        string = getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string;
+        String desc = DescHelper.getDescription( string );
+        return desc.equals(string) ? "" : desc;
     }
     public String getDescription() {
         return getDescription("");

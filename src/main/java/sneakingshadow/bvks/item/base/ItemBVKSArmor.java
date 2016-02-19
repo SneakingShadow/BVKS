@@ -36,11 +36,14 @@ public class ItemBVKSArmor extends ItemArmor
 
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        list.add(this.getDescription());
+        if ( !"".equals( this.getDescription() ) )
+            list.add( this.getDescription() );
     }
 
     public String getDescription(String string) {
-        return DescHelper.getDescription( getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string );
+        String unloc = getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string;
+        String desc = DescHelper.getDescription( unloc );
+        return desc.equals(unloc) ? unloc : desc;
     }
     public String getDescription() {
         return getDescription("");

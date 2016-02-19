@@ -46,11 +46,11 @@ public class BlockBVKS extends Block
         return this.amount != 0;
     }
 
-    @Override
     /**
      * returns a list of blocks with the same ID, but different meta (eg: wood returns 4 blocks)
      */
     @SideOnly(Side.CLIENT)
+    @Override
     public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
     {
         if (!hasSubBlocks())

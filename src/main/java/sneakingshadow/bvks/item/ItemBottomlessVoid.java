@@ -49,7 +49,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
                 list.add("Amount: " + count);
                 list.add("Damage: " + itemStack1.getItemDamage());
                 list.add("Custom display-name:");
-                list.add(itemStack1.hasDisplayName() ? itemStack1.getDisplayName() : "Has none");
+                list.add(itemStack1.hasDisplayName() ? itemStack1.getDisplayName() : "none");
                 list.add("Enchantments: " + (itemStack1.isItemEnchanted() ? "" : "none"));
                 NBTTagList tagList = itemStack1.getEnchantmentTagList();
                 if (tagList != null)
@@ -64,13 +64,9 @@ public class ItemBottomlessVoid extends ItemBVKS {
                         }
                     }
             }else
-                list.add("Hold shift for info");
-
+                list.add(this.getDescription(".shift"));
         } else {
-            list.add("Stores items.");
-            list.add("To set type:");
-            list.add("Combine with item");
-            list.add("in crafting table");
+            list.add(this.getDescription());
         }
     }
 

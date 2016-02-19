@@ -90,3 +90,5 @@ description.bvks:admin_hammer.stored=Mined blocks will be placed in bottomless v
 description.bvks:admin_hammer.deleted=Mined blocks will not drop items
 description.bvks:devil_leggings=Saitama's leggings
 description.bvks:devil_helmet=No reason to have a dark view at life
+description.bvks:bottomless_void=Stores items. To set type, combine with item in crafting table
+description.bvks:bottomless_void.shift=Hold shift for info
