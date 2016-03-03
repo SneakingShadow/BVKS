@@ -3,6 +3,7 @@ package sneakingshadow.bvks.item;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -12,6 +13,7 @@ import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 
 public class ItemDebugItem extends ItemBVKS {
 
@@ -40,6 +42,27 @@ public class ItemDebugItem extends ItemBVKS {
 
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
+        Object object = Blocks.cobblestone;
+        Block block = world.getBlock(x,y,z);
+        int metadata = world.getBlockMetadata(x,y,z);
+
+        if ((object == null)) {
+            LogHelper.info("Null: " + (block == Blocks.air));
+        }else if (object instanceof Item) {
+            LogHelper.info("Object instanceof Item: " + (Item.getItemFromBlock(block) == object));
+        }else if (object instanceof ItemStack) {
+            ItemStack objectStack = (ItemStack)object;
+            LogHelper.info("Object instanceof ItemStack: " + (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata));
+        }else if (object instanceof Block) {
+            LogHelper.info("Object instanceof Block: " + (object == block));
+        }else if (object instanceof ArrayList) {
+
+        }
+
+        //if (object == null || object instanceof Block && (  ))
+
+
+        /*
         Block block = world.getBlock(x, y, z);
         placeBlock = block;
         ItemStack itemBlock = new ItemStack(placeBlock);
@@ -121,6 +144,7 @@ public class ItemDebugItem extends ItemBVKS {
         {
             return false;
         }
+        */ return false;
     }
 
     /**

@@ -41,7 +41,6 @@ public class BVKS
         WorldGen.init();
         ModEntities.init();
         ModGuis.init();
-        ModMultiBlocks.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }

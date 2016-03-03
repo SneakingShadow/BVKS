@@ -3,7 +3,6 @@ package sneakingshadow.bvks.block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.block.MultiBlock.MultiBlockStructure;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
 import sneakingshadow.bvks.util.LogHelper;
