@@ -8,12 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 
 public class ItemDebugItem extends ItemBVKS {
 
@@ -29,37 +29,39 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
-        if(!world.isRemote && !world.restoringBlockSnapshots) {
+        /*if(!world.isRemote && !world.restoringBlockSnapshots) {
         }
         for (int i = 0; i < 9; i++) {
             LogHelper.info("Slot "+i+": " +
                     (entityPlayer.inventoryContainer.getSlot(i).getHasStack() ?
                             entityPlayer.inventoryContainer.getSlot(8).getStack().getTagCompound()
                             : "is empty"));
-        }
+        }*/
         return itemStack;
     }
 
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        Object object = Blocks.cobblestone;
+        Object object = Item.getItemFromBlock(Blocks.log);
         Block block = world.getBlock(x,y,z);
         int metadata = world.getBlockMetadata(x,y,z);
 
         if ((object == null)) {
-            LogHelper.info("Null: " + (block == Blocks.air));
+            LogHelper.info("object == null: " + (block == Blocks.air));
         }else if (object instanceof Item) {
-            LogHelper.info("Object instanceof Item: " + (Item.getItemFromBlock(block) == object));
+            LogHelper.info("object instanceof Item: " + (Item.getItemFromBlock(block) == object));
         }else if (object instanceof ItemStack) {
             ItemStack objectStack = (ItemStack)object;
-            LogHelper.info("Object instanceof ItemStack: " + (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata));
+            LogHelper.info("object instanceof ItemStack: " + (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata));
         }else if (object instanceof Block) {
-            LogHelper.info("Object instanceof Block: " + (object == block));
-        }else if (object instanceof ArrayList) {
-
+            LogHelper.info("object instanceof Block: " + (object == block));
+        }else if (object instanceof String) {
+            boolean bool = false;
+            for (ItemStack objectStack : OreDictionary.getOres((String)object)) {
+                bool = bool || (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata);
+            }
+            LogHelper.info("object instanceof ArrayList: " + bool);
         }
-
-        //if (object == null || object instanceof Block && (  ))
 
 
         /*

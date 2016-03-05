@@ -5,24 +5,14 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
-import sneakingshadow.bvks.util.LogHelper;
 
-public class BlockDemonAltar extends BlockBVKSMultiBlock {
-
-    MultiBlockStructure multiBlock;
+public class BlockDemonAltar extends BlockBVKSContainer {
 
     public BlockDemonAltar(){
         super();
         this.setBlockName(Name.Block.DEMON_ALTAR);
         this.setTileEntity(TileEntityDemonAltar.class, Name.Block.DEMON_ALTAR);
         this.setSubBlocks(3);
-        multiBlock = new MultiBlockStructure(3, 1, 4,
-                'a', 'a', 'a',
-                'a', 'a', 'a',
-                'a', 'a', 'a',
-                'a', 'a', 'a',
-                this, 'a'
-        );
     }
 
     @Override
@@ -40,20 +30,6 @@ public class BlockDemonAltar extends BlockBVKSMultiBlock {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        multiBlock = new MultiBlockStructure(3, 1, 4,
-            'a', 'a', 'a',
-            'a', 'a', 'a',
-            'a', 'a', 'a',
-            'a', 'a', 'a',
-            this, 'a'
-    );
-
-        LogHelper.info("Valid: " + multiBlock.findMultiBlock(world, x, y, z));
-        if (world.getBlockMetadata(x, y, z) < 3) {
-
-        } else {
-
-        }
         return true;
     }
 
