@@ -11,11 +11,12 @@ import sneakingshadow.bvks.client.settings.Keybindings;
 import sneakingshadow.bvks.entity.EntityAwesomeCow;
 import sneakingshadow.bvks.entity.EntityMiniSteve;
 import sneakingshadow.bvks.init.ModItems;
-import sneakingshadow.bvks.reference.RenderIds;
 import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
 
 public class ClientProxy extends CommonProxy
 {
+    public static int demonAltar;
+
     @Override
     public void registerKeyBindings()
     {
@@ -30,7 +31,7 @@ public class ClientProxy extends CommonProxy
         RenderingRegistry.registerEntityRenderingHandler(EntityAwesomeCow.class, new EntityRenderAwesomeCow());
         RenderingRegistry.registerEntityRenderingHandler(EntityMiniSteve.class, new EntityRenderMiniSteve());
 
-        RenderIds.demonAltar = RenderingRegistry.getNextAvailableRenderId();
+        demonAltar = RenderingRegistry.getNextAvailableRenderId();
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDemonAltar.class, new TileEntityRendererDemonAltar());
     }
 }

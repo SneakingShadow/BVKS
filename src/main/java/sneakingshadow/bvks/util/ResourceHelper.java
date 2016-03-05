@@ -2,7 +2,6 @@ package sneakingshadow.bvks.util;
 
 import net.minecraft.util.ResourceLocation;
 import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.reference.Textures;
 
 public class ResourceHelper
 {
@@ -16,8 +15,13 @@ public class ResourceHelper
         return getLocation(Ref.MOD_ID, path);
     }
 
-    public static ResourceLocation modelLocation(String path)
+    public static ResourceLocation getModelTexture(String path)
     {
-        return getLocation(Textures.MODEL_TEXTURE_LOCATION + path);
+        return getLocation(Ref.MODEL_TEXTURE_LOCATION + path);
+    }
+
+    public static ResourceLocation getModel(String path)
+    {
+        return getLocation(Ref.MODEL_LOCATION + path);
     }
 }

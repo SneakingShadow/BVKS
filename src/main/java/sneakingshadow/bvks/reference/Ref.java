@@ -10,4 +10,9 @@ public class Ref
     public static final String CLIENT_PROXY_CLASS = ROOT_FOLDER+".proxy.ClientProxy";
     public static final String GUI_FACTORY_CLASS = ROOT_FOLDER+".client.gui.GuiFactory";
     public static final String RESOURCE_PREFIX = MOD_ID+":";
+
+    //Folder locations
+    public static final String MODEL_LOCATION = "models/";
+    public static final String MODEL_TEXTURE_LOCATION = "textures/models/";
+
 }
