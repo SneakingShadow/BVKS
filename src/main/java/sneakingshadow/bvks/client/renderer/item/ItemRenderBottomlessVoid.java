@@ -31,6 +31,8 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{
         // Use vanilla code to render the icon in a 16x16 square of inventory slot
         renderItem.renderIcon(0, 0, icon, 16, 16);
 
+
+
         if(itemStack.getItemDamage()!=0) {
 
             // Disable texturing, for now we only need colored shapes

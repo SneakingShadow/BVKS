@@ -35,7 +35,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
         if (itemStack.getItemDamage() != 0) {
             ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
-            NBTTagCompound itemTagCompound = itemStack1.getTagCompound();
             long count = itemStack.getTagCompound().getLong("Count");
 
             if ( Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT )) {

@@ -21,6 +21,10 @@ Make ItemBVKSArmor extend ItemBVKS and not ItemArmor
 Add custom texture handler for devil tools to make them invisible.
 Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item.
 
+Fix the stone gen's rendering.
+
+Possibly add a custom block placing item.
+
 Clean up the block breaking.
 Make sure it handles enchantments
 
@@ -85,3 +89,6 @@ Devil Minion
 Devil Cow
 
 Blood sucking thing, sucks blood from cows and turns them into Devil Cows
+
+
+Must test entityLivingBase.rotationYaw * 4 / 360 +0.5

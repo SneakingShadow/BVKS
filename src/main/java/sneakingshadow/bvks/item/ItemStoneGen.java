@@ -1,5 +1,7 @@
 package sneakingshadow.bvks.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -13,7 +15,7 @@ import sneakingshadow.bvks.reference.Name;
 import java.util.List;
 
 public class ItemStoneGen extends ItemBVKS{
-    private static Block[] blocks = {Blocks.cobblestone, Blocks.stone, Blocks.stonebrick};
+    private Block[] blocks = {Blocks.cobblestone, Blocks.stone, Blocks.stonebrick};
 
     public ItemStoneGen(){
         super();
@@ -21,14 +23,16 @@ public class ItemStoneGen extends ItemBVKS{
         this.setUnlocalizedName(Name.Item.STONE_GEN);
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
-    public String getItemStackDisplayName(ItemStack itemStack) {
-        return super.getItemStackDisplayName(itemStack) + ": " + blocks[itemStack.getItemDamage()].getLocalizedName();
+    public IIcon getIconFromDamage(int metadata)
+    {
+        return blocks[metadata < blocks.length ? metadata : 0].getBlockTextureFromSide(1);
     }
 
     @Override
-    public IIcon getIconIndex(ItemStack itemStack){
-        return blocks[itemStack.getItemDamage()].getIcon(0,0);
+    public String getItemStackDisplayName(ItemStack itemStack) {
+        return super.getItemStackDisplayName(itemStack) + ": " + this.blocks[itemStack.getItemDamage()].getLocalizedName();
     }
 
     @Override
@@ -37,14 +41,14 @@ public class ItemStoneGen extends ItemBVKS{
         list.add(EnumChatFormatting.UNDERLINE + "Shift+Right Click");
         list.add("to change block.");
         list.add("Placeable blocks:");
-        for(int j=0;j<blocks.length;j++){
-            list.add(blocks[j].getLocalizedName());
+        for(int j=0;j<this.blocks.length;j++){
+            list.add(this.blocks[j].getLocalizedName());
         }
     }
 
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         if(!world.isRemote && !world.restoringBlockSnapshots && entityPlayer.isSneaking()){
-            if(itemStack.getItemDamage()==blocks.length-1){
+            if(itemStack.getItemDamage()==this.blocks.length-1){
                 itemStack.setItemDamage(0);
             }else{
                 itemStack.setItemDamage(itemStack.getItemDamage()+1);
@@ -55,7 +59,7 @@ public class ItemStoneGen extends ItemBVKS{
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int xPos, int yPos, int zPos, int side, float hitX, float hitY, float hitZ)
     {
         Block block = world.getBlock(xPos, yPos, zPos);
-        ItemStack itemBlock = new ItemStack( blocks[itemStack.getItemDamage()] );
+        ItemStack itemBlock = new ItemStack( this.blocks[itemStack.getItemDamage()] );
 
         if (block == Blocks.snow_layer && (world.getBlockMetadata(xPos, yPos, zPos) & 7) < 1)
         {
@@ -98,11 +102,11 @@ public class ItemStoneGen extends ItemBVKS{
         {
             return false;
         }
-        else if (yPos == 255 && blocks[itemStack.getItemDamage()].getMaterial().isSolid())
+        else if (yPos == 255 && this.blocks[itemStack.getItemDamage()].getMaterial().isSolid())
         {
             return false;
         }
-        else if (world.canPlaceEntityOnSide(blocks[itemStack.getItemDamage()], xPos, yPos, zPos, false, side, entityPlayer, itemBlock))
+        else if (world.canPlaceEntityOnSide(this.blocks[itemStack.getItemDamage()], xPos, yPos, zPos, false, side, entityPlayer, itemBlock))
         {
             if (placeBlockAt(itemStack, itemBlock, entityPlayer, world, xPos, yPos, zPos))
             {
@@ -127,14 +131,14 @@ public class ItemStoneGen extends ItemBVKS{
     private boolean placeBlockAt(ItemStack itemStack, ItemStack itemBlock, EntityPlayer player, World world, int x, int y, int z)
     {
 
-        if (!world.setBlock(x, y, z, blocks[itemStack.getItemDamage()], 0, 3))
+        if (!world.setBlock(x, y, z, this.blocks[itemStack.getItemDamage()], 0, 3))
         {
             return false;
         }
-        if (world.getBlock(x, y, z) == blocks[itemStack.getItemDamage()])
+        if (world.getBlock(x, y, z) == this.blocks[itemStack.getItemDamage()])
         {
-            blocks[itemStack.getItemDamage()].onBlockPlacedBy(world, x, y, z, player, itemBlock);
-            blocks[itemStack.getItemDamage()].onPostBlockPlaced(world, x, y, z, 0);
+            this.blocks[itemStack.getItemDamage()].onBlockPlacedBy(world, x, y, z, player, itemBlock);
+            this.blocks[itemStack.getItemDamage()].onPostBlockPlaced(world, x, y, z, 0);
         }
         return true;
     }
