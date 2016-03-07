@@ -3,14 +3,13 @@ package sneakingshadow.bvks.item;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.Level;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
@@ -29,6 +28,13 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
+
+        Level level = new Level();
+        level.set(0,0, Blocks.log);
+        level.set(1,0, Blocks.log);
+        level.set(2,0, Blocks.log);
+        level.set(3,0, Blocks.log);
+
         /*if(!world.isRemote && !world.restoringBlockSnapshots) {
         }
         for (int i = 0; i < 9; i++) {
@@ -42,28 +48,7 @@ public class ItemDebugItem extends ItemBVKS {
 
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
-        Object object = Item.getItemFromBlock(Blocks.log);
-        Block block = world.getBlock(x,y,z);
-        int metadata = world.getBlockMetadata(x,y,z);
-
-        if ((object == null)) {
-            LogHelper.info("object == null: " + (block == Blocks.air));
-        }else if (object instanceof Item) {
-            LogHelper.info("object instanceof Item: " + (Item.getItemFromBlock(block) == object));
-        }else if (object instanceof ItemStack) {
-            ItemStack objectStack = (ItemStack)object;
-            LogHelper.info("object instanceof ItemStack: " + (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata));
-        }else if (object instanceof Block) {
-            LogHelper.info("object instanceof Block: " + (object == block));
-        }else if (object instanceof String) {
-            boolean bool = false;
-            for (ItemStack objectStack : OreDictionary.getOres((String)object)) {
-                bool = bool || (objectStack.getItem() == Item.getItemFromBlock(block) && objectStack.getItemDamage() == metadata);
-            }
-            LogHelper.info("object instanceof ArrayList: " + bool);
-        }
-
-
+        return false;
         /*
         Block block = world.getBlock(x, y, z);
         placeBlock = block;
@@ -142,11 +127,8 @@ public class ItemDebugItem extends ItemBVKS {
 
             return true;
         }
-        else
-        {
-            return false;
-        }
-        */ return false;
+        return false;
+        */
     }
 
     /**
