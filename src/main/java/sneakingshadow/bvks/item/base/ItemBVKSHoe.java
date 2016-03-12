@@ -14,8 +14,9 @@ import sneakingshadow.bvks.util.BlockBreakingHelper;
 
 public class ItemBVKSHoe extends ItemHoe
 {
-    public ItemBVKSHoe(ToolMaterial toolMaterial) {
+    public ItemBVKSHoe(String unlocalizedName, ToolMaterial toolMaterial) {
         super(toolMaterial);
+        this.setUnlocalizedName(unlocalizedName);
         this.maxStackSize = 1;
         this.setCreativeTab(CreativeTabs.tabAllSearch);
     }

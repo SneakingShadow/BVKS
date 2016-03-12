@@ -3,8 +3,8 @@ package sneakingshadow.bvks.item.base;
 public class ItemBVKSSword extends ItemBVKSTool
 {
 
-    public ItemBVKSSword(ToolMaterial toolMaterial) {
-        super(toolMaterial, 4.0F);
+    public ItemBVKSSword(String unlocalizedName, ToolMaterial toolMaterial) {
+        super(unlocalizedName, toolMaterial, 4.0F);
         this.setSword();
     }
 

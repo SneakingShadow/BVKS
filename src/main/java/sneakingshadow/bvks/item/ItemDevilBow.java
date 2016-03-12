@@ -7,7 +7,6 @@ public class ItemDevilBow extends ItemBVKS
 {
     public ItemDevilBow()
     {
-        super();
-        this.setUnlocalizedName(Name.Item.DEVIL_BOW);
+        super(Name.Item.DEVIL_BOW);
     }
 }

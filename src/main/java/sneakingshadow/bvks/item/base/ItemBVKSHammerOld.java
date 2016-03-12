@@ -9,17 +9,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
 
-public class ItemBVKSHammer extends ItemBVKSTool
+public class ItemBVKSHammerOld extends ItemBVKSTool
 {
 
     public final int size;
 
-    public ItemBVKSHammer(ToolMaterial toolMaterial, int size) {
-        this(toolMaterial.getMaxUses(), toolMaterial.getEfficiencyOnProperMaterial(), toolMaterial.getDamageVsEntity(), toolMaterial.getEnchantability(), toolMaterial.getHarvestLevel(), size);
+    public ItemBVKSHammerOld(String unlocalizedName, ToolMaterial toolMaterial, int size) {
+        this(unlocalizedName, toolMaterial.getMaxUses(), toolMaterial.getEfficiencyOnProperMaterial(), toolMaterial.getDamageVsEntity(), toolMaterial.getEnchantability(), toolMaterial.getHarvestLevel(), size);
     }
 
-    public ItemBVKSHammer(int maxUses, float efficiencyOnProperMaterial, float damageVsEntity, int enchantability, int harvestLevel, int size) {
-        super(maxUses, efficiencyOnProperMaterial, damageVsEntity, enchantability);
+    public ItemBVKSHammerOld(String unlocalizedName, int maxUses, float efficiencyOnProperMaterial, float damageVsEntity, int enchantability, int harvestLevel, int size) {
+        super(unlocalizedName, maxUses, efficiencyOnProperMaterial, damageVsEntity, enchantability);
         this.size = size;
         this.setPickaxe(harvestLevel);
         this.setAxe(harvestLevel);
@@ -72,7 +72,7 @@ public class ItemBVKSHammer extends ItemBVKSTool
 
     private boolean devilTool = false;
 
-    public ItemBVKSHammer setDevilTool() {
+    public ItemBVKSHammerOld setDevilTool() {
         devilTool = true;
         return this;
     }

@@ -12,8 +12,7 @@ public class ItemArmorDevilHelmet extends ItemBVKSArmor
 {
     public ItemArmorDevilHelmet()
     {
-        super(Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.HELMET);
-        this.setUnlocalizedName(Name.Item.DEVIL_HELMET);
+        super(Name.Item.DEVIL_HELMET, Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.HELMET);
     }
 
     @Override

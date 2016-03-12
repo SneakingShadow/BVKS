@@ -25,9 +25,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
     public static IIcon[] itemTransparentIcons;
 
     public ItemBottomlessVoid() {
-        super();
+        super(Name.Item.BOTTOMLESS_VOID);
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Name.Item.BOTTOMLESS_VOID);
     }
 
     @SideOnly(Side.CLIENT)

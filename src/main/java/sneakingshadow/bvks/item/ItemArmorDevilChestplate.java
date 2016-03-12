@@ -10,8 +10,7 @@ public class ItemArmorDevilChestplate extends ItemBVKSArmor
 {
     public ItemArmorDevilChestplate()
     {
-        super(Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.CHESTPLATE);
-        this.setUnlocalizedName(Name.Item.DEVIL_CHESTPLATE);
+        super(Name.Item.DEVIL_CHESTPLATE, Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.CHESTPLATE);
     }
 
     @Override

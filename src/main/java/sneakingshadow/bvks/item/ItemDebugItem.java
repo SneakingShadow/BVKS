@@ -19,9 +19,8 @@ public class ItemDebugItem extends ItemBVKS {
     private static Block placeBlock = Blocks.cobblestone;
 
     public ItemDebugItem() {
-        super();
+        super(Name.Item.DEBUG_ITEM);
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Name.Item.DEBUG_ITEM);
         this.setFull3D();
         this.setMaxDamage(10);
     }

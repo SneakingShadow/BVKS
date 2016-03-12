@@ -14,8 +14,7 @@ public class ItemArmorDevilLeggings extends ItemBVKSArmor
 {
     public ItemArmorDevilLeggings()
     {
-        super(Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.LEGGINGS);
-        this.setUnlocalizedName(Name.Item.DEVIL_LEGGINGS);
+        super(Name.Item.DEVIL_LEGGINGS, Name.Armor.DEVIL, sneakingshadow.bvks.reference.Armor.Material.DEVIL, sneakingshadow.bvks.reference.Armor.Type.LEGGINGS);
     }
 
     @Override

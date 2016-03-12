@@ -11,8 +11,7 @@ import sneakingshadow.bvks.reference.Name;
 
 public class ItemAssassinsKnife extends ItemBVKS {
     public ItemAssassinsKnife() {
-        super();
-        this.setUnlocalizedName(Name.Item.ASSASSINS_KNIFE);
+        super(Name.Item.ASSASSINS_KNIFE);
         this.setMaxStackSize(1);
         this.setFull3D();
     }

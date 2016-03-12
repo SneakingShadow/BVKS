@@ -11,9 +11,8 @@ import sneakingshadow.bvks.util.LogHelper;
 public class ItemNBTDebugItem extends ItemBVKS {
 
     public ItemNBTDebugItem() {
-        super();
+        super(Name.Item.NBT_DEBUG_ITEM);
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Name.Item.NBT_DEBUG_ITEM);
         this.setFull3D();
     }
 

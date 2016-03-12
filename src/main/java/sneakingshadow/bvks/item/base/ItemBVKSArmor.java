@@ -18,17 +18,15 @@ public class ItemBVKSArmor extends ItemArmor
     private String texture;
     private int armor;
 
-    public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType)
+    public ItemBVKSArmor(String unlocalizedName, String textureName, ArmorMaterial material, int armorType)
     {
-        super(material, 0, armorType);
-        this.setCreativeTab(CreativeTabs.tabAllSearch);
-        texture = textureName;
-        armor = armorType;
+        this(unlocalizedName, textureName, material, armorType, 0);
     }
 
-    public ItemBVKSArmor(String textureName, ArmorMaterial material, int armorType, int renderIndex)
+    public ItemBVKSArmor(String unlocalizedName, String textureName, ArmorMaterial material, int armorType, int renderIndex)
     {
         super(material, renderIndex, armorType);
+        this.setUnlocalizedName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         texture = textureName;
         armor = armorType;

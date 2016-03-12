@@ -18,9 +18,8 @@ public class ItemStoneGen extends ItemBVKS{
     private Block[] blocks = {Blocks.cobblestone, Blocks.stone, Blocks.stonebrick};
 
     public ItemStoneGen(){
-        super();
+        super(Name.Item.STONE_GEN);
         this.setMaxStackSize(1);
-        this.setUnlocalizedName(Name.Item.STONE_GEN);
     }
 
     @SideOnly(Side.CLIENT)

@@ -17,9 +17,10 @@ import java.util.List;
 
 public class ItemBVKS extends Item
 {
-    public ItemBVKS()
+    public ItemBVKS(String unlocalizedName)
     {
         super();
+        this.setUnlocalizedName(unlocalizedName);
         this.setMaxStackSize(64);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setNoRepair();
