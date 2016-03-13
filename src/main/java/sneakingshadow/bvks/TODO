@@ -10,6 +10,7 @@ TODO:
 
 Clean up Lang file and add descriptions to the lang file.
 
+Re-add language based descriptions and a whole system for reading them, with different functions available, change line, color, etc.
 DescriptionHelper add write to description that will handle writing all the information into the list
 add getDescriptionUnwrapped which will unlike getDescription add get an unwrapped name and turn it into description.bvks:~
 

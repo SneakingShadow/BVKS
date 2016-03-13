@@ -6,8 +6,7 @@ import sneakingshadow.bvks.reference.Name;
 public class GuiDemonFurnace extends GuiContainerBVKS {
 
     public GuiDemonFurnace(ContainerDemonFurnace container) {
-        super(container, 212+26, 166+36);
-        this.setTextureLocation(Name.Block.DEMON_FURNACE);
+        super(Name.Block.DEMON_FURNACE, container, 212+26, 166+36);
     }
 
 }

@@ -16,6 +16,7 @@ public final class Name
         public static final String SMOOTH_OBSIDIAN = "smooth_obsidian";
         public static final String DEMON_ALTAR = "demon_altar";
         public static final String DEMON_FURNACE = "demon_furnace";
+        public static final String HAMMER_WORKBENCH = "hammer_workbench";
 
         public static final String DEBUG_BLOCK = "debug_block";
     }
@@ -61,6 +62,7 @@ public final class Name
         public static final String ADMIN_HAMMER = "admin_hammer";
         public static final String BOTTOMLESS_VOID = "bottomless_void";
         public static final String STONE_GEN = "stone_generator";
+        public static final String HAMMER = "hammer";
     }
 
     public static final class Armor

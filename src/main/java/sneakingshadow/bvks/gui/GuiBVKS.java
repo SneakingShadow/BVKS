@@ -1,6 +1,8 @@
 package sneakingshadow.bvks.gui;
 
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.world.World;
 
 public abstract class GuiBVKS {
@@ -15,8 +17,8 @@ public abstract class GuiBVKS {
         return this.ID;
     }
 
-    abstract public Object getContainer(EntityPlayer entityPlayer, World world, int x, int y, int z);
+    abstract public Container getContainer(EntityPlayer entityPlayer, World world, int x, int y, int z);
 
-    abstract public Object getGui(EntityPlayer entityPlayer, World world, int x, int y, int z);
+    abstract public GuiContainer getGui(EntityPlayer entityPlayer, World world, int x, int y, int z);
 
 }

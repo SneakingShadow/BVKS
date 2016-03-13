@@ -11,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
-import sneakingshadow.bvks.util.DescHelper;
 
 import java.util.List;
 
@@ -27,19 +26,20 @@ public class ItemBVKS extends Item
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        if ( !"".equals( this.getDescription() ) )
-            list.add( this.getDescription() );
+        /*if ( !"".equals( this.getDescription() ) && !super.getUnlocalizedName().equals( this.getDescription() ) )
+            list.add( this.getDescription() );*/
     }
 
-    public String getDescription(String string) {
+    /*public String getDescription(String string) {
         string = getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string;
         String desc = DescHelper.getDescription( string );
         return desc.equals(string) ? "" : desc;
     }
     public String getDescription() {
         return getDescription("");
-    }
+    }*/
 
     @Override
     public String getUnlocalizedName()

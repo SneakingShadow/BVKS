@@ -1,5 +1,7 @@
 package sneakingshadow.bvks.item;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -13,6 +15,7 @@ import sneakingshadow.bvks.util.Level;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemDebugItem extends ItemBVKS {
 
@@ -23,6 +26,12 @@ public class ItemDebugItem extends ItemBVKS {
         this.setMaxStackSize(1);
         this.setFull3D();
         this.setMaxDamage(10);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
+        list.add("Use at own risk!");
     }
 
     @Override

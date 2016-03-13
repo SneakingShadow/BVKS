@@ -25,14 +25,15 @@ public class BlockBVKS extends Block
     private IIcon top;
     private IIcon bottom;
 
-    public BlockBVKS(Material material)
+    public BlockBVKS(String unlocalizedName, Material material)
     {
         super(material);
+        this.setBlockName(unlocalizedName);
         this.setCreativeTab(CreativeTabs.tabAllSearch);
     }
 
-    public BlockBVKS() {
-        this(Material.rock);
+    public BlockBVKS(String unlocalizedName) {
+        this(unlocalizedName, Material.rock);
     }
 
     private int amount = 0;

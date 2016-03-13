@@ -5,13 +5,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.reference.Ref;
-import sneakingshadow.bvks.util.DescHelper;
-
-import java.util.List;
 
 public class ItemBVKSArmor extends ItemArmor
 {
@@ -30,21 +26,6 @@ public class ItemBVKSArmor extends ItemArmor
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         texture = textureName;
         armor = armorType;
-    }
-
-    @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        if ( !"".equals( this.getDescription() ) )
-            list.add( this.getDescription() );
-    }
-
-    public String getDescription(String string) {
-        String unloc = getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string;
-        String desc = DescHelper.getDescription( unloc );
-        return desc.equals(unloc) ? unloc : desc;
-    }
-    public String getDescription() {
-        return getDescription("");
     }
 
     @Override

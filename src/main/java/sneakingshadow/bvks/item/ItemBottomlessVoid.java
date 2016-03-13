@@ -62,9 +62,11 @@ public class ItemBottomlessVoid extends ItemBVKS {
                         }
                     }
             }else
-                list.add(this.getDescription(".shift"));
+                list.add("Hold shift for info");
         } else {
-            list.add(this.getDescription());
+            list.add("Stores items.");
+            list.add("To set type,");
+            list.add("combine with item in crafting table");
         }
     }
 

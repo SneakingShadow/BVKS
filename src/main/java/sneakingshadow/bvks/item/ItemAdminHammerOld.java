@@ -25,10 +25,11 @@ public class ItemAdminHammerOld extends ItemBVKSHammerOld {
     }
 
     @Override
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4)
-    {
-        list.add( this.getDescription() );
-        list.add(itemStack.getItemDamage() == 1 ? this.getDescription(".stored") : this.getDescription(".deleted"));
+    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
+        list.add("Aren't you going a little too far?..");
+        list.add(itemStack.getItemDamage() == 1 ?
+                "Mined blocks will be placed in bottomless voids" :
+                "Mined blocks will not drop items" );
     }
 
     @Override

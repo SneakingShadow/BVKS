@@ -27,8 +27,7 @@ public class BlockDemonFurnace extends BlockBVKSContainer {
     public IIcon[] sides = new IIcon[4];
 
     public BlockDemonFurnace() {
-        super();
-        this.setBlockName(Name.Block.DEMON_FURNACE);
+        super(Name.Block.DEMON_FURNACE);
         this.setTileEntity(TileEntityDemonFurnace.class, Name.Block.DEMON_FURNACE);
     }
 

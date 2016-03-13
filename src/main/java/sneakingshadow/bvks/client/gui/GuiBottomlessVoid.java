@@ -1,18 +1,17 @@
 package sneakingshadow.bvks.client.gui;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
-import sneakingshadow.bvks.inventory.ContainerBottomlessVoid;
 import sneakingshadow.bvks.reference.Name;
 
 public class GuiBottomlessVoid extends GuiContainerBVKS{
 
     public ItemStack itemStack;
 
-    public GuiBottomlessVoid(EntityPlayer entityPlayer, int slot) {
-        super( new ContainerBottomlessVoid( entityPlayer, slot ) , 176, 136);
+    public GuiBottomlessVoid(Container container, EntityPlayer entityPlayer, int slot) {
+        super( Name.Item.BOTTOMLESS_VOID, container, 176, 136);
         this.itemStack = entityPlayer.inventory.mainInventory[slot];
-        this.setTextureLocation(Name.Item.BOTTOMLESS_VOID);
 
         this.setDebug();
     }

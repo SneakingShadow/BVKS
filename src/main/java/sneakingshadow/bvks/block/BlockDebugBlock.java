@@ -9,8 +9,7 @@ import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 public class BlockDebugBlock extends BlockBVKSContainer {
 
     public BlockDebugBlock(){
-        super();
-        this.setBlockName(Name.Block.DEBUG_BLOCK);
+        super(Name.Block.DEBUG_BLOCK);
         this.setTileEntity(TileEntityDebugBlock.class, Name.Block.DEBUG_BLOCK);
     }
 

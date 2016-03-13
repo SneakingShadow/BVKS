@@ -42,6 +42,7 @@ public class ModItems
     /**
      *    Tools
      */
+    public static final Item Hammer = new ItemHammer(Name.Item.HAMMER);
     //Devil
     public static final Item DevilPickaxe = new ItemToolDevilPickaxe().setDevilTool();
     public static final Item DevilShovel = new ItemToolDevilShovel().setDevilTool();
@@ -118,6 +119,7 @@ public class ModItems
         registerItem(AdminHammer, Name.Item.ADMIN_HAMMER);
         registerItem(BottomlessVoid, Name.Item.BOTTOMLESS_VOID);
         registerItem(StoneGen, Name.Item.STONE_GEN);
+        registerItem(Hammer, Name.Item.HAMMER);
     }
 
     public static void add(List list, CreativeTabs creativeTab){
@@ -159,6 +161,7 @@ public class ModItems
                 ObsidianIngot,
                 ObsidianRod,
                 IronRod,
+                Hammer,
         });
         CreativeTabBVKS.add(list, creativeTab, DebugItem);
         CreativeTabBVKS.add(list, creativeTab, NBTDebugItem);

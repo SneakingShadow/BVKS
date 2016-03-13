@@ -88,6 +88,4 @@ public class ItemHammer extends ItemBVKSTool {
     {
         return this.getMaterial(itemStack).getDamageVsEntity();
     }
-
-
 }

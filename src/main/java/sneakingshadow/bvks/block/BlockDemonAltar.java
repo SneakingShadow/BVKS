@@ -9,8 +9,7 @@ import sneakingshadow.bvks.tileentity.TileEntityDemonAltar;
 public class BlockDemonAltar extends BlockBVKSContainer {
 
     public BlockDemonAltar(){
-        super();
-        this.setBlockName(Name.Block.DEMON_ALTAR);
+        super(Name.Block.DEMON_ALTAR);
         this.setTileEntity(TileEntityDemonAltar.class, Name.Block.DEMON_ALTAR);
         this.setSubBlocks(3);
     }

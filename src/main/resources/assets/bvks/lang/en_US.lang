@@ -19,6 +19,7 @@ tile.bvks:devil_cobblestone.name=Devil Cobblestone
 tile.bvks:smooth_obsidian.name=Smooth Obsidian
 tile.bvks:demon_altar.name=Demon Altar
 tile.bvks:demon_furnace.name=Demon Furnace
+tile.bvks:hammer_workbench.name=Hammer Workbench
 
 # Item localizations
 item.bvks:assassins_knife.name=Assassins Knife
@@ -65,6 +66,7 @@ item.bvks:bottomless_void.name=Bottomless Void
 item.bvks:bottomless_void_inactive.name=Bottomless Void (Inactive)
 item.bvks:bottomless_void_active.name=Bottomless Void (Active)
 item.bvks:stone_generator.name=Portable Stone Generator
+item.bvks:hammer.name=Hammer
 
 item.bvks:admin_hammer_inactive.name=Admin hammer (Will not drop items)
 item.bvks:admin_hammer_active.name=Admin hammer (!!!)(Will drop items)
@@ -82,13 +84,3 @@ item.bvks:debug_item.name=Debug Item
 item.bvks:nbt_debug_item.name=NBT Debug Item
 entity.bvks.awesome_cow.name=Awesome Cow (debug entity)
 
-# Descriptions
-description.bvks:debug_item=Use at own risk!
-description.bvks:devil_chestplate=The heart of a devil
-description.bvks:admin_hammer=Aren't you going a little too far?..
-description.bvks:admin_hammer.stored=Mined blocks will be placed in bottomless voids
-description.bvks:admin_hammer.deleted=Mined blocks will not drop items
-description.bvks:devil_leggings=Saitama's leggings
-description.bvks:devil_helmet=No reason to have a dark view at life
-description.bvks:bottomless_void=Stores items. To set type, combine with item in crafting table
-description.bvks:bottomless_void.shift=Hold shift for info

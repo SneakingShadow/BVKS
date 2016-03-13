@@ -13,19 +13,20 @@ public abstract class GuiContainerBVKS extends GuiContainer{
      * @param x set to 0 to not change value
      * @param y set to 0 to not change value
      */
-    public GuiContainerBVKS(Container container, int x, int y) {
+    public GuiContainerBVKS(String textureLocation, Container container, int x, int y) {
         super(container);
+        this.setTextureLocation(textureLocation);
         if (x != 0)
             xSize = x;
         if (y != 0)
             ySize = y;
     }
 
-    public GuiContainerBVKS(Container container, int x) {
-        this(container, x,0);
+    public GuiContainerBVKS(String textureLocation, Container container, int x) {
+        this(textureLocation, container, x,0);
     }
-    public GuiContainerBVKS(Container container) {
-        this(container, 0,0);
+    public GuiContainerBVKS(String textureLocation, Container container) {
+        this(textureLocation, container, 0,0);
     }
 
 

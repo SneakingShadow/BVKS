@@ -17,10 +17,11 @@ import java.util.List;
 public class ModBlocks
 {
     public static final Block DevilOre = new BlockDevilOre();
-    public static final Block DevilCobblestone = new BlockBVKS().setBlockName(Name.Block.DEVIL_COBBLESTONE);
-    public static final Block SmoothObsidian = new BlockBVKS().setBlockName(Name.Block.SMOOTH_OBSIDIAN);
+    public static final Block DevilCobblestone = new BlockBVKS(Name.Block.DEVIL_COBBLESTONE);
+    public static final Block SmoothObsidian = new BlockBVKS(Name.Block.SMOOTH_OBSIDIAN);
     public static final Block DemonAltar = new BlockDemonAltar();
     public static final Block DemonFurnace = new BlockDemonFurnace();
+    public static final Block HammerWorkbench = new BlockHammerWorkbench(Name.Block.HAMMER_WORKBENCH);
 
     public static final Block DebugBlock = new BlockDebugBlock();
 
@@ -37,6 +38,7 @@ public class ModBlocks
         registerBlock(SmoothObsidian, Name.Block.SMOOTH_OBSIDIAN);
         registerBlock(DemonAltar, Name.Block.DEMON_ALTAR);
         registerBlock(DemonFurnace, Name.Block.DEMON_FURNACE);
+        registerBlock(HammerWorkbench, Name.Block.HAMMER_WORKBENCH);
     }
 
     private static void tileEntities(){
@@ -58,6 +60,7 @@ public class ModBlocks
                 DevilCobblestone,
                 DemonAltar,
                 DemonFurnace,
+                HammerWorkbench,
         });
         CreativeTabBVKS.add(list, creativeTab, DebugBlock);
     }
