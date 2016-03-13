@@ -17,6 +17,8 @@ public final class Name
         public static final String DEMON_ALTAR = "demon_altar";
         public static final String DEMON_FURNACE = "demon_furnace";
         public static final String HAMMER_WORKBENCH = "hammer_workbench";
+        public static final String[] HAMMER_WORKBENCH_TIERS = {"tier_1", "tier_2", "tier_3"};
+
 
         public static final String DEBUG_BLOCK = "debug_block";
     }

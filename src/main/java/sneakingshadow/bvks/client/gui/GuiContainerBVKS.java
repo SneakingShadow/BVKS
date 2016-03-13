@@ -16,17 +16,15 @@ public abstract class GuiContainerBVKS extends GuiContainer{
     public GuiContainerBVKS(String textureLocation, Container container, int x, int y) {
         super(container);
         this.setTextureLocation(textureLocation);
-        if (x != 0)
-            xSize = x;
-        if (y != 0)
-            ySize = y;
+        xSize = x == 0 ? 176 : x;
+        ySize = y == 0 ? 166 : y;
     }
 
     public GuiContainerBVKS(String textureLocation, Container container, int x) {
-        this(textureLocation, container, x,0);
+        this(textureLocation, container, x, 166);
     }
     public GuiContainerBVKS(String textureLocation, Container container) {
-        this(textureLocation, container, 0,0);
+        this(textureLocation, container, 176, 166);
     }
 
 

@@ -2,7 +2,6 @@ package sneakingshadow.bvks.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import sneakingshadow.bvks.inventory.Slot.SlotImport;
-import sneakingshadow.bvks.inventory.item.InventoryBottomlessVoid;
 
 import java.util.ArrayList;
 

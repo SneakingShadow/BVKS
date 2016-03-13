@@ -52,8 +52,6 @@ public class ItemHammer extends ItemBVKSTool {
         return ret.keySet();
     }
 
-
-
     ToolMaterial[] toolMaterials = {
             ToolMaterial.WOOD, ToolMaterial.STONE, ToolMaterial.IRON,
             ToolMaterial.GOLD, ToolMaterial.EMERALD,

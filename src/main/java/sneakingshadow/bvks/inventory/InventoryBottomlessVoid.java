@@ -1,15 +1,16 @@
-package sneakingshadow.bvks.inventory.item;
+package sneakingshadow.bvks.inventory;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class InventoryBottomlessVoid extends InventoryBVKSItem {
+public class InventoryBottomlessVoid extends InventoryBVKS {
 
     private long count;
     private ItemStack itemStored;
+    public ItemStack itemInventory;
 
     public InventoryBottomlessVoid(ItemStack itemStack) {
-        super(itemStack);
+        this.itemInventory = itemStack;
         if (itemStack.getItemDamage() != 0) {
             this.count = itemStack.getTagCompound().getLong("Count");
             this.itemStored = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
@@ -27,12 +28,9 @@ public class InventoryBottomlessVoid extends InventoryBVKSItem {
             this.itemStored.stackSize = this.count < this.itemStored.getMaxStackSize() ? (int)this.count : this.itemStored.getMaxStackSize();
     }
 
-    /**
-     * Save information to the item.
-     * Gets called by markDirty()
-     */
     @Override
-    public void writeToNBT() {
+    public void markDirty() {
+        updateCount();
         if (this.count == 0) {
             this.itemInventory.getTagCompound().removeTag("Count");
             this.itemInventory.getTagCompound().removeTag("Item");
@@ -100,11 +98,5 @@ public class InventoryBottomlessVoid extends InventoryBVKSItem {
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
         return this.count == 0 || itemStored.equals(itemStack);
     }
-
-    @Override
-    public void markDirty() {
-        updateCount();
-        super.markDirty();
-    };
 
 }

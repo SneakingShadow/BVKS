@@ -30,6 +30,11 @@ public abstract class ContainerBVKS extends Container {
 
     /*------------------DEBUG--------------------*/
 
+    /**
+     * Remember to use:
+     * this.inventorySlots = new ArrayList();
+     * to remove old slots
+     */
     public void updateSlots() {
 
     }

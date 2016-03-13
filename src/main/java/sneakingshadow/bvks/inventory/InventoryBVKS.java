@@ -1,4 +1,4 @@
-package sneakingshadow.bvks.inventory.item;
+package sneakingshadow.bvks.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

@@ -3,19 +3,28 @@ package sneakingshadow.bvks.inventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 
+import java.util.ArrayList;
+
 /**
  * Created by SneakingShadow on 13.03.2016.
  */
 public class ContainerHammerWorkbench extends ContainerBVKS {
 
-    InventoryPlayer inventoryPlayer;
+    public InventoryPlayer inventoryPlayer;
+    public InventoryHammerWorkbench inventoryCrafting;
+    public int metadata;
 
     public ContainerHammerWorkbench(EntityPlayer entityPlayer, int metadata) {
-        inventoryPlayer = entityPlayer.inventory;
+        this.inventoryPlayer = entityPlayer.inventory;
+        this.inventoryCrafting = new InventoryHammerWorkbench(metadata);
+        this.metadata = metadata;
+        updateSlots();
     }
 
     public void updateSlots(){
-        this.addPlayerInventory(inventoryPlayer, 42, 117);
+        this.inventorySlots = new ArrayList();
+        this.addPlayerInventory(inventoryPlayer, 8, 71);
+
     }
 
     @Override
