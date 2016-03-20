@@ -5,38 +5,36 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class InventoryBottomlessVoid extends InventoryBVKS {
 
-    private long count;
-    private ItemStack itemStored;
-    public ItemStack itemInventory;
+    public ItemStack itemStack;
+    public long count = 0;
 
     public InventoryBottomlessVoid(ItemStack itemStack) {
-        this.itemInventory = itemStack;
-        if (itemStack.getItemDamage() != 0) {
-            this.count = itemStack.getTagCompound().getLong("Count");
-            this.itemStored = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+        this.itemStack = itemStack;
+        if (this.itemStack.getItemDamage() != 0) {
+            long num = this.itemStack.getTagCompound().getLong("Count");
+            this.stackSize = num < this.storedStack.getMaxStackSize() ? (int)num : this.storedStack.getMaxStackSize();
+            this.storedStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
         } else {
+            this.storedStack = null;
+            this.stackSize = 0;
             this.count = 0;
-            this.itemStored = null;
         }
-        updateCount();
     }
 
-    private void updateCount() {
-        if (this.count == 0)
-            this.itemStored = null;
-        else
-            this.itemStored.stackSize = this.count < this.itemStored.getMaxStackSize() ? (int)this.count : this.itemStored.getMaxStackSize();
-    }
+    private int stackSize = 0;
+    private ItemStack storedStack = null;
 
     @Override
     public void markDirty() {
-        updateCount();
-        if (this.count == 0) {
-            this.itemInventory.getTagCompound().removeTag("Count");
-            this.itemInventory.getTagCompound().removeTag("Item");
-        } else {
-            this.itemInventory.getTagCompound().setLong("Count", this.count);
-            this.itemInventory.getTagCompound().setTag("Item", this.itemStored.writeToNBT(new NBTTagCompound()));
+        if (this.itemStack.getItemDamage() != 0) {
+            long num = this.itemStack.getTagCompound().getLong("Count");
+            this.stackSize = num < this.storedStack.getMaxStackSize() ? (int)num : this.storedStack.getMaxStackSize();
+            this.storedStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+        }
+
+        this.itemStack.getTagCompound().setLong("Count", this.stackSize);
+        if (this.stackSize != 0) {
+            this.itemStack.getTagCompound().setTag("Item", this.storedStack.writeToNBT(new NBTTagCompound()));
         }
     }
 
@@ -55,7 +53,7 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
      */
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return this.itemStored;
+        return this.storedStack;
     }
 
     /**
@@ -67,10 +65,10 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
      */
     @Override
     public ItemStack decrStackSize(int slot, int amount) {
-        amount = amount > count ? (int)count : amount;
-        ItemStack itemStack = this.itemStored.copy();
+        amount = amount > stackSize ? (int) stackSize : amount;
+        ItemStack itemStack = this.storedStack.copy();
         itemStack.stackSize = amount;
-        this.count -= amount;
+        this.stackSize -= amount;
         markDirty();
         return itemStack;
     }
@@ -83,8 +81,16 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
      */
     @Override
     public void setInventorySlotContents(int slot, ItemStack itemStack) {
-        this.itemStored = itemStack;
-        this.count = this.itemStored != null ? this.itemStored.stackSize : 0;
+
+        if ( this.itemStack.getItemDamage() == 0 )
+        {
+            this.itemStack.setItemDamage(1);
+            this.storedStack = itemStack;
+        }
+        if ( this.storedStack.isItemEqual(itemStack) && (this.storedStack.getTagCompound() == null && itemStack.getTagCompound() == null || this.storedStack.getTagCompound() != null && itemStack.getTagCompound() != null && this.storedStack.getTagCompound().equals(itemStack.getTagCompound())) )
+        this.stackSize = this.storedStack != null ? this.storedStack.stackSize : 0;
+
+
         markDirty();
     }
 
@@ -96,7 +102,22 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
      */
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return this.count == 0 || itemStored.equals(itemStack);
+        return this.stackSize == 0 || storedStack.equals(itemStack);
     }
 
+    /**
+     * Returns the name of the inventory
+     */
+    @Override
+    public String getInventoryName() {
+        return Long.toString(count);
+    }
+
+    /**
+     * Returns if the inventory is named
+     */
+    @Override
+    public boolean hasCustomInventoryName() {
+        return true;
+    }
 }

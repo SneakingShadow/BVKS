@@ -18,7 +18,7 @@ public class InventoryHammerWorkbench extends InventoryBVKS {
     public int metadata;
 
     public InventoryHammerWorkbench (int metadata) {
-        this.metadata = metadata
+        this.metadata = metadata;
     }
 
     /**

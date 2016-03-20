@@ -2,10 +2,12 @@ package sneakingshadow.bvks.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -20,9 +22,7 @@ import sneakingshadow.bvks.reference.Name;
 import java.util.List;
 
 public class ItemBottomlessVoid extends ItemBVKS {
-    private static int iconAmount = 3;
-    private static IIcon[] itemIcons;
-    public static IIcon[] itemTransparentIcons;
+    private static IIcon[] itemIcons = new IIcon[3];
 
     public ItemBottomlessVoid() {
         super(Name.Item.BOTTOMLESS_VOID);
@@ -73,13 +73,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iIconRegister) {
-        itemIcons = new IIcon[iconAmount];
-        for (int i = 0; i < iconAmount; i++) {
+        for (int i = 0; i < itemIcons.length; i++) {
             itemIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_" + i);
-        }
-        itemTransparentIcons = new IIcon[iconAmount];
-        for (int i = 0; i < iconAmount; i++) {
-            itemTransparentIcons[i] = iIconRegister.registerIcon(this.getIconString() + "_transparent_" + i);
         }
     }
 
@@ -89,9 +84,12 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return itemIcons[meta];
+        return itemIcons[meta & 3];
     }
 
+    /**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
         if (entityPlayer.isSneaking()) {
@@ -105,7 +103,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
             }
         } else
             entityPlayer.openGui(BVKS.instance, ModGuis.guiBottomlessVoid.getID(), world, findItemStack(itemStack, entityPlayer.inventory.mainInventory) ,0,0);
-
         return itemStack;
     }
 
@@ -122,12 +119,6 @@ public class ItemBottomlessVoid extends ItemBVKS {
         return super.getUnlocalizedName() + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
     }
 
-    @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
-    {
-        return false;
-    }
-
     /**
      * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
      * update it's contents.
@@ -135,6 +126,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean currentItem) {
         if (entity instanceof EntityPlayer) {
+            //itemStack.getItemDamage() == 2
             ItemStack[] mainInventory = ((EntityPlayer) entity).inventory.mainInventory;
             for (int i = 0; i<mainInventory.length; i++){
 
@@ -147,16 +139,17 @@ public class ItemBottomlessVoid extends ItemBVKS {
 */
     @Override
     public String getItemStackDisplayName(ItemStack itemStack) {
-        ItemStack itemStack1 = itemStack.getItemDamage() == 0 ? null : ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
-        return super.getItemStackDisplayName(itemStack) + (itemStack.getItemDamage() == 0 ? "" : (": '" + itemStack1.getItem().getItemStackDisplayName(itemStack1) + "'"));
+        Boolean bool = (itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getLong("Count") != 0);
+        ItemStack itemStack1 = bool ? ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item")) : null;
+        return super.getItemStackDisplayName(itemStack) + (bool ? (": '" + itemStack1.getItem().getItemStackDisplayName(itemStack1) + "'") : "");
     }
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack itemStack1 = itemStack.copy();
-        NBTTagCompound tag = itemStack1.getTagCompound();
+        NBTTagCompound nbtTagCompound = itemStack1.getTagCompound();
         ItemStack itemStack2 = ItemStack.loadItemStackFromNBT(itemStack1.getTagCompound().getCompoundTag("Item"));
-        tag.setLong("Count", tag.getLong("Count") - (tag.getLong("Count") > itemStack2.getMaxStackSize() ? itemStack2.getMaxStackSize() : tag.getLong("Count")));
+        nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count") - ((nbtTagCompound.getLong("Count") > itemStack2.getMaxStackSize()) ? itemStack2.getMaxStackSize() : nbtTagCompound.getLong("Count")));
         return itemStack1;
     }
 
@@ -167,8 +160,119 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     @Override
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack){
-        return itemStack.getTagCompound().getLong("Count") == 0;
+        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getLong("Count") == 0;
+    }
+
+
+
+
+
+    /**
+     * Callback for item usage. If the item does something special on right clicking, he will have one of those. Return
+     * True if something happen and false if it don't. This is for ITEMS, not BLOCKS
+     */
+    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    {
+        if (itemStack.getItemDamage() == 0) {
+            return false;
+        }
+
+        Long count = itemStack.getTagCompound().getLong("Count");
+
+        if (count == 0) {
+            return true;
+        }
+
+        ItemStack placingStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+        Block placingBlock = Block.getBlockFromItem(placingStack.getItem());
+
+        Block block = world.getBlock(x, y, z);
+
+        if (block == Blocks.snow_layer && (world.getBlockMetadata(x, y, z) & 7) < 1)
+        {
+            side = 1;
+        }
+        else if (block != Blocks.vine && block != Blocks.tallgrass && block != Blocks.deadbush && !block.isReplaceable(world, x, y, z))
+        {
+            if (side == 0)
+            {
+                --y;
+            }
+
+            if (side == 1)
+            {
+                ++y;
+            }
+
+            if (side == 2)
+            {
+                --z;
+            }
+
+            if (side == 3)
+            {
+                ++z;
+            }
+
+            if (side == 4)
+            {
+                --x;
+            }
+
+            if (side == 5)
+            {
+                ++x;
+            }
+        }
+
+        if (!entityPlayer.canPlayerEdit(x, y, z, side, placingStack))
+        {
+            return false;
+        }
+        else if (y == 255 && placingBlock.getMaterial().isSolid())
+        {
+            return false;
+        }
+        else if (world.canPlaceEntityOnSide(placingBlock, x, y, z, false, side, entityPlayer, placingStack))
+        {
+            int i1 = placingStack.getItemDamage();
+            int j1 = placingBlock.onBlockPlaced(world, x, y, z, side, hitX, hitY, hitZ, i1);
+
+            if (placeBlockAt(placingStack, placingBlock, entityPlayer, world, x, y, z, side, hitX, hitY, hitZ, j1))
+            {
+                world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), placingBlock.stepSound.func_150496_b(), (placingBlock.stepSound.getVolume() + 1.0F) / 2.0F, placingBlock.stepSound.getPitch() * 0.8F);
+                itemStack.getTagCompound().setLong("Count", --count);
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * Called to actually place the block, after the location is determined
+     * and all permission checks have been made.
+     *
+     * @param itemStack The item stack that was used to place the block. This can be changed inside the method.
+     * @param player The player who is placing the block. Can be null if the block is not being placed by a player.
+     * @param side The side the player (or machine) right-clicked on.
+     */
+    public boolean placeBlockAt(ItemStack itemStack, Block block, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int metadata)
+    {
+        if (!world.setBlock(x, y, z, block, metadata, 3))
+        {
+            return false;
+        }
+
+        if (world.getBlock(x, y, z) == block)
+        {
+            block.onBlockPlacedBy(world, x, y, z, player, itemStack);
+            block.onPostBlockPlaced(world, x, y, z, metadata);
+        }
+
+        return true;
     }
 }
-
-

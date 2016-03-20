@@ -34,10 +34,10 @@ Make it find items in inventory, then only make it update on pickup-event, and a
 Also if two stacks are split, it will leave each stack by making it check for the hovering item in inventory if you can
 Make it so it can place blocks and drop event will drop items in the orb if you don't hold shift
 Show extra information in gui. Have to different parts of the gui, the simple and the informal.
+Add a button on the gui to turn it off and on.
 
 Make an item that will teleport back to the players inventory when dropped, then make it an enchantment.
-Make the item store the players name as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
-Check if you can get the player name any other way.
+Make the item store the players UUID as nbt, then make an item that will in it's class create a reference to the player, sorted by playername.
 
 Hammer workbench, tier 1-3
 Tier 1: makes wood, turns wood to stone, and stone to iron
@@ -92,5 +92,8 @@ Devil Cow
 
 Blood sucking thing, sucks blood from cows and turns them into Devil Cows
 
-
 Must test entityLivingBase.rotationYaw * 4 / 360 +0.5
+
+Remove dir
+
+Add the Bottomless Void Accessor Block
