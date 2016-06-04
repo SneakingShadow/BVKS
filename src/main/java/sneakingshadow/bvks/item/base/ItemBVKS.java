@@ -5,14 +5,11 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Ref;
 import sneakingshadow.bvks.util.BlockBreakingHelper;
-
-import java.util.List;
 
 public class ItemBVKS extends Item
 {
@@ -24,22 +21,6 @@ public class ItemBVKS extends Item
         this.setCreativeTab(CreativeTabs.tabAllSearch);
         this.setNoRepair();
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        /*if ( !"".equals( this.getDescription() ) && !super.getUnlocalizedName().equals( this.getDescription() ) )
-            list.add( this.getDescription() );*/
-    }
-
-    /*public String getDescription(String string) {
-        string = getUnwrappedUnlocalizedName(super.getUnlocalizedName()) + string;
-        String desc = DescHelper.getDescription( string );
-        return desc.equals(string) ? "" : desc;
-    }
-    public String getDescription() {
-        return getDescription("");
-    }*/
 
     @Override
     public String getUnlocalizedName()

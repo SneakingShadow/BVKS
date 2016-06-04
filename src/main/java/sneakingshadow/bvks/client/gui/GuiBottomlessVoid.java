@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.BottomlessVoidHelper;
 
 public class GuiBottomlessVoid extends GuiContainerBVKS{
 
@@ -22,7 +23,7 @@ public class GuiBottomlessVoid extends GuiContainerBVKS{
      */
     public void drawGuiContainerForegroundLayer(int p_146979_1_, int p_146979_2_)
     {
-        String s = itemStack.getTagCompound().hasKey("Count") ? String.valueOf(itemStack.getTagCompound().getLong("Count")) : "";
+        String s = itemStack.getItemDamage() != 0 ? String.valueOf(BottomlessVoidHelper.getCount(itemStack)) : "";
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
         //this.fontRendererObj.drawString(I18n.format("container.inventory"), 8, this.ySize - 96 + 2, 4210752);
     }

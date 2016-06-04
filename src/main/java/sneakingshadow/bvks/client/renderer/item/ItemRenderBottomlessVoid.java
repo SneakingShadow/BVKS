@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
+import sneakingshadow.bvks.util.BottomlessVoidHelper;
 import sneakingshadow.bvks.util.MetricPrefixHelper;
 
 public class ItemRenderBottomlessVoid implements IItemRenderer{
@@ -35,6 +36,8 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{
 
         if(itemStack.getItemDamage()!=0) {
 
+            /*
+
             // Disable texturing, for now we only need colored shapes
             GL11.glDisable(GL11.GL_TEXTURE_2D);
             // The following 3 methods enable transparency of a certain flavor (see second tutorial link above)
@@ -58,14 +61,19 @@ public class ItemRenderBottomlessVoid implements IItemRenderer{
             GL11.glDepthMask(true);
             GL11.glDisable(GL11.GL_BLEND);
 
+            */
+
             FontRenderer fontRenderer = Minecraft.getMinecraft().fontRenderer;
 
             // Enable texturing, because Minecraft text font is actually a texture
             GL11.glEnable(GL11.GL_TEXTURE_2D);
             // Get our text value
-            String text = MetricPrefixHelper.compress(itemStack.getTagCompound().getLong("Count"));
+            String text = MetricPrefixHelper.compress(BottomlessVoidHelper.getCount(itemStack));
             // Draw our text at (1, 1) with white color
             fontRenderer.drawStringWithShadow(text, 1, 1, 0xFFFFFF);
+
+
+            //GL11.glDisable(GL11.GL_TEXTURE_2D);
 
         }
     }

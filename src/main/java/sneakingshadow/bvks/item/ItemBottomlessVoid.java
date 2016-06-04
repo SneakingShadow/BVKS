@@ -3,21 +3,18 @@ package sneakingshadow.bvks.item;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import org.lwjgl.input.Keyboard;
-import sneakingshadow.bvks.BVKS;
-import sneakingshadow.bvks.init.ModGuis;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.util.BottomlessVoidHelper;
+import sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack itemStack, EntityPlayer player, List list, boolean par4) {
-        if (itemStack.getItemDamage() != 0) {
+        /*if (itemStack.getItemDamage() != 0) {
             ItemStack itemStack1 = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
             long count = itemStack.getTagCompound().getLong("Count");
 
@@ -67,7 +64,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
             list.add("Stores items.");
             list.add("To set type,");
             list.add("combine with item in crafting table");
-        }
+        }*/
     }
 
     @SideOnly(Side.CLIENT)
@@ -92,6 +89,8 @@ public class ItemBottomlessVoid extends ItemBVKS {
      */
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
+        LogHelper.info(itemStack.getTagCompound());
+
         if (entityPlayer.isSneaking()) {
             if (!world.isRemote && !world.restoringBlockSnapshots) {
                 itemStack.setItemDamage(
@@ -102,11 +101,16 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
             }
         } else
-            entityPlayer.openGui(BVKS.instance, ModGuis.guiBottomlessVoid.getID(), world, findItemStack(itemStack, entityPlayer.inventory.mainInventory) ,0,0);
+            LogHelper.info(Minecraft.getMinecraft().objectMouseOver);
+
+            /*int slot = findItem(itemStack, entityPlayer.inventory.mainInventory);
+            if (slot != -1) {
+                entityPlayer.openGui(BVKS.instance, ModGuis.guiBottomlessVoid.getID(), world, slot, 0, 0);
+            }*/
         return itemStack;
     }
 
-    private int findItemStack(ItemStack itemStack, ItemStack[] mainInventory) {
+    private int findItem(ItemStack itemStack, ItemStack[] mainInventory) {
         for (int i = 0; i<mainInventory.length; i++)
             if (itemStack == mainInventory[i])
                 return i;
@@ -115,7 +119,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
     @Override
     public String getUnlocalizedName(ItemStack itemStack) {
-        int meta = itemStack.getItemDamage();
+        int meta = itemStack.getItemDamage() & 3;
         return super.getUnlocalizedName() + (meta == 0 ? "" : (meta == 1 ? "_inactive" : "_active"));
     }
 
@@ -126,44 +130,42 @@ public class ItemBottomlessVoid extends ItemBVKS {
     @Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int p_77663_4_, boolean currentItem) {
         if (entity instanceof EntityPlayer) {
-            //itemStack.getItemDamage() == 2
-            ItemStack[] mainInventory = ((EntityPlayer) entity).inventory.mainInventory;
-            for (int i = 0; i<mainInventory.length; i++){
-
+            if (itemStack.getItemDamage() == 2) {
+                ItemStack[] mainInventory = ((EntityPlayer) entity).inventory.mainInventory;
+                for (int i = 0; i<mainInventory.length; i++){
+                    mainInventory[i] = BottomlessVoidHelper.addItem(itemStack, mainInventory[i]);
+                }
             }
         }
     }
 
-/*
-                Crafting
-*/
     @Override
     public String getItemStackDisplayName(ItemStack itemStack) {
-        Boolean bool = (itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getLong("Count") != 0);
-        ItemStack itemStack1 = bool ? ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item")) : null;
-        return super.getItemStackDisplayName(itemStack) + (bool ? (": '" + itemStack1.getItem().getItemStackDisplayName(itemStack1) + "'") : "");
+        Boolean bool = BottomlessVoidHelper.hasItems(itemStack);
+        ItemStack itemStack1 = BottomlessVoidHelper.getItemStack(itemStack);
+        return super.getItemStackDisplayName(itemStack) + (bool ? (": " + itemStack1.getItem().getItemStackDisplayName(itemStack1)) : "");
     }
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack itemStack1 = itemStack.copy();
-        NBTTagCompound nbtTagCompound = itemStack1.getTagCompound();
-        ItemStack itemStack2 = ItemStack.loadItemStackFromNBT(itemStack1.getTagCompound().getCompoundTag("Item"));
-        nbtTagCompound.setLong("Count", nbtTagCompound.getLong("Count") - ((nbtTagCompound.getLong("Count") > itemStack2.getMaxStackSize()) ? itemStack2.getMaxStackSize() : nbtTagCompound.getLong("Count")));
+        ItemStack itemStored = BottomlessVoidHelper.getItemStored(itemStack);
+        long count = BottomlessVoidHelper.getCount(itemStack);
+        BottomlessVoidHelper.addToCount(itemStack1,
+                -((count > itemStored.getMaxStackSize()) ? itemStored.getMaxStackSize() : count));
+        itemStack1.setItemDamage(1);
         return itemStack1;
     }
 
     @Override
     public boolean hasContainerItem(ItemStack itemStack) {
-        return itemStack.getItemDamage() != 0 && itemStack.getTagCompound().getLong("Count") != 0;
+        return BottomlessVoidHelper.hasItems(itemStack);
     }
 
     @Override
     public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack){
-        return itemStack.getItemDamage() == 0 || itemStack.getTagCompound().getLong("Count") == 0;
+        return itemStack.getItemDamage() == 0 || BottomlessVoidHelper.getCount(itemStack) == 0;
     }
-
-
 
 
 
@@ -177,14 +179,13 @@ public class ItemBottomlessVoid extends ItemBVKS {
             return false;
         }
 
-        Long count = itemStack.getTagCompound().getLong("Count");
-
+        Long count = BottomlessVoidHelper.getCount(itemStack);
         if (count == 0) {
-            return true;
+            return false;
         }
 
-        ItemStack placingStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
-        Block placingBlock = Block.getBlockFromItem(placingStack.getItem());
+        ItemStack placingStack = BottomlessVoidHelper.getItemStored(itemStack);
+        Block placingBlock = BottomlessVoidHelper.getBlock(itemStack);
 
         Block block = world.getBlock(x, y, z);
 
@@ -241,7 +242,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
             if (placeBlockAt(placingStack, placingBlock, entityPlayer, world, x, y, z, side, hitX, hitY, hitZ, j1))
             {
                 world.playSoundEffect((double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), placingBlock.stepSound.func_150496_b(), (placingBlock.stepSound.getVolume() + 1.0F) / 2.0F, placingBlock.stepSound.getPitch() * 0.8F);
-                itemStack.getTagCompound().setLong("Count", --count);
+                BottomlessVoidHelper.addToCount(itemStack, -1);
             }
 
             return true;
