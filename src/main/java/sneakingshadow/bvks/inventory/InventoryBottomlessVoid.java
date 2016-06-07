@@ -120,4 +120,5 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
     public boolean hasCustomInventoryName() {
         return true;
     }
+
 }

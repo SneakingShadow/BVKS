@@ -21,7 +21,6 @@ public class ContainerBottomlessVoid extends ContainerBVKS {
         return this.inventory.isUseableByPlayer(entityPlayer);
     }
 
-
     private EntityPlayer entityPlayer;
     public void updateSlots(){
         this.inventorySlots = new ArrayList();
