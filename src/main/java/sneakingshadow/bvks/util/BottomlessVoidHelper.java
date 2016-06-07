@@ -31,10 +31,20 @@ public class BottomlessVoidHelper {
     *
     */
 
-    private static void setupTags(ItemStack itemStack) {
-        if(!itemStack.hasTagCompound()) {
-            itemStack.setTagCompound(new NBTTagCompound());
+    public static void setItemStored(ItemStack itemStack, ItemStack itemStoring) {
+        if (itemStoring == null) {
+            return;
         }
+        setupTags(itemStack);
+        itemStack.setItemDamage(itemStack.getItemDamage() == 0 ? 1 : itemStack.getItemDamage());
+        itemStoring.stackSize = 1;
+        itemStack.stackTagCompound.setTag(TAG_ITEM, itemStoring.writeToNBT(new NBTTagCompound()));
+    }
+
+    private static ItemStack getItem(ItemStack itemStack) {
+        return itemStack.hasTagCompound() && itemStack.getItemDamage() != 0 ?
+                ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag(TAG_ITEM)) :
+                null;
     }
 
     public static long getCount(ItemStack itemStack) {
@@ -44,6 +54,23 @@ public class BottomlessVoidHelper {
     public static void setCount(ItemStack itemStack, long count) {
         setupTags(itemStack);
         itemStack.getTagCompound().setLong(TAG_COUNT, count < 0 ? 0 : count);
+    }
+
+    public static void removeTags(ItemStack itemStack) {
+        itemStack.setItemDamage(0);
+        if (itemStack.getTagCompound() != null){
+            itemStack.getTagCompound().removeTag(TAG_ITEM);
+            itemStack.getTagCompound().removeTag(TAG_COUNT);
+            if (itemStack.getTagCompound().hasNoTags()){
+                itemStack.setTagCompound(null);
+            }
+        }
+    }
+
+    private static void setupTags(ItemStack itemStack) {
+        if(!itemStack.hasTagCompound()) {
+            itemStack.setTagCompound(new NBTTagCompound());
+        }
     }
 
     public static boolean hasItems(ItemStack itemStack) {
@@ -65,24 +92,8 @@ public class BottomlessVoidHelper {
         return ret;
     }
 
-    public static void setItemStored(ItemStack itemStack, ItemStack itemStoring) {
-        if (itemStoring == null) {
-            return;
-        }
-        setupTags(itemStack);
-        itemStack.setItemDamage(itemStack.getItemDamage() == 0 ? 1 : itemStack.getItemDamage());
-        itemStoring.stackSize = 1;
-        itemStack.stackTagCompound.setTag(TAG_ITEM, itemStoring.writeToNBT(new NBTTagCompound()));
-    }
-
     public static ItemStack getItemStored(ItemStack itemStack) {
         return itemStack.getItemDamage() == 0 ? null : getItem(itemStack);
-    }
-
-    private static ItemStack getItem(ItemStack itemStack) {
-        return itemStack.hasTagCompound() && itemStack.getItemDamage() != 0 ?
-                ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag(TAG_ITEM)) :
-                null;
     }
 
     /**
@@ -123,17 +134,6 @@ public class BottomlessVoidHelper {
         int max = returnStack.getMaxStackSize();
         returnStack.stackSize = (count > max) ? max : (int)count;
         return returnStack;
-    }
-
-    public static void removeTags(ItemStack itemStack) {
-        itemStack.setItemDamage(0);
-        if (itemStack.getTagCompound() != null){
-            itemStack.getTagCompound().removeTag(TAG_ITEM);
-            itemStack.getTagCompound().removeTag(TAG_COUNT);
-            if (itemStack.getTagCompound().hasNoTags()){
-                itemStack.setTagCompound(null);
-            }
-        }
     }
 
     public static Block getBlock(ItemStack itemStack) {
