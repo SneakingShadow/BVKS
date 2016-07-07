@@ -10,9 +10,6 @@ import java.util.List;
 public class DescHelper {
 
     public static String getDescription(String name) {
-
-        StatCollector.translateToLocal("trufflemod:stuffy"); //--> "You bastard! You killed Kenny!"
-
         return StatCollector.translateToLocal("description.bvks:" + name);
     }
 

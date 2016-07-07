@@ -11,7 +11,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.item.base.ItemBVKS;
 import sneakingshadow.bvks.reference.Name;
-import sneakingshadow.bvks.util.Level;
 import sneakingshadow.bvks.util.LogHelper;
 
 import javax.annotation.Nullable;
@@ -36,8 +35,6 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
-
-
 
         /*if(!world.isRemote && !world.restoringBlockSnapshots) {
         }

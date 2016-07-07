@@ -1,7 +1,6 @@
 package sneakingshadow.bvks.block;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
@@ -20,7 +19,7 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        Structure structure = new Structure("xxx/x x/xxx", 'x', Blocks.cobblestone);
+        Structure structure = new Structure("xxx/x x/xxx", 'x', "logWood");
         System.out.println(structure.findStructure(world,x,y,z,1,0,1) != null);
         return true;
     }
