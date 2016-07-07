@@ -1,9 +1,11 @@
 package sneakingshadow.bvks.block;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.structure.Structure;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
@@ -13,11 +15,14 @@ public class BlockDebugBlock extends BlockBVKSContainer {
         this.setTileEntity(TileEntityDebugBlock.class, Name.Block.DEBUG_BLOCK);
     }
 
-    @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
+    /**
+     * Called upon block activation (right click on the block.)
+     */
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        TileEntityDebugBlock tileEntity = (TileEntityDebugBlock) world.getTileEntity(x, y, z);
-        return false;
+        Structure structure = new Structure("xxx/x x/xxx", 'x', Blocks.cobblestone);
+        System.out.println(structure.findStructure(world,x,y,z,1,0,1) != null);
+        return true;
     }
 
     @Override

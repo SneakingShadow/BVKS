@@ -10,6 +10,8 @@ TODO:
 
 Clean up Lang file and add descriptions to the lang file.
 
+Clean up creative tabs.
+
 Re-add language based descriptions and a whole system for reading them, with different functions available, change line, color, etc.
 DescriptionHelper add write to description that will handle writing all the information into the list
 add getDescriptionUnwrapped which will unlike getDescription add get an unwrapped name and turn it into description.bvks:~
@@ -20,7 +22,7 @@ Fix with toolMaterial on some items as they clearly don't need it, and just inpu
 Make ItemBVKSArmor extend ItemBVKS and not ItemArmor
 
 Add custom texture handler for devil tools to make them invisible.
-Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item.
+Make an isDevilTool() that makes it so devil tools will have a special blockbreaking without the need to define it in every single item
 
 Fix the stone gen's rendering.
 
@@ -49,6 +51,8 @@ Can only be upgraded as far as the hammer, and has to be upgraded the same way a
 You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it with a stone, wood, iron etc.
 Hammer has special overlay when it has special items.
 Starts out with nothing, not even wood level.
+
+
 
 Multiple gates that open with redstone
 Opens with a sliding animation

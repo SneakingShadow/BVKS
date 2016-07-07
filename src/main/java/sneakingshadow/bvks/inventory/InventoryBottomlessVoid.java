@@ -11,9 +11,10 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
     public InventoryBottomlessVoid(ItemStack itemStack) {
         this.itemStack = itemStack;
         if (this.itemStack.getItemDamage() != 0) {
+            this.storedStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
             long num = this.itemStack.getTagCompound().getLong("Count");
             this.stackSize = num < this.storedStack.getMaxStackSize() ? (int)num : this.storedStack.getMaxStackSize();
-            this.storedStack = ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag("Item"));
+            this.count = itemStack.getTagCompound().getLong("Count");
         } else {
             this.storedStack = null;
             this.stackSize = 0;
@@ -53,7 +54,7 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
      */
     @Override
     public ItemStack getStackInSlot(int slot) {
-        return this.storedStack;
+        return this.stackSize > 0 ? this.storedStack : null;
     }
 
     /**
@@ -69,6 +70,7 @@ public class InventoryBottomlessVoid extends InventoryBVKS {
         ItemStack itemStack = this.storedStack.copy();
         itemStack.stackSize = amount;
         this.stackSize -= amount;
+        this.count -= amount;
         markDirty();
         return itemStack;
     }

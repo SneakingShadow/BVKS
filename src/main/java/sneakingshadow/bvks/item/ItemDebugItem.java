@@ -37,11 +37,7 @@ public class ItemDebugItem extends ItemBVKS {
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
 
-        Level level = new Level();
-        level.set(0,0, Blocks.log);
-        level.set(1,0, Blocks.log);
-        level.set(2,0, Blocks.log);
-        level.set(3,0, Blocks.log);
+
 
         /*if(!world.isRemote && !world.restoringBlockSnapshots) {
         }
