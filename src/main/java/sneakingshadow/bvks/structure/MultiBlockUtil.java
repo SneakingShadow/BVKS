@@ -11,12 +11,18 @@ import java.util.ArrayList;
 /**
  * Created by SneakingShadow on 07.07.2016.
  */
-public class StructureUtil {
+public class MultiBlockUtil {
 
-    public static String oreDictionary(String string) {
+    /**
+     * Simply adds @ to the start of string
+     * */
+    public static String oreDict(String string) {
         return "@"+string;
     }
 
+    /**
+     * Simply takes all the objects given and adds them to an arraylist.
+     * */
     public static ArrayList<Object> arrayList(Object... objects) {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
@@ -27,6 +33,9 @@ public class StructureUtil {
         return arrayList;
     }
 
+    /**
+     * Used by MultiBlock to compare objects to block in world.
+     * */
     public static boolean compare(World world, int x, int y, int z, Object object) {
         if (object == null) {
             return true;

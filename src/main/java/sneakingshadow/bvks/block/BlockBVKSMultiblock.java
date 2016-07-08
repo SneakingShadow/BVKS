@@ -1,10 +1,6 @@
 package sneakingshadow.bvks.block;
 
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import sneakingshadow.bvks.structure.Structure;
 
 public class BlockBVKSMultiblock extends BlockBVKS {
 

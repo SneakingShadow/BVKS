@@ -4,8 +4,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
+import sneakingshadow.bvks.structure.MultiBlock;
 import sneakingshadow.bvks.structure.Structure;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
+import sneakingshadow.bvks.util.LogHelper;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
 
@@ -19,8 +21,9 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        Structure structure = new Structure("xxx/x x/xxx", 'x', "logWood");
-        System.out.println(structure.findStructure(world,x,y,z,1,0,1) != null);
+        MultiBlock multiBlock = new MultiBlock("xxx/x x/xxx", 'x', "@logWood");
+        Structure structure = multiBlock.findStructure(world,x,y,z,1,0,1);
+        LogHelper.info(structure.structureValid(world));
         return true;
     }
 
