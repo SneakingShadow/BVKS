@@ -77,14 +77,11 @@ When sneaking or when having an assassins knife in use?
 It would arguably be fairer that when you sneak that the armor becomes invisible, and that when you have all sets of armor it turns the user invisible for all the time the user sneaks, or for a short duration and silences the user so no'one could detetect the users steps.
 Fix BlockBVKS so placing with different rotations work better.
 
-MultiBlockStructure
-fix rotation logic
-add check for if the multiblock is still valid
-Add function that will try to find a block based on one block in the multiblock and how far away it may be at worst scenario, search the widest area it could possibly be and find it, no matter rotation
-Change initialization code. Make it accept strings, blank space equals null which means the block doesn't matter. Create a sign for "isAir()", maybe " ' " or a string after characters. Difference between null and is air. "/" means next width/line. "\" means next layer. When first character is detected, objects are assigned to the characters. Multiple objects to one character is allowed.
-
 MultiBlock
-add check for if the multiblock is still valid
+Possibly add a special characters class to add special characters in a simple way.
+Create a sign for "isAir()", maybe '_' or a string after characters. Difference between null and is air.
+A sign for replaceable '-'
+A sign for solid block '+' (similar to blood magic: blood altar)
 
 BV TNT
 
