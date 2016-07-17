@@ -124,7 +124,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
     }
 
     /**
-     * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
+     * Called each tick as long the item is on a player inventory. Uses by maps to compare if is on a player hand and
      * update it's contents.
      */
     @Override

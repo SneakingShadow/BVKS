@@ -14,6 +14,7 @@ import sneakingshadow.bvks.handler.GuiHandler;
 import sneakingshadow.bvks.init.*;
 import sneakingshadow.bvks.proxy.IProxy;
 import sneakingshadow.bvks.reference.Ref;
+import sneakingshadow.bvks.structure.modifer.Modifiers;
 import sneakingshadow.bvks.util.LogHelper;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.MOD_NAME, version = Ref.VERSION, guiFactory = Ref.GUI_FACTORY_CLASS)
@@ -62,6 +63,7 @@ public class BVKS
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        Modifiers.init();
         LogHelper.info("Post Initialization Complete!");
     }
 

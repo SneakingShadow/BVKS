@@ -21,12 +21,15 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        MultiBlock multiBlock = new MultiBlock("xxx/x x/xxx", 'x', "@logWood");
-        Structure structure = multiBlock.findStructure(world,x,y,z,1,0,1);
+        MultiBlock multiBlock = new MultiBlock("aaa/a a/aaa", 'a', '!', '*');
+        Structure structure = multiBlock.findStructure(world,x,y,z,2,1,2);
+        System.out.println(multiBlock.toString());
         LogHelper.info(structure.structureValid(world));
-        return true;
+        return false;
     }
 
     @Override
-    public TileEntity createNewTileEntity(World world, int metadata) { return null; }
+    public TileEntity createNewTileEntity(World world, int metadata) {
+        return null;
+    }
 }

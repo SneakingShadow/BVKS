@@ -4,6 +4,7 @@ import net.minecraft.world.World;
 
 public class Structure {
 
+    private boolean valid = true;
     public MultiBlock multiBlock;
     public int x,y,z,rotation;
 
@@ -15,8 +16,16 @@ public class Structure {
         this.multiBlock = multiBlock; this.x = x; this.y = y; this.z = z; this.rotation = rotation;
     }
 
+    public Structure() {
+        valid = false;
+    }
+
     public boolean structureValid(World world) {
-        return multiBlock.checkStructure(world, x, y, z, rotation);
+        return valid && multiBlock.checkStructure(world, x, y, z, rotation);
+    }
+
+    public MultiBlock getMultiBlock() {
+        return multiBlock;
     }
 
     //TODO if I add id's to MultiBlock, then add write to and read from nbt here.

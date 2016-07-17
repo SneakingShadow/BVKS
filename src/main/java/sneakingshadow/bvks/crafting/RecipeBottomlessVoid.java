@@ -153,7 +153,7 @@ public class RecipeBottomlessVoid {
     public static class Add implements IRecipe {
 
         /**
-         * Used to check if a recipe matches current crafting inventory
+         * Used to compare if a recipe matches current crafting inventory
          *
          * @param inventoryCrafting
          * @param world

@@ -17,7 +17,7 @@ public class ItemRenderAssasinsKnife implements IItemRenderer {
      * Checks if this renderer should handle a specific item's render type
      *
      * @param item The item we are trying to render
-     * @param type A render type to check if this renderer handles
+     * @param type A render type to compare if this renderer handles
      * @return true if this renderer should handle the given render type,
      * otherwise false
      */
