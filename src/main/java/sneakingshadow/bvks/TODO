@@ -78,12 +78,10 @@ It would arguably be fairer that when you sneak that the armor becomes invisible
 Fix BlockBVKS so placing with different rotations work better.
 
 MultiBlock
-Possibly add a special characters class to add special characters in a simple way.
-Create a sign for "isAir()", maybe '_' or a string after characters. Difference between null and is air.
-A sign for replaceable '-'
-A sign for solid block '+' (similar to blood magic: blood altar)
+Create private inner class StructureArray containing Object[][][], and all the methods manipulating it.
+Allow for registering multiple structures in one multiblock.
 Currently rotates around y-axis.
-Possibly add rotation around x and z-axis. 
+Add rotation around x and z-axis. 
 
 BV TNT
 
