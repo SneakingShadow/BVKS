@@ -19,33 +19,46 @@ public class Vec {
      * @param vec point to rotate around
      * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
      */
-    public Vec rotateY(Vec vec, int rot) {
-
-        int numX = this.x - vec.x;
-        int numZ = this.z - vec.z;
-
-        for (int i = 0; i < rot; i++) {
-            int tx = numX;
-            int tz = numZ;
-            numX = tz;
-            numZ = -tx;
-        }
-
-        numX += vec.x;
-        numZ += vec.z;
-
-        return new Vec(numX, y, numZ);
+    public Vec rotateX(Vec vec, int rot) {
+        int[] ints = rotate(vec.y, vec.z, this.y, this.z, rot);
+        return new Vec(this.x, ints[0], ints[1]);
     }
 
     /**
-     * (a1,b1,c1)
-     * (a2,b2,c2)
+     * @param vec point to rotate around
+     * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
+     */
+    public Vec rotateY(Vec vec, int rot) {
+        int[] ints = rotate(vec.x, vec.z, this.x, this.z, rot);
+        return new Vec(ints[0], this.y, ints[1]);
+    }
+
+    /**
+     * @param vec point to rotate around
+     * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
+     */
+    public Vec rotateZ(Vec vec, int rot) {
+        int[] ints = rotate(vec.x, vec.y, this.x, this.y, rot);
+        return new Vec(ints[0], ints[1], this.z);
+    }
+
+    /**
+     * (a1,b1) center
+     * (a2,b2) rotating point
      * rot = rotation in units of 90 degrees
      * */
-    private int[] rotateC(int a1, int b1, int c1, int a2, int b2, int c2, int rot) {
+    private int[] rotate(int a1, int b1, int a2, int b2, int rot) {
+        int numA = a2-a1;
+        int numB = b2-b1;
 
+        for (int i = 0; i < rot; i++) {
+            int ta = numA;
+            int tb = numB;
+            numA = tb;
+            numB = -ta;
+        }
 
-
+        return new int[] {numA + a1, numB + b1};
     }
 
 }

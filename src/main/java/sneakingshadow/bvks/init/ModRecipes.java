@@ -7,7 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import sneakingshadow.bvks.crafting.RecipeBottomlessVoid;
 
-public class Recipes
+public class ModRecipes
 {
     public static void registerOreDic() {
         OreDictionary.registerOre("blockObsidian", Blocks.obsidian);

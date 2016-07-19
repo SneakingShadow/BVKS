@@ -39,7 +39,7 @@ public class BVKS
 
         ModItems.init();
         ModBlocks.init();
-        WorldGen.init();
+        ModWorldGen.init();
         ModEntities.init();
         ModGuis.init();
 
@@ -49,7 +49,7 @@ public class BVKS
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        Recipes.init();
+        ModRecipes.init();
         ModGuis.init();
 
         FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
@@ -64,6 +64,8 @@ public class BVKS
     public void postInit(FMLPostInitializationEvent event)
     {
         Modifiers.init();
+        ModMultiBlocks.init();
+
         LogHelper.info("Post Initialization Complete!");
     }
 
