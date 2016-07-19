@@ -22,16 +22,17 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        String string = "xxx/x x/xxx";
+        MultiBlock.StructureList list = new MultiBlock.StructureList("xxx/x x/xxx", 'x');
         MultiBlock multiBlock = new MultiBlock(
-                string,
-                'x', Blocks.cobblestone
+                list,
+                Blocks.cobblestone
         );
         multiBlock.addStructure(
-                string,
-                'x', Blocks.glass
+                list,
+                Blocks.glass
         );
         Structure structure = multiBlock.findStructure(world,x,y,z,2,1,2);
+        System.out.println(multiBlock.toString());
         LogHelper.info(structure.structureValid(world));
         return false;
     }
