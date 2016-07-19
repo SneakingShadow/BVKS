@@ -24,6 +24,10 @@ public class MultiBlockInit {
         ObjectArray structure = new ObjectArray(xCap, yCap, zCap);
         Vec vec = new Vec(0, 0, 0);
 
+        ArrayList<Object> objectList = new ArrayList<Object>();
+        addToObjectList(objectList, objects);
+        objects = objectList.toArray();
+
         for (int i = 0; i < objects.length; i++) {
 
             Object object = objects[i];
@@ -57,6 +61,18 @@ public class MultiBlockInit {
         }
 
         return multiBlock;
+    }
+
+    private static void addToObjectList(ArrayList<Object> objectList, Object[] objects) {
+
+        for (Object object : objects) {
+            if (object instanceof MultiBlock.StructureList) {
+                addToObjectList(objectList, ((MultiBlock.StructureList)object).getObjects());
+            } else {
+                objectList.add(object);
+            }
+        }
+
     }
 
     public static class ObjectArray {

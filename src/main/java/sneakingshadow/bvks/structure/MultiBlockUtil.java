@@ -42,4 +42,8 @@ public class MultiBlockUtil {
         return arrayList;
     }
 
+    public static MultiBlock.StructureList structureList(Object... objects) {
+        return new MultiBlock.StructureList(objects);
+    }
+
 }
