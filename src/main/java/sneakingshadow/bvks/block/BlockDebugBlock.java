@@ -1,6 +1,7 @@
 package sneakingshadow.bvks.block;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
@@ -21,9 +22,16 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-        MultiBlock multiBlock = new MultiBlock("aaa/a a/aaa", 'a', '!', '*');
+        String string = "xxx/x x/xxx";
+        MultiBlock multiBlock = new MultiBlock(
+                string,
+                'x', Blocks.cobblestone
+        );
+        multiBlock.addStructure(
+                string,
+                'x', Blocks.glass
+        );
         Structure structure = multiBlock.findStructure(world,x,y,z,2,1,2);
-        System.out.println(multiBlock.toString());
         LogHelper.info(structure.structureValid(world));
         return false;
     }

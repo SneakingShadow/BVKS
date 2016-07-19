@@ -5,10 +5,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
-import sneakingshadow.bvks.structure.CustomComparator;
 import sneakingshadow.bvks.structure.MultiBlockComparing;
 import sneakingshadow.bvks.structure.MultiBlockInit;
 import sneakingshadow.bvks.structure.Vec;
+import sneakingshadow.bvks.structure.comparator.CustomComparator;
 
 import java.util.ArrayList;
 
@@ -21,29 +21,29 @@ public class Modifiers {
 
     private static CompareModifier nullMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             return object == null;
         }
     };
     private static CompareModifier blockMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             return object instanceof Block &&
                     world.getBlock(x,y,z) == object;
         }
     };
     private static CompareModifier itemMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             return object instanceof Item &&
                     Item.getItemFromBlock( world.getBlock(x,y,z) ) == object ;
         }
     };
     private static CompareModifier itemStackMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             return object instanceof ItemStack &&
-                    compare(world, x, y, z, ((ItemStack)object).getItem()) &&
+                    Item.getItemFromBlock(world.getBlock(x,y,z)) == ((ItemStack)object).getItem() &&
                     world.getBlockMetadata(x,y,z) == ((ItemStack)object).getItemDamage();
         }
     };
@@ -61,7 +61,7 @@ public class Modifiers {
                             if (character == ' ') {
                                 multiBlock.addToStructure(vec, null);
                             } else if (character == '/') {
-                                if (string.charAt(j + 1) == '/') {
+                                if (j+1 < string.length() && string.charAt(j + 1) == '/') {
                                     j++;
                                     vec.x = 0;
                                     vec.y++;
@@ -82,7 +82,7 @@ public class Modifiers {
         }
 
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             if (object instanceof String) {
                 ArrayList<ItemStack> arrayList = OreDictionary.getOres((String) object);
                 for (ItemStack itemStack:arrayList){
@@ -96,14 +96,14 @@ public class Modifiers {
     };
     private static CompareModifier arrayListMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
             if (object instanceof ArrayList) {
                 ArrayList list = (ArrayList) object;
                 boolean bool = true;
                 for (Object obj:list){
                     if (obj instanceof Character && ((Character)obj) == CharacterModifier.notChar) {
                         bool = false;
-                    } else if ( bool == compare(world,x,y,z,obj) ) {
+                    } else if ( bool == compare(world,x,y,z,obj, rot) ) {
                         return true;
                     } else {
                         bool = true;
@@ -115,8 +115,8 @@ public class Modifiers {
     };
     private static CompareModifier comparatorMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object) {
-            return object instanceof CustomComparator && ((CustomComparator)object).compare(world,x,y,z);
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
+            return object instanceof CustomComparator && ((CustomComparator)object).compare(world,x,y,z,rot);
         }
     };
     private static StructureModifier objectMod = new StructureModifier() {

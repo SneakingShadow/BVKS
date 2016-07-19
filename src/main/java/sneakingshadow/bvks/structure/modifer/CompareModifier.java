@@ -7,6 +7,9 @@ import net.minecraft.world.World;
  */
 public interface CompareModifier {
 
-    boolean compareMod(World world, int x, int y, int z, Object object);
+    /**
+     * @param rot = 90 degree rotation around center point. Default 0.
+     * */
+    boolean compareMod(World world, int x, int y, int z, Object object, int rot);
 
 }

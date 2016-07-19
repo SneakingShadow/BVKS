@@ -2,12 +2,14 @@ package sneakingshadow.bvks.structure;
 
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+
 import static sneakingshadow.bvks.structure.MultiBlockComparing.compare;
 
 public class MultiBlock {
 
-    private Object[][][] multiBlock;
-    private Boolean valid;
+    private ArrayList<StructureArray> multiBlocks = new ArrayList<StructureArray>();
+    private Boolean valid = false;
     private int ID;
 
     //TODO add id's
@@ -40,21 +42,15 @@ public class MultiBlock {
             return;
         }
 
-        multiBlock = MultiBlockInit.initStructure(objects, xCap, yCap, zCap);
+        valid = addStructure(objects, xCap, yCap, zCap);
+    }
 
-        valid = false;
-        for (int ix = 0; ix < multiBlock.length; ix++) {
-            for (int iy = 0; iy < multiBlock[ix].length; iy++) {
-                for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-                    if (multiBlock[ix][iy][iz] != null) {
-                        valid = true;
-                        break;
-                    }
-                }
-                if (valid) break;
-            }
-            if (valid) break;
-        }
+    public boolean addStructure(Object... objects) {
+        return addStructure(objects,1,1,1);
+    }
+
+    public boolean addStructure(int xCap, int yCap, int zCap, Object... objects) {
+        return addStructure(objects, xCap, yCap, zCap);
     }
 
     public Structure findStructure(World world, int x, int y, int z) {
@@ -68,67 +64,84 @@ public class MultiBlock {
         if (!valid)
             return new Structure();
 
-        arrayX = --arrayX < multiBlock.length ? arrayX : 0;
-        arrayY = --arrayY < multiBlock[0].length ? arrayY : 0;
-        arrayZ = --arrayZ < multiBlock[0][0].length ? arrayZ : 0;
+        for (StructureArray structureArray : multiBlocks) {
+            Object[][][] multiBlock = structureArray.getMultiBlock();
 
-        if ( compare(world, x, y, z, multiBlock[arrayX][arrayY][arrayZ]) ) {
+            arrayX = --arrayX < multiBlock.length ? arrayX : 0;
+            arrayY = --arrayY < multiBlock[0].length ? arrayY : 0;
+            arrayZ = --arrayZ < multiBlock[0][0].length ? arrayZ : 0;
+            arrayX = arrayX < 0 ? 0 : arrayX;
+            arrayY = arrayY < 0 ? 0 : arrayY;
+            arrayZ = arrayZ < 0 ? 0 : arrayZ;
 
-            Vec center = new Vec(x,y,z);
-            Vec corner = new Vec(x-arrayX, y-arrayY, z-arrayZ);
+            if ( compare(world, x, y, z, multiBlock[arrayX][arrayY][arrayZ]) ) {
 
-            for (int rotation = 0; rotation < 4; rotation++) {
+                Vec center = new Vec(x,y,z);
+                Vec corner = new Vec(x-arrayX, y-arrayY, z-arrayZ);
 
-                Vec vec = corner.rotateY(center, rotation);
-                if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
-                    return new Structure(this, vec.x, vec.y, vec.z, rotation);
-                }
+                for (int rotation = 0; rotation < 4; rotation++) {
 
-            }
-        }
-
-        for (int ix = 0; ix < multiBlock.length; ix++) {
-            for (int iy = 0; iy < multiBlock[ix].length; iy++) {
-                for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-
-                    if ( compare(world, x, y, z, multiBlock[ix][iy][iz]) ) {
-
-                        Vec center = new Vec(x,y,z);
-                        Vec corner = new Vec(x-ix, y-iy, z-iz);
-
-                        for (int rotation = 0; rotation < 4; rotation++) {
-
-                            Vec vec = corner.rotateY(center, rotation);
-                            if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
-                                return new Structure(this, vec.x, vec.y, vec.z, rotation);
-                            }
-
-                        }
+                    Vec vec = corner.rotateY(center, rotation);
+                    if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
+                        return new Structure(this, vec.x, vec.y, vec.z, rotation);
                     }
 
                 }
             }
-        }
 
+            for (int ix = 0; ix < multiBlock.length; ix++) {
+                for (int iy = 0; iy < multiBlock[ix].length; iy++) {
+                    for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
+
+                        if ( compare(world, x, y, z, multiBlock[ix][iy][iz] ) ) {
+
+                            Vec center = new Vec(x,y,z);
+                            Vec corner = new Vec(x-ix, y-iy, z-iz);
+
+                            for (int rotation = 0; rotation < 4; rotation++) {
+
+                                Vec vec = corner.rotateY(center, rotation);
+                                if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
+                                    return new Structure(this, vec.x, vec.y, vec.z, rotation);
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
         return new Structure();
     }
 
     public boolean checkStructure(World world, int x, int y, int z, int rotation) {
         Vec center = new Vec(x,y,z);
 
-        for (int ix = 0; ix < multiBlock.length; ix++) {
-            for (int iy = 0; iy < multiBlock[ix].length; iy++) {
-                for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-                    Vec current = (new Vec(x+ix,y+iy,z+iz)).rotateY(center, rotation);
+        boolean bool;
 
-                    if (!compareVec(world, current, multiBlock[ix][iy][iz])) {
-                        return false;
+        for (StructureArray structureArray : multiBlocks) {
+            Object[][][] multiBlock = structureArray.getMultiBlock();
+
+            bool = true;
+            for (int ix = 0; ix < multiBlock.length; ix++) {
+                for (int iy = 0; iy < multiBlock[ix].length; iy++) {
+                    for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
+                        Vec current = (new Vec(x+ix,y+iy,z+iz)).rotateY(center, rotation);
+
+                        if (!compareVec(world, current, multiBlock[ix][iy][iz], rotation)) {
+                            bool = false;
+                        }
                     }
                 }
             }
+            if (bool) {
+                return bool;
+            }
         }
 
-        return true;
+        return false;
     }
 
     public boolean valid() {
@@ -143,25 +156,73 @@ public class MultiBlock {
         this.ID = id;
     }
 
-    private boolean compareVec(World world, Vec vec, Object object) {
-        return compare(world, vec.x, vec.y, vec.z, object);
+    private boolean compareVec(World world, Vec vec, Object object, int rotation) {
+        return compare(world, vec.x, vec.y, vec.z, object, rotation);
+    }
+
+    private boolean addStructure(Object[] objects, int xCap, int yCap, int zCap) {
+        Object[][][] multiBlock = MultiBlockInit.initStructure(objects, xCap, yCap, zCap);
+
+        boolean bool = false;
+        for (Object[][] xMultiBlock : multiBlock) {
+            for (Object[] yAMultiBlock : xMultiBlock) {
+                for (Object zMultiBlock : yAMultiBlock) {
+                    if (zMultiBlock != null) {
+                        bool = true;
+                        break;
+                    }
+                }
+                if (bool) break;
+            }
+            if (bool) break;
+        }
+
+        if (bool) {
+            multiBlocks.add(new StructureArray(multiBlock));
+        }
+        this.valid = valid || bool;
+
+        return bool;
+    }
+
+    private static class StructureArray{
+
+        private Object[][][] multiBlock;
+
+        public StructureArray(Object[][][] multiBlock) {
+            this.multiBlock = multiBlock;
+        }
+
+        public StructureArray setMultiBlock(Object[][][] structure) {
+            multiBlock = structure;
+            return this;
+        }
+
+        public Object[][][] getMultiBlock() {
+            return multiBlock;
+        }
     }
 
     @Override
     public String toString() {
-        String string = getClass().getName() + "@" + Integer.toHexString(hashCode()) + System.lineSeparator() + "{";
-        for (int ix = 0; ix < multiBlock.length; ix++) {
-            string = string + System.lineSeparator() + "   {";
-            for (int iy = 0; iy < multiBlock[0].length; iy++) {
-                string = string + System.lineSeparator() + "      {";
-                for (int iz = 0; iz < multiBlock[0][0].length; iz++) {
-                    string = string + System.lineSeparator() + "         " + ( multiBlock[ix][iy][iz] != null ? multiBlock[ix][iy][iz].toString() : "null" ) + ", ";
+        String string = getClass().getName() + "@" + Integer.toHexString(hashCode());
+        for (StructureArray structureArray : multiBlocks) {
+            Object[][][] multiBlock = structureArray.getMultiBlock();
+
+            string += System.lineSeparator() + "{";
+            for (int ix = 0; ix < multiBlock.length; ix++) {
+                string += System.lineSeparator() + "   {";
+                for (int iy = 0; iy < multiBlock[0].length; iy++) {
+                    string += System.lineSeparator() + "      {";
+                    for (int iz = 0; iz < multiBlock[0][0].length; iz++) {
+                        string += System.lineSeparator() + "         " + (multiBlock[ix][iy][iz] != null ? multiBlock[ix][iy][iz].toString() : "null") + ",";
+                    }
+                    string += System.lineSeparator() + "      },";
                 }
-                string = string + System.lineSeparator() + "      },";
+                string += System.lineSeparator() + "   },";
             }
-            string = string + System.lineSeparator() + "   },";
+            string += System.lineSeparator() + "};" + System.lineSeparator();
         }
-        string = string + System.lineSeparator() + "};";
         return string;
     }
 }

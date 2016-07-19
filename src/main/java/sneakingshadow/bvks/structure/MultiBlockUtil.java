@@ -13,6 +13,7 @@ public class MultiBlockUtil {
     public static char replaceableBlock = '-';
     public static char liquid = '~';
     public static char opaque = '*';
+    public static ArrayList<Object> transparent = not(opaque);
 
     public static ArrayList<Object> not(Object object) {
         ArrayList<Object> arrayList = new ArrayList<Object>();

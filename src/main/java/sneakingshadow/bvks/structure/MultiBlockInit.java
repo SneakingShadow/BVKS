@@ -58,36 +58,6 @@ public class MultiBlockInit {
 
         return multiBlock;
     }
-        /*
-
-        valid = false;
-        for (int ix = 0; ix < multiBlock.length; ix++) {
-            for (int iy = 0; iy < multiBlock[ix].length; iy++) {
-                for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-
-                    if (multiBlock != null) {
-                        Boolean bool = true;
-
-                        if (multiBlock[ix][iy][iz] instanceof Character) {
-                            if ((Character) multiBlock[ix][iy][iz] != ' ' &&
-                                    chars.containsKey((Character) multiBlock[ix][iy][iz])) {
-                                multiBlock[ix][iy][iz] = chars.get((Character) multiBlock[ix][iy][iz]);
-                            } else {
-                                multiBlock[ix][iy][iz] = null;
-                                bool = false;
-                            }
-                        } else if (multiBlock[ix][iy][iz] instanceof ArrayList) {
-                            multiBlock[ix][iy][iz] = ((ArrayList) multiBlock[ix][iy][iz]).toArray();
-                        }
-
-                        valid = valid || bool;
-                    }
-
-                }
-            }
-        }
-        */
-
 
     public static class ObjectArray {
 

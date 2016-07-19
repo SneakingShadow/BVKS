@@ -16,6 +16,7 @@ public class Vec {
     }
 
     /**
+     * Rotate around x-axis
      * @param vec point to rotate around
      * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
      */
@@ -25,6 +26,7 @@ public class Vec {
     }
 
     /**
+     * Rotate around y-axis
      * @param vec point to rotate around
      * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
      */
@@ -34,6 +36,7 @@ public class Vec {
     }
 
     /**
+     * Rotate around z-axis
      * @param vec point to rotate around
      * @param rot how many 90 degrees it should be rotated. Rot = 3 ==> 270 degrees.
      */
