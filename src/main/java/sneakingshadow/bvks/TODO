@@ -77,9 +77,9 @@ When sneaking or when having an assassins knife in use?
 It would arguably be fairer that when you sneak that the armor becomes invisible, and that when you have all sets of armor it turns the user invisible for all the time the user sneaks, or for a short duration and silences the user so no'one could detetect the users steps.
 Fix BlockBVKS so placing with different rotations work better.
 
-MultiBlock
-Create private inner class StructureArray containing Object[][][], and all the methods manipulating it.
-Allow for registering multiple structures in one multiblock.
+MultiBlock:
+Update code for replacing chars, make it check trough arraylists as well.
+Add a loading thing, which allows it to replace chars. 
 Currently rotates around y-axis.
 Add rotation around x and z-axis. 
 
