@@ -82,6 +82,7 @@ Update code for replacing chars, make it check trough arraylists as well.
 Add a loading thing, which allows it to replace chars.
 Edit customComparator, and add an initializer that sorts everything in an ArrayList<Object>
 Add a method that's possibly protected, that exchanges the characters of the ArrayList.
+Make sure StructureLists work inside StructureLists.
 Currently rotates around y-axis.
 Add rotation around x and z-axis. 
 
