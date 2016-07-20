@@ -29,9 +29,9 @@ public class MultiBlock {
      *  '-' = replaceable block
      *  '~' = liquid
      *  '*' = opaque
-     *  Characters can replace objects, but must be initialized afterwards, if not they are ignored.
+     *  Characters in strings can objects
      *  OreDictionary is supported, but the strings must start with '@' or be in an ArrayList<Object>
-     *  ArrayList<Object> are allowed to specify multiple choices in one blockspace, and can include characters.
+     *  ArrayList<Object> are allowed to specify multiple choices in one block-space, TODO: and can include characters.
      * */
     private MultiBlock(Object[] objects, int xCap, int yCap, int zCap) {
         if (objects.length == 0) {
