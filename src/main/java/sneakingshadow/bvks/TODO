@@ -78,11 +78,10 @@ It would arguably be fairer that when you sneak that the armor becomes invisible
 Fix BlockBVKS so placing with different rotations work better.
 
 MultiBlock:
-Update code for replacing chars, make it check trough arraylists as well.
-Add a loading thing, which allows it to replace chars.
-Edit customComparator, and add an initializer that sorts everything in an ArrayList<Object>
-Add a method that's possibly protected, that exchanges the characters of the ArrayList.
-Make sure StructureLists work inside StructureLists.
+Add string-object, similar to character-object ('a', object)
+    Initialization: ("#string_object", object)
+    Call to object: ("aaa'string_object'aaa")
+   
 Currently rotates around y-axis.
 Add rotation around x and z-axis. 
 
