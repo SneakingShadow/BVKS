@@ -2,9 +2,9 @@ package sneakingshadow.bvks.structure.modifer;
 
 import net.minecraft.world.World;
 import sneakingshadow.bvks.structure.MultiBlockInit;
+import sneakingshadow.bvks.structure.ObjectMap;
 import sneakingshadow.bvks.structure.Vec;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -55,7 +55,7 @@ public class CharacterModifier extends Modifier{
     }
 
     @Override
-    public boolean compareMod(World world, int x, int y, int z, Object object, int rot) {
+    public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
         if (object instanceof Character && contains((Character)object)) {
             return specialChars.compare(world,x,y,z,(Character)object);
         }
@@ -75,26 +75,8 @@ public class CharacterModifier extends Modifier{
     }
 
     @Override
-    public int skipObjects(int i, Object[] objects, HashMap<Character, Object> hashMap) {
-        int num = 0;
-        if (objects[i] instanceof Character && !contains((Character)objects[i])) {
-            Character character = (Character) objects[i++];
-            num++;
-            ArrayList<Object> arrayList = new ArrayList<Object>();
-            if (i < objects.length && objects[i] instanceof Character && objects[i] == notChar) {
-                arrayList.add(objects[i++]);
-                num++;
-            }
-            if (i < objects.length) {
-                if (arrayList.isEmpty()) {
-                    hashMap.put(character, objects[i]);
-                } else {
-                    arrayList.add(objects[i]);
-                    hashMap.put(character, arrayList);
-                }
-            }
-        }
-        return num;
+    public int skipObjects(int i, Object[] objects, ObjectMap objectMap) {
+        return skip(!contains((Character)objects[i]),i, objects, objectMap);
     }
 
     public static boolean contains(Character character) {

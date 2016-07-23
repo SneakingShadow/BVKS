@@ -27,8 +27,22 @@ public class MultiBlockComparing {
      * Used by MultiBlock to compare objects to block in world.
      * */
     public static boolean compare(World world, int x, int y, int z, Object object, int rotation) {
+        return compare(world, x, y, z, object, rotation, new ObjectMap());
+    }
+
+    /**
+     * Used by MultiBlock to compare objects to block in world.
+     * */
+    public static boolean compare(World world, int x, int y, int z, Object object, ObjectMap objectMap) {
+        return compare(world, x, y, z, object, 0, objectMap);
+    }
+
+    /**
+     * Used by MultiBlock to compare objects to block in world.
+     * */
+    public static boolean compare(World world, int x, int y, int z, Object object, int rotation, ObjectMap objectMap) {
         for (CompareModifier mod : modifiers) {
-            if ( mod.compareMod(world, x,y,z, object, rotation) ) {
+            if ( mod.compareMod(world, x,y,z, object, rotation, objectMap) ) {
                 return true;
             }
         }

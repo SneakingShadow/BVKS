@@ -4,11 +4,10 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-import static sneakingshadow.bvks.structure.MultiBlockComparing.compare;
-
 public class MultiBlock {
 
     private ArrayList<StructureArray> multiBlocks = new ArrayList<StructureArray>();
+    private ArrayList<ObjectMap> objectMaps = new ArrayList<ObjectMap>();
     private Boolean valid = false;
     private int ID;
 
@@ -22,16 +21,19 @@ public class MultiBlock {
     /**
      *  null or ' '= anything, doesn't matter.
      *  "/" = next layer to the side.
-     *  "//" = next layer up.
+     *  "\\" = next layer up.
      *  if '!' is placed before an object, it will check that it's not that.
      *  '+' = full block
      *  '_' = air block
      *  '-' = replaceable block
      *  '~' = liquid
      *  '*' = opaque
-     *  Characters in strings can objects
-     *  OreDictionary is supported, but the strings must start with '@' or be in an ArrayList<Object>
-     *  ArrayList<Object> are allowed to specify multiple choices in one block-space, TODO: and can include characters.
+     *  Characters in strings can represent objects
+     *      Binding an object to a character:
+     *          (character, object)
+     *  OreDictionary is supported, but the strings must start and end with "@".
+     *      If it comes after a character, both with and without "@" is supported
+     *  ArrayList<Object> are allowed to specify multiple choices in one block-space, can include characters (both in string and as characters), but can't include "/".
      * */
     private MultiBlock(Object[] objects, int xCap, int yCap, int zCap) {
         if (objects.length == 0) {
@@ -39,7 +41,7 @@ public class MultiBlock {
             return;
         }
 
-        valid = addStructure(objects, xCap, yCap, zCap);
+        addStructure(objects, xCap, yCap, zCap);
     }
 
     public boolean addStructure(Object... objects) {
@@ -51,7 +53,16 @@ public class MultiBlock {
     }
 
     public Structure findStructure(World world, int x, int y, int z) {
-        return findStructure(world, x, y, z, 1, 1 ,1);
+        if (!valid)
+            return new Structure();
+
+        for (int structureID = 0; structureID < multiBlocks.size(); structureID++) {
+            Structure structure = findStructure(world, x, y, z, structureID);
+            if (structure.getValid()) {
+                return structure;
+            }
+        }
+        return new Structure();
     }
 
     /**
@@ -70,20 +81,23 @@ public class MultiBlock {
         return new Structure();
     }
 
-    /**
-     * arrayX, arrayY & arrayZ starts at 1, not at 0.
-     * */
     public Structure findStructure(World world, int x, int y, int z, int arrayX, int arrayY, int arrayZ, int structureID) {
         Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
+        ObjectMap objectMap = objectMaps.get(structureID);
 
-        arrayX = --arrayX < multiBlock.length ? arrayX : 0;
-        arrayY = --arrayY < multiBlock[0].length ? arrayY : 0;
-        arrayZ = --arrayZ < multiBlock[0][0].length ? arrayZ : 0;
-        arrayX = arrayX < 0 ? 0 : arrayX;
-        arrayY = arrayY < 0 ? 0 : arrayY;
-        arrayZ = arrayZ < 0 ? 0 : arrayZ;
+        if (
+                arrayX < 1 ||
+                arrayY < 1 ||
+                arrayZ < 1 ||
+                arrayX > multiBlock.length ||
+                arrayY > multiBlock[0].length ||
+                arrayZ > multiBlock[0][0].length
+                ) {
+            return new Structure();
+        }
+        arrayX--; arrayY--; arrayZ--;
 
-        if ( compare(world, x, y, z, multiBlock[arrayX][arrayY][arrayZ]) ) {
+        if ( MultiBlockComparing.compare(world, x, y, z, multiBlock[arrayX][arrayY][arrayZ], objectMap) ) {
 
             Vec center = new Vec(x,y,z);
             Vec corner = new Vec(x-arrayX, y-arrayY, z-arrayZ);
@@ -91,6 +105,7 @@ public class MultiBlock {
             for (int rotation = 0; rotation < 4; rotation++) {
 
                 Vec vec = corner.rotateY(center, rotation);
+
                 if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
                     return new Structure(this, vec.x, vec.y, vec.z, rotation, structureID);
                 }
@@ -98,11 +113,19 @@ public class MultiBlock {
             }
         }
 
+        return new Structure();
+    }
+
+    public Structure findStructure(World world, int x, int y, int z, int structureID) {
+        Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
+        ObjectMap objectMap = objectMaps.get(structureID);
+
+
         for (int ix = 0; ix < multiBlock.length; ix++) {
             for (int iy = 0; iy < multiBlock[ix].length; iy++) {
                 for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
 
-                    if ( compare(world, x, y, z, multiBlock[ix][iy][iz] ) ) {
+                    if ( MultiBlockComparing.compare(world, x, y, z, multiBlock[ix][iy][iz], objectMap) ) {
 
                         Vec center = new Vec(x,y,z);
                         Vec corner = new Vec(x-ix, y-iy, z-iz);
@@ -137,6 +160,7 @@ public class MultiBlock {
 
     public boolean checkStructure(World world, int x, int y, int z, int rotation, int structureID) {
         Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
+        ObjectMap objectMap = objectMaps.get(structureID);
 
         Vec center = new Vec(x,y,z);
 
@@ -145,7 +169,7 @@ public class MultiBlock {
                 for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
                     Vec current = (new Vec(x+ix,y+iy,z+iz)).rotateY(center, rotation);
 
-                    if (!compareVec(world, current, multiBlock[ix][iy][iz], rotation)) {
+                    if (!compare(world, current, multiBlock[ix][iy][iz], rotation, objectMap)) {
                         return false;
                     }
                 }
@@ -166,12 +190,14 @@ public class MultiBlock {
         this.ID = id;
     }
 
-    private boolean compareVec(World world, Vec vec, Object object, int rotation) {
-        return compare(world, vec.x, vec.y, vec.z, object, rotation);
+    private boolean compare(World world, Vec vec, Object object, int rotation, ObjectMap objectMap) {
+        return MultiBlockComparing.compare(world, vec.x, vec.y, vec.z, object, rotation, objectMap);
     }
 
     private boolean addStructure(Object[] objects, int xCap, int yCap, int zCap) {
-        Object[][][] multiBlock = MultiBlockInit.initStructure(objects, xCap, yCap, zCap);
+        MultiBlockInit.ObjectAndMap objectAndMap = MultiBlockInit.initStructure(objects, xCap, yCap, zCap);
+        Object[][][] multiBlock = objectAndMap.multiBlock;
+        ObjectMap objectMap = objectAndMap.objectMap;
 
         boolean bool = false;
         for (Object[][] xMultiBlock : multiBlock) {
@@ -189,6 +215,7 @@ public class MultiBlock {
 
         if (bool) {
             multiBlocks.add(new StructureArray(multiBlock));
+            objectMaps.add(objectMap);
         }
         this.valid = valid || bool;
 
@@ -225,20 +252,30 @@ public class MultiBlock {
      *              = MultiBlock( "xxx/x x/xxxg", 'g', Blocks.glass, 'x', '!', Blocks.cobblestone)
      * */
     public static class StructureList {
-        Object[] objects;
+        ArrayList<Object> objects = new ArrayList<Object>();
 
         public StructureList(Object... objects) {
-            this.objects = objects;
+            add(objects);
         }
 
         public Object[] getObjects() {
-            return objects;
+            return objects.toArray();
+        }
+
+        public void add(Object... objects) {
+            for (Object object : objects) {
+                this.objects.add(object);
+            }
+        }
+
+        public String toString() {
+            return getClass().getName() + ": " + objects.toString();
         }
     }
 
     @Override
     public String toString() {
-        String string = getClass().getName() + "@" + Integer.toHexString(hashCode()) + System.lineSeparator();
+        String string = super.toString() + System.lineSeparator();
         for (int structureID = 0; structureID < multiBlocks.size(); structureID++) {
             Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
 

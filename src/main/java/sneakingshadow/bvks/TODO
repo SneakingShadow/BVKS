@@ -81,7 +81,7 @@ MultiBlock:
 Add string-object, similar to character-object ('a', object)
     Initialization: ("#string_object", object)
     Call to object: ("aaa'string_object'aaa")
-   
+
 Currently rotates around y-axis.
 Add rotation around x and z-axis. 
 

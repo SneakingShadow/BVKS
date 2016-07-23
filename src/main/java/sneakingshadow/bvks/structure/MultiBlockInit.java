@@ -5,7 +5,6 @@ import sneakingshadow.bvks.structure.modifer.StructureModifier;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  * Created by SneakingShadow on 17.07.2016.
@@ -18,9 +17,9 @@ public class MultiBlockInit {
         modifiers.add(modifier);
     }
 
-    public static Object[][][] initStructure(Object[] objects, int xCap, int yCap, int zCap) {
+    public static ObjectAndMap initStructure(Object[] objects, int xCap, int yCap, int zCap) {
 
-        HashMap<Character, Object> charMap = new HashMap<Character, Object>();
+        ObjectMap objectMap = new ObjectMap();
         ObjectArray structure = new ObjectArray(xCap, yCap, zCap);
         Vec vec = new Vec(0, 0, 0);
 
@@ -34,7 +33,7 @@ public class MultiBlockInit {
 
             for (StructureModifier mod : modifiers) {
                 if (mod.structureMod(structure, vec, object)) {
-                    i += mod.skipObjects(i, objects, charMap);
+                    i += mod.skipObjects(i, objects, objectMap);
                     break;
                 }
             }
@@ -46,21 +45,12 @@ public class MultiBlockInit {
         for (int ix = 0; ix < multiBlock.length; ix++) {
             for (int iy = 0; iy < multiBlock[ix].length; iy++) {
                 for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-
-                    if (multiBlock[ix][iy][iz] instanceof Character) {
-                        Character character = (Character) multiBlock[ix][iy][iz];
-                        if (charMap.containsKey(character)) {
-                                multiBlock[ix][iy][iz] = charMap.get(character);
-                        } else if (!CharacterModifier.contains(character)) {
-                            multiBlock[ix][iy][iz] = null;
-                        }
-                    }
-
+                    multiBlock[ix][iy][iz] = objectMap.replaceObject(multiBlock[ix][iy][iz]);
                 }
             }
         }
 
-        return multiBlock;
+        return new ObjectAndMap(multiBlock, objectMap);
     }
 
     private static void addToObjectList(ArrayList<Object> objectList, Object[] objects) {
@@ -149,4 +139,13 @@ public class MultiBlockInit {
 
     }
 
+    public static class ObjectAndMap {
+        public Object[][][] multiBlock;
+        public ObjectMap objectMap;
+
+        public ObjectAndMap(Object[][][] objects, ObjectMap map) {
+            multiBlock = objects;
+            objectMap = map;
+        }
+    }
 }

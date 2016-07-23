@@ -50,4 +50,12 @@ public class LogHelper
     {
         log(Level.WARN, object);
     }
+
+    public static void anchor(Object object, String string) {
+        LogHelper.info("Anchor " + string + ": " + object.toString());
+    }
+
+    public static void anchor(Object object) {
+        anchor(object, "");
+    }
 }

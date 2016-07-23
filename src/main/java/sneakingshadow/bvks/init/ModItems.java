@@ -163,8 +163,10 @@ public class ModItems
                 IronRod,
                 Hammer,
         });
-        CreativeTabBVKS.add(list, creativeTab, DebugItem);
-        CreativeTabBVKS.add(list, creativeTab, NBTDebugItem);
+        CreativeTabBVKS.add(list, creativeTab, new Item[] {
+                DebugItem,
+                NBTDebugItem
+        });
     }
 
     private static void registerItem(Item item, String name){
