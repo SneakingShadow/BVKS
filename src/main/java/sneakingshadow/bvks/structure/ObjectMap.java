@@ -51,7 +51,6 @@ public class ObjectMap {
         return stringMap.containsKey(string);
     }
 
-    //TODO implement stringMap
     public Object replaceObject(Object object) {
         if (object instanceof Character) {
             Character character = (Character) object;
