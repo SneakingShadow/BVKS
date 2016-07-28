@@ -27,7 +27,7 @@ public class ObjectMap {
     }
 
     public ObjectMap put(Character character, Object object) {
-        charMap.put(character, object);
+        charMap.put(character,object);
         return this;
     }
 

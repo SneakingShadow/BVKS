@@ -9,8 +9,9 @@ import sneakingshadow.bvks.structure.ObjectMap;
 public interface CompareModifier {
 
     /**
-     * @param rot = 90 degree rotation around center point. Default 0.
+     * @param rotationX
+     * @param rotationZ
      * @param objectMap*/
-    boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap);
+    boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap);
 
 }

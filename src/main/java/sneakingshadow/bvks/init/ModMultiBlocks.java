@@ -13,8 +13,7 @@ public class ModMultiBlocks {
     private static ArrayList<MultiBlock> multiBlocks = new ArrayList<MultiBlock>();
 
     public static void register(MultiBlock multiBlock) {
-        multiBlock.setID(multiBlocks.size());
-        multiBlocks.add(multiBlock);
+        multiBlocks.add(multiBlock.setID(multiBlocks.size()));
     }
 
     public static MultiBlock getMultiblock(int ID) {
@@ -22,6 +21,10 @@ public class ModMultiBlocks {
             return null;
         }
         return multiBlocks.get(ID);
+    }
+
+    public static boolean hasMultiBlockID(int ID) {
+        return ID != -1 && ID < multiBlocks.size();
     }
 
 }

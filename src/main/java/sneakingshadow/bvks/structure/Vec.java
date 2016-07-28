@@ -48,7 +48,7 @@ public class Vec {
     /**
      * (a1,b1) center
      * (a2,b2) rotating point
-     * rot = rotation in units of 90 degrees
+     * rot = rotationY in units of 90 degrees
      * */
     private int[] rotate(int a1, int b1, int a2, int b2, int rot) {
         int numA = a2-a1;

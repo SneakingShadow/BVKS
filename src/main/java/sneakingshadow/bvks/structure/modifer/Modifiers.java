@@ -21,27 +21,27 @@ public class Modifiers {
 
     private static CompareModifier nullMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
             return object == null;
         }
     };
     private static CompareModifier blockMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
             return object instanceof Block &&
                     world.getBlock(x,y,z) == object;
         }
     };
     private static CompareModifier itemMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
             return object instanceof Item &&
                     Item.getItemFromBlock( world.getBlock(x,y,z) ) == object ;
         }
     };
     private static CompareModifier itemStackMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
             return object instanceof ItemStack &&
                     Item.getItemFromBlock(world.getBlock(x,y,z)) == ((ItemStack)object).getItem() &&
                     world.getBlockMetadata(x,y,z) == ((ItemStack)object).getItemDamage();
@@ -49,14 +49,14 @@ public class Modifiers {
     };
     private static CompareModifier arrayListMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
             if (object instanceof ArrayList) {
                 ArrayList list = (ArrayList) object;
                 boolean bool = true;
                 for (Object obj:list){
                     if (obj instanceof Character && ((Character)obj) == CharacterModifier.notChar) {
                         bool = false;
-                    } else if ( bool == compare(world,x,y,z,obj, rot, objectMap) ) {
+                    } else if ( bool == compare(world,x,y,z,obj, rotationX, rotationY, rotationZ, objectMap) ) {
                         return true;
                     } else {
                         bool = true;
@@ -68,8 +68,8 @@ public class Modifiers {
     };
     private static CompareModifier comparatorMod = new CompareModifier() {
         @Override
-        public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
-            return object instanceof CustomComparator && ((CustomComparator)object).compare(world,x,y,z,rot, objectMap);
+        public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
+            return object instanceof CustomComparator && ((CustomComparator)object).compare(world,x,y,z, rotationX, rotationY, rotationZ, objectMap);
         }
     };
     private static StructureModifier objectMod = new StructureModifier() {

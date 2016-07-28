@@ -9,7 +9,8 @@ public class MultiBlock {
     private ArrayList<StructureArray> multiBlocks = new ArrayList<StructureArray>();
     private ArrayList<ObjectMap> objectMaps = new ArrayList<ObjectMap>();
     private Boolean valid = false;
-    private int ID;
+    private Boolean rotateAllAxis = false;
+    private int ID = -1;
 
     public MultiBlock(Object... objects) {
         this(objects, 1,1,1);
@@ -19,7 +20,7 @@ public class MultiBlock {
     }
 
     /**
-     *  null or ' '= anything, doesn't matter.
+     *  null or ' ' = anything. doesn't matter what block it is.
      *  "/" = next layer to the side.
      *  "\\" = next layer up.
      *  if '!' is placed before an object, it will check that it's not that.
@@ -31,9 +32,15 @@ public class MultiBlock {
      *  Characters in strings can represent objects
      *      Binding an object to a character:
      *          (character, object)
+     *  Strings can also represent objects
+     *      Binding an object to a string:
+     *          ("#" + string, object)
+     *      Using string object:
+     *          ("'" + string + "'")
+     *          NOTE: String object can be used inside of a larger string, and doesn't exclusively have to be "'" + string + "'".
      *  OreDictionary is supported, but the strings must start and end with "@".
-     *      If it comes after a character, both with and without "@" is supported
-     *  ArrayList<Object> are allowed to specify multiple choices in one block-space, can include characters (both in string and as characters), but can't include "/".
+     *      example: "@logWood@"
+     *  ArrayList<Object> are allowed to specify multiple choices in one block-space, can include characters (both in string and as characters), but can't include "/", "\\" or "#".
      * */
     private MultiBlock(Object[] objects, int xCap, int yCap, int zCap) {
         if (objects.length == 0) {
@@ -102,14 +109,23 @@ public class MultiBlock {
             Vec center = new Vec(x,y,z);
             Vec corner = new Vec(x-arrayX, y-arrayY, z-arrayZ);
 
-            for (int rotation = 0; rotation < 4; rotation++) {
+            for (int rotationZ = 0; rotationZ < (rotateAllAxis ? 1 : 2); rotationZ++) {
+                for (int rotationX = 0; rotationX < (rotateAllAxis ? 1 : 4); rotationX += 1+rotationZ) {
+                    for (int rotationY = 0; rotationY < 4; rotationY++) {
 
-                Vec vec = corner.rotateY(center, rotation);
+                        Vec vec = corner
+                                .rotateZ(center, rotationZ)
+                                .rotateX(center, rotationX)
+                                .rotateY(center, rotationY);
 
-                if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
-                    return new Structure(this, vec.x, vec.y, vec.z, rotation, structureID);
+                        if ( checkStructure(world, vec.x, vec.y, vec.z, rotationX, rotationY, rotationZ) ) {
+                            return (rotateAllAxis ?
+                                    new Structure(this, vec.x, vec.y, vec.z, rotationX, rotationY, rotationZ, structureID) :
+                                    new Structure(this, vec.x, vec.y, vec.z, rotationY, structureID) );
+                        }
+
+                    }
                 }
-
             }
         }
 
@@ -130,13 +146,23 @@ public class MultiBlock {
                         Vec center = new Vec(x,y,z);
                         Vec corner = new Vec(x-ix, y-iy, z-iz);
 
-                        for (int rotation = 0; rotation < 4; rotation++) {
+                        for (int rotationZ = 0; rotationZ < (rotateAllAxis ? 2 : 1); rotationZ++) {
+                            for (int rotationX = 0; rotationX < (rotateAllAxis ? 4 : 1); rotationX += 1+rotationZ) {
+                                for (int rotationY = 0; rotationY < 4; rotationY++) {
 
-                            Vec vec = corner.rotateY(center, rotation);
-                            if ( checkStructure(world, vec.x, vec.y, vec.z, rotation) ) {
-                                return new Structure(this, vec.x, vec.y, vec.z, rotation, structureID);
+                                    Vec vec = corner
+                                            .rotateZ(center, rotationZ)
+                                            .rotateX(center, rotationX)
+                                            .rotateY(center, rotationY);
+
+                                    if ( checkStructure(world, vec.x, vec.y, vec.z, rotationX, rotationY, rotationZ) ) {
+                                        return (rotateAllAxis ?
+                                                new Structure(this, vec.x, vec.y, vec.z, rotationX, rotationY, rotationZ, structureID) :
+                                                new Structure(this, vec.x, vec.y, vec.z, rotationY, structureID) );
+                                    }
+
+                                }
                             }
-
                         }
                     }
 
@@ -147,10 +173,10 @@ public class MultiBlock {
         return new Structure();
     }
 
-    public boolean checkStructure(World world, int x, int y, int z, int rotation) {
+    public boolean checkStructure(World world, int x, int y, int z, int rotationX, int rotationY, int rotationZ) {
 
         for (int structureID = 0; structureID < multiBlocks.size(); structureID++) {
-            if (checkStructure(world, x, y, z, rotation, structureID)) {
+            if (checkStructure(world, x, y, z, rotationX, rotationY, rotationZ, structureID)) {
                 return true;
             }
         }
@@ -158,7 +184,7 @@ public class MultiBlock {
         return false;
     }
 
-    public boolean checkStructure(World world, int x, int y, int z, int rotation, int structureID) {
+    public boolean checkStructure(World world, int x, int y, int z, int rotationX, int rotationY, int rotationZ, int structureID) {
         Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
         ObjectMap objectMap = objectMaps.get(structureID);
 
@@ -167,9 +193,12 @@ public class MultiBlock {
         for (int ix = 0; ix < multiBlock.length; ix++) {
             for (int iy = 0; iy < multiBlock[ix].length; iy++) {
                 for (int iz = 0; iz < multiBlock[ix][iy].length; iz++) {
-                    Vec current = (new Vec(x+ix,y+iy,z+iz)).rotateY(center, rotation);
+                    Vec current = (new Vec(x+ix,y+iy,z+iz))
+                            .rotateZ(center, rotationZ)
+                            .rotateX(center, rotationX)
+                            .rotateY(center, rotationY);
 
-                    if (!compare(world, current, multiBlock[ix][iy][iz], rotation, objectMap)) {
+                    if (!compare(world, current, multiBlock[ix][iy][iz], rotationX, rotationY, rotationZ, objectMap)) {
                         return false;
                     }
                 }
@@ -178,20 +207,8 @@ public class MultiBlock {
         return true;
     }
 
-    public boolean valid() {
-        return this.valid;
-    }
-
-    public int getID() {
-        return this.ID;
-    }
-
-    public void setID(int id) {
-        this.ID = id;
-    }
-
-    private boolean compare(World world, Vec vec, Object object, int rotation, ObjectMap objectMap) {
-        return MultiBlockComparing.compare(world, vec.x, vec.y, vec.z, object, rotation, objectMap);
+    private boolean compare(World world, Vec vec, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
+        return MultiBlockComparing.compare(world, vec.x, vec.y, vec.z, object, rotationX, rotationY, rotationZ, objectMap);
     }
 
     private boolean addStructure(Object[] objects, int xCap, int yCap, int zCap) {
@@ -220,6 +237,28 @@ public class MultiBlock {
         this.valid = valid || bool;
 
         return bool;
+    }
+
+    public boolean valid() {
+        return this.valid;
+    }
+
+    public int getID() {
+        return this.ID;
+    }
+
+    public MultiBlock setID(int id) {
+        this.ID = id;
+        return this;
+    }
+
+    public MultiBlock setFullRotation(Boolean bool) {
+        this.rotateAllAxis = bool;
+        return this;
+    }
+
+    public MultiBlock setFullRotation() {
+        return setFullRotation(true);
     }
 
     private static class StructureArray{
@@ -273,9 +312,8 @@ public class MultiBlock {
         }
     }
 
-    @Override
-    public String toString() {
-        String string = super.toString() + System.lineSeparator();
+    public String multiBlockToString() {
+        String string = "";
         for (int structureID = 0; structureID < multiBlocks.size(); structureID++) {
             Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
 

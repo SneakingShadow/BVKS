@@ -55,7 +55,7 @@ public class CharacterModifier extends Modifier{
     }
 
     @Override
-    public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+    public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
         if (object instanceof Character && contains((Character)object)) {
             return specialChars.compare(world,x,y,z,(Character)object);
         }

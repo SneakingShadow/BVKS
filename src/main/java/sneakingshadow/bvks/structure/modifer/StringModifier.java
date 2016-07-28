@@ -53,10 +53,10 @@ public class StringModifier extends Modifier {
     }
 
     @Override
-    public boolean compareMod(World world, int x, int y, int z, Object object, int rot, ObjectMap objectMap) {
+    public boolean compareMod(World world, int x, int y, int z, Object object, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
         if (object instanceof String ) {
             String string = (String) object;
-            if (!string.isEmpty() && !(string.charAt(0) == '@' && string.charAt(string.length()-1) == '@' )) {
+            if (!string.isEmpty()) {
                 ArrayList<ItemStack> itemList = OreDictionary.getOres(string.substring(1, string.length() - 1));
                 for (ItemStack itemStack : itemList) {
                     if (OreDictionary.itemMatches(itemStack, new ItemStack(world.getBlock(x, y, z), 1, world.getBlockMetadata(x, y, z)), false)) {

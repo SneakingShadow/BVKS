@@ -60,8 +60,9 @@ public class StairComparatorUtil {
      *   'string_west'                      'string_east'
      *   'string_south_west' 'string_south' 'string_south_east'
      *
+     *    Note: if string = "", then it won't add _ after string
      * */
-    public static MultiBlock.StructureList stairStringInitializer(String string, Object... objects) {
+    public static MultiBlock.StructureList stairStringInitializer(String string,Object... objects) {
         String[] strings = new String[] {
                 NORTH, SOUTH, EAST, WEST,
                 NORTH_EAST, NORTH_WEST, SOUTH_EAST, SOUTH_WEST
@@ -78,6 +79,7 @@ public class StairComparatorUtil {
      *   'string_w'             'string_e'
      *   'string_sw' 'string_s' 'string_se'
      *
+     *   Note: if string = "", then it won't add _ after string
      * */
     public static MultiBlock.StructureList stairShortStringInitializer(String string, Object... objects) {
         String[] strings = new String[] {
@@ -87,6 +89,9 @@ public class StairComparatorUtil {
         };
         return stairStringInitializer(string,strings, objects);
     }
+
+
+
 
     /**
      * Adds structures to multiBlock, each with specified stairs.
@@ -122,8 +127,10 @@ public class StairComparatorUtil {
     }
 
 
+
+
     private static MultiBlock.StructureList stairStringInitializer(String string, String[] strings, Object... objects) {
-        string = "#"+string+"_";
+        string = "#"+ (!string.isEmpty() ? string+"_" : "");
         for (int i = 0; i < strings.length; i++) {
             strings[i] = string + strings[i];
         }
@@ -150,6 +157,8 @@ public class StairComparatorUtil {
 
         return stairList;
     }
+
+
 
 
     /**

@@ -2,14 +2,11 @@ package sneakingshadow.bvks.structure.comparator;
 
 import net.minecraft.block.BlockStairs;
 import net.minecraft.world.World;
-import sneakingshadow.bvks.structure.MultiBlockComparing;
 import sneakingshadow.bvks.structure.ObjectMap;
 
 import java.util.ArrayList;
 
-public class StairComparator extends CustomComparator {
-
-    private ArrayList<Integer> directions = new ArrayList<Integer>();
+public class StairComparator extends RotationComparator {
 
     /*
     * The direction the thinnest part of the stair faces.
@@ -35,15 +32,24 @@ public class StairComparator extends CustomComparator {
      * Anything that's instanceof BlockStairs
      * Has to be given direction arguments, if not it'll always return false.
      * */
-    public StairComparator() {}
+    public StairComparator() {
+        setMetaValues();
+    }
     /**
      * Has to be given direction arguments, if not it'll always return false.
      * */
     public StairComparator(ArrayList<Object> arrayList, int... directions) {
-        super(arrayList);
-        for (int num : directions) {
-            this.directions.add(num);
-        }
+        super(arrayList, directions);
+        setMetaValues();
+    }
+
+    public void setMetaValues() {
+        this.setMetaValues( new int[] {
+                NORTH,
+                EAST,
+                SOUTH,
+                WEST,
+        } );
     }
 
     /**
@@ -53,80 +59,8 @@ public class StairComparator extends CustomComparator {
         super(objects);
     }
 
-    public StairComparator addDirections(int... directions) {
-        for (int num : directions) {
-            this.directions.add(num);
-        }
-        return this;
+    public boolean emptyArgList(World world, int x, int y, int z, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
+        return world.getBlock(x,y,z) instanceof BlockStairs;
     }
 
-    /**
-     * @param world world
-     * @param x x
-     * @param y y
-     * @param z z
-     * @param rotation number of 90 degree rotations around center point of structure. Default 0.
-     * @param argumentList list of arguments given to the comparator, which has its 'character-objects' replaced.
-     * @param objectMap Character, Object hashmap in case its needed for comparing.
-     */
-    @Override
-    public boolean compare(World world, int x, int y, int z, int rotation, ArrayList<Object> argumentList, ObjectMap objectMap) {
-        boolean bool = argumentList.isEmpty() && world.getBlock(x,y,z) instanceof BlockStairs;
-        for (int i = 0; !bool && i < argumentList.size(); i++) {
-            bool = MultiBlockComparing.compare(world, x, y, z, argumentList.get(i), rotation, objectMap);
-        }
-        if (bool) {
-            int num = rotate(world.getBlockMetadata(x,y,z), rotation);
-            for (int dir : directions) {
-                if (num == dir) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public StairComparator setNorthMetavalue (int num) {
-        north = num;
-        return this;
-    }
-
-    public StairComparator setEastMetavalue (int num) {
-        east = num;
-        return this;
-    }
-
-    public StairComparator setSouthMetavalue (int num) {
-        south = num;
-        return this;
-    }
-
-    public StairComparator setWestMetavalue (int num) {
-        west = num;
-        return this;
-    }
-
-    public StairComparator setMetavalue (int[] numbers) {
-        if (numbers.length >= 4) {
-            north = numbers[0];
-            east = numbers[1];
-            south = numbers[2];
-            west = numbers[3];
-        }
-        return this;
-    }
-
-    private int north = NORTH;
-    private int east  = EAST;
-    private int south = SOUTH;
-    private int west  = WEST;
-    private int rotate(int meta, int rot) {
-        for (int i = 0; i < rot; i++) {
-            meta = meta == north ? east :
-                    meta == east ? south :
-                            meta == south ? west :
-                                    north;
-        }
-        return meta;
-    }
 }

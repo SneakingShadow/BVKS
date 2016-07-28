@@ -39,4 +39,6 @@ public abstract class StructureModifier {
         }
         return num;
     }
+
+
 }

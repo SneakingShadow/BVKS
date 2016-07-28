@@ -12,14 +12,10 @@ import java.util.ArrayList;
  */
 public abstract class CustomComparator {
 
-    /**
-     * @param rotation number of 90 degree rotations around center point of structure. Default 0.
-     * @param argumentList
-     * @param objectMap */
-    public abstract boolean compare(World world, int x, int y, int z, int rotation, ArrayList<Object> argumentList, ObjectMap objectMap);
+    public abstract boolean compare(World world, int x, int y, int z, int rotationX, int rotationY, int rotationZ, ArrayList<Object> argumentList, ObjectMap objectMap);
 
-    public boolean compare(World world, int x, int y, int z, int rotation, ObjectMap objectMap) {
-        return compare(world, x, y, z, rotation, objectMap.replaceObjects(argumentList), objectMap);
+    public boolean compare(World world, int x, int y, int z, int rotationX, int rotationY, int rotationZ, ObjectMap objectMap) {
+        return compare(world, x, y, z, rotationX, rotationY, rotationZ, objectMap.replaceObjects(argumentList), objectMap);
     }
 
     /**
