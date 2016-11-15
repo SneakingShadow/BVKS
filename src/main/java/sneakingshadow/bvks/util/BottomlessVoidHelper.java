@@ -1,7 +1,7 @@
 package sneakingshadow.bvks.util;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -12,47 +12,49 @@ public class BottomlessVoidHelper {
 
     private static final String TAG_ITEM = "item";
     private static final String TAG_COUNT = "count";
+    private static final String TAG_BLOCK = "block";
+    private static final String TAG_ITEM_MAX_SIZE = "item_max";
 
     /*
     *    metadata = 0: Data not set.
-    *    metadata = 1: Data set. Not sucking up items.
-    *    metadata = 2: Data set. Sucking up items.
-    *
-    *
+    *    metadata = 1: Data set. Not sucking up items from inventory.
+    *    metadata = 2: Data set. Sucking up items from inventory.
     *
     *    Bottomless void, nbt tag structure.
-    *
-    *    stacktag {
-    *        (tagCompound)item {
-    *             itemStack.writeToNBT(new nbtTagCompound)
-    *        }
-    *        (long) count
-    *    }
-    *
     */
 
     public static void setItemStored(ItemStack itemStack, ItemStack itemStoring) {
         if (itemStoring == null) {
             return;
         }
-        setupTags(itemStack);
+        ensureStackTag(itemStack);
         itemStack.setItemDamage(itemStack.getItemDamage() == 0 ? 1 : itemStack.getItemDamage());
-        itemStoring.stackSize = 1;
-        itemStack.stackTagCompound.setTag(TAG_ITEM, itemStoring.writeToNBT(new NBTTagCompound()));
+        ItemStack stack = itemStoring.copy();
+        stack.stackSize = 1;
+        itemStack.stackTagCompound.setTag(TAG_ITEM, stack.writeToNBT(new NBTTagCompound()));
+        itemStack.stackTagCompound.setLong(TAG_COUNT, 1);
+        itemStack.stackTagCompound.setBoolean(TAG_BLOCK, Block.getBlockFromItem(stack.getItem()) != Blocks.air);
+        itemStack.stackTagCompound.setInteger(TAG_ITEM_MAX_SIZE, stack.getMaxStackSize());
+    }
+
+    private static boolean storesItem(ItemStack itemStack) {
+        return itemStack.getItemDamage() != 0 && itemStack.hasTagCompound();
     }
 
     private static ItemStack getItem(ItemStack itemStack) {
-        return itemStack.hasTagCompound() && itemStack.getItemDamage() != 0 ?
+        return storesItem(itemStack) ?
                 ItemStack.loadItemStackFromNBT(itemStack.getTagCompound().getCompoundTag(TAG_ITEM)) :
                 null;
     }
 
     public static long getCount(ItemStack itemStack) {
-        return (itemStack.getItemDamage() != 0 && itemStack.hasTagCompound()) ? itemStack.getTagCompound().getLong(TAG_COUNT) : 0;
+        return storesItem(itemStack) ?
+                itemStack.getTagCompound().getLong(TAG_COUNT) :
+                0;
     }
 
     public static void setCount(ItemStack itemStack, long count) {
-        setupTags(itemStack);
+        ensureStackTag(itemStack);
         itemStack.getTagCompound().setLong(TAG_COUNT, count < 0 ? 0 : count);
     }
 
@@ -61,13 +63,15 @@ public class BottomlessVoidHelper {
         if (itemStack.getTagCompound() != null){
             itemStack.getTagCompound().removeTag(TAG_ITEM);
             itemStack.getTagCompound().removeTag(TAG_COUNT);
+            itemStack.getTagCompound().removeTag(TAG_BLOCK);
+            itemStack.getTagCompound().removeTag(TAG_ITEM_MAX_SIZE);
             if (itemStack.getTagCompound().hasNoTags()){
                 itemStack.setTagCompound(null);
             }
         }
     }
 
-    private static void setupTags(ItemStack itemStack) {
+    private static void ensureStackTag(ItemStack itemStack) {
         if(!itemStack.hasTagCompound()) {
             itemStack.setTagCompound(new NBTTagCompound());
         }
@@ -77,9 +81,12 @@ public class BottomlessVoidHelper {
         return getCount(itemStack) > 0;
     }
 
+    /**
+     * @return how much was left after adding.
+     * */
     public static long addToCount(ItemStack itemStack, long num) {
         long count = getCount(itemStack);
-        long ret = 0;
+        long ret;
         if (num >= 0) {
             long limit = Long.MAX_VALUE - count;
             count = num > limit ? Long.MAX_VALUE : count + num;
@@ -92,30 +99,39 @@ public class BottomlessVoidHelper {
         return ret;
     }
 
+    /**
+     * returns null if no item is stored
+     * */
     public static ItemStack getItemStored(ItemStack itemStack) {
-        return itemStack.getItemDamage() == 0 ? null : getItem(itemStack);
+        return storesItem(itemStack) ?
+                getItem(itemStack) :
+                null;
     }
 
     /**
-     * Returns null if it doesn't have a set item or it's
+     * Returns null if it doesn't have a set item or it's empty
      * */
     public static ItemStack getItemStack(ItemStack itemStack){
         return hasItems(itemStack) ? getItem(itemStack) : null;
     }
 
     public static boolean storesBlock(ItemStack itemStack) {
-        ItemStack itemStored = getItemStored(itemStack);
-        return itemStored != null && itemStored.getItem() instanceof ItemBlock;
+        return storesItem(itemStack) && itemStack.stackTagCompound.getBoolean(TAG_BLOCK);
     }
 
+    /**
+     * Checks if the bottomless voids stores the item inputted
+     * */
     public static boolean storesItem(ItemStack itemStack, ItemStack itemCompared) {
-        if (itemStack.getItemDamage() != 0) {
-            ItemStack itemStack1 = getItemStored(itemStack);
-            return itemCompared != null && itemStack1.getItem() == itemCompared.getItem() &&
-                    itemStack1.getItemDamage() == itemCompared.getItemDamage() &&
-                    (!itemStack1.hasTagCompound() && !itemCompared.hasTagCompound() ||
-                            itemStack1.hasTagCompound() && itemCompared.hasTagCompound() &&
-                                    itemStack1.getTagCompound().equals(itemCompared.getTagCompound()));
+        if ( storesItem(itemStack) ) {
+            ItemStack stack = getItemStored(itemStack);
+            return itemCompared != null &&
+                    stack.getItem() == itemCompared.getItem() &&
+                    stack.getItemDamage() == itemCompared.getItemDamage() &&
+                    (!stack.hasTagCompound() && !itemCompared.hasTagCompound() ||
+                            stack.hasTagCompound() && itemCompared.hasTagCompound() &&
+                                    stack.getTagCompound().equals( itemCompared.getTagCompound() )
+                    );
         }
         return false;
     }

@@ -4,10 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import sneakingshadow.bvks.reference.Name;
-import sneakingshadow.bvks.structure.MultiBlock;
-import sneakingshadow.bvks.structure.comparator.StairComparatorUtil;
 import sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
-import sneakingshadow.bvks.util.LogHelper;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
 
@@ -21,12 +18,21 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
+        /*
+        MultiBlock multiBlock = new MultiBlock(
+                "ccccce/ccccce/ccccce/ccccce\\cccce/cccce/cccce/cccce\\/ mm/ mm",
+                'c', Blocks.cobblestone,
+                //'C', MultiBlockUtil.arrayList('!', Blocks.cobblestone),
+                'e', new StairComparator(Blocks.stone_stairs).addDirections(StairComparator.NORTH),
+                'm', ModBlocks.DebugBlock
+        ).setFullRotation();
 
-        MultiBlock multiBlock = new MultiBlock("'nw''n''ne'/'w' 'e'/'sw''s''se'", StairComparatorUtil.stairShortStringInitializer("")).setFullRotation();
+        LogHelper.info(multiBlock.multiBlockToString());
 
-        if(world.isRemote) LogHelper.info( multiBlock.findStructure(world,x,y,z).structureValid(world) );
+        LogHelper.info( multiBlock.findStructure(world,x,y,z).structureValid(world) );
+        */
 
-        return true;
+        return false;
     }
 
     @Override

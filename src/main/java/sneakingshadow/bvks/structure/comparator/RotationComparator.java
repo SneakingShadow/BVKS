@@ -36,11 +36,15 @@ public class RotationComparator extends CustomComparator {
             bool = compareArgument(world, x, y, z, rotationX, rotationY, rotationZ, argumentList, objectMap, i);
         }
         if (bool) {
-            int num = rotate(world.getBlockMetadata(x,y,z), rotationY);
-            for (int dir : directions) {
-                if (num == dir) {
-                    return true;
+            if (!directions.isEmpty()) {
+                int num = rotate(world.getBlockMetadata(x, y, z), rotationY);
+                for (int dir : directions) {
+                    if (num == dir) {
+                        return true;
+                    }
                 }
+            } else {
+                return true;
             }
         }
         return false;
