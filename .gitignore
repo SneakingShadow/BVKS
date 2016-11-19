@@ -30,6 +30,7 @@ Thumbs.db
 
 ## Private Stuffs
 /private.properties
+/setup.cmd
 
 ## Jars
 *.jar
