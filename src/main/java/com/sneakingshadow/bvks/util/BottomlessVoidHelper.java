@@ -12,7 +12,7 @@ public class BottomlessVoidHelper {
 
     private static final String TAG_ITEM = "item";
     private static final String TAG_COUNT = "count";
-<<<<<<< HEAD:src/main/java/com/sneakingshadow/bvks/util/BottomlessVoidHelper.java
+
     private static String[] prefixes = {
             "",                               // | Prefix | Symbol | Exponential | Multiplier
             "K",                              // | kilo   |   k    |   10^3      | 1,000
@@ -24,10 +24,9 @@ public class BottomlessVoidHelper {
             "Z",                              // | zetta  |   Z    |   10^21     | 1,000,000,000,000,000,000,000
             "Y",                              // | yotta  |   Y    |   10^24     | 1,000,000,000,000,000,000,000,000
     };
-=======
+
     private static final String TAG_BLOCK = "block";
     private static final String TAG_ITEM_MAX_SIZE = "item_max";
->>>>>>> origin/HEAD:src/main/java/sneakingshadow/bvks/util/BottomlessVoidHelper.java
 
     /*
     *    metadata = 0: Data not set.
