@@ -54,8 +54,6 @@ You can't upgrade a gold hammer with a diamond pickaxe, but you can upgrade it w
 Hammer has special overlay when it has special items.
 Starts out with nothing, not even wood level.
 
-
-
 Multiple gates that open with redstone
 Opens with a sliding animation
 
@@ -79,6 +77,8 @@ When sneaking or when having an assassins knife in use?
 It would arguably be fairer that when you sneak that the armor becomes invisible, and that when you have all sets of armor it turns the user invisible for all the time the user sneaks, or for a short duration and silences the user so no'one could detetect the users steps.
 Fix BlockBVKS so placing with different rotations work better.
 
+Must test entityLivingBase.rotationYaw * 4 / 360 +0.5
+
 BV TNT
 
 Devil TNT
@@ -92,3 +92,13 @@ Blood sucking thing, sucks blood from cows and turns them into Devil Cows
 Remove dir
 
 Add the Bottomless Void Accessor Block
+
+
+
+
+
+
+
+
+
+
