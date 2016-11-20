@@ -1,7 +1,6 @@
 Thumbs.db
 
 ## Minecraft
-/decompiled
 /minecraft
 
 ## gradle
@@ -25,6 +24,7 @@ Thumbs.db
 /run
 
 ## eclipse
+/eclipse
 /.settings
 /.metadata
 /.classpath
@@ -35,13 +35,13 @@ Thumbs.db
 /out
 /.idea
 /atlassian-ide-plugin.xml
-/BVKS.iml
-/BVKS.ipr
-/BVKS.iws
+/*.iml
+/*.ipr
+/*.iws
 
 ## Private Stuffs
 /private.properties
-/setup.cmd
+/*.cmd
 
 ## Jars
 *.jar
