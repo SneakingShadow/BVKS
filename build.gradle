@@ -17,13 +17,13 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-0.0.10" //remember to change version in reference class
+version = "1.7.10-0.0.10"
 group= "com.sneakingshadow.bvks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "bvks"
 
 minecraft {
     version = "1.7.10-10.13.4.1558-1.7.10"
-    runDir = "decompiled"
+    runDir = "minecraft"
 }
 
 dependencies {
