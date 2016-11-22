@@ -1,7 +1,5 @@
 package com.sneakingshadow.bvks.multiblock;
 
-import net.minecraftforge.oredict.OreDictionary;
-
 public class MultiBlock {
 
     /**
@@ -104,7 +102,7 @@ public class MultiBlock {
      *
      * */
     public MultiBlock(Object... objects) {
-
+        InputHandler.getStructure(objects);
     }
 
 }
