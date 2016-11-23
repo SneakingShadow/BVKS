@@ -9,6 +9,10 @@ class InputSorter {
 
     /**
      * Returns null if invalid.
+     *
+     * Returns everything that should be regarded as structure block as a StructureBlock.
+     * Returns everything that should be regarded as an operator as an Operator.
+     * Returns everything that should be regarded as a modifier as a Modifier.
      * */
     private static Object ensureObject(Object object) {
 
@@ -25,6 +29,10 @@ class InputSorter {
         return null;
     }
 
+    /**
+     * Sorts the input, doesn't modify the input, only removes bad arguments.
+     * Note: Null is not a bad argument, but from ensureObject it is.
+     * */
     static ArrayList<Object> sortInput(Object[] objects) {
         return cleanList(objects, new ArrayList<Object>());
     }
@@ -46,9 +54,9 @@ class InputSorter {
                 );
             }
 
-            Object structureBlock = ensureObject(object);
-            if (structureBlock != null) {
-                outputList.add(structureBlock);
+            Object input = ensureObject(object);
+            if (input != null) {
+                outputList.add(input);
             }
         }
 

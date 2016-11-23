@@ -40,7 +40,7 @@ public class MultiBlock {
      *  A string key is used by having "^" surrounding the string.
      *      Example: "^string_key^"
      *
-     *  Operands and the structure block(s) it takes, are regarded as one structure block.
+     *  Operators and the operand(s) it takes, are regarded as one structure block.
      *
      *  All the characters and string keys from a string will be added to the structure array.
      *  Special characters, special values and modifiers are allowed.
@@ -72,7 +72,7 @@ public class MultiBlock {
      *      '#' = opaque
      *          block.getLightOpacity(world, x,y,z) == 255
      *
-     *  Structure Array Modifier:
+     *  Modifiers:
      *      '/' = next z column.
      *          z++  x=0
      *      '\' = next level up.
@@ -85,7 +85,7 @@ public class MultiBlock {
      *          Following structure-block, and modifiers in between will be mapped to the string-object.
      *          If used in string, the string-object has to be encased in ^
      *
-     *  Structure Block Operators:
+     *  Operators, in order of precedence:
      *      '!' = not       takes one operand
      *          Inverts the next check
      *      '&' = and       takes two operands
@@ -96,13 +96,16 @@ public class MultiBlock {
      *          A, '|', B to character 'l', then everywhere l is used in place of (A, '|', B) has to yield the same result;
      *          meaning, if you get A,A,A,B it's invalid, but if it's only A or only B, then it's valid.
      *
-     *      Note:
-     *          These are in order of precedence, meaning:
-     *          !A & B | c = ((!A) & B) | C
+     *  Note:
+     *      Operators have the highest priority and will be calculated first,
+     *      Modifiers will be calculated second,
+     *      Lastly special characters, special values, and normal StructureBlocks.
      *
      * */
     public MultiBlock(Object... objects) {
-        InputHandler.getStructure(objects);
+        structure = InputHandler.getStructure(objects);
+
     }
 
+    Structure structure;
 }
