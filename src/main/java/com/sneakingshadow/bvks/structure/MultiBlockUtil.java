@@ -64,9 +64,9 @@ public class MultiBlockUtil {
             Character character = input.charAt(i);
             string += character;
             if (character == '/') {
-                string += System.lineSeparator();
+                string += "\n";
             } else if (character == '\\') {
-                string += System.lineSeparator() + System.lineSeparator();
+                string += "\n\n";
             }
         }
         return string;

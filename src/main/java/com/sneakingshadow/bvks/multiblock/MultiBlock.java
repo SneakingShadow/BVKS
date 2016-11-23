@@ -1,5 +1,8 @@
 package com.sneakingshadow.bvks.multiblock;
 
+import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
+
 public class MultiBlock {
 
     /**
@@ -16,9 +19,11 @@ public class MultiBlock {
      *
      *  ArrayLists are counted as a structure block, can take modifiers, special characters and values.
      *  Only requires one value to be correct, doesn't matter which one.
+     *  Can be made by using ( and ), where everything in between is put in an ArrayList.
      *  Note:
      *      Does not work in same manner as '|'.
      *      ArrayList can contain ArrayLists.
+     *      both '('  ')' and "("  ")" can be used.
      *
      *  A structure block can be mapped to a character, and that character could be used in place of the structure block.
      *  Mapping is done by inputting:
@@ -72,20 +77,23 @@ public class MultiBlock {
      *      '#' = opaque
      *          block.getLightOpacity(world, x,y,z) == 255
      *
-     *  Modifiers:
-     *      '/' = next z column.
-     *          z++  x=0
-     *      '\' = next level up.
-     *          y++  x=0  z=0
+     *  Modifiers, in order of precedence:
      *      '@' = OreDictionary
      *          If inputted as a character, next string will be assumed to be an ore-name.
      *          If used in string, the ore-name has to be encased in @
      *      '^' = string-object
      *          If inputted as a character, next string will be assumed to be a string-object.
-     *          Following structure-block, and modifiers in between will be mapped to the string-object.
+     *          Following structure block, and modifiers in between will be mapped to the string-object.
      *          If used in string, the string-object has to be encased in ^
+     *      '/' = next z column.
+     *          z++  x=0
+     *      '\' = next level up.
+     *          y++  x=0  z=0
      *
      *  Operators, in order of precedence:
+     *      '(' and ')' = Brackets
+     *          Can be used in and outside of string as characters.
+     *          Everything inside will be put in an ArrayList.
      *      '!' = not       takes one operand
      *          Inverts the next check
      *      '&' = and       takes two operands
@@ -96,16 +104,117 @@ public class MultiBlock {
      *          A, '|', B to character 'l', then everywhere l is used in place of (A, '|', B) has to yield the same result;
      *          meaning, if you get A,A,A,B it's invalid, but if it's only A or only B, then it's valid.
      *
-     *  Note:
-     *      Operators have the highest priority and will be calculated first,
-     *      Modifiers will be calculated second,
-     *      Lastly special characters, special values, and normal StructureBlocks.
+     *  Order of precedence:
+     *      Brackets
+     *      Operators
+     *      Modifiers
+     *      special characters, special values, and normal structure block
+     *
+     *      Note:
+     *          Will start at the end of the array and work its way back.
+     *          Will loop over the table multiple times to ensure the order of precedence.
+     *
+     *  The multiblock can check for structures with any orientation.
+     *  Rotation is by default set to only around Y axis, but this can be changed using the 'set rotation around axis' functions
      *
      * */
     public MultiBlock(Object... objects) {
-        structure = InputHandler.getStructure(objects);
-
+        structureArray = InputHandler.getStructure(objects);
     }
 
-    Structure structure;
+    private StructureArray structureArray;
+    private boolean rotatesAroundX = false;
+    private boolean rotatesAroundY = true;
+    private boolean rotatesAroundZ = false;
+
+    /*
+    * Set rotation around axis
+    * */
+    public MultiBlock setRotatationAroundXAxis(boolean bool) {
+        rotatesAroundX = bool;
+        return this;
+    }
+    public MultiBlock setRotatationAroundYAxis(boolean bool) {
+        rotatesAroundY = bool;
+        return this;
+    }
+    public MultiBlock setRotatationAroundZAxis(boolean bool) {
+        rotatesAroundZ = bool;
+        return this;
+    }
+
+    /*
+    * Get rotation around axis
+    * */
+    public boolean getRotationAroundXAxis() {
+        return rotatesAroundX;
+    }
+    public boolean getRotationAroundYAxis() {
+        return rotatesAroundY;
+    }
+    public boolean getRotationAroundZAxis() {
+        return rotatesAroundZ;
+    }
+
+    /**
+     * Returns null if no structure is found
+     * */
+    public Structure findStructure(World world, int x, int y, int z) {
+
+        if (y < 0 || y > 255)
+            return null;
+
+        //Loop through array
+        for (int ix = 0; ix < structureArray.sizeX(); ix++)
+            for (int iy = 0; iy < structureArray.sizeY(); iy++)
+                for (int iz = 0; iz < structureArray.sizeZ(); iz++)
+
+                    //Check if structure block is equal to block in world
+                    if ( structureArray.get(ix, iy, iz).blockIsValid(world, x, y, z) )
+
+                        /*
+                        * Rotate around set axes.
+                        * If not rotating around axis, it will go from [0,1>.
+                        * */
+                        for (int rotationX = 0; rotationX < (rotatesAroundX ? 4 : 1); rotationX++)
+                            for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++)
+                                for (int rotationZ = 0; rotationZ < (rotatesAroundZ ? 4 : 1); rotationZ++) {
+
+                                    //Try to find structure with set rotations.
+                                    Structure structure = findStructure(
+                                            world,
+                                            Vec3.createVectorHelper(x,y,z),
+                                            Vec3.createVectorHelper(ix,iy,iz),
+                                            rotationX,
+                                            rotationY,
+                                            rotationZ
+                                    );
+
+                                    if (structure != null)
+                                        return structure;
+                                }
+
+
+        return null;
+    }
+
+    /**
+     * Finds a structure based on:
+     * @param world
+     * @param startPosition the block in world that is equal to that in the array.
+     * @param arrayPosition the position in the array that the structure block is compared to.
+     * @param rotationX the rotation of the structure around the x-axis.
+     * @param rotationY the rotation of the structure around the y-axis.
+     * @param rotationZ the rotation of the structure around the z-axis.
+     *
+     * Rotations are measured in quarter-full rotations, meaning from 0 to 3.
+     * */
+    public Structure findStructure(World world, Vec3 startPosition, Vec3 arrayPosition, int rotationX, int rotationY, int rotationZ) {
+
+        return null;
+    }
+
+    private float rotation(int rotation) {
+        return (float) (rotation/2 * Math.PI);
+    }
 }

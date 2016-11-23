@@ -317,19 +317,19 @@ public class MultiBlock {
         for (int structureID = 0; structureID < multiBlocks.size(); structureID++) {
             Object[][][] multiBlock = multiBlocks.get(structureID).getMultiBlock();
 
-            string += "Structure: " + structureID + System.lineSeparator() + "{";
+            string += "Structure: " + structureID + "\n{";
             for (int ix = 0; ix < multiBlock.length; ix++) {
-                string += System.lineSeparator() + "   {";
+                string += "\n   {";
                 for (int iy = 0; iy < multiBlock[0].length; iy++) {
-                    string += System.lineSeparator() + "      {";
+                    string += "\n      {";
                     for (int iz = 0; iz < multiBlock[0][0].length; iz++) {
-                        string += System.lineSeparator() + "         " + (multiBlock[ix][iy][iz] != null ? multiBlock[ix][iy][iz].toString() : "null") + ",";
+                        string += "\n         " + (multiBlock[ix][iy][iz] != null ? multiBlock[ix][iy][iz].toString() : "null") + ",";
                     }
-                    string += System.lineSeparator() + "      },";
+                    string += "\n      },";
                 }
-                string += System.lineSeparator() + "   },";
+                string += "\n   },";
             }
-            string += System.lineSeparator() + "};" + System.lineSeparator();
+            string += "\n};\n";
         }
         return string;
     }

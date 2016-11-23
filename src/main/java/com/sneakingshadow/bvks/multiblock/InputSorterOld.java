@@ -1,11 +1,14 @@
 package com.sneakingshadow.bvks.multiblock;
 
+import com.sneakingshadow.bvks.multiblock.operator.Operator;
+import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlockNull;
+
 import java.util.ArrayList;
 
 /**
  * Created by SneakingShadow on 22.11.2016.
  */
-class InputSorter {
+class InputSorterOld {
 
     /**
      * Returns null if invalid.
@@ -16,14 +19,24 @@ class InputSorter {
      * */
     private static Object ensureObject(Object object) {
 
+        if (object instanceof Character) {
+            Operator operator = Operators.getOperator((Character)object);
+
+            if (operator != null)
+                return operator;
+            else
+                return object;
+        }
+
         if (object instanceof ArrayList) {
             ArrayList<Object> arrayList = cleanList(
                     ((ArrayList)object).toArray(),
                     new ArrayList<Object>()
             );
-            if (!arrayList.isEmpty()) {
+
+            if (!arrayList.isEmpty())
                 return arrayList;
-            }
+
         }
 
         return null;
@@ -44,7 +57,7 @@ class InputSorter {
 
         for (Object object : objects) {
             if (object == null) {
-                outputList.add(null);
+                outputList.add(new StructureBlockNull());
             }
 
             if (object instanceof InputList) {
