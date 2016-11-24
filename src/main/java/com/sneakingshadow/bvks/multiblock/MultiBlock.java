@@ -72,28 +72,32 @@ public class MultiBlock {
      *          block.isReplaceable(world,x,y,z)
      *      '~' = liquid
      *          block.getMaterial().isLiquid()
-     *      '*' = opaque
+     *      '*' = opaque material
      *          block.getMaterial().isOpaque()
-     *      '#' = opaque
+     *      '#' = opaque light based
      *          block.getLightOpacity(world, x,y,z) == 255
      *
      *  Modifiers, in order of precedence:
      *      '@' = OreDictionary
      *          If inputted as a character, next string will be assumed to be an ore-name.
      *          If used in string, the ore-name has to be encased in @
+     *
+     *  Mapping:
      *      '^' = string-object
      *          If inputted as a character, next string will be assumed to be a string-object.
      *          Following structure block, and modifiers in between will be mapped to the string-object.
      *          If used in string, the string-object has to be encased in ^
+     *
+     *  Structure Modifier:
+     *      '(' and ')' = Brackets
+     *          Can be used in and outside of string as characters.
+     *          Everything inside will be put in an ArrayList.
      *      '/' = next z column.
      *          z++  x=0
      *      '\' = next level up.
      *          y++  x=0  z=0
      *
      *  Operators, in order of precedence:
-     *      '(' and ')' = Brackets
-     *          Can be used in and outside of string as characters.
-     *          Everything inside will be put in an ArrayList.
      *      '!' = not       takes one operand
      *          Inverts the next check
      *      '&' = and       takes two operands
@@ -105,10 +109,14 @@ public class MultiBlock {
      *          meaning, if you get A,A,A,B it's invalid, but if it's only A or only B, then it's valid.
      *
      *  Order of precedence:
+     *      Extract InputLists
      *      Brackets
-     *      Operators
+     *      Sort any found ArrayLists, in this order of precedence
      *      Modifiers
-     *      special characters, special values, and normal structure block
+     *      Transform special characters and special values to StructureBlock
+     *      Operators
+     *      Mapping
+     *      Structure Modifier
      *
      *      Note:
      *          Will start at the end of the array and work its way back.
