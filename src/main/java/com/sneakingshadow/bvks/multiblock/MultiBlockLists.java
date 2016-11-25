@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class MultiBlockLists {
 
-    //Special characters
+    //Special values
     public static final Character NULL = ' ';
     public static final Character FULL_BLOCK = '+';
     public static final Character AIR = '_';
@@ -27,9 +27,16 @@ public class MultiBlockLists {
     public static final Character OR = '|';
     public static final Character ORE_DICTIONARY = '@';
 
+    //Modifiers
+    public static final Character BRACKET_START = '(';
+    public static final Character BRACKET_END = ')';
+    public static final Character NEXT_LINE = '/';
+    public static final Character NEXT_LEVEL = '\\';
+
     private static ArrayList<Object> valuesUsed = ArrayListHelper.getArrayList(
             (Object)NULL, FULL_BLOCK, AIR, REPLACEABLE_BLOCK, LIQUID, OPAQUE_MATERIAL, OPAQUE_LIGHT,
-            NOT, AND, OR, ORE_DICTIONARY
+            NOT, AND, OR, ORE_DICTIONARY,
+            BRACKET_START, BRACKET_END, NEXT_LINE, NEXT_LEVEL
     );
 
     private static boolean usedSpecialValue(Object values) {

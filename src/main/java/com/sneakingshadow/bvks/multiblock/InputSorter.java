@@ -3,10 +3,12 @@ package com.sneakingshadow.bvks.multiblock;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockArrayList;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockOreDictionary;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
+import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
+import com.sneakingshadow.bvks.util.ArrayListHelper;
 
 import java.util.ArrayList;
 
-import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.ORE_DICTIONARY;
+import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.*;
 
 class InputSorter {
 
@@ -15,7 +17,7 @@ class InputSorter {
         arrayList = brackets(arrayList.toArray(), new ArrayList<Object>());
         arrayList = arrayListSort(arrayList.toArray(), new ArrayList<Object>());
         arrayList = oreDictionary(arrayList.toArray(), new ArrayList<Object>());
-        arrayList = specialCharacters(arrayList.toArray(), new ArrayList<Object>());
+        arrayList = specialCharacter(arrayList.toArray(), new ArrayList<Object>());
 
         return arrayList;
     }
@@ -23,7 +25,7 @@ class InputSorter {
     private static ArrayList<Object> inputList(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects)
             if (object instanceof InputList)
-                inputList(((InputList) object).toArray(), arrayList);
+                inputList(ArrayListHelper.toArray(object), arrayList);
             else
                 arrayList.add(object);
 
@@ -65,9 +67,9 @@ class InputSorter {
 
     //Used for brackets
     private static int characterBracket(Character character, int bracketsNotClosed) {
-        if (character.equals('('))
+        if (character.equals(BRACKET_START))
             bracketsNotClosed++;
-        else if (character.equals(')'))
+        else if (character.equals(BRACKET_END))
         {
             //Subtract one, unless lower, then set to 0.
             bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
@@ -78,15 +80,11 @@ class InputSorter {
     private static ArrayList<Object> arrayListSort(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects)
             if (object instanceof ArrayList) {
-                ArrayList<Object> arrayList1 = sortList( ((ArrayList) object).toArray() );
-                ArrayList<StructureBlock> arrayList2 = new ArrayList<StructureBlock>();
-
-                for (Object arrayObject : arrayList1)
-                    if (arrayObject instanceof StructureBlock)
-                        arrayList2.add((StructureBlock) arrayObject);
-
-                if (arrayList2.size() > 0)
-                    arrayList.add(new SBlockArrayList(arrayList2));
+                arrayList.add(
+                        new SBlockArrayList(
+                                sortList( ArrayListHelper.toArray(object) )
+                        )
+                );
             } else
                 arrayList.add(object);
 
@@ -135,17 +133,26 @@ class InputSorter {
         return arrayList;
     }
 
-    private static ArrayList<Object> specialCharacters(Object[] objects, ArrayList<Object> arrayList) {
+    private static ArrayList<Object> specialCharacter(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects) {
-            StructureBlock structureBlock = MultiBlockLists.getSpecialValue(object);
-            if (structureBlock != null)
-                arrayList.add(structureBlock);
+            if (object == null)
+                arrayList.add(new SBlockNull());
+            else {
+                StructureBlock structureBlock = MultiBlockLists.getSpecialValue(object);
+                if (structureBlock != null)
+                    arrayList.add(structureBlock);
+            }
         }
 
         return arrayList;
     }
 
+    private static ArrayList<Object> operator(Object[] objects, ArrayList<Object> arrayList) {
+        return arrayList;
+    }
+
     //   private static ArrayList<Object> List(Object[] objects, ArrayList<Object> arrayList) {}
+
 
 
     private static void addToList(Object object, boolean bool, ArrayList<Object> true_list, ArrayList<Object> false_list) {
@@ -154,6 +161,5 @@ class InputSorter {
         else
             false_list.add(object);
     }
-
 
 }

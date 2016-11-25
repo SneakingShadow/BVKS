@@ -15,9 +15,10 @@ public class MultiBlock {
      *  The structure array starts at x = 0, y = 0, z = 0.
      *  A structure block will increase x by one and add it in the structure array.
      *  '/' character will set x to 0, and increase z by 1.
-     *  '\' character will set x and z to 0, and increase y by 1.
+     *  '\\' character will set x and z to 0, and increase y by 1.
      *
-     *  ArrayLists are counted as a structure block, can take modifiers, special characters and values.
+     *  ArrayLists are counted as a structure block,
+     *  and they can take operators, special characters, values and modifiers, but not structure modifiers.
      *  Only requires one value to be correct, doesn't matter which one.
      *  Can be made by using ( and ), where everything in between is put in an ArrayList.
      *  Note:
@@ -27,29 +28,38 @@ public class MultiBlock {
      *
      *  A structure block can be mapped to a character, and that character could be used in place of the structure block.
      *  Mapping is done by inputting:
-     *      A character, that's not a special character nor modifier,
-     *      wanted operands, 0 or more,
+     *      A character, that's not a special character nor modifier.
      *      followed by a structure block.
+     *  Note:
+     *      Modifiers and operators are allowed, but not structure modifiers.
+     *      A & B counts as one structure block
      *  All the key characters would post-init be replaced by its mapped value.
-     *  If a character is not mapped, it will be replaced by null.
+     *  If a character is not mapped nor a special character, it will be replaced by null.
      *  A character key is used by having that character in a string.
      *
-     *  A structure block can be mapped to a string, and that string could be used in place of the structure block.
+     *  A structure block can be mapped to a string, that string is called a string-object,
+     *  and that string-object could be used in place of the structure block.
      *  Mapping is done by inputting:
      *      '^',
      *      a string,
-     *      wanted modifiers, 0 or more,
      *      followed by a structure block.
+     *  Note:
+     *      Modifiers and operators are allowed, but not structure modifiers.
+     *      A & B counts as one structure block
      *  All the key string would post-init be replaced by its mapped structure block.
      *  If a string-object is not mapped, it will be replaced by null.
-     *  A string key is used by having "^" surrounding the string.
+     *  A string-object is used by having "^" surrounding the string.
      *      Example: "^string_key^"
      *
      *  Operators and the operand(s) it takes, are regarded as one structure block.
      *
-     *  All the characters and string keys from a string will be added to the structure array.
-     *  Special characters, special values and modifiers are allowed.
-     *  Note: @ has to encase the ore-name if OreDictionary modifier is used.
+     *  In a string:
+     *  All the characters and string-object will be added to the structure array.
+     *  Special characters, special values, operators and modifiers are allowed.
+     *  Structure modifiers are not allowed.
+     *  Note:
+     *      @ has to encase the ore-name if OreDictionary modifier is used.
+     *          "@cobblestone@"
      *
      *  OreDictionary is allowed, but must have the special character '@' before the ore-name.
      *      Example: '@', "cobblestone"
@@ -57,7 +67,7 @@ public class MultiBlock {
      *  A multi-block that's in the shape of a furnace recipe lying down, with air block in the center:
      *      new MultiBlock(Blocks.cobblestone,"xx/", '@', "cobblestone", "_x/@cobblestone@@cobblestone@x", 'x', Blocks.cobblestone);
      *
-     *  InputList work the exact same way as ArrayList<Object>, but is treated differently.
+     *  InputList extends ArrayList<Object>, but is treated differently.
      *  Everything in an InputList is treated as if it was inputted outside of the input list.
      *      new MultiBlock(new InputList(A,B,C)) = new MultiBlock(A,B,C)
      *
@@ -107,23 +117,23 @@ public class MultiBlock {
      *          If you have two structure blocks, A and B, and you map:
      *          A, '|', B to character 'l', then everywhere l is used in place of (A, '|', B) has to yield the same result;
      *          meaning, if you get A,A,A,B it's invalid, but if it's only A or only B, then it's valid.
+     *      Note:
+     *          A & B & C = (A & B) & C
      *
      *  Order of precedence:
      *      Extract InputLists
      *      Brackets
-     *      Sort any found ArrayLists, in this order of precedence
+     *      Sort any found ArrayLists, in this order of precedence, without Structure Modifiers
      *      Modifiers
      *      Transform special characters and special values to StructureBlock
      *      Operators
      *      Mapping
-     *      Structure Modifier
-     *
-     *      Note:
-     *          Will start at the end of the array and work its way back.
-     *          Will loop over the table multiple times to ensure the order of precedence.
+     *      Structure Modifiers
      *
      *  The multiblock can check for structures with any orientation.
-     *  Rotation is by default set to only around Y axis, but this can be changed using the 'set rotation around axis' functions
+     *  Rotation is by default set to only rotate around Y axis,
+     *  but this can be changed using the 'set rotation around axis' functions.
+     *  Rotation is per 90°, 1/2 pi in radians.
      *
      * */
     public MultiBlock(Object... objects) {
