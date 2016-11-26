@@ -7,6 +7,7 @@ import com.sneakingshadow.bvks.multiblock.structureblock.SBlockOreDictionary;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import com.sneakingshadow.bvks.multiblock.structureblock.operator.Operator;
 import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
+import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sneakingshadow.bvks.util.StringUtil;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -187,26 +188,26 @@ class InputSorter {
 
         for (Object object : objects) {
             if (object instanceof Item) {
-                object = Block.getBlockFromItem((Item)object); //This will be handled by another if statement
-                if (object == Blocks.air)
-                    object = null;  //This will be handled by another if statement
+                Block block = Block.getBlockFromItem((Item)object);
+                if (block == Blocks.air)
+                    arrayList.add(new SBlockNull());
+                else
+                    arrayList.add(new SBlockBlock(block));
             }
-
-            if (object instanceof Block)
+            else if (object instanceof Block)
                 arrayList.add(new SBlockBlock((Block)object));
 
-            if (object instanceof ItemStack) {
+            else if (object instanceof ItemStack) {
                 Block block = Block.getBlockFromItem(((ItemStack) object).getItem());
                 if (block == Blocks.air)
                     object = null;  //This will be handled by another if statement.
                 else
                     arrayList.add(new SBlockBlock(block, ((ItemStack) object).getItemDamage()));
             }
-
-            if (object == null)
+            else if (object == null)
                 arrayList.add(new SBlockNull());
 
-            if (object instanceof String)
+            else if (object instanceof String)
             {
                 String string_object = (String)object;
                 String string = "";
@@ -219,7 +220,11 @@ class InputSorter {
                     } else
                         string += string_object.charAt(i);
                 }
+                if (!string.isEmpty())
+                    arrayList.add(string);
             }
+            else
+                arrayList.add(object);
         }
 
         return arrayList;
@@ -228,18 +233,19 @@ class InputSorter {
     /**
      * Turns operator values into Operators
      * */
-    private static ArrayList<Object> operator(ArrayList<Object> arrayList) {
+    private static ArrayList<Object> operator(ArrayList<Object> inputList) {
         ArrayList<OperatorInitializer> operatorInitializerList = MultiBlockLists.getOperatorList();
 
         for (OperatorInitializer operatorInitializer : operatorInitializerList){
             ArrayList<Integer> removedEntries = new ArrayList<Integer>();
+            ArrayList<Object> arrayList = new ArrayList<Object>();
 
-            for (int i = 0; i < arrayList.size(); i++) {
+            for (int i = 0; i < inputList.size(); i++) {
                 if (!removedEntries.contains(i)) {
-                    if (operatorInitializer.isSpecialCharacter(arrayList.get(i))) {
+                    if (operatorInitializer.isSpecialCharacter(inputList.get(i))) {
                         Operator operator = operatorInitializer.getOperator();
 
-                        ArrayList<Object> temp = removeEntries(arrayList, removedEntries);
+                        ArrayList<Object> temp = removeEntries(inputList, removedEntries);
 
                         if ( operator.valid( temp,i ) ) {
                             int[] ints = operator.takeOperands( temp, i );
@@ -250,14 +256,15 @@ class InputSorter {
 
                         arrayList.add(operator);
                     } else
-                        arrayList.add(arrayList.get(i));
-                }
+                        arrayList.add(inputList.get(i));
+                }else
+                    arrayList.add(inputList.get(i));
             }
 
-            arrayList = removeEntries(arrayList, removedEntries);
+            inputList = removeEntries(arrayList, removedEntries);
         }
 
-        return arrayList;
+        return inputList;
     }
 
     //Used by operator to remove specified entries
@@ -330,10 +337,10 @@ class InputSorter {
 
                 for (String string : strings)
                     if(!string.isEmpty())
-                        if(MultiBlockLists.STRING_OBJECT.equals(string.charAt(0)))
+                        if(MultiBlockLists.STRING_OBJECT.equals(string.charAt(0))) {
                             if (string.length() > 1)
                                 arrayList.add(string);
-                        else
+                        } else
                             for (int i = 0; i < string.length(); i++)
                                 arrayList.add(string.charAt(i));
             } else

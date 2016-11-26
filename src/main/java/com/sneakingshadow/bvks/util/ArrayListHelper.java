@@ -27,4 +27,25 @@ public class ArrayListHelper {
         return arrayList;
     }
 
+    public static String arrayToString(ArrayList arrayList) {
+        String string = "{";
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            Object object = arrayList.get(i);
+
+            if (object == null)
+                string += "null";
+            else if (object instanceof ArrayList)
+                string += arrayToString((ArrayList) object);
+            else if (object instanceof String)
+                string += "\"" + object.toString() + "\"";
+            else if (object instanceof Character)
+                string += "'" + object.toString() + "'";
+            else
+                string += object.toString();
+            string += i < arrayList.size()-1 ? ", " : "";
+        }
+
+        return string+"}";
+    }
 }

@@ -293,6 +293,10 @@ public class MultiBlock {
         return vector;
     }
 
+    /**
+     * Outputs the structure in string form.
+     * Will try to optimize readability, by putting the axis with the lowest size first.
+     * */
     public String toString() {
         return super.toString() + "\n\n" + structureArray.toString();
     }

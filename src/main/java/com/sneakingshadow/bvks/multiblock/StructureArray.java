@@ -23,7 +23,7 @@ class StructureArray {
 
     void set(int x, int y, int z, StructureBlock structureBlock) {
         ensureCapacity(x,y,z);
-        structure.get(x).get(y).add(z, structureBlock == null ? new SBlockNull() : structureBlock);
+        structure.get(x).get(y).set(z, structureBlock == null ? new SBlockNull() : structureBlock);
     }
 
     StructureBlock get(int x, int y, int z) {
@@ -53,9 +53,9 @@ class StructureArray {
 
 
     private void ensureCapacity(int x, int y, int z) {
-        boolean x_bool = x > sizeX(); // x is too large
-        boolean y_bool = y > sizeY(); // y is too large
-        boolean z_bool = z > sizeZ(); // z is too large
+        boolean x_bool = x >= sizeX(); // x is too large
+        boolean y_bool = y >= sizeY(); // y is too large
+        boolean z_bool = z >= sizeZ(); // z is too large
 
         //Doesn't need to go through anything
         if (!x_bool && !y_bool && !z_bool)
@@ -107,22 +107,104 @@ class StructureArray {
         return arrayList;
     }
 
+    /**
+     * outputs the structure in string form.
+     * Will try to optimize readability, by putting the axis with the lowest size first.
+     * */
     @Override
     public String toString() {
         String string = "";
+        String whitespace = "  ";
 
-        for (int x = 0; x < sizeX(); x++) {
-            string += "{\n";
-            for (int y = 0; y < sizeY(); y++) {
-                string += "    {\n";
-                for (int z = 0; z < sizeZ(); z++) {
-                    string += "        " + get(x,y,z).toString() + ",\n";
+        String[] order = order();
+        for (int i = 0; i < sizeFromString(order[0]); i++) {
+            string += order[0] + "=" + i + "{\n";
+
+            for (int j = 0; j < sizeFromString(order[1]); j++) {
+                string += whitespace + order[1] + "=" + j + "{\n";
+
+                for (int k = 0; k < sizeFromString(order[2]); k++) {
+                    int[] valuesXYZ = valuesXYZ(order.clone(),new int[]{i,j,k});
+
+                    string += whitespace+whitespace + order[2] + "=" + k + ": "
+                            + get(valuesXYZ[0],valuesXYZ[1],valuesXYZ[2]).toString() + "\n";
                 }
-                string += "    },\n";
+                string += "    }\n";
             }
-            string += "},\n";
+            string += "}\n";
         }
 
         return string;
     }
+
+    //---------------Used by toString---------------//
+
+    /**
+     * sorts size of array in x, y and z direction by size, starting with smallest.
+     * */
+    private String[] order() {
+        String[] strings = {"x","y","z"};
+
+        //Swap first and second element if first element is larger
+        if (sizeFromString(strings[0]) > sizeFromString(strings[1])) {
+            String string = strings[0];
+            strings[0] = strings[1];
+            strings[1] = string;
+        }
+        //Swap second and third element if second element is larger
+        if (sizeFromString(strings[1]) > sizeFromString(strings[2])) {
+            String string = strings[1];
+            strings[1] = strings[2];
+            strings[2] = string;
+        }
+
+        return strings;
+    }
+
+    /**
+     * returns size of array dimensions, based on string inputted.
+     * "x" -> sizeX()
+     * "y" -> sizeY()
+     * default -> sizeZ()
+     * */
+    private int sizeFromString(String string) {
+        if ("x".equals(string))
+            return sizeX();
+        else if ("y".equals(string))
+            return sizeY();
+        else
+            return sizeZ();
+    }
+
+    private int[] valuesXYZ(String[] strings, int[] sizes) {
+        //Check x
+        for (int i = 0; i < 3; i++) {
+            if ("x".equals(strings[i])) {
+                String string = strings[0];
+                strings[0] = strings[i];
+                strings[i] = string;
+
+                int size = sizes[0];
+                sizes[0] = sizes[i];
+                sizes[i] = size;
+                break;
+            }
+        }
+        //Check y
+        for (int i = 1; i < 3; i++) {
+            if ("y".equals(strings[i])) {
+                String string = strings[1];
+                strings[1] = strings[i];
+                strings[i] = string;
+
+                int size = sizes[1];
+                sizes[1] = sizes[i];
+                sizes[i] = size;
+                break;
+            }
+        }
+
+        return sizes;
+    }
+
 }

@@ -137,15 +137,15 @@ public class MultiBlockLists {
     public static boolean specialCharacterUsed(Character value) {
         for (Character character : specialCharactersUsed)
             if (character.equals(value))
-                return false;
+                return true;
 
-        return true;
+        return false;
     }
 
     private static boolean characterUsed(Character value) {
         for (Character character : otherCharactersUsed)
             if (character.equals(value))
-                return false;
+                return true;
 
         return specialCharacterUsed(value);
     }
@@ -169,7 +169,7 @@ public class MultiBlockLists {
      * @return successful
      * */
     public static boolean register(SpecialCharacterInitializer specialCharacterInitializer) {
-        if (characterUsed(specialCharacterInitializer.getCharacter())) {
+        if (!characterUsed(specialCharacterInitializer.getCharacter())) {
             specialCharacterInitializerList.add(specialCharacterInitializer);
             specialCharactersUsed.add(specialCharacterInitializer.getCharacter());
             return true;
@@ -190,7 +190,7 @@ public class MultiBlockLists {
      * @return successful
      * */
     public static boolean register(OperatorInitializer operatorInitializer) {
-        if (characterUsed(operatorInitializer.getCharacter())) {
+        if (!characterUsed(operatorInitializer.getCharacter())) {
             operatorInitializerList.add(operatorInitializer);
             otherCharactersUsed.add(operatorInitializer.getCharacter());
             return true;
