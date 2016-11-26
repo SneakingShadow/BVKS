@@ -1,11 +1,11 @@
 package com.sneakingshadow.bvks.entity;
 
+import com.sneakingshadow.bvks.block.BlockBVKS;
+import com.sneakingshadow.bvks.reference.Reference;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.block.BlockBVKS;
-import com.sneakingshadow.bvks.reference.Reference;
 
 public class EntityAwesomeCow extends EntityCreature{
 

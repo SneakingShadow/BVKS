@@ -1,12 +1,12 @@
 package com.sneakingshadow.bvks.crafting;
 
+import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.item.ItemBottomlessVoid;
 import com.sneakingshadow.bvks.util.BottomlessVoidHelper;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.init.ModItems;
 
 public class RecipeBottomlessVoid {
 

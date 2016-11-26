@@ -1,8 +1,8 @@
 package com.sneakingshadow.bvks.structure.modifer;
 
+import com.sneakingshadow.bvks.structure.MultiBlockInit;
 import com.sneakingshadow.bvks.structure.ObjectMap;
 import com.sneakingshadow.bvks.structure.Vec;
-import com.sneakingshadow.bvks.structure.MultiBlockInit;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;

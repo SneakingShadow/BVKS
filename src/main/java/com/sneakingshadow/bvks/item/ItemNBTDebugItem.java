@@ -1,12 +1,12 @@
 package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
+import com.sneakingshadow.bvks.reference.Name;
+import com.sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.reference.Name;
-import com.sneakingshadow.bvks.util.LogHelper;
 
 public class ItemNBTDebugItem extends ItemBVKS {
 

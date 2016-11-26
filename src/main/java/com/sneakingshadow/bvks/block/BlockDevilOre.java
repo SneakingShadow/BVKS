@@ -1,12 +1,12 @@
 package com.sneakingshadow.bvks.block;
 
+import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.reference.Name;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.init.ModItems;
 
 import java.util.ArrayList;
 import java.util.Random;

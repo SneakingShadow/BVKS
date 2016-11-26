@@ -1,7 +1,10 @@
 package com.sneakingshadow.bvks.block;
 
-import com.sneakingshadow.bvks.reference.Dir;
+import com.sneakingshadow.bvks.BVKS;
 import com.sneakingshadow.bvks.init.ModGuis;
+import com.sneakingshadow.bvks.reference.Dir;
+import com.sneakingshadow.bvks.reference.Name;
+import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -12,9 +15,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.BVKS;
-import com.sneakingshadow.bvks.reference.Name;
-import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 public class BlockDemonFurnace extends BlockBVKSContainer {
 

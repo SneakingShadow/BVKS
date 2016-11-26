@@ -3,8 +3,9 @@ package com.sneakingshadow.bvks.multiblock;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockArrayList;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockOreDictionary;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
+import com.sneakingshadow.bvks.multiblock.structureblock.operator.Operator;
 import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
-import com.sneakingshadow.bvks.util.ArrayListHelper;
+import com.sneakingshadow.bvks.util.StringUtil;
 
 import java.util.ArrayList;
 
@@ -14,10 +15,11 @@ class InputSorter {
 
     static ArrayList<Object> sortList(Object[] objects) {
         ArrayList<Object> arrayList = inputList(objects, new ArrayList<Object>());
-        arrayList = brackets(arrayList.toArray(), new ArrayList<Object>());
-        arrayList = arrayListSort(arrayList.toArray(), new ArrayList<Object>());
-        arrayList = oreDictionary(arrayList.toArray(), new ArrayList<Object>());
-        arrayList = specialCharacter(arrayList.toArray(), new ArrayList<Object>());
+        arrayList = brackets(arrayList);
+        arrayList = arrayListSort(arrayList);
+        arrayList = oreDictionary(arrayList);
+        arrayList = specialCharacter(arrayList);
+        arrayList = operator(arrayList);
 
         return arrayList;
     }
@@ -25,64 +27,72 @@ class InputSorter {
     private static ArrayList<Object> inputList(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects)
             if (object instanceof InputList)
-                inputList(ArrayListHelper.toArray(object), arrayList);
+                inputList(((ArrayList) object).toArray(), arrayList);
             else
                 arrayList.add(object);
 
         return arrayList;
     }
 
-    private static ArrayList<Object> brackets(Object[] objects, ArrayList<Object> inputList) {
+    private static ArrayList<Object> brackets(ArrayList<Object> objects) {
         int bracketsNotClosed = 0;
         ArrayList<Object> bracketList = new ArrayList<Object>();
+        ArrayList<Object> inputList = new ArrayList<Object>();
 
         for (Object object : objects) {
+
             if (object instanceof Character) {
                 int num = bracketsNotClosed;
-                bracketsNotClosed = characterBracket((Character) object, bracketsNotClosed);
+
+                if (BRACKET_START.equals(object))
+                    bracketsNotClosed++;
+                else if (BRACKET_END.equals(object))
+                {
+                    //Subtract one, unless lower, then set to 0.
+                    bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
+                }
 
                 addToList(object, bracketsNotClosed == num && bracketsNotClosed > 0, bracketList, inputList);
             } else if (object instanceof String) {
-                String string = (String) object;
-                String string_output = "";
+                ArrayList<String> stringArray = StringUtil.splitString(
+                        (String) object, new Character[] {BRACKET_START, BRACKET_END}
+                );
 
-                for (int j = 0; j < string.length(); j++) {
+                for (String string : stringArray) {
+                    Character character = string.charAt(0);
+
                     int num = bracketsNotClosed;
-                    bracketsNotClosed = characterBracket(string.charAt(j), bracketsNotClosed);
+                    boolean bool = false;
 
-                    if (bracketsNotClosed == num && bracketsNotClosed > 0)
-                        bracketList.add(object);
-                    else
-                        string_output += string.charAt(j);
+                    if (BRACKET_START.equals(character)) {
+                        bracketsNotClosed++;
+                        bool = true;
+                    }
+                    else if (BRACKET_END.equals(character))
+                    {
+                        //Subtract one, unless lower, then set to 0.
+                        bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
+                        bool = true;
+                    }
+
+                    addToList(bool ? string.substring(1,string.length()) : string, bracketsNotClosed == num && bracketsNotClosed > 0, bracketList, inputList);
                 }
-
-                if (!string_output.isEmpty())
-                    addToList(string_output, bracketsNotClosed > 0, bracketList, inputList);
             } else
                 addToList(object, bracketsNotClosed > 0, bracketList, inputList);
+
         }
 
         return inputList;
     }
 
-    //Used for brackets
-    private static int characterBracket(Character character, int bracketsNotClosed) {
-        if (character.equals(BRACKET_START))
-            bracketsNotClosed++;
-        else if (character.equals(BRACKET_END))
-        {
-            //Subtract one, unless lower, then set to 0.
-            bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
-        }
-        return bracketsNotClosed;
-    }
+    private static ArrayList<Object> arrayListSort(ArrayList<Object> objects) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
 
-    private static ArrayList<Object> arrayListSort(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects)
             if (object instanceof ArrayList) {
                 arrayList.add(
                         new SBlockArrayList(
-                                sortList( ArrayListHelper.toArray(object) )
+                                sortList( ((ArrayList) object).toArray() )
                         )
                 );
             } else
@@ -91,8 +101,9 @@ class InputSorter {
         return arrayList;
     }
 
-    private static ArrayList<Object> oreDictionary(Object[] objects, ArrayList<Object> arrayList) {
+    private static ArrayList<Object> oreDictionary(ArrayList<Object> objects) {
         boolean nextIsOre = false;
+        ArrayList<Object> arrayList = new ArrayList<Object>();
 
         for (Object object : objects) {
             if (object instanceof Character && ORE_DICTIONARY.equals(object)) {
@@ -103,27 +114,15 @@ class InputSorter {
                 if (nextIsOre)
                     arrayList.add(new SBlockOreDictionary(string_object));
                 else {
-                    String string = "";
-                    boolean foundOreCharacter = false;
-                    String ore_name = "";
+                    ArrayList<String> stringList = StringUtil.splitString(string_object,ORE_DICTIONARY,true);
 
-                    for (int i = 0; i < string_object.length(); i++) {
-                        Character character = string_object.charAt(i);
-
-                        if (ORE_DICTIONARY.equals(character)) {
-                            if (foundOreCharacter) {
-                                foundOreCharacter = false;
-                                arrayList.add(new SBlockOreDictionary(ore_name));
-                                ore_name = "";
-                            } else {
-                                foundOreCharacter = true;
-                                arrayList.add(string);
-                                string = "";
-                            }
-                        } else if (foundOreCharacter)
-                            ore_name += character;
-                        else
-                            string += character;
+                    for (String string : stringList) {
+                        if (ORE_DICTIONARY.equals(string.charAt(0))) {
+                            if (string.length() > 1)
+                                arrayList.add(new SBlockOreDictionary(string_object));
+                        } else {
+                            arrayList.add(string_object);
+                        }
                     }
                 }
             } else
@@ -133,7 +132,9 @@ class InputSorter {
         return arrayList;
     }
 
-    private static ArrayList<Object> specialCharacter(Object[] objects, ArrayList<Object> arrayList) {
+    private static ArrayList<Object> specialCharacter(ArrayList<Object> objects) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
+
         for (Object object : objects) {
             if (object == null)
                 arrayList.add(new SBlockNull());
@@ -141,19 +142,56 @@ class InputSorter {
                 StructureBlock structureBlock = MultiBlockLists.getSpecialValue(object);
                 if (structureBlock != null)
                     arrayList.add(structureBlock);
+                else
+                    arrayList.add(object);
             }
         }
 
         return arrayList;
     }
 
-    private static ArrayList<Object> operator(Object[] objects, ArrayList<Object> arrayList) {
+    private static ArrayList<Object> operator(ArrayList<Object> arrayList) {
+        ArrayList<OperatorInitializer> operatorInitializerList = MultiBlockLists.getOperatorList();
+
+        for (OperatorInitializer operatorInitializer : operatorInitializerList){
+            ArrayList<Integer> removedEntries = new ArrayList<Integer>();
+
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (!removedEntries.contains(i)) {
+                    if (operatorInitializer.isSpecialValue(arrayList.get(i))) {
+                        Operator operator = operatorInitializer.getOperator();
+
+                        ArrayList<Object> temp = removeEntries(arrayList, removedEntries);
+
+                        if ( operator.valid( temp,i ) ) {
+                            int[] ints = operator.takeOperands( temp, i );
+
+                            for (int integer : ints)
+                                removedEntries.add(integer);
+                        }
+
+                        arrayList.add(operator);
+                    } else
+                        arrayList.add(arrayList.get(i));
+                }
+            }
+
+            arrayList = removeEntries(arrayList, removedEntries);
+        }
+
         return arrayList;
     }
 
-    //   private static ArrayList<Object> List(Object[] objects, ArrayList<Object> arrayList) {}
+    //Used by operator
+    private static ArrayList<Object> removeEntries(ArrayList<Object> inputList, ArrayList<Integer> removedEntries) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
 
+        for (int i = 0; i < inputList.size(); i++)
+            if (!removedEntries.contains(i))
+                arrayList.add(inputList.get(i));
 
+        return arrayList;
+    }
 
     private static void addToList(Object object, boolean bool, ArrayList<Object> true_list, ArrayList<Object> false_list) {
         if (bool)

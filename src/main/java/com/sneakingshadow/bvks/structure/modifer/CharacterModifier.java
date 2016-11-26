@@ -1,9 +1,9 @@
 package com.sneakingshadow.bvks.structure.modifer;
 
+import com.sneakingshadow.bvks.structure.MultiBlockInit;
 import com.sneakingshadow.bvks.structure.ObjectMap;
 import com.sneakingshadow.bvks.structure.Vec;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.structure.MultiBlockInit;
 
 import java.util.HashMap;
 

@@ -1,18 +1,14 @@
 package com.sneakingshadow.bvks.block;
 
+import com.sneakingshadow.bvks.reference.Name;
+import com.sneakingshadow.bvks.structure.MultiBlock;
 import com.sneakingshadow.bvks.structure.comparator.StairComparatorUtil;
+import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 import com.sneakingshadow.bvks.util.LogHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.reference.Name;
-import com.sneakingshadow.bvks.structure.MultiBlock;
-import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
 

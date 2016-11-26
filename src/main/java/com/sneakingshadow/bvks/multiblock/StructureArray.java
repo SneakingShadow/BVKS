@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.multiblock;
 
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
+import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -16,22 +17,22 @@ class StructureArray {
     StructureArray() {
         structure.add(new ArrayList<ArrayList<StructureBlock>>());
         structure.get(0).add(new ArrayList<StructureBlock>());
-        structure.get(0).get(0).add(null);
+        structure.get(0).get(0).add(new SBlockNull());
     }
 
 
     void set(int x, int y, int z, StructureBlock structureBlock) {
         ensureCapacity(x,y,z);
-        structure.get(x).get(y).add(z, structureBlock);
+        structure.get(x).get(y).add(z, structureBlock == null ? new SBlockNull() : structureBlock);
     }
 
     StructureBlock get(int x, int y, int z) {
         if (x < sizeX() && y < sizeY() && z < sizeZ())
             return structure.get(x).get(y).get(z);
-        return null;
+        return new SBlockNull();
     }
 
-    boolean blockIsValid(World world, Vec3 worldPosition, Vec3 arrayPosition, int rotationX, int rotationY, int rotationZ, Object object) {
+    boolean blockIsValid(World world, Vec3 worldPosition, Vec3 arrayPosition, int rotationX, int rotationY, int rotationZ) {
         return get((int)arrayPosition.xCoord, (int)arrayPosition.yCoord, (int)arrayPosition.zCoord)
                 .blockIsValid(world, worldPosition, arrayPosition, rotationX, rotationY, rotationZ);
     }
@@ -70,7 +71,7 @@ class StructureArray {
                     for (int iy = 0; iy < sizeY(); iy++)
                         //Ensure z array
                         for (int iz = sizeZ(); iz < z + 1; iz++)
-                            structure.get(ix).get(iy).add(null);
+                            structure.get(ix).get(iy).add(new SBlockNull());
 
                 //Ensure y array. Doesn't need to check if y_bool, as iy < y+1 serves this function
                 for (int iy = sizeY(); iy < y + 1; iy++)
@@ -93,7 +94,7 @@ class StructureArray {
     private ArrayList<StructureBlock> getEmptyArray(int z) {
         ArrayList<StructureBlock> arrayList = new ArrayList<StructureBlock>();
         for (int iz = 0; iz < maxZ(z); iz++) {
-            arrayList.add(null);
+            arrayList.add(new SBlockNull());
         }
         return arrayList;
     }
@@ -104,5 +105,24 @@ class StructureArray {
             arrayList.add(getEmptyArray(z));
         }
         return arrayList;
+    }
+
+    @Override
+    public String toString() {
+        String string = super.toString() + "\n\n";
+
+        for (int x = 0; x < sizeX(); x++) {
+            string += "{\n";
+            for (int y = 0; y < sizeY(); y++) {
+                string += "    {\n";
+                for (int z = 0; z < sizeZ(); z++) {
+                    string += "        " + get(x,y,z).toString() + ",\n";
+                }
+                string += "    },\n";
+            }
+            string += "},\n";
+        }
+
+        return string;
     }
 }

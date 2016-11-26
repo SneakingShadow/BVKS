@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.client.renderer.entity;
 
+import com.sneakingshadow.bvks.client.model.ModelAwesomeCow;
 import com.sneakingshadow.bvks.entity.EntityAwesomeCow;
 import com.sneakingshadow.bvks.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
@@ -9,7 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import com.sneakingshadow.bvks.client.model.ModelAwesomeCow;
 
 @SideOnly(Side.CLIENT)
 public class EntityRenderAwesomeCow extends RenderLiving

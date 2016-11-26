@@ -1,8 +1,8 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.reference.Tool;
 import com.sneakingshadow.bvks.item.base.ItemBVKSShovel;
 import com.sneakingshadow.bvks.reference.Name;
+import com.sneakingshadow.bvks.reference.Tool;
 
 public class ItemToolDevilShovel extends ItemBVKSShovel
 {

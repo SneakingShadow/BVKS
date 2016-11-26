@@ -1,13 +1,11 @@
 package com.sneakingshadow.bvks.multiblock.structureblock;
 
-import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
+import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-
-import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.NEXT_LEVEL;
-import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.NEXT_LINE;
+import java.util.HashMap;
 
 /**
  * Created by SneakingShadow on 22.11.2016.
@@ -15,15 +13,10 @@ import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.NEXT_LINE;
 public class SBlockArrayList extends StructureBlock {
 
     private ArrayList<StructureBlock> arrayList = new ArrayList<StructureBlock>();
+    private ArrayList<Object> inputList = new ArrayList<Object>();
 
     public SBlockArrayList(ArrayList<Object> inputList) {
-        for (Object arrayObject : inputList)
-            if (arrayObject == null)
-                arrayList.add(new SBlockNull());
-            else if (!NEXT_LINE.equals(arrayObject) && !NEXT_LEVEL.equals(arrayObject))
-                arrayList.add((StructureBlock) arrayObject);
-
-
+        this.inputList = inputList;
     }
 
     public boolean blockIsValid(World world, Vec3 worldPosition, Vec3 arrayPosition, int rotationX, int rotationY, int rotationZ) {
@@ -32,6 +25,37 @@ public class SBlockArrayList extends StructureBlock {
                 return true;
 
         return false;
+    }
+
+    /**
+     * A small un-official check to determine if it should continue checking in world.
+     */
+    @Override
+    public boolean startCheckingForStructure(World world, int x, int y, int z) {
+        for (StructureBlock structureBlock : arrayList)
+            if (structureBlock.startCheckingForStructure(world, x, y, z))
+                return true;
+
+        return false;
+    }
+
+    public StructureBlock map(HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
+        for (Object object : inputList) {
+            StructureBlock structureBlock = map(object, charMap, stringMap);
+            if (structureBlock != null)
+                arrayList.add(structureBlock);
+        }
+        return this;
+    }
+
+    public String toString() {
+        String string = MultiBlockLists.BRACKET_START + " ";
+
+        for (int i = 0; i < arrayList.size(); i++) {
+            string += arrayList.get(i) + (i < arrayList.size()-1 ? " , " : "");
+        }
+
+        return string + " " + MultiBlockLists.BRACKET_END;
     }
 
 }

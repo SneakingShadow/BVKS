@@ -4,7 +4,7 @@ class ValueInitializer {
 
     private Object specialValue;
 
-    public ValueInitializer(Object object) {
+    ValueInitializer(Object object) {
         specialValue = object;
     }
 

@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.special;
 
+import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import net.minecraft.world.World;
 
@@ -12,4 +13,15 @@ public class SBlockNull extends StructureBlock {
         return true;
     }
 
+    /**
+     * A small un-official check to determine if it should continue checking in world.
+     */
+    @Override
+    public boolean startCheckingForStructure(World world, int x, int y, int z) {
+        return true;
+    }
+
+    public String toString() {
+        return "'" + MultiBlockLists.NULL + "'";
+    }
 }

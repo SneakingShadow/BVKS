@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.client.gui;
 
-import net.minecraft.inventory.Container;
 import com.sneakingshadow.bvks.reference.Name;
+import net.minecraft.inventory.Container;
 
 /**
  * Created by SneakingShadow on 13.03.2016.

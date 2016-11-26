@@ -19,14 +19,12 @@ public class ArrayListHelper {
         return arrayList;
     }
 
-    /**
-     * For use with to array when the object has not been cast.
-     * ArrayListHelper.toArray(object) instead of ((ArrayList) object).toArray()
-     * */
-    public static Object[] toArray(Object object) {
-        if (object instanceof ArrayList)
-            return ((ArrayList) object).toArray();
-        return new Object[0];
+    public static <T> ArrayList<T> fromArray(T[] objects) {
+        ArrayList<T> arrayList = new ArrayList<T>();
+
+        Collections.addAll(arrayList,objects);
+
+        return arrayList;
     }
 
 }

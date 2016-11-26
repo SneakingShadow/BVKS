@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.inventory;
 
-import net.minecraft.entity.player.EntityPlayer;
 import com.sneakingshadow.bvks.inventory.Slot.SlotImport;
+import net.minecraft.entity.player.EntityPlayer;
 
 import java.util.ArrayList;
 

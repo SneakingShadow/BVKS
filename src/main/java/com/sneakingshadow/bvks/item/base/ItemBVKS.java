@@ -1,5 +1,7 @@
 package com.sneakingshadow.bvks.item.base;
 
+import com.sneakingshadow.bvks.reference.Reference;
+import com.sneakingshadow.bvks.util.BlockBreakingHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -8,8 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.reference.Reference;
-import com.sneakingshadow.bvks.util.BlockBreakingHelper;
 
 public class ItemBVKS extends Item
 {

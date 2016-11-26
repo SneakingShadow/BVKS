@@ -1,5 +1,7 @@
 package com.sneakingshadow.bvks.creativetab;
 
+import com.sneakingshadow.bvks.init.ModBlocks;
+import com.sneakingshadow.bvks.init.ModItems;
 import com.sneakingshadow.bvks.reference.Name;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -8,8 +10,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import com.sneakingshadow.bvks.init.ModBlocks;
-import com.sneakingshadow.bvks.init.ModItems;
 
 import java.util.List;
 

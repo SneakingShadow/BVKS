@@ -1,10 +1,10 @@
 package com.sneakingshadow.bvks.block;
 
+import com.sneakingshadow.bvks.reference.Reference;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.reference.Reference;
 
 public abstract class BlockBVKSContainer extends BlockBVKS implements ITileEntityProvider{
 

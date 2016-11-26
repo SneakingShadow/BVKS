@@ -1,18 +1,16 @@
 package com.sneakingshadow.bvks.structure.modifer;
 
 import com.sneakingshadow.bvks.structure.MultiBlockComparing;
+import com.sneakingshadow.bvks.structure.MultiBlockInit;
 import com.sneakingshadow.bvks.structure.ObjectMap;
 import com.sneakingshadow.bvks.structure.Vec;
-import com.sneakingshadow.bvks.structure.MultiBlockInit;
+import com.sneakingshadow.bvks.structure.comparator.CustomComparator;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.structure.comparator.CustomComparator;
 
 import java.util.ArrayList;
-
-import static com.sneakingshadow.bvks.structure.MultiBlockComparing.compare;
 
 /**
  * Created by SneakingShadow on 17.07.2016.

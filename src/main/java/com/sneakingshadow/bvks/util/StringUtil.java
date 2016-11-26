@@ -9,17 +9,20 @@ public class StringUtil {
 
     /**
      * Splits the string wherever character is found.
-     * Strings that were encased in character would have that character at the start.
+     * If encased is true, then strings that are encased in character will have that character at the start.
      *
      * Example
-     *     splitString("String 1@String 2@ String 3", '@') -> ArrayList<String> "String 1", "@String 2", " String 3" </String>
+     *     splitString("String 1@String 2@ String 3", '@', true) -> ArrayList<String> "String 1", "@String 2", " String 3" </String>
      * */
-    private static ArrayList<String> splitString(String string, Character character) {
+    public static ArrayList<String> splitString(String string, Character character, boolean encased) {
         ArrayList<String> arrayList = new ArrayList<String>();
 
         string += character;
         int start = 0;
         int end = string.indexOf(character);
+        if (end == 0)
+            end = string.indexOf(character, 1);
+
         while (end != -1) {
             String string_object = string.substring(start, end);
 
@@ -27,13 +30,41 @@ public class StringUtil {
                 arrayList.add( string_object );
 
             start = end;
-            if (character.equals(string_object.charAt(0))) {
+            end = string.indexOf(character, end + 1);
+
+            if (encased && !string_object.isEmpty() && character.equals(string_object.charAt(0))) {
                 start++;
             }
-            end = string.indexOf(character, end+1);
         }
 
         return arrayList;
+    }
+
+    public static ArrayList<String> splitString(String string, Character character) {
+        return splitString(string, character, false);
+    }
+
+    public static ArrayList<String> splitString(String string, Character[] characters) {
+        ArrayList<String> stringList = new ArrayList<String>();
+        stringList.add(string);
+
+        for (Character character : characters) {
+            String[] stringArray = stringList.toArray(new String[0]);
+            stringList = new ArrayList<String>();
+
+            for (String str : stringArray) {
+                ArrayList<String> arrayList = splitString(str, character, false);
+                for (String arrayString : arrayList) {
+                    stringList.add(arrayString);
+                }
+            }
+        }
+
+        return stringList;
+    }
+
+    public static ArrayList<String> splitString(String string, ArrayList<Character> characters) {
+        return splitString(string, (Character[]) characters.toArray());
     }
 
 }

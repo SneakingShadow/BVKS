@@ -1,18 +1,18 @@
 package com.sneakingshadow.bvks.init;
 
+import com.sneakingshadow.bvks.client.gui.GuiBottomlessVoid;
 import com.sneakingshadow.bvks.client.gui.GuiDemonFurnace;
 import com.sneakingshadow.bvks.client.gui.GuiHammerWorkbench;
 import com.sneakingshadow.bvks.gui.GuiBVKS;
+import com.sneakingshadow.bvks.handler.GuiHandler;
 import com.sneakingshadow.bvks.inventory.ContainerBottomlessVoid;
+import com.sneakingshadow.bvks.inventory.ContainerDemonFurnace;
 import com.sneakingshadow.bvks.inventory.ContainerHammerWorkbench;
+import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.client.gui.GuiBottomlessVoid;
-import com.sneakingshadow.bvks.handler.GuiHandler;
-import com.sneakingshadow.bvks.inventory.ContainerDemonFurnace;
-import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 public class ModGuis {
 

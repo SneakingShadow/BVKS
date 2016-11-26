@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 class InputHandler {
 
-    static StructureArray getStructure(Object[] objects) {
+    static StructureArray getStructureArray(Object[] objects) {
         StructureArray structureArray = new StructureArray();
         ArrayList<Object> arrayList = InputSorter.sortList(objects);
+
+        //Handle the structure modifiers.
 
         return structureArray;
     }

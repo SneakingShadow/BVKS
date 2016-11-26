@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.inventory;
 
-import net.minecraft.item.ItemStack;
 import com.sneakingshadow.bvks.init.ModItems;
+import net.minecraft.item.ItemStack;
 
 /**
  * Created by SneakingShadow on 13.03.2016.

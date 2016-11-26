@@ -1,9 +1,9 @@
 package com.sneakingshadow.bvks.structure.comparator;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import com.sneakingshadow.bvks.structure.MultiBlock;
 import com.sneakingshadow.bvks.structure.MultiBlockUtil;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 
 /**
  * Created by SneakingShadow on 23.07.2016.

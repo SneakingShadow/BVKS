@@ -1,7 +1,9 @@
 package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
+import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.util.BottomlessVoidHelper;
+import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -13,8 +15,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import com.sneakingshadow.bvks.reference.Name;
-import com.sneakingshadow.bvks.util.LogHelper;
 
 import java.util.List;
 

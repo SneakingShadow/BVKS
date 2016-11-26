@@ -5,11 +5,11 @@ import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.reference.Reference;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
+import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
-import com.sneakingshadow.bvks.tileentity.TileEntityDemonFurnace;
 
 import java.util.List;
 

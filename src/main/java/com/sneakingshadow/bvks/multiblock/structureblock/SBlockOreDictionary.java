@@ -15,4 +15,16 @@ public class SBlockOreDictionary extends StructureBlock {
         return OreDictionaryHelper.isValidItem(ore_name,world,x,y,z);
     }
 
+    /**
+     * A small un-official check to determine if it should continue checking in world.
+     */
+    @Override
+    public boolean startCheckingForStructure(World world, int x, int y, int z) {
+        return blockIsValid(world, x, y, z);
+    }
+
+    public String toString() {
+        return "@" + ore_name + "@";
+    }
+
 }

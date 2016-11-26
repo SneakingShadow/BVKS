@@ -1,8 +1,8 @@
 package com.sneakingshadow.bvks.tileentity;
 
+import com.sneakingshadow.bvks.init.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import com.sneakingshadow.bvks.init.ModItems;
 
 /**
  * Created by SneakingShadow on 20.03.2016.
