@@ -1,8 +1,9 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.special;
 
-import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import net.minecraft.world.World;
+
+import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.OPAQUE_LIGHT;
 
 public class SBlockLightOpaque extends StructureBlock {
 
@@ -19,7 +20,7 @@ public class SBlockLightOpaque extends StructureBlock {
     }
 
     public String toString() {
-        return "'" + MultiBlockLists.OPAQUE_LIGHT + "'";
+        return "'" + OPAQUE_LIGHT + "'";
     }
 
 }

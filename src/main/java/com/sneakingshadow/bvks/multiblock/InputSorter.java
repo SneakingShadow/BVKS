@@ -16,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.*;
-
 class InputSorter {
 
     /**
@@ -33,7 +31,7 @@ class InputSorter {
         return arrayList;
     }
 
-    static ArrayList<Object> sortInput(Object[] objects, boolean doMapping, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
+    private static ArrayList<Object> sortInput(Object[] objects, boolean doMapping, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
         ArrayList<Object> arrayList = inputList(objects, new ArrayList<Object>());
         arrayList = brackets(arrayList);
         arrayList = arrayListSort(arrayList, charMap, stringMap);
@@ -47,6 +45,7 @@ class InputSorter {
         }
         arrayList = clearMappedAndInvalid(arrayList);
         arrayList = extractStrings(arrayList);
+        arrayList = arrayListClear(arrayList);
 
         return arrayList;
     }
@@ -77,9 +76,9 @@ class InputSorter {
             if (object instanceof Character) {
                 int num = bracketsNotClosed;
 
-                if (BRACKET_START.equals(object))
+                if (MultiBlockLists.BRACKET_START.equals(object))
                     bracketsNotClosed++;
-                else if (BRACKET_END.equals(object))
+                else if (MultiBlockLists.BRACKET_END.equals(object))
                 {
                     //Subtract one, unless lower, then set to 0.
                     bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
@@ -91,7 +90,7 @@ class InputSorter {
                     inputList.add(object);
             } else if (object instanceof String) {
                 ArrayList<String> stringArray = StringUtil.splitString(
-                        (String) object, new Character[] {BRACKET_START, BRACKET_END}
+                        (String) object, new Character[] {MultiBlockLists.BRACKET_START, MultiBlockLists.BRACKET_END}
                 );
 
                 for (String string : stringArray) {
@@ -100,11 +99,11 @@ class InputSorter {
                     int num = bracketsNotClosed;
                     boolean bool = false;
 
-                    if (BRACKET_START.equals(character)) {
+                    if (MultiBlockLists.BRACKET_START.equals(character)) {
                         bracketsNotClosed++;
                         bool = true;
                     }
-                    else if (BRACKET_END.equals(character))
+                    else if (MultiBlockLists.BRACKET_END.equals(character))
                     {
                         //Subtract one, unless lower, then set to 0.
                         bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
@@ -154,7 +153,7 @@ class InputSorter {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
         for (Object object : objects) {
-            if (object instanceof Character && ORE_DICTIONARY.equals(object)) {
+            if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object)) {
                 nextIsOre = true;
             } else if (object instanceof String) {
                 String string_object = (String) object;
@@ -162,10 +161,10 @@ class InputSorter {
                 if (nextIsOre)
                     arrayList.add(new SBlockOreDictionary(string_object));
                 else {
-                    ArrayList<String> stringList = StringUtil.splitString(string_object,ORE_DICTIONARY,true);
+                    ArrayList<String> stringList = StringUtil.splitString(string_object,MultiBlockLists.ORE_DICTIONARY,true);
 
                     for (String string : stringList) {
-                        if (ORE_DICTIONARY.equals(string.charAt(0))) {
+                        if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
                             if (string.length() > 1)
                                 arrayList.add(new SBlockOreDictionary(string_object));
                         } else {
@@ -202,7 +201,6 @@ class InputSorter {
                     object = null;  //This will be handled by another if statement.
                 else
                     arrayList.add(new SBlockBlock(block, ((ItemStack) object).getItemDamage()));
-
             }
 
             if (object == null)
@@ -285,9 +283,9 @@ class InputSorter {
             if (object instanceof Character) {
                 Character character = (Character)object;
 
-                if (STRING_OBJECT.equals(character) && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+                if (MultiBlockLists.STRING_OBJECT.equals(character) && !MultiBlockLists.NEXT_LINE.equals(object) && !MultiBlockLists.NEXT_LEVEL.equals(object)) {
                     if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
-                        stringMap.put(STRING_OBJECT + (String)inputList.get(++i), (StructureBlock) inputList.get(++i));
+                        stringMap.put(MultiBlockLists.STRING_OBJECT + (String)inputList.get(++i), (StructureBlock) inputList.get(++i));
 
                 } else if (inputList.get(i+1) instanceof StructureBlock)
                     charMap.put(character, (StructureBlock) inputList.get(++i));
@@ -305,10 +303,10 @@ class InputSorter {
         for (int i = 0; i < inputList.size(); i++) {
             Object object = inputList.get(i);
 
-            if (object instanceof Character && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+            if (object instanceof Character && !MultiBlockLists.NEXT_LINE.equals(object) && !MultiBlockLists.NEXT_LEVEL.equals(object)) {
                 Character character = (Character)object;
 
-                if (STRING_OBJECT.equals(character)) {
+                if (MultiBlockLists.STRING_OBJECT.equals(character)) {
                     if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
                         i+=2;
                 } else if (inputList.get(i+1) instanceof StructureBlock)
@@ -328,11 +326,11 @@ class InputSorter {
 
         for (Object object : inputList)
             if (object instanceof String) {
-                ArrayList<String> strings = StringUtil.splitString((String)object, STRING_OBJECT, true);
+                ArrayList<String> strings = StringUtil.splitString((String)object, MultiBlockLists.STRING_OBJECT, true);
 
                 for (String string : strings)
                     if(!string.isEmpty())
-                        if(STRING_OBJECT.equals(string.charAt(0)))
+                        if(MultiBlockLists.STRING_OBJECT.equals(string.charAt(0)))
                             if (string.length() > 1)
                                 arrayList.add(string);
                         else
@@ -353,11 +351,11 @@ class InputSorter {
         for (Object object : inputList) {
             if (object instanceof StructureBlock) {
                 arrayList.add(((StructureBlock) object).map(charMap, stringMap));
-            } else if (object instanceof Character && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+            } else if (object instanceof Character && !MultiBlockLists.NEXT_LINE.equals(object) && !MultiBlockLists.NEXT_LEVEL.equals(object)) {
                 StructureBlock structureBlock = charMap.get(object);
                 arrayList.add(
-                    structureBlock != null ?
-                            structureBlock.map(charMap, stringMap) : new SBlockNull()
+                        structureBlock != null ?
+                                structureBlock.map(charMap, stringMap) : new SBlockNull()
                 );
             } else if (object instanceof String) {
                 StructureBlock structureBlock = stringMap.get(object);
@@ -365,6 +363,29 @@ class InputSorter {
                         structureBlock != null ?
                                 structureBlock.map(charMap, stringMap) : new SBlockNull()
                 );
+            } else
+                arrayList.add(object);
+        }
+
+        return arrayList;
+    }
+
+    /**
+     * Extracts strings into characters and string-objects.
+     * */
+    private static ArrayList<Object> arrayListClear(ArrayList<Object> inputList) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
+
+        for (Object object : inputList) {
+            if (object instanceof SBlockArrayList) {
+                ArrayList<StructureBlock> structureList = ((SBlockArrayList) object).getArrayList();
+                if (!structureList.isEmpty()) {
+                    if (structureList.size() == 1)
+                        arrayList.add(structureList.get(0));
+                    else
+                        arrayList.add(object);
+                }else
+                    arrayList.add(new SBlockNull());
             } else
                 arrayList.add(object);
         }

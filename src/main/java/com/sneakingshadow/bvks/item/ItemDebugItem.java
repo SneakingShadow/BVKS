@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
+import com.sneakingshadow.bvks.multiblock.MultiBlock;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -36,6 +37,10 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
+        MultiBlock multiBlock = new MultiBlock("ccc\\ c \\ c ", 'c', Blocks.cobblestone);
+
+        System.out.println(multiBlock);
+
         if (world.isRemote) {
             LogHelper.info(MathHelper.floor_double((double)(entityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3);
         }

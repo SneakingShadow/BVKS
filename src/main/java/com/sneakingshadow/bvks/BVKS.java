@@ -4,6 +4,7 @@ import com.sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import com.sneakingshadow.bvks.handler.ConfigurationHandler;
 import com.sneakingshadow.bvks.handler.GuiHandler;
 import com.sneakingshadow.bvks.init.*;
+import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.proxy.IProxy;
 import com.sneakingshadow.bvks.reference.Reference;
 import com.sneakingshadow.bvks.structure.modifer.Modifiers;
@@ -41,6 +42,7 @@ public class BVKS
         ModBlocks.init();
         ModWorldGen.init();
         ModEntities.init();
+        MultiBlockLists.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }

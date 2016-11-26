@@ -1,12 +1,13 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.operator;
 
-import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.NOT;
 
 /**
  * Created by SneakingShadow on 23.11.2016.
@@ -66,6 +67,6 @@ public class OperatorNot extends Operator {
     }
 
     public String toString() {
-        return MultiBlockLists.NOT + (operand != null ? operand.toString() : "(valid. ERROR)");
+        return NOT + (operand != null ? operand.toString() : "(valid. ERROR)");
     }
 }

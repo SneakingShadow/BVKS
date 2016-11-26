@@ -47,89 +47,92 @@ public class MultiBlockLists {
             STRING_OBJECT, ORE_DICTIONARY, BRACKET_START, BRACKET_END, NEXT_LINE, NEXT_LEVEL
     );
 
-    private static ArrayList<SpecialCharacterInitializer> specialCharacterInitializerList = ArrayListHelper.getArrayList(
-            privateRegister(
-                    new SpecialCharacterInitializer(NULL) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockNull();
-                        }
+    public static void init() {
+        //Special characters
+        register(
+                new SpecialCharacterInitializer(NULL) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockNull();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(FULL_BLOCK) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockFull();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(FULL_BLOCK) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockFull();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(AIR) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockAir();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(AIR) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockAir();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(REPLACEABLE_BLOCK) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockReplaceable();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(REPLACEABLE_BLOCK) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockReplaceable();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(LIQUID) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockLiquid();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(LIQUID) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockLiquid();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(OPAQUE_MATERIAL) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockOpaqueMaterial();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(OPAQUE_MATERIAL) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockOpaqueMaterial();
                     }
-            ),
-            privateRegister(
-                    new SpecialCharacterInitializer(OPAQUE_LIGHT) {
-                        @Override
-                        public StructureBlock getStructureBlock() {
-                            return new SBlockLightOpaque();
-                        }
+                }
+        );
+        register(
+                new SpecialCharacterInitializer(OPAQUE_LIGHT) {
+                    @Override
+                    public StructureBlock getStructureBlock() {
+                        return new SBlockLightOpaque();
                     }
-            )
-    );
+                }
+        );
 
-    private static ArrayList<OperatorInitializer> operatorInitializerList = ArrayListHelper.getArrayList(
-            privateRegister(
-                    new OperatorInitializer(NOT) {
-                        @Override
-                        public Operator getOperator() {
-                            return new OperatorNot();
-                        }
+        //Operators
+        register(
+                new OperatorInitializer(NOT) {
+                    @Override
+                    public Operator getOperator() {
+                        return new OperatorNot();
                     }
-            ),
-            privateRegister(
-                    new OperatorInitializer(AND) {
-                        @Override public Operator getOperator() {
-                            return new OperatorAnd();
-                        }
+                }
+        );
+        register(
+                new OperatorInitializer(AND) {
+                    @Override public Operator getOperator() {
+                        return new OperatorAnd();
                     }
-            ),
-            privateRegister(
-                    new OperatorInitializer(OR) {
-                        @Override public Operator getOperator() {
-                            return new OperatorOr();
-                        }
+                }
+        );
+        register(
+                new OperatorInitializer(OR) {
+                    @Override public Operator getOperator() {
+                        return new OperatorOr();
                     }
-            )
-    );
+                }
+        );
+    }
+
+    private static ArrayList<SpecialCharacterInitializer> specialCharacterInitializerList = new ArrayList<SpecialCharacterInitializer>();
+    private static ArrayList<OperatorInitializer> operatorInitializerList = new ArrayList<OperatorInitializer>();
 
     public static boolean specialCharacterUsed(Character value) {
         for (Character character : specialCharactersUsed)
@@ -174,11 +177,6 @@ public class MultiBlockLists {
         return false;
     }
 
-    private static SpecialCharacterInitializer privateRegister(SpecialCharacterInitializer specialCharacterInitializer) {
-        register(specialCharacterInitializer);
-        return specialCharacterInitializer;
-    }
-
     //-------------Operators-------------//
     /**
      * @return returns operator, and null if invalid value
@@ -200,8 +198,4 @@ public class MultiBlockLists {
         return false;
     }
 
-    private static OperatorInitializer privateRegister(OperatorInitializer operatorInitializer) {
-        register(operatorInitializer);
-        return operatorInitializer;
-    }
 }

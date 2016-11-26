@@ -15,6 +15,10 @@ public class SBlockArrayList extends StructureBlock {
     private ArrayList<StructureBlock> arrayList = new ArrayList<StructureBlock>();
     private ArrayList<Object> inputList = new ArrayList<Object>();
 
+    public ArrayList<StructureBlock> getArrayList() {
+        return arrayList;
+    }
+
     public SBlockArrayList(ArrayList<Object> inputList) {
         this.inputList = inputList;
     }

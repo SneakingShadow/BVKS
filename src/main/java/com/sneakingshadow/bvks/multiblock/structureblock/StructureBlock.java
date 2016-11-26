@@ -28,6 +28,17 @@ public abstract class StructureBlock {
         return false;
     }
 
+    /**
+     * @param world
+     * @param worldPosition position of block in world
+     * @param arrayPosition position of block in world
+     * @param rotationX rotation around xAxis
+     * @param rotationY rotation around yAxis
+     * @param rotationZ rotation around zAxis
+     *
+     * Note:
+     *     Rotations go from 0 to 3, and are measured in rotations of 90°, which is equal to 1/2 pi radians.
+     * */
     public boolean blockIsValid(World world, Vec3 worldPosition, Vec3 arrayPosition, int rotationX, int rotationY, int rotationZ) {
         return blockIsValid(world, (int)worldPosition.xCoord, (int)worldPosition.yCoord, (int)worldPosition.zCoord);
     }
