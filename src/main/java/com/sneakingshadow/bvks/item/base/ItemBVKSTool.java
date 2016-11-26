@@ -105,7 +105,7 @@ public class ItemBVKSTool extends ItemBVKS{
     }
 
     /**
-     * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
+     * Gets a mapObjectNull of item attribute modifiers, used by ItemSword to increase hit damage.
      */
     @Override
     public Multimap getAttributeModifiers(ItemStack itemStack)

@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.multiblock;
 
+import com.sun.istack.internal.NotNull;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -15,7 +16,10 @@ public class MultiBlock {
     /**
      * A structure block is something that will be compared to the blocks in world.
      *     Example: Blocks.cobblestone
+     * Will 'convert' the block into a StructureBlock checking for that specific block.
      * For specifying metadata on blocks, the block must be put in an ItemStack.
+     *
+     * You can also input your own structure block. Remember to implement everything needed specified in the StructureBlock class.
      *
      * The structure array, is the array which the multi-block will compare to the in world structure to see if it's valid.
      *
@@ -39,12 +43,13 @@ public class MultiBlock {
      *     followed by a structure block.
      * Note:
      *     Special values, modifiers and operators are allowed, but not structure modifiers.
-     *     A & B counts as one structure block
+     *     A & B counts as one structure block.
+     *     Mapping can't be done in an ArrayList
      * All the key characters would post-init be replaced by its mapped value.
      * If a character is not mapped nor a special character, it will be replaced by null.
      * A character key is used by having that character in a string.
      *
-     * A structure block can be mapped to a string, that string is called a string-object,
+     * A structure block can be mapped to a string, that key string is called a string-object,
      * and that string-object could be used in place of the structure block.
      * Mapping is done by inputting:
      *     '^',
@@ -53,6 +58,7 @@ public class MultiBlock {
      * Note:
      *     Special values, modifiers and operators are allowed, but not structure modifiers.
      *     A & B counts as one structure block
+     *     Mapping can't be done in an ArrayList
      * All the key string would post-init be replaced by its mapped structure block.
      * If a string-object is not mapped, it will be replaced by null.
      * A string-object is used by having "^" surrounding the string.
@@ -134,7 +140,15 @@ public class MultiBlock {
      *     Mapping
      *     Structure Modifiers
      *
-     * The multiblock can check for structures with any orientation.
+     * The multiblock-object can check for structures with any orientation, by using:
+     *     multiBlockObject.findStructure(World world, int x, int y, int z)
+     * This returns a new Structure, or null if no structure was found.
+     *
+     * The multiblock-object can also check for more than one structure in a specified location:
+     *     multiBlockObject.findStructures(World world, int x, int y, int z)
+     * This returns an ArrayList<Structure>, that's empty if none are found.
+     * This can be useful if you want to avoid overlapping structures.
+     *
      * Rotation is by default set to only rotate around Y axis,
      * but this can be changed using the 'set rotation around axis' functions.
      * Rotation is per 90°, 1/2 pi in radians.
@@ -197,8 +211,9 @@ public class MultiBlock {
     }
 
     /**
-     * Returns an empty arraylist if no structures are found.
+     * Returns an empty ArrayList if no structures are found.
      * */
+    @NotNull
     private ArrayList<Structure> findStructures(World world, int x, int y, int z, boolean checkAllStructures) {
         ArrayList<Structure> structureList = new ArrayList<Structure>();
 
@@ -279,6 +294,6 @@ public class MultiBlock {
     }
 
     public String toString() {
-        return structureArray.toString();
+        return super.toString() + "\n\n" + structureArray.toString();
     }
 }

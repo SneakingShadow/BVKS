@@ -23,6 +23,10 @@ public class StringUtil {
         if (end == 0)
             end = string.indexOf(character, 1);
 
+        if (end == -1) {
+            arrayList.add(string);
+        }
+
         while (end != -1) {
             String string_object = string.substring(start, end);
 

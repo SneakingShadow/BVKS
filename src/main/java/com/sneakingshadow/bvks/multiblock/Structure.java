@@ -39,6 +39,10 @@ public class Structure {
         return multiBlock.validate(world, cornerPosition, rotationX, rotationY, rotationZ);
     }
 
+    public MultiBlock getMultiBlock() {
+        return multiBlock;
+    }
+
     /**
      * Reads structure from nbt
      * */

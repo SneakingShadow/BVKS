@@ -109,7 +109,7 @@ class StructureArray {
 
     @Override
     public String toString() {
-        String string = super.toString() + "\n\n";
+        String string = "";
 
         for (int x = 0; x < sizeX(); x++) {
             string += "{\n";

@@ -1,10 +1,8 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.operator;
 
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.*;
 
@@ -50,25 +48,5 @@ public abstract class Operator extends StructureBlock {
             bool &= clearPosition(inputList, position);
         }
         return bool;
-    }
-
-    /**
-     * Returns the correct object if the object is mapped,
-     * but if nothing is valid, it's for example a structure modifier, a structure block only yielding false is returned, for simplicity.
-     * */
-    public StructureBlock mapOperator(Object object, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
-        StructureBlock structureBlock = super.map(object, charMap, stringMap);
-
-        return structureBlock != null ? structureBlock : new StructureBlock() {
-            @Override
-            public boolean startCheckingForStructure(World world, int x, int y, int z) {
-                return false;
-            }
-
-            @Override
-            public String toString() {
-                return "invalid operator";
-            }
-        };
     }
 }

@@ -60,7 +60,7 @@ public class OperatorNot extends Operator {
      *     Mapped string in stringMap start with MultiBlockLists.STRING_OBJECT
      * */
     public StructureBlock map(HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
-        operand = map(operand_input, charMap, stringMap);
+        operand = mapObjectNull(operand_input, charMap, stringMap);
 
         return this;
     }

@@ -41,7 +41,7 @@ public class SBlockArrayList extends StructureBlock {
 
     public StructureBlock map(HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
         for (Object object : inputList) {
-            StructureBlock structureBlock = map(object, charMap, stringMap);
+            StructureBlock structureBlock = mapObjectNull(object, charMap, stringMap);
             if (structureBlock != null)
                 arrayList.add(structureBlock);
         }

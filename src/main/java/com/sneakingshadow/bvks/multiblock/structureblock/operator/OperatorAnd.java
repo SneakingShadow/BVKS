@@ -64,8 +64,8 @@ public class OperatorAnd extends Operator {
      *     Mapped string in stringMap start with MultiBlockLists.STRING_OBJECT
      * */
     public StructureBlock map(HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
-        operand_1 = mapOperator(operand_1_input, charMap, stringMap);
-        operand_2 = mapOperator(operand_2_input, charMap, stringMap);
+        operand_1 = mapObject(operand_1_input, charMap, stringMap);
+        operand_2 = mapObject(operand_2_input, charMap, stringMap);
 
         return this;
     }

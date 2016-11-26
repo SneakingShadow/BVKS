@@ -1,29 +1,59 @@
 package com.sneakingshadow.bvks.multiblock;
 
+import com.sneakingshadow.bvks.multiblock.initializer.OperatorInitializer;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockArrayList;
+import com.sneakingshadow.bvks.multiblock.structureblock.SBlockBlock;
 import com.sneakingshadow.bvks.multiblock.structureblock.SBlockOreDictionary;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import com.sneakingshadow.bvks.multiblock.structureblock.operator.Operator;
 import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockNull;
 import com.sneakingshadow.bvks.util.StringUtil;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.*;
 
 class InputSorter {
 
-    static ArrayList<Object> sortList(Object[] objects) {
-        ArrayList<Object> arrayList = inputList(objects, new ArrayList<Object>());
-        arrayList = brackets(arrayList);
-        arrayList = arrayListSort(arrayList);
-        arrayList = oreDictionary(arrayList);
-        arrayList = specialCharacter(arrayList);
-        arrayList = operator(arrayList);
+    /**
+     * Sorts all the inputs, and does the mapping.
+     * */
+    static ArrayList<Object> sortInput(Object[] objects) {
+        HashMap<Character, StructureBlock> charMap = new HashMap<Character, StructureBlock>();
+        HashMap<String, StructureBlock> stringMap = new HashMap<String, StructureBlock>();
+
+        ArrayList<Object> arrayList = sortInput(objects, true, charMap, stringMap);
+        arrayList = map(arrayList, charMap, stringMap);
 
         return arrayList;
     }
 
+    static ArrayList<Object> sortInput(Object[] objects, boolean doMapping, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
+        ArrayList<Object> arrayList = inputList(objects, new ArrayList<Object>());
+        arrayList = brackets(arrayList);
+        arrayList = arrayListSort(arrayList, charMap, stringMap);
+        arrayList = oreDictionary(arrayList);
+        arrayList = specialValues(arrayList);
+        arrayList = operator(arrayList);
+
+        //Allows arrayListSort to sort its content in this manner without conflicts.
+        if (doMapping) {
+            mapObjects(arrayList, charMap, stringMap);
+        }
+        arrayList = clearMappedAndInvalid(arrayList);
+        arrayList = extractStrings(arrayList);
+
+        return arrayList;
+    }
+
+    /**
+     * Extracts input list
+     * */
     private static ArrayList<Object> inputList(Object[] objects, ArrayList<Object> arrayList) {
         for (Object object : objects)
             if (object instanceof InputList)
@@ -34,6 +64,9 @@ class InputSorter {
         return arrayList;
     }
 
+    /**
+     * Creates arrayLists from what is surrounded in brackets
+     * */
     private static ArrayList<Object> brackets(ArrayList<Object> objects) {
         int bracketsNotClosed = 0;
         ArrayList<Object> bracketList = new ArrayList<Object>();
@@ -52,7 +85,10 @@ class InputSorter {
                     bracketsNotClosed = bracketsNotClosed > 0 ? bracketsNotClosed-1 : 0;
                 }
 
-                addToList(object, bracketsNotClosed == num && bracketsNotClosed > 0, bracketList, inputList);
+                if (bracketsNotClosed == num && bracketsNotClosed > 0)
+                    bracketList.add(object);
+                else
+                    inputList.add(object);
             } else if (object instanceof String) {
                 ArrayList<String> stringArray = StringUtil.splitString(
                         (String) object, new Character[] {BRACKET_START, BRACKET_END}
@@ -75,24 +111,33 @@ class InputSorter {
                         bool = true;
                     }
 
-                    addToList(bool ? string.substring(1,string.length()) : string, bracketsNotClosed == num && bracketsNotClosed > 0, bracketList, inputList);
+                    string = bool ? string.substring(1,string.length()) : string;
+                    if (bracketsNotClosed == num && bracketsNotClosed > 0)
+                        bracketList.add(string);
+                    else
+                        inputList.add(string);
                 }
             } else
-                addToList(object, bracketsNotClosed > 0, bracketList, inputList);
-
+                if (bracketsNotClosed > 0)
+                    bracketList.add(object);
+                else
+                    inputList.add(object);
         }
 
         return inputList;
     }
 
-    private static ArrayList<Object> arrayListSort(ArrayList<Object> objects) {
+    /**
+     * Sorts all arrayLists and turns them into StructureBlocks
+     * */
+    private static ArrayList<Object> arrayListSort(ArrayList<Object> objects, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
         for (Object object : objects)
             if (object instanceof ArrayList) {
                 arrayList.add(
                         new SBlockArrayList(
-                                sortList( ((ArrayList) object).toArray() )
+                                sortInput( ((ArrayList) object).toArray(), false, charMap, stringMap)
                         )
                 );
             } else
@@ -101,6 +146,9 @@ class InputSorter {
         return arrayList;
     }
 
+    /**
+     * Turns OreDictionary strings into StructureBlocks
+     * */
     private static ArrayList<Object> oreDictionary(ArrayList<Object> objects) {
         boolean nextIsOre = false;
         ArrayList<Object> arrayList = new ArrayList<Object>();
@@ -132,24 +180,56 @@ class InputSorter {
         return arrayList;
     }
 
-    private static ArrayList<Object> specialCharacter(ArrayList<Object> objects) {
+    /**
+     * Turns special values into StructureBlocks
+     * */
+    private static ArrayList<Object> specialValues(ArrayList<Object> objects) {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
         for (Object object : objects) {
+            if (object instanceof Item) {
+                object = Block.getBlockFromItem((Item)object); //This will be handled by another if statement
+                if (object == Blocks.air)
+                    object = null;  //This will be handled by another if statement
+            }
+
+            if (object instanceof Block)
+                arrayList.add(new SBlockBlock((Block)object));
+
+            if (object instanceof ItemStack) {
+                Block block = Block.getBlockFromItem(((ItemStack) object).getItem());
+                if (block == Blocks.air)
+                    object = null;  //This will be handled by another if statement.
+                else
+                    arrayList.add(new SBlockBlock(block, ((ItemStack) object).getItemDamage()));
+
+            }
+
             if (object == null)
                 arrayList.add(new SBlockNull());
-            else {
-                StructureBlock structureBlock = MultiBlockLists.getSpecialValue(object);
-                if (structureBlock != null)
-                    arrayList.add(structureBlock);
-                else
-                    arrayList.add(object);
+
+            if (object instanceof String)
+            {
+                String string_object = (String)object;
+                String string = "";
+
+                for (int i = 0; i < string_object.length(); i++) {
+                    if (MultiBlockLists.specialCharacterUsed(string_object.charAt(i))) {
+                        arrayList.add(string);
+                        string = "";
+                        arrayList.add(MultiBlockLists.getSpecialCharacter(string_object.charAt(i)));
+                    } else
+                        string += string_object.charAt(i);
+                }
             }
         }
 
         return arrayList;
     }
 
+    /**
+     * Turns operator values into Operators
+     * */
     private static ArrayList<Object> operator(ArrayList<Object> arrayList) {
         ArrayList<OperatorInitializer> operatorInitializerList = MultiBlockLists.getOperatorList();
 
@@ -158,7 +238,7 @@ class InputSorter {
 
             for (int i = 0; i < arrayList.size(); i++) {
                 if (!removedEntries.contains(i)) {
-                    if (operatorInitializer.isSpecialValue(arrayList.get(i))) {
+                    if (operatorInitializer.isSpecialCharacter(arrayList.get(i))) {
                         Operator operator = operatorInitializer.getOperator();
 
                         ArrayList<Object> temp = removeEntries(arrayList, removedEntries);
@@ -182,7 +262,7 @@ class InputSorter {
         return arrayList;
     }
 
-    //Used by operator
+    //Used by operator to remove specified entries
     private static ArrayList<Object> removeEntries(ArrayList<Object> inputList, ArrayList<Integer> removedEntries) {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
@@ -193,11 +273,103 @@ class InputSorter {
         return arrayList;
     }
 
-    private static void addToList(Object object, boolean bool, ArrayList<Object> true_list, ArrayList<Object> false_list) {
-        if (bool)
-            true_list.add(object);
-        else
-            false_list.add(object);
+    /**
+     * Maps all possible strings.
+     * Maps all possible characters.
+     * Note: Special characters have already been taken care of.
+     * */
+    private static void mapObjects(ArrayList<Object> inputList, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
+        for (int i = 0; i < inputList.size(); i++) {
+            Object object = inputList.get(i);
+
+            if (object instanceof Character) {
+                Character character = (Character)object;
+
+                if (STRING_OBJECT.equals(character) && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+                    if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
+                        stringMap.put(STRING_OBJECT + (String)inputList.get(++i), (StructureBlock) inputList.get(++i));
+
+                } else if (inputList.get(i+1) instanceof StructureBlock)
+                    charMap.put(character, (StructureBlock) inputList.get(++i));
+
+            }
+        }
+    }
+
+    /**
+     * Clears the arraylist of everything that has been/would be mapped, and that is generally invalid.
+     * */
+    private static ArrayList<Object> clearMappedAndInvalid(ArrayList<Object> inputList) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
+
+        for (int i = 0; i < inputList.size(); i++) {
+            Object object = inputList.get(i);
+
+            if (object instanceof Character && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+                Character character = (Character)object;
+
+                if (STRING_OBJECT.equals(character)) {
+                    if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
+                        i+=2;
+                } else if (inputList.get(i+1) instanceof StructureBlock)
+                    ++i;
+            } else
+                arrayList.add(object);
+        }
+
+        return arrayList;
+    }
+
+    /**
+     * Extracts strings into characters and string-objects.
+     * */
+    private static ArrayList<Object> extractStrings(ArrayList<Object> inputList) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
+
+        for (Object object : inputList)
+            if (object instanceof String) {
+                ArrayList<String> strings = StringUtil.splitString((String)object, STRING_OBJECT, true);
+
+                for (String string : strings)
+                    if(!string.isEmpty())
+                        if(STRING_OBJECT.equals(string.charAt(0)))
+                            if (string.length() > 1)
+                                arrayList.add(string);
+                        else
+                            for (int i = 0; i < string.length(); i++)
+                                arrayList.add(string.charAt(i));
+            } else
+                arrayList.add(object);
+
+        return arrayList;
+    }
+
+    /**
+     * Extracts strings into characters and string-objects.
+     * */
+    private static ArrayList<Object> map(ArrayList<Object> inputList, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
+        ArrayList<Object> arrayList = new ArrayList<Object>();
+
+        for (Object object : inputList) {
+            if (object instanceof StructureBlock) {
+                arrayList.add(((StructureBlock) object).map(charMap, stringMap));
+            } else if (object instanceof Character && !NEXT_LINE.equals(object) && !NEXT_LEVEL.equals(object)) {
+                StructureBlock structureBlock = charMap.get(object);
+                arrayList.add(
+                    structureBlock != null ?
+                            structureBlock.map(charMap, stringMap) : new SBlockNull()
+                );
+            } else if (object instanceof String) {
+                StructureBlock structureBlock = stringMap.get(object);
+                arrayList.add(
+                        structureBlock != null ?
+                                structureBlock.map(charMap, stringMap) : new SBlockNull()
+                );
+            } else
+                arrayList.add(object);
+        }
+
+        return arrayList;
     }
 
 }
