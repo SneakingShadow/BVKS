@@ -36,9 +36,9 @@ public class OperatorNot extends Operator {
      * @return positions to be removed in inputList.
      */
     @Override
-    public int[] takeOperands(ArrayList<Object> inputList, int position) {
-        operand_input = inputList.get(position+1);
-        return new int[position+1];
+    public ArrayList<Object> takeOperands(ArrayList<Object> inputList, int position) {
+        operand_input = inputList.remove(position+1);
+        return inputList;
     }
 
     /**
@@ -51,7 +51,7 @@ public class OperatorNot extends Operator {
      */
     @Override
     public boolean valid(ArrayList<Object> inputList, int position) {
-        return clearPosition(inputList, position+1);
+        return validPosition(inputList, position+1);
     }
 
     /**

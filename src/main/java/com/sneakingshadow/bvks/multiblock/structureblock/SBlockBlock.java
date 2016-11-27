@@ -26,4 +26,9 @@ public class SBlockBlock extends StructureBlock {
     public boolean startCheckingForStructure(World world, int x, int y, int z) {
         return blockIsValid(world, x, y, z);
     }
+
+    @Override
+    public String toString() {
+        return "["+block.toString()+","+metadata+"]";
+    }
 }

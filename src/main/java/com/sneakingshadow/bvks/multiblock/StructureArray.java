@@ -64,17 +64,17 @@ class StructureArray {
         //Doesn't need to go through x array unless y array or z array are too small
         if (y_bool || z_bool)
             //Go through and ensure current x array
-            for (int ix = 0; ix < sizeX(); ix++)
+            for (int ix = 0; ix < structure.size(); ix++)
             {
                 //Doesn't need to go through y array unless z is too small
                 if (z_bool)
-                    for (int iy = 0; iy < sizeY(); iy++)
+                    for (int iy = 0; iy < structure.get(ix).size(); iy++)
                         //Ensure z array
-                        for (int iz = sizeZ(); iz < z + 1; iz++)
+                        for (int iz = structure.get(ix).get(iy).size(); iz < z + 1; iz++)
                             structure.get(ix).get(iy).add(new SBlockNull());
 
                 //Ensure y array. Doesn't need to check if y_bool, as iy < y+1 serves this function
-                for (int iy = sizeY(); iy < y + 1; iy++)
+                for (int iy = structure.get(ix).size(); iy < y+1; iy++)
                     structure.get(ix).add(getEmptyArray(z));
             }
 

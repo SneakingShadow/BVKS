@@ -33,17 +33,24 @@ class InputSorter {
     }
 
     private static ArrayList<Object> sortInput(Object[] objects, boolean doMapping, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
-        ArrayList<Object> arrayList = inputList(objects, new ArrayList<Object>());
+        ArrayList<Object> arrayList;
+
+        arrayList = duplicator(ArrayListHelper.fromArray(objects), MultiBlockLists.getDuplicator(0));
+        arrayList = inputList(arrayList, new ArrayList<Object>());
+        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicator(1));
         arrayList = brackets(arrayList);
         arrayList = arrayListSort(arrayList, charMap, stringMap);
         arrayList = oreDictionary(arrayList);
         arrayList = specialValues(arrayList);
-        arrayList = operator(arrayList);
+        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicator(2));
+        arrayList = operator(arrayList, MultiBlockLists.getOperatorList());
+        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicator(3));
 
         //Allows arrayListSort to sort its content in this manner without conflicts.
         if (doMapping) {
             mapObjects(arrayList, charMap, stringMap);
         }
+
         arrayList = clearMappedAndInvalid(arrayList);
         arrayList = extractStrings(arrayList);
         arrayList = arrayListClear(arrayList);
@@ -54,10 +61,13 @@ class InputSorter {
     /**
      * Extracts input list
      * */
-    private static ArrayList<Object> inputList(Object[] objects, ArrayList<Object> arrayList) {
-        for (Object object : objects)
+    private static ArrayList<Object> inputList(ArrayList inputList, ArrayList<Object> arrayList) {
+        for (Object object : inputList)
             if (object instanceof InputList)
-                inputList(((ArrayList) object).toArray(), arrayList);
+                inputList(
+                        duplicator(((ArrayList<Object>) object), MultiBlockLists.getDuplicator(0)),
+                        arrayList
+                );
             else
                 arrayList.add(object);
 
@@ -231,51 +241,40 @@ class InputSorter {
     }
 
     /**
+     * Initializes duplicators
+     * */
+    private static ArrayList<Object> duplicator(ArrayList<Object> inputList, OperatorInitializer operatorInitializer) {
+        return operator(inputList, ArrayListHelper.getArrayList(operatorInitializer));
+    }
+
+    /**
      * Turns operator values into Operators
      * */
-    private static ArrayList<Object> operator(ArrayList<Object> inputList) {
-        ArrayList<OperatorInitializer> operatorInitializerList = MultiBlockLists.getOperatorList();
-
+    private static ArrayList<Object> operator(ArrayList<Object> inputList, ArrayList<OperatorInitializer> operatorInitializerList) {
         for (OperatorInitializer operatorInitializer : operatorInitializerList){
-            ArrayList<Integer> removedEntries = new ArrayList<Integer>();
-            ArrayList<Object> arrayList = new ArrayList<Object>();
+            boolean foundOperator = true;
 
-            for (int i = 0; i < inputList.size(); i++) {
-                if (!removedEntries.contains(i)) {
+            while (foundOperator) {
+                foundOperator = false;
+
+                for (int i = 0; i < inputList.size(); i++) {
                     if (operatorInitializer.isSpecialCharacter(inputList.get(i))) {
                         Operator operator = operatorInitializer.getOperator();
+                        inputList.set(i,operator);
 
-                        ArrayList<Object> temp = removeEntries(inputList, removedEntries);
+                        if (operator.valid(inputList, i)) {
+                            inputList = operator.takeOperands(inputList, i);
+                        } else
+                            inputList.remove(i);
 
-                        if ( operator.valid( temp,i ) ) {
-                            int[] ints = operator.takeOperands( temp, i );
-
-                            for (int integer : ints)
-                                removedEntries.add(integer);
-                        }
-
-                        arrayList.add(operator);
-                    } else
-                        arrayList.add(inputList.get(i));
-                }else
-                    arrayList.add(inputList.get(i));
+                        foundOperator = true;
+                        break;
+                    }
+                }
             }
-
-            inputList = removeEntries(arrayList, removedEntries);
         }
 
         return inputList;
-    }
-
-    //Used by operator to remove specified entries
-    private static ArrayList<Object> removeEntries(ArrayList<Object> inputList, ArrayList<Integer> removedEntries) {
-        ArrayList<Object> arrayList = new ArrayList<Object>();
-
-        for (int i = 0; i < inputList.size(); i++)
-            if (!removedEntries.contains(i))
-                arrayList.add(inputList.get(i));
-
-        return arrayList;
     }
 
     /**

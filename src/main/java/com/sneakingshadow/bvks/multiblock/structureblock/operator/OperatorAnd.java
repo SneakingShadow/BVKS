@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.operator;
 
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
+import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockFalse;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
@@ -14,8 +15,8 @@ import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.AND;
  */
 public class OperatorAnd extends Operator {
 
-    private StructureBlock operand_1;
-    private StructureBlock operand_2;
+    private StructureBlock operand_1 = new SBlockFalse();
+    private StructureBlock operand_2 = new SBlockFalse();
 
     private Object operand_1_input;
     private Object operand_2_input;
@@ -39,10 +40,10 @@ public class OperatorAnd extends Operator {
      * @return positions to be removed in an array.
      */
     @Override
-    public int[] takeOperands(ArrayList<Object> inputList, int position) {
-        operand_1_input = inputList.get(position-1);
-        operand_2_input = inputList.get(position+1);
-        return new int[]{position - 1, position + 1};
+    public ArrayList<Object> takeOperands(ArrayList<Object> inputList, int position) {
+        operand_2_input = inputList.remove(position+1);
+        operand_1_input = inputList.remove(position-1);
+        return inputList;
     }
 
     /**
@@ -55,7 +56,7 @@ public class OperatorAnd extends Operator {
      */
     @Override
     public boolean valid(ArrayList<Object> inputList, int position) {
-        return clearPositions(inputList, position-1, position+1);
+        return validPositions(inputList, position-1, position+1);
     }
 
     /**

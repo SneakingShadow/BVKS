@@ -37,11 +37,6 @@ public class ItemDebugItem extends ItemBVKS {
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
-        if (world.isRemote) {
-            System.out.println("Debug:\n\n");
-            MultiBlock multiBlock = new MultiBlock("ccc", 'c', Blocks.cobblestone);
-            System.out.println(multiBlock);
-        }
 
         if (world.isRemote) {
             LogHelper.info(MathHelper.floor_double((double)(entityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3);

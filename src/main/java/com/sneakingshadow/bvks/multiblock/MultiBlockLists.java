@@ -3,10 +3,7 @@ package com.sneakingshadow.bvks.multiblock;
 import com.sneakingshadow.bvks.multiblock.initializer.OperatorInitializer;
 import com.sneakingshadow.bvks.multiblock.initializer.SpecialCharacterInitializer;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
-import com.sneakingshadow.bvks.multiblock.structureblock.operator.Operator;
-import com.sneakingshadow.bvks.multiblock.structureblock.operator.OperatorAnd;
-import com.sneakingshadow.bvks.multiblock.structureblock.operator.OperatorNot;
-import com.sneakingshadow.bvks.multiblock.structureblock.operator.OperatorOr;
+import com.sneakingshadow.bvks.multiblock.structureblock.operator.*;
 import com.sneakingshadow.bvks.multiblock.structureblock.special.*;
 import com.sneakingshadow.bvks.util.ArrayListHelper;
 
@@ -29,6 +26,10 @@ public class MultiBlockLists {
     public static final Character NOT = '!';
     public static final Character AND = '&';
     public static final Character OR = '|';
+    public static final Character DUPLICATE_LEVEL_0 = '<';
+    public static final Character DUPLICATE_LEVEL_1 = '>';
+    public static final Character DUPLICATE_LEVEL_2 = '[';
+    public static final Character DUPLICATE_LEVEL_3 = ']';
 
     //Modifiers
     public static final Character ORE_DICTIONARY = '@';
@@ -48,6 +49,7 @@ public class MultiBlockLists {
     );
 
     public static void init() {
+
         //Special characters
         register(
                 new SpecialCharacterInitializer(NULL) {
@@ -129,10 +131,41 @@ public class MultiBlockLists {
                     }
                 }
         );
+
+        //Duplicators
+        registerDuplicator(
+                new OperatorInitializer(DUPLICATE_LEVEL_0) {
+                    @Override public Operator getOperator() {
+                        return new OperatorDuplicate();
+                    }
+                }
+        );
+        registerDuplicator(
+                new OperatorInitializer(DUPLICATE_LEVEL_1) {
+                    @Override public Operator getOperator() {
+                        return new OperatorDuplicate();
+                    }
+                }
+        );
+        registerDuplicator(
+                new OperatorInitializer(DUPLICATE_LEVEL_2) {
+                    @Override public Operator getOperator() {
+                        return new OperatorDuplicate();
+                    }
+                }
+        );
+        registerDuplicator(
+                new OperatorInitializer(DUPLICATE_LEVEL_3) {
+                    @Override public Operator getOperator() {
+                        return new OperatorDuplicate();
+                    }
+                }
+        );
     }
 
     private static ArrayList<SpecialCharacterInitializer> specialCharacterInitializerList = new ArrayList<SpecialCharacterInitializer>();
     private static ArrayList<OperatorInitializer> operatorInitializerList = new ArrayList<OperatorInitializer>();
+    private static ArrayList<OperatorInitializer> duplicatorInitializerList = new ArrayList<OperatorInitializer>();
 
     public static boolean specialCharacterUsed(Character value) {
         for (Character character : specialCharactersUsed)
@@ -179,7 +212,7 @@ public class MultiBlockLists {
 
     //-------------Operators-------------//
     /**
-     * @return returns operator, and null if invalid value
+     * @return returns list of operator
      * */
     public static ArrayList<OperatorInitializer> getOperatorList() {
         return operatorInitializerList;
@@ -196,6 +229,27 @@ public class MultiBlockLists {
             return true;
         }
         return false;
+    }
+
+    //------------Duplicators------------//
+    /**
+     * Duplicators are registered here.
+     * @return successful
+     * */
+    public static boolean registerDuplicator(OperatorInitializer operatorInitializer) {
+        if (!characterUsed(operatorInitializer.getCharacter())) {
+            duplicatorInitializerList.add(operatorInitializer);
+            otherCharactersUsed.add(operatorInitializer.getCharacter());
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @return returns operator, and null if invalid value
+     * */
+    public static OperatorInitializer getDuplicator(int number) {
+        return duplicatorInitializerList.get(number);
     }
 
 }

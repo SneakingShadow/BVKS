@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.multiblock.structureblock;
 
+import com.sneakingshadow.bvks.multiblock.structureblock.special.SBlockFalse;
 import com.sun.istack.internal.NotNull;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -95,17 +96,7 @@ public abstract class StructureBlock {
     public StructureBlock mapObject(Object object, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap) {
         StructureBlock structureBlock = mapObjectNull(object, charMap, stringMap);
 
-        return structureBlock != null ? structureBlock : new StructureBlock() {
-            @Override
-            public boolean startCheckingForStructure(World world, int x, int y, int z) {
-                return false;
-            }
-
-            @Override
-            public String toString() {
-                return "invalid operator";
-            }
-        };
+        return structureBlock != null ? structureBlock : new SBlockFalse();
     }
 
 }

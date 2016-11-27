@@ -18,8 +18,8 @@ public class MultiBlock {
     /**
      * A structure block is something that will be compared to the blocks in world.
      *     Example: Blocks.cobblestone
-     * Will 'convert' the block into a StructureBlock checking for that specific block.
-     * For specifying metadata on blocks, the block must be put in an ItemStack.
+     * This will 'convert' the block into a StructureBlock that checks for that specific block.
+     * For specifying metadata on blocks, the block must be put in an ItemStack, and ItemStack damage will be used as metadata.
      *
      * You can also input your own structure block. Remember to implement everything needed specified in the StructureBlock class.
      *
@@ -31,7 +31,7 @@ public class MultiBlock {
      * '\\' character will set x and z to 0, and increase y by 1.
      *
      * ArrayLists are counted as a structure block,
-     * and they can take operators, special characters, values and modifiers, but not structure modifiers.
+     * and they can take operators, special characters, values, duplicators and modifiers, but not structure modifiers.
      * Only requires one value to be correct, doesn't matter which one.
      * Can be made by using ( and ), where everything in between is put in an ArrayList.
      * Note:
@@ -70,8 +70,8 @@ public class MultiBlock {
      *
      * In a string:
      * All the characters and string-object will be added to the structure array.
-     * Special characters, operators, modifiers and structure modifiers are allowed.
-     * Special values are not allowed.
+     * Special characters, operators, modifiers and structure modifiers are allowed, but not duplicators.
+     * Special values are of course not allowed.
      * Note:
      *     @ has to encase the ore-name if OreDictionary modifier is used.
      *         "@cobblestone@"
@@ -82,6 +82,19 @@ public class MultiBlock {
      * InputList extends ArrayList<Object>, but is treated differently.
      * Everything in an InputList is treated as if it was inputted outside of the input list.
      *     new MultiBlock(new InputList(A,B,C)) = new MultiBlock(A,B,C)
+     *
+     * There's also duplicators, like '>' and '<'.
+     * The difference between the two is that '<' is called before the unpacking of InputLists,
+     * while '>' is called after the unpacking of InputLists.
+     * Usage of the two operators is done by inputting:
+     *     an object to duplicate,
+     *     operator,
+     *     amount of times to duplicate
+     * Note:
+     *     amount of times to duplicate has to be an integer that's above 0
+     * Example:
+     *     new InputList(A,B,C), '<', 2   ->   new InputList(A,B,C),new InputList(A,B,C)  ->  A,B,C,A,B,C
+     *     new InputList(A,B,C), '>', 3   ->   A,B,C,C,C
      *
      * Special Characters / Values:
      *     ' ' or null = anything. doesn't matter what block it is.
@@ -116,6 +129,21 @@ public class MultiBlock {
      *     '\' = next level up.
      *         y++  x=0  z=0
      *
+     * Duplicators, in order of precedence:
+     *     '<' = duplicator
+     *         level 0
+     *     '>' = duplicator
+     *         level 1
+     *     '[' = duplicator
+     *         level 2
+     *     ']' = duplicator
+     *         level 3
+     *
+     *     These two take an operand before it, and an integer operand after it.
+     *     It copies the value before it, the amount of times that the operand after it specifies.
+     *     Note:
+     *         This operand will be ignored if no integer is found, or integer is lower than 1.
+     *
      * Operators, in order of precedence:
      *     '(' and ')' = Brackets
      *         Can be used in and outside of string as characters.
@@ -133,38 +161,36 @@ public class MultiBlock {
      *         A & B & C = (A & B) & C
      *
      * Order of precedence:
-     *     Extract InputLists
+     *     Duplicator, level 0
+     *     Extraction of InputLists
+     *     Duplicator, level 1
      *     Brackets
      *     Sort any found ArrayLists, in this order of precedence, without Structure Modifiers
      *     Modifiers
      *     Transform special characters and special values to StructureBlock
+     *     Duplicator, level 2
      *     Operators
+     *     Duplicator, level 3
      *     Mapping
      *     Structure Modifiers
+     *
+     * A multi-block that's in the shape of a furnace recipe lying down, with air block in the center:
+     *     new MultiBlock("xxx/x_x/xxx", 'x', Blocks.cobblestone);
      *
      * The multiblock-object can check for structures with any orientation, by using:
      *     multiBlockObject.findStructure(World world, int x, int y, int z)
      * This returns a new Structure, or null if no structure was found.
      *
-     * The multiblock-object can also check for more than one structure in a specified location:
-     *     multiBlockObject.findStructures(World world, int x, int y, int z)
-     * This returns an ArrayList<Structure>, that's empty if none are found.
+     *     findStructures(World world, int x, int y, int z)
+     * Checks for all possible structures of this multiblock in world,
+     * and returns an ArrayList<Structure>, that's empty if none are found.
      * This can be useful if you want to avoid overlapping structures.
      *
      * Rotation is by default set to only rotate around Y axis,
      * but this can be changed using the 'set rotation around axis' functions.
      * Rotation is per 90°, 1/2 pi in radians.
      *
-     * A multi-block that's in the shape of a furnace recipe lying down, with air block in the center:
-     *     new MultiBlock(Blocks.cobblestone,"xx/", '@', "cobblestone", "_x/@cobblestone@@cobblestone@x", 'x', Blocks.cobblestone);
      *
-     * With a MultiBlock object you can call
-     *     findStructure(World world, int x, int y, int z)
-     * This returns a new Structure, or null if none are found, which represents the found structure in world.
-     *
-     *     findStructures(World world, int x, int y, int z)
-     * Checks for all possible structures of this multiblock in world,
-     * and returns an ArrayList<Structure>.
      *
      * */
     public MultiBlock(Object... objects) {

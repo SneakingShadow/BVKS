@@ -12,26 +12,36 @@ import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.*;
 public abstract class Operator extends StructureBlock {
 
     /**
-     * Takes, possibly unmapped, operands
+     * Takes, possibly unmapped, operands.
      *
-     * @return positions to be removed in inputList
+     * @return inputList after operands have been taken
      * */
-    public abstract int[] takeOperands(ArrayList<Object> inputList, int position);
+    public abstract ArrayList<Object> takeOperands(ArrayList<Object> inputList, int position);
 
     /**
      * @return operator is used validly
      *
      * If return false, then operator is deleted from inputList
-     * !inputList.isEmpty() is allready checked.
+     * !inputList.isEmpty() is already checked
      * */
     public abstract boolean valid(ArrayList<Object> inputList, int position);
 
     /**
-     * Returns if inputted position in array holds a valid structure block or not.
+     * Returns if inputted positions in array holds a valid structure block or not.
      * */
-    public static boolean clearPosition(ArrayList<Object> inputList, int position){
-        return position >= 0
-                && position < inputList.size()
+    public static boolean validPositions(ArrayList<Object> inputList, int... positions){
+        Boolean bool = true;
+        for (int position : positions) {
+            bool &= validPosition(inputList, position);
+        }
+        return bool;
+    }
+
+    /**
+     * Returns if inputted position in ArrayList holds a valid structure block or not.
+     * */
+    public static boolean validPosition(ArrayList<Object> inputList, int position){
+        return insideRange(inputList, position)
                 && !(inputList.get(position) instanceof Operator)
                 && !(inputList.get(position) instanceof Character
                         && (
@@ -42,11 +52,10 @@ public abstract class Operator extends StructureBlock {
                 );
     }
 
-    public static boolean clearPositions(ArrayList<Object> inputList, int... positions){
-        Boolean bool = true;
-        for (int position : positions) {
-            bool &= clearPosition(inputList, position);
-        }
-        return bool;
+    /**
+     * Returns if inputted position is inside the range of the ArrayList
+     * */
+    public static boolean insideRange(ArrayList<Object> inputList, int position) {
+        return position >= 0 && position < inputList.size();
     }
 }
