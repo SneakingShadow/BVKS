@@ -42,6 +42,7 @@ public class MultiBlockLists {
     public static final Character NEXT_LEVEL = '\\';
 
     private static ArrayList<Character> specialCharactersUsed = new ArrayList<Character>();
+    private static ArrayList<Character> operatorsUsed = new ArrayList<Character>();
 
     private static ArrayList<Character> otherCharactersUsed = ArrayListHelper.getArrayList(
             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -168,19 +169,15 @@ public class MultiBlockLists {
     private static ArrayList<OperatorInitializer> duplicatorInitializerList = new ArrayList<OperatorInitializer>();
 
     public static boolean specialCharacterUsed(Character value) {
-        for (Character character : specialCharactersUsed)
-            if (character.equals(value))
-                return true;
-
-        return false;
+        return specialCharactersUsed.contains(value);
     }
 
-    private static boolean characterUsed(Character value) {
-        for (Character character : otherCharactersUsed)
-            if (character.equals(value))
-                return true;
+    public static boolean operatorUsed(Character value) {
+        return operatorsUsed.contains(value);
+    }
 
-        return specialCharacterUsed(value);
+    public static boolean characterUsed(Character value) {
+        return otherCharactersUsed.contains(value) || specialCharacterUsed(value) || operatorUsed(value);
     }
 
 
@@ -225,7 +222,7 @@ public class MultiBlockLists {
     public static boolean register(OperatorInitializer operatorInitializer) {
         if (!characterUsed(operatorInitializer.getCharacter())) {
             operatorInitializerList.add(operatorInitializer);
-            otherCharactersUsed.add(operatorInitializer.getCharacter());
+            operatorsUsed.add(operatorInitializer.getCharacter());
             return true;
         }
         return false;
@@ -239,7 +236,7 @@ public class MultiBlockLists {
     public static boolean registerDuplicator(OperatorInitializer operatorInitializer) {
         if (!characterUsed(operatorInitializer.getCharacter())) {
             duplicatorInitializerList.add(operatorInitializer);
-            otherCharactersUsed.add(operatorInitializer.getCharacter());
+            operatorsUsed.add(operatorInitializer.getCharacter());
             return true;
         }
         return false;

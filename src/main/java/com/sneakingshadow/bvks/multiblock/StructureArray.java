@@ -51,6 +51,16 @@ class StructureArray {
     }
 
 
+    void reset() {
+        for (int x = 0; x < sizeX(); x++) {
+            for (int y = 0; y < sizeY(); y++) {
+                for (int z = 0; z < sizeZ(); z++) {
+                    structure.get(x).get(y).get(z).reset();
+                }
+            }
+        }
+    }
+
 
     private void ensureCapacity(int x, int y, int z) {
         boolean x_bool = x >= sizeX(); // x is too large
@@ -79,7 +89,7 @@ class StructureArray {
             }
 
         //Ensure structure
-        for (int ix = sizeX(); ix < x+1; ix++)
+        for (int ix = structure.size(); ix < x+1; ix++)
             structure.add(getEmptyArray(y, z));
     }
 
@@ -205,6 +215,19 @@ class StructureArray {
         }
 
         return sizes;
+    }
+
+    /**
+     * Use in case you suspect there's a bug with the given sizes of the array.
+     * */
+    void debug() {
+        System.out.println("size x: " + structure.size());
+        for (int x = 0; x < structure.size(); x++) {
+            System.out.println("x="+x+": size y: " + structure.get(x).size());
+            for (int y = 0; y < structure.get(x).size(); y++) {
+                System.out.println("x="+x+": y="+y+": size z;" + structure.get(x).get(y).size());
+            }
+        }
     }
 
 }

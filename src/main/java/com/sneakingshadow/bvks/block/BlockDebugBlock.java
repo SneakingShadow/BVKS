@@ -25,7 +25,7 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     {
 
         if(world.isRemote) {
-            MultiBlock multiBlock = new MultiBlock(new InputList("c",'>',3,"/"),'<',3, "\\", "ccc/c c/ccc", new InputList('c'),Blocks.cobblestone, '|', Blocks.sand);
+            MultiBlock multiBlock = new MultiBlock(new InputList("c",'>',3,"/"),'<',3, "\\", "cxc/x x/cxc", new InputList('c'),Blocks.cobblestone, '|', Blocks.sand, 'x', Blocks.cobblestone, '|', Blocks.sand);
             LogHelper.info(multiBlock.toString());
             System.out.println(multiBlock.findStructure(world, x, y, z));
         }

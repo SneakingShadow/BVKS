@@ -1,5 +1,6 @@
 package com.sneakingshadow.bvks.multiblock.structureblock.operator;
 
+import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 
 import java.util.ArrayList;
@@ -42,13 +43,13 @@ public abstract class Operator extends StructureBlock {
      * */
     public static boolean validPosition(ArrayList<Object> inputList, int position){
         return insideRange(inputList, position)
-                && !(inputList.get(position) instanceof Operator)
                 && !(inputList.get(position) instanceof Character
                         && (
                                 NEXT_LINE.equals(inputList.get(position))
                                 || NEXT_LEVEL.equals(inputList.get(position))
                                 || STRING_OBJECT.equals(inputList.get(position))
                         )
+                        && MultiBlockLists.operatorUsed((Character)inputList.get(position))
                 );
     }
 

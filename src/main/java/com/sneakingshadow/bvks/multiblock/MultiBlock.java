@@ -256,27 +256,26 @@ public class MultiBlock {
         //Loop through array
         for (int ix = 0; ix < structureArray.sizeX(); ix++) {
             for (int iy = 0; iy < structureArray.sizeY(); iy++) {
-                for (int iz = 0; iz < structureArray.sizeZ(); iz++)
+                for (int iz = 0; iz < structureArray.sizeZ(); iz++) {
+                    //Check if program should continue checking for structure at these array coordinates
+                    if (structureArray.get(ix, iy, iz).startCheckingForStructure(world, x, y, z)) {
+                        /*
+                         * Rotate around set axes.
+                         * If not rotating around axis, it will go from [0,1>.
+                         * */
+                        for (int rotationX = 0; rotationX < (rotatesAroundX ? 4 : 1); rotationX++) {
+                            for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
+                                for (int rotationZ = 0; rotationZ < (rotatesAroundZ ? 4 : 1); rotationZ++) {
+                                    Vec3 arrayPosition = Vec3.createVectorHelper(ix, iy, iz);
+                                    rotate(arrayPosition, rotationX, rotationY, rotationZ);
 
-                //Check if program should continue checking for structure at these array coordinates
-                if (structureArray.get(ix, iy, iz).startCheckingForStructure(world, x, y, z))
+                                    Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
 
-                    /*
-                     * Rotate around set axes.
-                     * If not rotating around axis, it will go from [0,1>.
-                     * */ {
-                    for (int rotationX = 0; rotationX < (rotatesAroundX ? 4 : 1); rotationX++) {
-                        for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
-                            for (int rotationZ = 0; rotationZ < (rotatesAroundZ ? 4 : 1); rotationZ++) {
-                                Vec3 arrayPosition = Vec3.createVectorHelper(ix, iy, iz);
-                                rotate(arrayPosition, rotationX, rotationY, rotationZ);
-
-                                Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
-
-                                if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
-                                    structureList.add(new Structure(this, world, startCorner, rotationX, rotationY, rotationZ));
-                                    if (!checkAllStructures)
-                                        return structureList;
+                                    if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
+                                        structureList.add(new Structure(this, world, startCorner, rotationX, rotationY, rotationZ));
+                                        if (!checkAllStructures)
+                                            return structureList;
+                                    }
                                 }
                             }
                         }
@@ -303,13 +302,18 @@ public class MultiBlock {
             for (int y = 0; y < structureArray.sizeY(); y++) {
                 for (int z = 0; z < structureArray.sizeZ(); z++) {
                     Vec3 currentArrayPosition = Vec3.createVectorHelper(x,y,z);
-                    Vec3 currentWorldPosition = rotate(currentArrayPosition, rotationX, rotationY, rotationZ).subtract(cornerPosition);
+                    Vec3 currentWorldPosition = rotate(
+                            Vec3.createVectorHelper(x,y,z), rotationX, rotationY, rotationZ
+                    ).addVector(cornerPosition.xCoord, cornerPosition.yCoord, cornerPosition.zCoord);
 
-                    if (!structureArray.blockIsValid(world, currentWorldPosition, currentArrayPosition, rotationX, rotationY, rotationZ))
+                    if (!structureArray.blockIsValid(world, currentWorldPosition, currentArrayPosition, rotationX, rotationY, rotationZ)) {
+                        structureArray.reset();
                         return false;
+                    }
                 }
             }
         }
+        structureArray.reset();
 
         return true;
     }
@@ -330,5 +334,9 @@ public class MultiBlock {
     }
     public int sizeZ() {
         return structureArray.sizeZ();
+    }
+
+    public void debugStructureArray() {
+        structureArray.debug();
     }
 }
