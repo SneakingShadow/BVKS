@@ -6,6 +6,8 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
+import static com.sneakingshadow.bvks.multiblock.MultiBlockUtil.rotate;
+
 public class MultiBlock {
 
     private StructureArray structureArray;
@@ -156,8 +158,13 @@ public class MultiBlock {
      * A multi-block that's in the shape of a furnace recipe lying down, with air block in the center:
      *     new MultiBlock(Blocks.cobblestone,"xx/", '@', "cobblestone", "_x/@cobblestone@@cobblestone@x", 'x', Blocks.cobblestone);
      *
-     * With a MultiBlock object you can call findStructure(World world, int x, int y, int z)
+     * With a MultiBlock object you can call
+     *     findStructure(World world, int x, int y, int z)
+     * This returns a new Structure, or null if none are found, which represents the found structure in world.
      *
+     *     findStructures(World world, int x, int y, int z)
+     * Checks for all possible structures of this multiblock in world,
+     * and returns an ArrayList<Structure>.
      *
      * */
     public MultiBlock(Object... objects) {
@@ -238,10 +245,10 @@ public class MultiBlock {
                                 Vec3 arrayPosition = Vec3.createVectorHelper(ix, iy, iz);
                                 rotate(arrayPosition, rotationX, rotationY, rotationZ);
 
-                                Vec3 cornerOfStructure = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
+                                Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
 
-                                if (validate(world, cornerOfStructure, rotationX, rotationY, rotationZ)) {
-                                    structureList.add(new Structure(this, world, cornerOfStructure, rotationX, rotationY, rotationZ));
+                                if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
+                                    structureList.add(new Structure(this, world, startCorner, rotationX, rotationY, rotationZ));
                                     if (!checkAllStructures)
                                         return structureList;
                                 }
@@ -281,23 +288,21 @@ public class MultiBlock {
         return true;
     }
 
-    private static Vec3 rotate(Vec3 vector, int rotateX, int rotateY, int rotateZ) {
-        vector.rotateAroundX((float) (((float)rotateX)/2 * Math.PI));
-        vector.rotateAroundY((float) (((float)rotateY)/2 * Math.PI));
-        vector.rotateAroundZ((float) (((float)rotateZ)/2 * Math.PI));
-
-        vector.xCoord = Math.round(vector.xCoord);
-        vector.yCoord = Math.round(vector.yCoord);
-        vector.zCoord = Math.round(vector.zCoord);
-
-        return vector;
-    }
-
     /**
      * Outputs the structure in string form.
      * Will try to optimize readability, by putting the axis with the lowest size first.
      * */
     public String toString() {
         return super.toString() + "\n\n" + structureArray.toString();
+    }
+
+    public int sizeX() {
+        return structureArray.sizeX();
+    }
+    public int sizeY() {
+        return structureArray.sizeY();
+    }
+    public int sizeZ() {
+        return structureArray.sizeZ();
     }
 }
