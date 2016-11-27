@@ -318,14 +318,6 @@ public class MultiBlock {
         return true;
     }
 
-    /**
-     * Outputs the structure in string form.
-     * Will try to optimize readability, by putting the axis with the lowest size first.
-     * */
-    public String toString() {
-        return super.toString() + "\n\n" + structureArray.toString();
-    }
-
     public int sizeX() {
         return structureArray.sizeX();
     }
@@ -336,7 +328,24 @@ public class MultiBlock {
         return structureArray.sizeZ();
     }
 
+
+    //----------------Debug functions----------------//
+    /**
+     * Outputs the structure in string form.
+     * Will try to optimize readability, by putting the axis with the lowest size first.
+     * */
+    public String toString() {
+        return super.toString() + "\n\n" + structureArray.toString();
+    }
+
     public void debugStructureArray() {
         structureArray.debug();
+    }
+
+    /**
+     * Runs the input handler in debug mode, giving debugging information on runtime.
+     * */
+    public MultiBlock(boolean debug, Object... objects) {
+        structureArray = InputHandler.getStructureArray(objects, debug);
     }
 }

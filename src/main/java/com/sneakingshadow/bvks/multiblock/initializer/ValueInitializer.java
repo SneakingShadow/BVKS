@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.multiblock.initializer;
 
-class ValueInitializer {
+public class ValueInitializer {
 
     private Character character;
 

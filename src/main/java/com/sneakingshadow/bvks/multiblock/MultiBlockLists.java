@@ -2,6 +2,7 @@ package com.sneakingshadow.bvks.multiblock;
 
 import com.sneakingshadow.bvks.multiblock.initializer.OperatorInitializer;
 import com.sneakingshadow.bvks.multiblock.initializer.SpecialCharacterInitializer;
+import com.sneakingshadow.bvks.multiblock.initializer.ValueInitializer;
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
 import com.sneakingshadow.bvks.multiblock.structureblock.operator.*;
 import com.sneakingshadow.bvks.multiblock.structureblock.special.*;
@@ -43,125 +44,95 @@ public class MultiBlockLists {
 
     private static ArrayList<Character> specialCharactersUsed = new ArrayList<Character>();
     private static ArrayList<Character> operatorsUsed = new ArrayList<Character>();
-
     private static ArrayList<Character> otherCharactersUsed = ArrayListHelper.getArrayList(
             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-            STRING_OBJECT, ORE_DICTIONARY, BRACKET_START, BRACKET_END, NEXT_LINE, NEXT_LEVEL
+            ORE_DICTIONARY, BRACKET_START, BRACKET_END, STRING_OBJECT, NEXT_LINE, NEXT_LEVEL
     );
 
     public static void init() {
-
         //Special characters
-        register(
-                new SpecialCharacterInitializer(NULL) {
+        register( new SpecialCharacterInitializer(NULL) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockNull();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(FULL_BLOCK) {
+                });
+        register(new SpecialCharacterInitializer(FULL_BLOCK) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockFull();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(AIR) {
+                });
+        register(new SpecialCharacterInitializer(AIR) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockAir();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(REPLACEABLE_BLOCK) {
+                });
+        register(new SpecialCharacterInitializer(REPLACEABLE_BLOCK) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockReplaceable();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(LIQUID) {
+                });
+        register(new SpecialCharacterInitializer(LIQUID) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockLiquid();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(OPAQUE_MATERIAL) {
+                });
+        register(new SpecialCharacterInitializer(OPAQUE_MATERIAL) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockOpaqueMaterial();
                     }
-                }
-        );
-        register(
-                new SpecialCharacterInitializer(OPAQUE_LIGHT) {
+                });
+        register(new SpecialCharacterInitializer(OPAQUE_LIGHT) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockLightOpaque();
                     }
-                }
-        );
+                });
 
         //Operators
-        register(
-                new OperatorInitializer(NOT) {
+        register(new OperatorInitializer(NOT) {
                     @Override
                     public Operator getOperator() {
                         return new OperatorNot();
                     }
-                }
-        );
-        register(
-                new OperatorInitializer(AND) {
+                });
+        register(new OperatorInitializer(AND) {
                     @Override public Operator getOperator() {
                         return new OperatorAnd();
                     }
-                }
-        );
-        register(
-                new OperatorInitializer(OR) {
+                });
+        register(new OperatorInitializer(OR) {
                     @Override public Operator getOperator() {
                         return new OperatorOr();
                     }
-                }
-        );
+                });
 
         //Duplicators
-        registerDuplicator(
-                new OperatorInitializer(DUPLICATE_LEVEL_0) {
+        registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_0) {
                     @Override public Operator getOperator() {
                         return new OperatorDuplicate();
                     }
-                }
-        );
-        registerDuplicator(
-                new OperatorInitializer(DUPLICATE_LEVEL_1) {
+                });
+        registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_1) {
                     @Override public Operator getOperator() {
                         return new OperatorDuplicate();
                     }
-                }
-        );
-        registerDuplicator(
-                new OperatorInitializer(DUPLICATE_LEVEL_2) {
+                });
+        registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_2) {
                     @Override public Operator getOperator() {
                         return new OperatorDuplicate();
                     }
-                }
-        );
-        registerDuplicator(
-                new OperatorInitializer(DUPLICATE_LEVEL_3) {
+                });
+        registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_3) {
                     @Override public Operator getOperator() {
                         return new OperatorDuplicate();
                     }
-                }
-        );
+                });
     }
 
     private static ArrayList<SpecialCharacterInitializer> specialCharacterInitializerList = new ArrayList<SpecialCharacterInitializer>();
@@ -171,15 +142,12 @@ public class MultiBlockLists {
     public static boolean specialCharacterUsed(Character value) {
         return specialCharactersUsed.contains(value);
     }
-
     public static boolean operatorUsed(Character value) {
         return operatorsUsed.contains(value);
     }
-
     public static boolean characterUsed(Character value) {
         return otherCharactersUsed.contains(value) || specialCharacterUsed(value) || operatorUsed(value);
     }
-
 
 
     //-------------Special Values-------------//
@@ -199,12 +167,7 @@ public class MultiBlockLists {
      * @return successful
      * */
     public static boolean register(SpecialCharacterInitializer specialCharacterInitializer) {
-        if (!characterUsed(specialCharacterInitializer.getCharacter())) {
-            specialCharacterInitializerList.add(specialCharacterInitializer);
-            specialCharactersUsed.add(specialCharacterInitializer.getCharacter());
-            return true;
-        }
-        return false;
+        return register(specialCharacterInitializer, specialCharacterInitializerList, specialCharactersUsed);
     }
 
     //-------------Operators-------------//
@@ -220,12 +183,7 @@ public class MultiBlockLists {
      * @return successful
      * */
     public static boolean register(OperatorInitializer operatorInitializer) {
-        if (!characterUsed(operatorInitializer.getCharacter())) {
-            operatorInitializerList.add(operatorInitializer);
-            operatorsUsed.add(operatorInitializer.getCharacter());
-            return true;
-        }
-        return false;
+        return register(operatorInitializer, operatorInitializerList, operatorsUsed);
     }
 
     //------------Duplicators------------//
@@ -233,20 +191,25 @@ public class MultiBlockLists {
      * Duplicators are registered here.
      * @return successful
      * */
-    public static boolean registerDuplicator(OperatorInitializer operatorInitializer) {
-        if (!characterUsed(operatorInitializer.getCharacter())) {
-            duplicatorInitializerList.add(operatorInitializer);
-            operatorsUsed.add(operatorInitializer.getCharacter());
-            return true;
-        }
-        return false;
+    public static boolean registerDuplicator(OperatorInitializer duplicatorInitializer) {
+        return register(duplicatorInitializer, duplicatorInitializerList, operatorsUsed);
     }
 
     /**
      * @return returns operator, and null if invalid value
      * */
-    public static OperatorInitializer getDuplicator(int number) {
+    public static OperatorInitializer getDuplicatorInitializer(int number) {
         return duplicatorInitializerList.get(number);
+    }
+
+    //------------Private stuff------------//
+    private static <T extends ValueInitializer> boolean register(T initializer, ArrayList<T> arrayList, ArrayList<Character> charactersUsedList) {
+        if (!characterUsed(initializer.getCharacter())) {
+            arrayList.add(initializer);
+            charactersUsedList.add(initializer.getCharacter());
+            return true;
+        }
+        return false;
     }
 
 }
