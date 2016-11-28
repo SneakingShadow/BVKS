@@ -28,15 +28,18 @@ class InputSorter {
 
         ArrayList<Object> arrayList = sortInput(objects, charMap, stringMap, true);
         arrayList = map(arrayList, charMap, stringMap);
-        System.out.println(charMap.isEmpty());
+
 
         return arrayList;
     }
 
     private static ArrayList<Object> sortInput(Object[] objects, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap, boolean doMapping) {
-        ArrayList<Object> arrayList;
+        ArrayList<Boolean> booleans = new ArrayList<Boolean>();
+        ArrayList<Object> arrayList = neededFunctions(objects, booleans);
 
-        arrayList = duplicator(ArrayListHelper.fromArray(objects), MultiBlockLists.getDuplicatorInitializer(0));
+        System.out.println(ArrayListHelper.arrayToString(booleans));
+
+        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(0));
         arrayList = inputList(arrayList, new ArrayList<Object>());
         arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(1));
         arrayList = brackets(arrayList);
@@ -57,6 +60,80 @@ class InputSorter {
         arrayList = arrayListClear(arrayList);
 
         return arrayList;
+    }
+
+    private static final int[] DUPLICATORS = {0,2,7,9};
+    private static final int INPUT_LIST = 1;
+    private static final int BRACKETS = 3;
+    private static final int ARRAY_LIST_SORT = 4;
+    private static final int ORE_DICTIONARY = 5;
+    private static final int SPECIAL_VALUES = 6;
+    private static final int OPERATOR = 8;
+    private static final int EXTRACT_STRINGS = 10;
+    private static final int ARRAY_LIST_CLEAR = 11;
+
+    private static final int BOOLEAN_LIST_SIZE = 12;
+
+    /**
+     * Modifies the booleans list and sets everything that needs to be done to true, in order to optimize.
+     * Also creates ArrayList from object array.
+     * */
+    private static ArrayList<Object> neededFunctions(Object[] inputs, ArrayList<Boolean> booleans) {
+        for (int i = 0; i < BOOLEAN_LIST_SIZE; i++) {
+            booleans.add(false);
+        }
+        checkArray(inputs, booleans);
+
+        return ArrayListHelper.fromArray(inputs);
+    }
+
+    /**
+     * Modifies the booleans list and sets everything that needs to be done to true, in order to optimize.
+     * */
+    private static void checkArray(Object[] objects, ArrayList<Boolean> booleans) {
+        for (Object object : objects) {
+            if (object == null)
+                booleans.add(SPECIAL_VALUES, true);
+
+            else if (object instanceof Character) {
+                checkCharacter(object, booleans);
+            }
+            else if (object instanceof String) {
+                booleans.set(EXTRACT_STRINGS, true);
+                for (int i = 0; i < ((String) object).length(); i++) {
+                    checkCharacter(((String) object).charAt(i), booleans);
+                }
+            }
+            else if (object instanceof InputList) {
+                booleans.add(INPUT_LIST, true);
+                checkArray(((InputList) object).toArray(), booleans);
+            }
+            else if (object instanceof ArrayList) {
+                booleans.add(ARRAY_LIST_SORT, true);
+                booleans.add(ARRAY_LIST_CLEAR, true);
+            }
+        }
+    }
+
+    //Used by checkArray
+    private static void checkCharacter(Object object, ArrayList<Boolean> booleans) {
+        for (int i = 0; i < 4; i++)
+            if (MultiBlockLists.getDuplicatorInitializer(i).isSpecialCharacter(object))
+                booleans.set(DUPLICATORS[i], true);
+
+        if (MultiBlockLists.ORE_DICTIONARY.equals(object))
+            booleans.set(ORE_DICTIONARY, true);
+
+        else if(MultiBlockLists.BRACKET_START.equals(object) || MultiBlockLists.BRACKET_END.equals(object)) {
+            booleans.set(BRACKETS, true);
+            booleans.add(ARRAY_LIST_SORT,true);
+            booleans.add(ARRAY_LIST_CLEAR,true);
+        }
+        else if (MultiBlockLists.specialCharacterUsed((Character)object))
+            booleans.set(SPECIAL_VALUES, true);
+
+        else if (MultiBlockLists.operatorUsed((Character)object))
+            booleans.set(OPERATOR, true);
     }
 
     /**
