@@ -73,6 +73,6 @@ public class OperatorAnd extends Operator {
     }
 
     public String toString() {
-        return operand_1.toString() + " " + AND + " " + operand_2.toString();
+        return "(" + operand_1.toString() + " " + AND + " " + operand_2.toString() + ")";
     }
 }

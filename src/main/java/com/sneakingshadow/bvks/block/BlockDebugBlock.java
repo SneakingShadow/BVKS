@@ -1,9 +1,9 @@
 package com.sneakingshadow.bvks.block;
 
-import com.sneakingshadow.bvks.multiblock.InputList;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.multiblock.MultiBlock;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
+import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -25,7 +25,17 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     {
 
         if(world.isRemote) {
-            MultiBlock multiBlock = new MultiBlock(new InputList("c",'>',3,"/"),'<',3, "\\", "cxc/x x/cxc", new InputList('c'),Blocks.cobblestone, '|', Blocks.sand, 'x', Blocks.cobblestone, '|', Blocks.sand);
+            MultiBlock multiBlock = new MultiBlock(
+                    "(", Blocks.cobblestone, Blocks.sand, ")",
+                    '(', Blocks.cobblestone, Blocks.sand, ')',
+                    '(', Blocks.cobblestone, Blocks.sand, ")", '/',
+                    '(', Blocks.cobblestone, Blocks.sand, ")",
+                    " ",
+                    ArrayListHelper.createArrayList((Object)Blocks.cobblestone), '/',
+                    ArrayListHelper.createArrayList((Object)Blocks.cobblestone, Blocks.sand),
+                    "@cobblestone@",
+                    '(', '@', "cobblestone)"
+            );
             LogHelper.info(multiBlock.toString());
             System.out.println(multiBlock.findStructure(world, x, y, z));
         }

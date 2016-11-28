@@ -29,6 +29,9 @@ public class SBlockBlock extends StructureBlock {
 
     @Override
     public String toString() {
+        if (metadata == -1) {
+            return block.toString();
+        }
         return "["+block.toString()+","+metadata+"]";
     }
 }

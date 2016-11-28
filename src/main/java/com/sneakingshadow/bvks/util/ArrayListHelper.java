@@ -11,7 +11,7 @@ public class ArrayListHelper {
     /**
      * Initializes an ArrayList with objects.
      * */
-    public static <T> ArrayList<T> getArrayList(T... objects) {
+    public static <T> ArrayList<T> createArrayList(T... objects) {
         ArrayList<T> arrayList = new ArrayList<T>();
 
         Collections.addAll(arrayList, objects);

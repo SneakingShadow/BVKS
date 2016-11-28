@@ -45,7 +45,7 @@ public class MultiBlockLists {
     private static ArrayList<Character> specialCharactersUsed = new ArrayList<Character>();
     private static ArrayList<Character> operatorsUsed = new ArrayList<Character>();
 
-    private static ArrayList<Character> otherCharactersUsed = ArrayListHelper.getArrayList(
+    private static ArrayList<Character> otherCharactersUsed = ArrayListHelper.createArrayList(
             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
             STRING_OBJECT, ORE_DICTIONARY, BRACKET_START, BRACKET_END, NEXT_LINE, NEXT_LEVEL
     );

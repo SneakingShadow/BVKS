@@ -15,8 +15,8 @@ public class SBlockArrayList extends StructureBlock {
     private ArrayList<StructureBlock> arrayList = new ArrayList<StructureBlock>();
     private ArrayList<Object> inputList = new ArrayList<Object>();
 
-    public ArrayList<StructureBlock> getArrayList() {
-        return arrayList;
+    public ArrayList<Object> getArrayList() {
+        return inputList;
     }
 
     public SBlockArrayList(ArrayList<Object> inputList) {
@@ -53,13 +53,19 @@ public class SBlockArrayList extends StructureBlock {
     }
 
     public String toString() {
-        String string = MultiBlockLists.BRACKET_START + " ";
+        String string = "{ ";
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            string += arrayList.get(i) + (i < arrayList.size()-1 ? " , " : "");
+        if (!arrayList.isEmpty()) {
+            for (int i = 0; i < arrayList.size(); i++) {
+                string += arrayList.get(i) + (i < arrayList.size() - 1 ? " , " : "");
+            }
+        } else {
+            for (int i = 0; i < inputList.size(); i++) {
+                string += inputList.get(i) + (i < inputList.size() - 1 ? " , " : "");
+            }
         }
 
-        return string + " " + MultiBlockLists.BRACKET_END;
+        return string + " }";
     }
 
 }

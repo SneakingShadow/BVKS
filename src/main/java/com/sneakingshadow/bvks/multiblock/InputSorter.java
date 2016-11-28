@@ -27,113 +27,127 @@ class InputSorter {
         HashMap<String, StructureBlock> stringMap = new HashMap<String, StructureBlock>();
 
         ArrayList<Object> arrayList = sortInput(objects, charMap, stringMap, true);
-        arrayList = map(arrayList, charMap, stringMap);
-
+        if (!(charMap.isEmpty() && stringMap.isEmpty()))
+            arrayList = map(arrayList, charMap, stringMap);
 
         return arrayList;
     }
 
     private static ArrayList<Object> sortInput(Object[] objects, HashMap<Character, StructureBlock> charMap, HashMap<String, StructureBlock> stringMap, boolean doMapping) {
-        ArrayList<Boolean> booleans = new ArrayList<Boolean>();
-        ArrayList<Object> arrayList = neededFunctions(objects, booleans);
+        ArrayList<Boolean> booleans = neededFunctions(objects);
+        ArrayList<Object> arrayList = ArrayListHelper.fromArray(objects);
 
-        System.out.println(ArrayListHelper.arrayToString(booleans));
+        if (booleans.get(DUPLICATORS[0]))
+            arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(0));
+        if (booleans.get(INPUT_LIST))
+            arrayList = inputList(arrayList, new ArrayList<Object>());
+        if (booleans.get(DUPLICATORS[1]))
+            arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(1));
+        if (booleans.get(BRACKETS))
+            arrayList = brackets(arrayList);
+        if (booleans.get(ARRAY_LIST)) {
+            arrayList = arrayListSort(arrayList, charMap, stringMap);
+            arrayList = arrayListClear(arrayList);
+        }
+        if (booleans.get(ORE_DICTIONARY))
+            arrayList = oreDictionary(arrayList);
 
-        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(0));
-        arrayList = inputList(arrayList, new ArrayList<Object>());
-        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(1));
-        arrayList = brackets(arrayList);
-        arrayList = arrayListSort(arrayList, charMap, stringMap);
-        arrayList = oreDictionary(arrayList);
         arrayList = specialValues(arrayList);
-        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(2));
-        arrayList = operator(arrayList, MultiBlockLists.getOperatorList());
-        arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(3));
+        if (booleans.get(DUPLICATORS[2]))
+            arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(2));
+        if (booleans.get(OPERATOR))
+            arrayList = operator(arrayList, MultiBlockLists.getOperatorList());
+        if (booleans.get(DUPLICATORS[3]))
+            arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(3));
 
         //Allows arrayListSort to sort its content in this manner without conflicts.
         if (doMapping) {
             mapObjects(arrayList, charMap, stringMap);
         }
-
         arrayList = clearMappedAndInvalid(arrayList);
-        arrayList = extractStrings(arrayList);
-        arrayList = arrayListClear(arrayList);
+
+        if (booleans.get(EXTRACT_STRINGS))
+            arrayList = extractStrings(arrayList);
 
         return arrayList;
     }
 
-    private static final int[] DUPLICATORS = {0,2,7,9};
-    private static final int INPUT_LIST = 1;
-    private static final int BRACKETS = 3;
-    private static final int ARRAY_LIST_SORT = 4;
-    private static final int ORE_DICTIONARY = 5;
-    private static final int SPECIAL_VALUES = 6;
+    private static final int[] DUPLICATORS = {0,1,2,3};
+    private static final int INPUT_LIST = 4;
+    private static final int BRACKETS = 5;
+    private static final int ARRAY_LIST = 6;
+    private static final int ORE_DICTIONARY = 7;
     private static final int OPERATOR = 8;
-    private static final int EXTRACT_STRINGS = 10;
-    private static final int ARRAY_LIST_CLEAR = 11;
+    private static final int EXTRACT_STRINGS = 9;
 
-    private static final int BOOLEAN_LIST_SIZE = 12;
+    private static final int BOOLEAN_LIST_SIZE = 10;
 
     /**
      * Modifies the booleans list and sets everything that needs to be done to true, in order to optimize.
      * Also creates ArrayList from object array.
      * */
-    private static ArrayList<Object> neededFunctions(Object[] inputs, ArrayList<Boolean> booleans) {
+    private static ArrayList<Boolean> neededFunctions(Object[] inputs) {
+        ArrayList<Boolean> booleans = new ArrayList<Boolean>();
         for (int i = 0; i < BOOLEAN_LIST_SIZE; i++) {
             booleans.add(false);
         }
-        checkArray(inputs, booleans);
+        booleans = checkArray(inputs, booleans);
 
-        return ArrayListHelper.fromArray(inputs);
+        return booleans;
     }
 
     /**
      * Modifies the booleans list and sets everything that needs to be done to true, in order to optimize.
      * */
-    private static void checkArray(Object[] objects, ArrayList<Boolean> booleans) {
+    private static ArrayList<Boolean> checkArray(Object[] objects, ArrayList<Boolean> booleans) {
         for (Object object : objects) {
-            if (object == null)
-                booleans.add(SPECIAL_VALUES, true);
+            if (object == null) {
 
+            }
             else if (object instanceof Character) {
-                checkCharacter(object, booleans);
+                booleans = checkCharacter(object, booleans);
             }
             else if (object instanceof String) {
                 booleans.set(EXTRACT_STRINGS, true);
                 for (int i = 0; i < ((String) object).length(); i++) {
-                    checkCharacter(((String) object).charAt(i), booleans);
+                    booleans = checkCharacter(((String) object).charAt(i), booleans);
                 }
             }
             else if (object instanceof InputList) {
-                booleans.add(INPUT_LIST, true);
-                checkArray(((InputList) object).toArray(), booleans);
+                booleans.set(INPUT_LIST, true);
+                booleans = checkArray(((InputList) object).toArray(), booleans);
             }
             else if (object instanceof ArrayList) {
-                booleans.add(ARRAY_LIST_SORT, true);
-                booleans.add(ARRAY_LIST_CLEAR, true);
+                booleans.set(ARRAY_LIST, true);
             }
         }
+
+        return booleans;
     }
 
     //Used by checkArray
-    private static void checkCharacter(Object object, ArrayList<Boolean> booleans) {
-        for (int i = 0; i < 4; i++)
-            if (MultiBlockLists.getDuplicatorInitializer(i).isSpecialCharacter(object))
-                booleans.set(DUPLICATORS[i], true);
+    private static ArrayList<Boolean> checkCharacter(Object object, ArrayList<Boolean> booleans) {
+        if (!(booleans.get(DUPLICATORS[0])
+                        && booleans.get(DUPLICATORS[1])
+                        && booleans.get(DUPLICATORS[2])
+                        && booleans.get(DUPLICATORS[3])))
+            for (int i = 0; i < 4; i++)
+                if (MultiBlockLists.getDuplicatorInitializer(i).isSpecialCharacter(object))
+                    booleans.set(DUPLICATORS[i], true);
 
-        if (MultiBlockLists.ORE_DICTIONARY.equals(object))
+        if (!booleans.get(ORE_DICTIONARY) && MultiBlockLists.ORE_DICTIONARY.equals(object))
             booleans.set(ORE_DICTIONARY, true);
 
-        else if(MultiBlockLists.BRACKET_START.equals(object) || MultiBlockLists.BRACKET_END.equals(object)) {
+        else if (!booleans.get(BRACKETS) &&
+                (MultiBlockLists.BRACKET_START.equals(object)
+                || MultiBlockLists.BRACKET_END.equals(object))) {
             booleans.set(BRACKETS, true);
-            booleans.add(ARRAY_LIST_SORT,true);
-            booleans.add(ARRAY_LIST_CLEAR,true);
+            booleans.set(ARRAY_LIST,true);
         }
-        else if (MultiBlockLists.specialCharacterUsed((Character)object))
-            booleans.set(SPECIAL_VALUES, true);
-
-        else if (MultiBlockLists.operatorUsed((Character)object))
+        else if (!booleans.get(OPERATOR) && MultiBlockLists.operatorUsed((Character)object))
             booleans.set(OPERATOR, true);
+
+        return booleans;
     }
 
     /**
@@ -181,10 +195,12 @@ class InputSorter {
                     }
                 }
 
-                if (bool && bracketsNotClosed > 0)
-                    bracketList.add(object);
-                else
-                    inputList.add(object);
+                if (bool) {
+                    if (bracketsNotClosed > 0)
+                        bracketList.add(object);
+                    else
+                        inputList.add(object);
+                }
             }
             else if (object instanceof String) {
                 ArrayList<String> stringArray = StringUtil.splitString(
@@ -275,7 +291,7 @@ class InputSorter {
                     for (String string : stringList) {
                         if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
                             if (string.length() > 1)
-                                arrayList.add(new SBlockOreDictionary(string_object));
+                                arrayList.add(new SBlockOreDictionary(string.substring(1, string.length())));
                         } else {
                             arrayList.add(string_object);
                         }
@@ -342,7 +358,7 @@ class InputSorter {
      * Initializes duplicators
      * */
     private static ArrayList<Object> duplicator(ArrayList<Object> inputList, OperatorInitializer operatorInitializer) {
-        return operator(inputList, ArrayListHelper.getArrayList(operatorInitializer));
+        return operator(inputList, ArrayListHelper.createArrayList(operatorInitializer));
     }
 
     /**
@@ -388,10 +404,10 @@ class InputSorter {
                 Character character = (Character)object;
 
                 if (MultiBlockLists.STRING_OBJECT.equals(character)) {
-                    if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
+                    if (inputList.size() > i+2 && inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
                         stringMap.put(MultiBlockLists.STRING_OBJECT + (String)inputList.get(++i), (StructureBlock) inputList.get(++i));
 
-                } else if (inputList.get(i+1) instanceof StructureBlock)
+                } else if (inputList.size() > i+1 && inputList.get(i+1) instanceof StructureBlock)
                     charMap.put(character, (StructureBlock) inputList.get(++i));
 
             }
@@ -411,9 +427,9 @@ class InputSorter {
                 Character character = (Character)object;
 
                 if (MultiBlockLists.STRING_OBJECT.equals(character)) {
-                    if (inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
+                    if (inputList.size() > i+2 && inputList.get(i+1) instanceof String && inputList.get(i+2) instanceof StructureBlock)
                         i+=2;
-                } else if (inputList.get(i+1) instanceof StructureBlock)
+                } else if (inputList.size() > i+1 && inputList.get(i+1) instanceof StructureBlock)
                     ++i;
             } else
                 arrayList.add(object);
@@ -482,10 +498,10 @@ class InputSorter {
 
         for (Object object : inputList) {
             if (object instanceof SBlockArrayList) {
-                ArrayList<StructureBlock> structureList = ((SBlockArrayList) object).getArrayList();
-                if (!structureList.isEmpty()) {
-                    if (structureList.size() == 1)
-                        arrayList.add(structureList.get(0));
+                ArrayList<Object> arrayInputList = ((SBlockArrayList) object).getArrayList();
+                if (!arrayInputList.isEmpty()) {
+                    if (arrayInputList.size() == 1)
+                        arrayList.add(arrayInputList.get(0));
                     else
                         arrayList.add(object);
                 }else

@@ -67,6 +67,6 @@ public class OperatorNot extends Operator {
     }
 
     public String toString() {
-        return NOT + (operand != null ? operand.toString() : "(valid. ERROR)");
+        return NOT + (operand != null ? operand.toString() : "(invalid operand)");
     }
 }

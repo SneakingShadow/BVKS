@@ -16,8 +16,6 @@ class InputHandler {
         StructureArray structureArray = new StructureArray();
         ArrayList<Object> arrayList = InputSorter.sortInput(objects);
 
-        System.out.println(ArrayListHelper.arrayToString(arrayList));
-
         int x = 0, y = 0, z = 0;
 
         for (Object object : arrayList) {

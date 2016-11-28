@@ -83,6 +83,7 @@ public class OperatorOr extends Operator {
 
     @Override
     public String toString() {
-        return operand_1.toString() + " " + OR + " " + operand_2.toString();
+        String string =  "OperatorOr@" + Integer.toHexString(hashCode());
+        return string + ": (" + operand_1.toString() + " " + OR + " " + operand_2.toString() + ")";
     }
 }
