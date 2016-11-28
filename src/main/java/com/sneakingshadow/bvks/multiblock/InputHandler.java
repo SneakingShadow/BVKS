@@ -1,7 +1,6 @@
 package com.sneakingshadow.bvks.multiblock;
 
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
-import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sun.istack.internal.NotNull;
 
 import java.util.ArrayList;

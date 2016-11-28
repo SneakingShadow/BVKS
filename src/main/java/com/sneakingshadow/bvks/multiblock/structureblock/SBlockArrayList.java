@@ -1,6 +1,5 @@
 package com.sneakingshadow.bvks.multiblock.structureblock;
 
-import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 

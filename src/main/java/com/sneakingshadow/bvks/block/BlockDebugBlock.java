@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.block;
 
-import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.multiblock.MultiBlock;
+import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sneakingshadow.bvks.util.LogHelper;

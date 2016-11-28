@@ -3,7 +3,6 @@ package com.sneakingshadow.bvks.multiblock.structureblock.operator;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class OperatorDuplicate extends Operator {
     /**
