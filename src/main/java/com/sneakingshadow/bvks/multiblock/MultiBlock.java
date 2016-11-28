@@ -259,13 +259,18 @@ public class MultiBlock {
                 for (int iz = 0; iz < structureArray.sizeZ(); iz++) {
                     //Check if program should continue checking for structure at these array coordinates
                     if (structureArray.get(ix, iy, iz).startCheckingForStructure(world, x, y, z)) {
-                        /*
-                         * Rotate around set axes.
-                         * If not rotating around axis, it will go from [0,1>.
-                         * */
-                        for (int rotationX = 0; rotationX < (rotatesAroundX ? 4 : 1); rotationX++) {
-                            for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
-                                for (int rotationZ = 0; rotationZ < (rotatesAroundZ ? 4 : 1); rotationZ++) {
+                        if (rotatesAroundX)
+                            for (int rotationX = 1; rotationX < 4; rotationX += 2) {
+                                // copy what's in the last loop / make it a function
+                            }
+                        
+                        if (rotatesAroundZ)
+                            for (int rotationZ = 1; rotationX < 4; rotationX += 2) {
+                                // copy what's in the last loop / make it a function
+                            }
+
+                        for (int rotationX = 0; rotationX < (rotatesAroundX || rotationAroundZ ? 4 : 1); rotationX += 2) {
+                            for (int rotationY = 0; rotationZ < (rotatesAroundY ? 4 : 1); rotationY++) {
                                     Vec3 arrayPosition = Vec3.createVectorHelper(ix, iy, iz);
                                     rotate(arrayPosition, rotationX, rotationY, rotationZ);
 
