@@ -44,14 +44,15 @@ public class MultiBlockLists {
 
     private static ArrayList<Character> specialCharactersUsed = new ArrayList<Character>();
     private static ArrayList<Character> operatorsUsed = new ArrayList<Character>();
+
     private static ArrayList<Character> otherCharactersUsed = ArrayListHelper.getArrayList(
             'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-            ORE_DICTIONARY, BRACKET_START, BRACKET_END, STRING_OBJECT, NEXT_LINE, NEXT_LEVEL
+            STRING_OBJECT, ORE_DICTIONARY, BRACKET_START, BRACKET_END, NEXT_LINE, NEXT_LEVEL
     );
 
     public static void init() {
         //Special characters
-        register( new SpecialCharacterInitializer(NULL) {
+        register(new SpecialCharacterInitializer(NULL) {
                     @Override
                     public StructureBlock getStructureBlock() {
                         return new SBlockNull();
@@ -142,12 +143,15 @@ public class MultiBlockLists {
     public static boolean specialCharacterUsed(Character value) {
         return specialCharactersUsed.contains(value);
     }
+
     public static boolean operatorUsed(Character value) {
         return operatorsUsed.contains(value);
     }
+
     public static boolean characterUsed(Character value) {
         return otherCharactersUsed.contains(value) || specialCharacterUsed(value) || operatorUsed(value);
     }
+
 
 
     //-------------Special Values-------------//

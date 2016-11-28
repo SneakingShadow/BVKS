@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.multiblock;
 
 import com.sneakingshadow.bvks.multiblock.structureblock.StructureBlock;
+import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sun.istack.internal.NotNull;
 
 import java.util.ArrayList;
@@ -10,14 +11,12 @@ import static com.sneakingshadow.bvks.multiblock.MultiBlockLists.NEXT_LINE;
 
 class InputHandler {
 
-    static StructureArray getStructureArray(Object[] objects) {
-        return getStructureArray(objects, false);
-    }
-
     @NotNull
-    static StructureArray getStructureArray(Object[] objects, boolean debug) {
+    static StructureArray getStructureArray(Object[] objects) {
         StructureArray structureArray = new StructureArray();
-        ArrayList<Object> arrayList = InputSorter.sortInput(objects, debug);
+        ArrayList<Object> arrayList = InputSorter.sortInput(objects);
+
+        System.out.println(ArrayListHelper.arrayToString(arrayList));
 
         int x = 0, y = 0, z = 0;
 
