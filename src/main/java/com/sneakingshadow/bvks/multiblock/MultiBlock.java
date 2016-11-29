@@ -259,37 +259,66 @@ public class MultiBlock {
                 for (int iz = 0; iz < structureArray.sizeZ(); iz++) {
                     //Check if program should continue checking for structure at these array coordinates
                     if (structureArray.get(ix, iy, iz).startCheckingForStructure(world, x, y, z)) {
-                        if (rotatesAroundX)
+                        /*
+                        * Looks at array as a cube with 6 sides and 4 possible rotations per side.
+                        * */
+
+                        //Top side, and if rotatesAroundX or rotatesAroundZ then the bottom side as well
+                        for (int rotationX = 0; rotationX < (rotatesAroundX || rotatesAroundZ ? 4 : 1); rotationX += 2) {
+                            Structure structure = validate(world, x,y,z, ix,iy,iz, rotationX, 0);
+                            if (structure != null) {
+                                structureList.add(structure);
+                                if (!checkAllStructures)
+                                    return structureList;
+                            }
+                        }
+
+                        //Two of the four sides that are not top nor bottom, that are inaccessible by rotationZ
+                        if (rotatesAroundX) {
                             for (int rotationX = 1; rotationX < 4; rotationX += 2) {
-                                // copy what's in the last loop / make it a function
-                            }
-                        
-                        if (rotatesAroundZ)
-                            for (int rotationZ = 1; rotationX < 4; rotationX += 2) {
-                                // copy what's in the last loop / make it a function
-                            }
-
-                        for (int rotationX = 0; rotationX < (rotatesAroundX || rotationAroundZ ? 4 : 1); rotationX += 2) {
-                            for (int rotationY = 0; rotationZ < (rotatesAroundY ? 4 : 1); rotationY++) {
-                                    Vec3 arrayPosition = Vec3.createVectorHelper(ix, iy, iz);
-                                    rotate(arrayPosition, rotationX, rotationY, rotationZ);
-
-                                    Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
-
-                                    if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
-                                        structureList.add(new Structure(this, world, startCorner, rotationX, rotationY, rotationZ));
-                                        if (!checkAllStructures)
-                                            return structureList;
-                                    }
+                                Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0);
+                                if (structure != null) {
+                                    structureList.add(structure);
+                                    if (!checkAllStructures)
+                                        return structureList;
                                 }
                             }
                         }
+
+                        //Two of the four sides that are not top nor bottom, that are inaccessible by rotationX
+                        if (rotatesAroundZ) {
+                            for (int rotationZ = 1; rotationZ < 4; rotationZ += 2) {
+                                Structure structure = validate(world, x, y, z, ix, iy, iz, 0, rotationZ);
+                                if (structure != null) {
+                                    structureList.add(structure);
+                                    if (!checkAllStructures)
+                                        return structureList;
+                                }
+                            }
+                        }
+
                     }
                 }
             }
         }
 
         return structureList;
+    }
+
+    /**
+     * validates the side accessed by rotationX and rotationZ, in any rotationY.
+     * */
+    private Structure validate(World world, int x, int y, int z, int ix, int iy, int iz, int rotationX, int rotationZ) {
+        for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
+            Vec3 arrayPosition = rotate(Vec3.createVectorHelper(ix, iy, iz), rotationX, rotationY, rotationZ);
+            Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
+
+            if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
+                return new Structure(this, world, startCorner, rotationX, rotationY, rotationZ);
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -308,7 +337,7 @@ public class MultiBlock {
                 for (int z = 0; z < structureArray.sizeZ(); z++) {
                     Vec3 currentArrayPosition = Vec3.createVectorHelper(x,y,z);
                     Vec3 currentWorldPosition = rotate(
-                            Vec3.createVectorHelper(x,y,z), rotationX, rotationY, rotationZ
+                            Vec3.createVectorHelper(x,y,z), rotationX, rotationY, rotationZ //can't rotate currentArrayPosition, and therefore have to make a new one
                     ).addVector(cornerPosition.xCoord, cornerPosition.yCoord, cornerPosition.zCoord);
 
                     if (!structureArray.blockIsValid(world, currentWorldPosition, currentArrayPosition, rotationX, rotationY, rotationZ)) {
