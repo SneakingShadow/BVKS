@@ -37,7 +37,7 @@ public class CreativeTabBVKS
     public static final CreativeTabs tabBlock = new CreativeTabs(Name.CreativeTab.BLOCK) {
         @Override
         public Item getTabIconItem() {
-            return Item.getItemFromBlock(ModBlocks.DevilOre);
+            return Item.getItemFromBlock(ModBlocks.devilOre);
         }
 
         @Override

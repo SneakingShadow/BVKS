@@ -200,7 +200,7 @@ public class MultiBlock {
     /*
     * Set rotation around axis
     * */
-    public MultiBlock setRotatationAroundXAxis(boolean bool) {
+    public MultiBlock setRotatationXAxis(boolean bool) {
         rotatesAroundX = bool;
         return this;
     }
@@ -208,7 +208,7 @@ public class MultiBlock {
         rotatesAroundY = bool;
         return this;
     }
-    public MultiBlock setRotatationAroundZAxis(boolean bool) {
+    public MultiBlock setRotatationZAxis(boolean bool) {
         rotatesAroundZ = bool;
         return this;
     }

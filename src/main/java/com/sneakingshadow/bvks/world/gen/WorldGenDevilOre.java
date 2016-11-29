@@ -34,7 +34,7 @@ public class WorldGenDevilOre implements IWorldGenerator{
 
             if ( rand <= 0.10000000F && (world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.netherrack) || world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.nether_brick) || world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.gravel)) )
             {
-                world.setBlock(x, y, z, ModBlocks.DevilOre, 0, 2);
+                world.setBlock(x, y, z, ModBlocks.devilOre, 0, 2);
             }
         }
 
@@ -50,7 +50,7 @@ public class WorldGenDevilOre implements IWorldGenerator{
 
         if ( rand <= 0.05000000F && (world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.stone) || world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.dirt) || world.getBlock(x, y, z).isReplaceableOreGen(world, x, y, z, Blocks.gravel)) )
         {
-            world.setBlock(x, y, z, ModBlocks.DevilOre, 0, 2);
+            world.setBlock(x, y, z, ModBlocks.devilOre, 0, 2);
         }
 
     }

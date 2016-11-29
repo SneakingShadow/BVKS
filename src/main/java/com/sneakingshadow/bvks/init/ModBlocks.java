@@ -16,33 +16,33 @@ import java.util.List;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks
 {
-    public static final Block DevilOre = new BlockDevilOre();
-    public static final Block DevilCobblestone = new BlockBVKS(Name.Block.DEVIL_COBBLESTONE);
-    public static final Block SmoothObsidian = new BlockBVKS(Name.Block.SMOOTH_OBSIDIAN);
-    public static final Block DemonAltar = new BlockDemonAltar();
-    public static final Block DemonFurnace = new BlockDemonFurnace();
-    public static final Block HammerWorkbench = new BlockHammerWorkbench(Name.Block.HAMMER_WORKBENCH);
+    public static final Block devilOre = new BlockDevilOre();
+    public static final Block devilCobblestone = new BlockBVKS(Name.Block.DEVIL_COBBLESTONE);
+    public static final Block smoothObsidian = new BlockBVKS(Name.Block.SMOOTH_OBSIDIAN);
+    public static final Block demonAltar = new BlockDemonAltar();
+    public static final Block demonFurnace = new BlockDemonFurnace();
+    public static final Block hammerWorkbench = new BlockHammerWorkbench(Name.Block.HAMMER_WORKBENCH);
 
-    public static final Block DebugBlock = new BlockDebugBlock();
+    public static final Block debugBlock = new BlockDebugBlock();
 
     public static void init(){
         blocks();
         tileEntities();
-        registerBlock(DebugBlock);
-        registerTile(TileEntityDebugBlock.class, DebugBlock);
+        registerBlock(debugBlock);
+        registerTile(TileEntityDebugBlock.class, debugBlock);
     }
 
     private static void blocks(){
-        registerBlock(DevilOre);
-        registerBlock(DevilCobblestone);
-        registerBlock(SmoothObsidian);
-        registerBlock(DemonAltar);
-        registerBlock(DemonFurnace);
-        registerBlock(HammerWorkbench);
+        registerBlock(devilOre);
+        registerBlock(devilCobblestone);
+        registerBlock(smoothObsidian);
+        registerBlock(demonAltar);
+        registerBlock(demonFurnace);
+        registerBlock(hammerWorkbench);
     }
 
     private static void tileEntities(){
-        registerTile(TileEntityDemonFurnace.class, DemonFurnace);
+        registerTile(TileEntityDemonFurnace.class, demonFurnace);
     }
 
     private static void registerBlock(Block block){
@@ -55,13 +55,13 @@ public class ModBlocks
 
     public static void add(List list, CreativeTabs creativeTab){
         CreativeTabBVKS.add(list, creativeTab, new Block[]{
-                DevilOre,
-                SmoothObsidian,
-                DevilCobblestone,
-                DemonAltar,
-                DemonFurnace,
-                HammerWorkbench,
+                devilOre,
+                smoothObsidian,
+                devilCobblestone,
+                demonAltar,
+                demonFurnace,
+                hammerWorkbench,
         });
-        CreativeTabBVKS.add(list, creativeTab, DebugBlock);
+        CreativeTabBVKS.add(list, creativeTab, debugBlock);
     }
 }

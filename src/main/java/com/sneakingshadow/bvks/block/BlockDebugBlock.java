@@ -1,10 +1,10 @@
 package com.sneakingshadow.bvks.block;
 
+import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.multiblock.MultiBlock;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 import com.sneakingshadow.bvks.util.ArrayListHelper;
-import com.sneakingshadow.bvks.util.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
@@ -26,18 +26,11 @@ public class BlockDebugBlock extends BlockBVKSContainer {
 
         if(world.isRemote) {
             MultiBlock multiBlock = new MultiBlock(
-                    "(", Blocks.cobblestone, Blocks.sand, ")",
-                    '(', Blocks.cobblestone, Blocks.sand, ')',
-                    '(', Blocks.cobblestone, Blocks.sand, ")", '/',
-                    '(', Blocks.cobblestone, Blocks.sand, ")",
-                    " ",
-                    ArrayListHelper.createArrayList((Object)Blocks.cobblestone), '/',
-                    ArrayListHelper.createArrayList((Object)Blocks.cobblestone, Blocks.sand),
-                    "@cobblestone@",
-                    '(', '@', "cobblestone)"
-            );
-            LogHelper.info(multiBlock.toString());
-            System.out.println(multiBlock.findStructure(world, x, y, z));
+                    "ccc\\_c_\\_c_\\_", ModBlocks.debugBlock,"_",
+                    'c', Blocks.cobblestone
+            ).setRotatationXAxis(true).setRotatationZAxis(true);
+            System.out.println(multiBlock.toString());
+            System.out.println(ArrayListHelper.arrayToString(multiBlock.findStructures(world, x, y, z)));
         }
 
         return true;
