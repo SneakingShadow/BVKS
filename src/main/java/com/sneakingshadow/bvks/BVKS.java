@@ -7,7 +7,6 @@ import com.sneakingshadow.bvks.init.*;
 import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.proxy.IProxy;
 import com.sneakingshadow.bvks.reference.Reference;
-import com.sneakingshadow.bvks.structure.modifer.Modifiers;
 import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -32,6 +31,8 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        MultiBlockLists.init();
+
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
@@ -42,7 +43,6 @@ public class BVKS
         ModBlocks.init();
         ModWorldGen.init();
         ModEntities.init();
-        MultiBlockLists.init();
 
         LogHelper.info("Pre Initialization Complete!");
     }
@@ -66,9 +66,6 @@ public class BVKS
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        Modifiers.init();
-        ModMultiBlocks.init();
-
         LogHelper.info("Post Initialization Complete!");
     }
 

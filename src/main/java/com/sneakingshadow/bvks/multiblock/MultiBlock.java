@@ -274,26 +274,22 @@ public class MultiBlock {
                         }
 
                         //Two of the four sides that are not top nor bottom, that are inaccessible by rotationZ
-                        if (rotatesAroundX) {
-                            for (int rotationX = 1; rotationX < 4; rotationX += 2) {
-                                Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0);
-                                if (structure != null) {
-                                    structureList.add(structure);
-                                    if (!checkAllStructures)
-                                        return structureList;
-                                }
+                        if (rotatesAroundX) for (int rotationX = 1; rotationX < 4; rotationX += 2) {
+                            Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0);
+                            if (structure != null) {
+                                structureList.add(structure);
+                                if (!checkAllStructures)
+                                    return structureList;
                             }
                         }
 
                         //Two of the four sides that are not top nor bottom, that are inaccessible by rotationX
-                        if (rotatesAroundZ) {
-                            for (int rotationZ = 1; rotationZ < 4; rotationZ += 2) {
-                                Structure structure = validate(world, x, y, z, ix, iy, iz, 0, rotationZ);
-                                if (structure != null) {
-                                    structureList.add(structure);
-                                    if (!checkAllStructures)
-                                        return structureList;
-                                }
+                        if (rotatesAroundZ) for (int rotationZ = 1; rotationZ < 4; rotationZ += 2) {
+                            Structure structure = validate(world, x, y, z, ix, iy, iz, 0, rotationZ);
+                            if (structure != null) {
+                                structureList.add(structure);
+                                if (!checkAllStructures)
+                                    return structureList;
                             }
                         }
 
