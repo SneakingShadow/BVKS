@@ -41,8 +41,6 @@ class InputSorter {
             arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(0));
         if (booleans.get(INPUT_LIST))
             arrayList = inputList(arrayList, new ArrayList<Object>());
-        if (booleans.get(DUPLICATORS[1]))
-            arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(1));
         if (booleans.get(BRACKETS))
             arrayList = brackets(arrayList);
         if (booleans.get(ARRAY_LIST)) {
@@ -51,13 +49,12 @@ class InputSorter {
         }
         if (booleans.get(ORE_DICTIONARY))
             arrayList = oreDictionary(arrayList);
-
         arrayList = specialValues(arrayList);
-        if (booleans.get(DUPLICATORS[2]))
+        if (booleans.get(DUPLICATORS[1]))
             arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(2));
         if (booleans.get(OPERATOR))
             arrayList = operator(arrayList, MultiBlockLists.getOperatorList());
-        if (booleans.get(DUPLICATORS[3]))
+        if (booleans.get(DUPLICATORS[2]))
             arrayList = duplicator(arrayList, MultiBlockLists.getDuplicatorInitializer(3));
 
         //Allows arrayListSort to sort its content in this manner without conflicts.
@@ -72,13 +69,13 @@ class InputSorter {
         return arrayList;
     }
 
-    private static final int[] DUPLICATORS = {0,1,2,3};
-    private static final int INPUT_LIST = 4;
-    private static final int BRACKETS = 5;
-    private static final int ARRAY_LIST = 6;
-    private static final int ORE_DICTIONARY = 7;
-    private static final int OPERATOR = 8;
-    private static final int EXTRACT_STRINGS = 9;
+    private static final int[] DUPLICATORS = {0,1,2};
+    private static final int INPUT_LIST = 3;
+    private static final int BRACKETS = 4;
+    private static final int ARRAY_LIST = 5;
+    private static final int ORE_DICTIONARY = 6;
+    private static final int OPERATOR = 7;
+    private static final int EXTRACT_STRINGS = 8;
 
     private static final int BOOLEAN_LIST_SIZE = 10;
 
@@ -277,21 +274,19 @@ class InputSorter {
         boolean nextIsOre = false;
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
-        for (Object object : objects) {
+        for (int i = 0; i<objects.size(); i++) {
+            Object object = objects.get(i);
             if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object)) {
-                nextIsOre = true;
+                if () // String
             } else if (object instanceof String) {
                 String string_object = (String) object;
 
-                if (nextIsOre)
-                    arrayList.add(new SBlockOreDictionary(string_object));
-                else {
-                    ArrayList<String> stringList = StringUtil.splitString(string_object,MultiBlockLists.ORE_DICTIONARY,true);
+                ArrayList<String> stringList = StringUtil.splitString(string_object,MultiBlockLists.ORE_DICTIONARY,true);
 
-                    for (String string : stringList) {
-                        if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
-                            if (string.length() > 1)
-                                arrayList.add(new SBlockOreDictionary(string.substring(1, string.length())));
+                for (String string : stringList) {
+                    if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
+                        if (string.length() > 1) {
+                            arrayList.add(new SBlockOreDictionary(string.substring(1, string.length())));
                         } else {
                             arrayList.add(string_object);
                         }
@@ -362,7 +357,7 @@ class InputSorter {
     }
 
     /**
-     * Turns operator values into Operators
+     * Turns operator characters into Operators
      * */
     private static ArrayList<Object> operator(ArrayList<Object> inputList, ArrayList<OperatorInitializer> operatorInitializerList) {
         for (OperatorInitializer operatorInitializer : operatorInitializerList){

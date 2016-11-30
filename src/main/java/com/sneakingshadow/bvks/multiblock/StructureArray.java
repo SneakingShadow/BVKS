@@ -119,7 +119,7 @@ class StructureArray {
 
     /**
      * outputs the structure in string form.
-     * Will try to optimize readability, by putting the axis with the lowest size first.
+     * Will try to optimize readability by putting the axis with the lowest size first.
      * */
     @Override
     public String toString() {
@@ -153,7 +153,7 @@ class StructureArray {
      * sorts size of array in x, y and z direction by size, starting with smallest.
      * */
     private String[] order() {
-        String[] strings = {"x","y","z"};
+        String[] strings = {"y","x","z"};
 
         //Swap first and second element if first element is larger
         if (sizeFromString(strings[0]) > sizeFromString(strings[1])) {
@@ -216,6 +216,8 @@ class StructureArray {
 
         return sizes;
     }
+
+    //---------------Debug---------------//
 
     /**
      * Use in case you suspect there's a bug with the given sizes of the array.

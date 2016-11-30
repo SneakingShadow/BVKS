@@ -11,6 +11,6 @@ public class SBlockFalse extends StructureBlock {
 
     @Override
     public String toString() {
-        return "invalid operator";
+        return "invalid";
     }
 }
