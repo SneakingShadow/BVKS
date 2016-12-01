@@ -28,7 +28,7 @@ public class BlockDebugBlock extends BlockBVKSContainer {
             MultiBlock multiBlock = new MultiBlock(
                     "ccc\\_c_\\_c_\\_", ModBlocks.debugBlock,"_",
                     'c', Blocks.cobblestone
-            ).setRotatationXAxis(true).setRotatationZAxis(true);
+            ).setRotationXAxis(true).setRotationZAxis(true);
             System.out.println(multiBlock.toString());
             System.out.println(ArrayListHelper.arrayToString(multiBlock.findStructures(world, x, y, z)));
         }

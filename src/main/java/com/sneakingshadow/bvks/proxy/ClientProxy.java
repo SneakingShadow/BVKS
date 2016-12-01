@@ -26,7 +26,7 @@ public class ClientProxy extends CommonProxy
 
     @Override
     public void registerCustomRender() {
-        MinecraftForgeClient.registerItemRenderer(ModItems.BottomlessVoid, new ItemRenderBottomlessVoid());
+        MinecraftForgeClient.registerItemRenderer(ModItems.bottomlessVoid, new ItemRenderBottomlessVoid());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityAwesomeCow.class, new EntityRenderAwesomeCow());
         RenderingRegistry.registerEntityRenderingHandler(EntityMiniSteve.class, new EntityRenderMiniSteve());

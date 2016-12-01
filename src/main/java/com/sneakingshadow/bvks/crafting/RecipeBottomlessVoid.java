@@ -19,7 +19,7 @@ public class RecipeBottomlessVoid {
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
                 if (itemStack != null) {
-                    if (!flag && itemStack.getItem() == ModItems.BottomlessVoid && BottomlessVoidHelper.hasItems(itemStack))
+                    if (!flag && itemStack.getItem() == ModItems.bottomlessVoid && BottomlessVoidHelper.hasItems(itemStack))
                         flag = true;
                     else return false;
                 }
@@ -63,7 +63,7 @@ public class RecipeBottomlessVoid {
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
                 if (itemStack != null) {
-                    if (itemStack.getItem() == ModItems.BottomlessVoid){
+                    if (itemStack.getItem() == ModItems.bottomlessVoid){
                         if (itemStack.getItemDamage() != 0 || flag1)
                             return false;
                         flag1 = true;
@@ -85,7 +85,7 @@ public class RecipeBottomlessVoid {
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack stack = inventoryCrafting.getStackInSlot(i);
                 if (stack != null)
-                    if(stack.getItem() == ModItems.BottomlessVoid)
+                    if(stack.getItem() == ModItems.bottomlessVoid)
                         itemStack = stack.copy();
                     else
                         itemStore = stack.copy();
@@ -117,7 +117,7 @@ public class RecipeBottomlessVoid {
             for (int i = 0; i < inventoryCrafting.getSizeInventory(); i++) {
                 ItemStack itemStack = inventoryCrafting.getStackInSlot(i);
                 if (itemStack != null) {
-                    if (!flag && itemStack.getItem() == ModItems.BottomlessVoid
+                    if (!flag && itemStack.getItem() == ModItems.bottomlessVoid
                             && itemStack.getItemDamage() != 0 && !BottomlessVoidHelper.hasItems(itemStack))
                         flag = true;
                     else return false;

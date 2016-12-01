@@ -15,7 +15,7 @@ public class TileEntityBottomlessVoidAccessor extends TileEntityBVKSISidedInvent
     public void readFromNBT(NBTTagCompound nbtTagCompound)
     {
         super.readFromNBT(nbtTagCompound);
-        itemStack = nbtTagCompound.hasKey("BottomlessVoid") ? ItemStack.loadItemStackFromNBT(nbtTagCompound.getCompoundTag("BottomlessVoid")) : null;
+        itemStack = nbtTagCompound.hasKey("bottomlessVoid") ? ItemStack.loadItemStackFromNBT(nbtTagCompound.getCompoundTag("bottomlessVoid")) : null;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class TileEntityBottomlessVoidAccessor extends TileEntityBVKSISidedInvent
     {
         super.writeToNBT(nbtTagCompound);
         if (itemStack != null) {
-            nbtTagCompound.setTag("BottomlessVoid", itemStack.writeToNBT(new NBTTagCompound()));
+            nbtTagCompound.setTag("bottomlessVoid", itemStack.writeToNBT(new NBTTagCompound()));
         }
     }
 
@@ -48,7 +48,7 @@ public class TileEntityBottomlessVoidAccessor extends TileEntityBVKSISidedInvent
      */
     @Override
     public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
-        return slot == 0 && side < 2 && itemStack.getItem() == ModItems.BottomlessVoid;
+        return slot == 0 && side < 2 && itemStack.getItem() == ModItems.bottomlessVoid;
     }
 
     /**
@@ -117,7 +117,7 @@ public class TileEntityBottomlessVoidAccessor extends TileEntityBVKSISidedInvent
      */
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return slot == 0 && itemStack.getItem() == ModItems.BottomlessVoid;
+        return slot == 0 && itemStack.getItem() == ModItems.bottomlessVoid;
     }
 
 }

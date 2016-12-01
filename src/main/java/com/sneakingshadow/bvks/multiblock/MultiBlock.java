@@ -134,10 +134,8 @@ public class MultiBlock {
      *         level 0
      *     '>' = duplicator
      *         level 1
-     *     '[' = duplicator
+     *     '*' = duplicator
      *         level 2
-     *     ']' = duplicator
-     *         level 3
      *
      *     These two take an operand before it, and an integer operand after it.
      *     It copies the value before it, the amount of times that the operand after it specifies.
@@ -200,18 +198,22 @@ public class MultiBlock {
     /*
     * Set rotation around axis
     * */
-    public MultiBlock setRotatationXAxis(boolean bool) {
+    public MultiBlock setRotationXAxis(boolean bool) {
         rotatesAroundX = bool;
         return this;
     }
-    public MultiBlock setRotatationAroundYAxis(boolean bool) {
+    public MultiBlock setRotationYAxis(boolean bool) {
         rotatesAroundY = bool;
         return this;
     }
-    public MultiBlock setRotatationZAxis(boolean bool) {
+    public MultiBlock setRotationZAxis(boolean bool) {
         rotatesAroundZ = bool;
         return this;
     }
+
+
+
+
 
     /*
     * Get rotation around axis

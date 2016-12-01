@@ -276,22 +276,22 @@ class InputSorter {
 
         for (int i = 0; i<objects.size(); i++) {
             Object object = objects.get(i);
-            if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object)) {
-                if () // String
+
+            if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object) && objects.size() > ++i) {
+                if (objects.get(i) instanceof String)
+                    arrayList.add(new SBlockOreDictionary((String) objects.get(i)));
+                else
+                    arrayList.add(new SBlockNull());
             } else if (object instanceof String) {
                 String string_object = (String) object;
 
                 ArrayList<String> stringList = StringUtil.splitString(string_object,MultiBlockLists.ORE_DICTIONARY,true);
 
-                for (String string : stringList) {
-                    if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
-                        if (string.length() > 1) {
-                            arrayList.add(new SBlockOreDictionary(string.substring(1, string.length())));
-                        } else {
-                            arrayList.add(string_object);
-                        }
-                    }
-                }
+                for (String string : stringList) if (MultiBlockLists.ORE_DICTIONARY.equals(string.charAt(0))) {
+                    if (string.length() > 1)
+                        arrayList.add(new SBlockOreDictionary(string.substring(1, string.length())));
+                    else
+                        arrayList.add(string_object);}
             } else
                 arrayList.add(object);
         }

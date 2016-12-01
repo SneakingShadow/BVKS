@@ -29,8 +29,7 @@ public class MultiBlockLists {
     public static final Character OR = '|';
     public static final Character DUPLICATE_LEVEL_0 = '<';
     public static final Character DUPLICATE_LEVEL_1 = '>';
-    public static final Character DUPLICATE_LEVEL_2 = '[';
-    public static final Character DUPLICATE_LEVEL_3 = ']';
+    public static final Character DUPLICATE_LEVEL_2 = '-';
 
     //Modifiers
     public static final Character ORE_DICTIONARY = '@';
@@ -125,11 +124,6 @@ public class MultiBlockLists {
                     }
                 });
         registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_2) {
-                    @Override public Operator getOperator() {
-                        return new OperatorDuplicate();
-                    }
-                });
-        registerDuplicator(new OperatorInitializer(DUPLICATE_LEVEL_3) {
                     @Override public Operator getOperator() {
                         return new OperatorDuplicate();
                     }

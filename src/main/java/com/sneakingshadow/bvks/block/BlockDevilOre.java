@@ -51,9 +51,9 @@ public class BlockDevilOre extends BlockBVKS
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
         if(fortune > 0)
-            ret.add(new ItemStack(ModItems.DevilGem, random.nextInt(fortune)+1));
+            ret.add(new ItemStack(ModItems.devilGem, random.nextInt(fortune)+1));
         else
-            ret.add(new ItemStack(ModItems.DevilGem, 1));
+            ret.add(new ItemStack(ModItems.devilGem, 1));
         return ret;
     }
 }

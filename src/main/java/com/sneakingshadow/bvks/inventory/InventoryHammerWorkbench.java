@@ -10,7 +10,7 @@ public class InventoryHammerWorkbench extends InventoryBVKS {
 
     ItemStack[] itemStacks = new ItemStack[2];
     /*
-    * 1: Hammer
+    * 1: hammer
     * 2: Any item
     * last: Return slot
     */
@@ -41,7 +41,7 @@ public class InventoryHammerWorkbench extends InventoryBVKS {
      */
     @Override
     public boolean isItemValidForSlot(int slot, ItemStack itemStack) {
-        return slot == 2 || slot == 1 && itemStack.getItem() == ModItems.Hammer;
+        return slot == 2 || slot == 1 && itemStack.getItem() == ModItems.hammer;
     }
 
     /**

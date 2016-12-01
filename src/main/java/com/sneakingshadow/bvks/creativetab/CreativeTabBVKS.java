@@ -18,7 +18,7 @@ public class CreativeTabBVKS
     public static final CreativeTabs tabItem = new CreativeTabs(Name.CreativeTab.ITEM) {
         @Override
         public Item getTabIconItem() {
-            return ModItems.DevilGem;
+            return ModItems.devilGem;
         }
 
         @Override
