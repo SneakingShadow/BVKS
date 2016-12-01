@@ -271,17 +271,16 @@ class InputSorter {
      * Turns OreDictionary strings into StructureBlocks
      * */
     private static ArrayList<Object> oreDictionary(ArrayList<Object> objects) {
-        boolean nextIsOre = false;
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
         for (int i = 0; i<objects.size(); i++) {
             Object object = objects.get(i);
 
-            if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object) && objects.size() > ++i) {
-                if (objects.get(i) instanceof String)
+            if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object) && objects.size() > i+1) {
+                if (objects.get(++i) instanceof String)
                     arrayList.add(new SBlockOreDictionary((String) objects.get(i)));
                 else
-                    arrayList.add(new SBlockNull());
+                    arrayList.add(objects.get(i));
             } else if (object instanceof String) {
                 String string_object = (String) object;
 
