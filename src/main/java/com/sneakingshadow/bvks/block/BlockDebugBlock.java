@@ -2,6 +2,7 @@ package com.sneakingshadow.bvks.block;
 
 import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.multiblock.MultiBlock;
+import com.sneakingshadow.bvks.multiblock.Structure;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 import com.sneakingshadow.bvks.util.ArrayListHelper;
@@ -10,6 +11,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
 
@@ -23,14 +26,17 @@ public class BlockDebugBlock extends BlockBVKSContainer {
      */
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
-
         if(world.isRemote) {
             MultiBlock multiBlock = new MultiBlock(
-                    "ccc\\_c_\\_c_\\_", ModBlocks.debugBlock,"_",
+                    "ccc\\ c \\\\ ", ModBlocks.debugBlock,
                     'c', Blocks.cobblestone
             ).setRotationXAxis(true).setRotationZAxis(true);
-            System.out.println(multiBlock.toString());
-            System.out.println(ArrayListHelper.arrayToString(multiBlock.findStructures(world, x, y, z)));
+
+            ArrayList<Structure> arrayList = multiBlock.findStructures(world, x, y, z);
+
+            System.out.println();
+            System.out.println(ArrayListHelper.arrayToString(arrayList));
+            System.out.println(arrayList.size());
         }
 
         return true;

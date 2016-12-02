@@ -267,35 +267,46 @@ public class MultiBlock {
 
                         //Top side, and if rotatesAroundX or rotatesAroundZ then the bottom side as well
                         for (int rotationX = 0; rotationX < (rotatesAroundX || rotatesAroundZ ? 4 : 1); rotationX += 2) {
-                            Structure structure = validate(world, x,y,z, ix,iy,iz, rotationX, 0);
-                            if (structure != null) {
-                                structureList.add(structure);
-                                if (!checkAllStructures)
-                                    return structureList;
+                            for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
+                                Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0, 0);
+                                if (structure != null) {
+                                    structureList.add(structure);
+                                    if (!checkAllStructures)
+                                        return structureList;
+                                }
                             }
                         }
 
                         //Two of the four sides that are not top nor bottom, that are inaccessible by rotationZ
-                        if (rotatesAroundX) for (int rotationX = 1; rotationX < 4; rotationX += 2) {
-                            Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0);
-                            if (structure != null) {
-                                structureList.add(structure);
-                                if (!checkAllStructures)
-                                    return structureList;
+                        if (rotatesAroundX) {
+                            for (int rotationX = 1; rotationX < 4; rotationX += 2) {
+                                for (int rotationZ = 0; rotationZ < (rotatesAroundZ ? 4 : 1); rotationZ++) {
+                                    Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0, rotationZ);
+                                    if (structure != null) {
+                                        structureList.add(structure);
+                                        if (!checkAllStructures)
+                                            return structureList;
+                                    }
+                                }
                             }
                         }
 
                         //Two of the four sides that are not top nor bottom, that are inaccessible by rotationX
-                        if (rotatesAroundZ) for (int rotationZ = 1; rotationZ < 4; rotationZ += 2) {
-                            Structure structure = validate(world, x, y, z, ix, iy, iz, 0, rotationZ);
-                            if (structure != null) {
-                                structureList.add(structure);
-                                if (!checkAllStructures)
-                                    return structureList;
+                        if (rotatesAroundZ) {
+                            for (int rotationZ = 1; rotationZ < 4; rotationZ += 2) {
+                                for (int rotationX = 0; rotationX < (rotatesAroundX ? 4 : 1); rotationX++) {
+                                    Structure structure = validate(world, x, y, z, ix, iy, iz, rotationX, 0, rotationZ);
+                                    if (structure != null) {
+                                        structureList.add(structure);
+                                        if (!checkAllStructures)
+                                            return structureList;
+                                    }
+                                }
                             }
                         }
 
                     }
+
                 }
             }
         }
@@ -306,14 +317,12 @@ public class MultiBlock {
     /**
      * validates the side accessed by rotationX and rotationZ, in any rotationY.
      * */
-    private Structure validate(World world, int x, int y, int z, int ix, int iy, int iz, int rotationX, int rotationZ) {
-        for (int rotationY = 0; rotationY < (rotatesAroundY ? 4 : 1); rotationY++) {
-            Vec3 arrayPosition = rotate(Vec3.createVectorHelper(ix, iy, iz), rotationX, rotationY, rotationZ);
-            Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
+    private Structure validate(World world, int x, int y, int z, int ix, int iy, int iz, int rotationX, int rotationY, int rotationZ) {
+        Vec3 arrayPosition = rotate(Vec3.createVectorHelper(ix, iy, iz), rotationX, rotationY, rotationZ);
+        Vec3 startCorner = arrayPosition.subtract(Vec3.createVectorHelper(x, y, z));
 
-            if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
-                return new Structure(this, world, startCorner, rotationX, rotationY, rotationZ);
-            }
+        if (validate(world, startCorner, rotationX, rotationY, rotationZ)) {
+            return new Structure(this, world, startCorner, rotationX, rotationY, rotationZ);
         }
 
         return null;
@@ -372,3 +381,4 @@ public class MultiBlock {
         structureArray.debug();
     }
 }
+
