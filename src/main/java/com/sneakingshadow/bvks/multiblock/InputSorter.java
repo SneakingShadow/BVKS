@@ -128,7 +128,7 @@ class InputSorter {
                         && booleans.get(DUPLICATORS[1])
                         && booleans.get(DUPLICATORS[2])
                         && booleans.get(DUPLICATORS[3])))
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < DUPLICATORS.length; i++)
                 if (MultiBlockLists.getDuplicatorInitializer(i).isSpecialCharacter(object))
                     booleans.set(DUPLICATORS[i], true);
 
@@ -273,7 +273,7 @@ class InputSorter {
     private static ArrayList<Object> oreDictionary(ArrayList<Object> objects) {
         ArrayList<Object> arrayList = new ArrayList<Object>();
 
-        for (int i = 0; i<objects.size(); i++) {
+        for (int i = 0; i < objects.size(); i++) {
             Object object = objects.get(i);
 
             if (object instanceof Character && MultiBlockLists.ORE_DICTIONARY.equals(object) && objects.size() > i+1) {
