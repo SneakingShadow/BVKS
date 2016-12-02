@@ -29,7 +29,7 @@ public class MultiBlockLists {
     public static final Character OR = '|';
     public static final Character DUPLICATE_LEVEL_0 = '<';
     public static final Character DUPLICATE_LEVEL_1 = '>';
-    public static final Character DUPLICATE_LEVEL_2 = '*';
+    public static final Character DUPLICATE_LEVEL_2 = '-';
 
     //Modifiers
     public static final Character ORE_DICTIONARY = '@';

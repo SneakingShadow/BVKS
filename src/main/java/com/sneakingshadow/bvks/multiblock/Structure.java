@@ -118,4 +118,12 @@ public class Structure {
         Vec3 arraySize = rotate(Vec3.createVectorHelper(multiBlock.sizeX()-1, multiBlock.sizeY()-1, multiBlock.sizeZ()-1), rotationX,rotationY,rotationZ);
         endCorner = startCorner.addVector(arraySize.xCoord,arraySize.yCoord,arraySize.zCoord);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n"
+                + "MultiBlock: " + Integer.toHexString(multiBlock.hashCode()) + "\n"
+                + "(" + startCorner.xCoord + "," + startCorner.yCoord + "," + startCorner.zCoord + ")" + "\n"
+                + "(" + endCorner.xCoord + "," + endCorner.yCoord + "," + endCorner.zCoord + ")";
+    };
 }
