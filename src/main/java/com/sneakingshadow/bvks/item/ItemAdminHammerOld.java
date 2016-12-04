@@ -3,7 +3,7 @@ package com.sneakingshadow.bvks.item;
 import com.sneakingshadow.bvks.item.base.ItemBVKSHammerOld;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.reference.Tool;
-import com.sneakingshadow.bvks.util.EnchantmentHelper;
+import com.sneakingshadow.core.util.EnchantmentHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.Enchantment;

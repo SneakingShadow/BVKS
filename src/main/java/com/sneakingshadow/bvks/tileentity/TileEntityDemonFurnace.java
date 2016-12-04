@@ -1,7 +1,7 @@
 package com.sneakingshadow.bvks.tileentity;
 
 import com.sneakingshadow.bvks.reference.Dir;
-import com.sneakingshadow.bvks.util.NBTHelper;
+import com.sneakingshadow.core.util.NBTHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;

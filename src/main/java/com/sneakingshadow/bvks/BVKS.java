@@ -29,8 +29,6 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        System.out.println("BVKS pre init");
-
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
@@ -46,7 +44,7 @@ public class BVKS
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+        ModMultiBlocks.init();
         ModRecipes.init();
         ModGuis.init();
 

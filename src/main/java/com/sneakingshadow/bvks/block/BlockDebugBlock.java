@@ -1,17 +1,12 @@
 package com.sneakingshadow.bvks.block;
 
-import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
-import com.sneakingshadow.bvks.util.ArrayListHelper;
 import com.sneakingshadow.core.multiblock.MultiBlock;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 public class BlockDebugBlock extends BlockBVKSContainer {
 
@@ -27,8 +22,8 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     {
         if(world.isRemote) {
             MultiBlock multiBlock = new MultiBlock(
-                    "wcw/c c/wcw",
-                    'c', Blocks.cobblestone//"@cobblestone@",
+                    "wcw/c c/wcw"
+                    ,'c', "@cobblestone@"
                     ,'w', '@', "logWood"
             );
 
