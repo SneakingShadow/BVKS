@@ -6,7 +6,6 @@ import com.sneakingshadow.bvks.handler.GuiHandler;
 import com.sneakingshadow.bvks.init.*;
 import com.sneakingshadow.bvks.proxy.IProxy;
 import com.sneakingshadow.bvks.reference.Reference;
-import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -30,6 +29,8 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        System.out.println("BVKS pre init");
+
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
@@ -40,8 +41,6 @@ public class BVKS
         ModBlocks.init();
         ModWorldGen.init();
         ModEntities.init();
-
-        LogHelper.info("Pre Initialization Complete!");
     }
 
     @Mod.EventHandler
@@ -55,15 +54,12 @@ public class BVKS
 
         proxy.registerCustomRender();
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, guiHandler);
-
-        LogHelper.info("Initialization Complete!");
-
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        LogHelper.info("Post Initialization Complete!");
+
     }
 
 }

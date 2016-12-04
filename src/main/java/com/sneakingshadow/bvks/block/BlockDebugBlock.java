@@ -4,6 +4,7 @@ import com.sneakingshadow.bvks.init.ModBlocks;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
 import com.sneakingshadow.bvks.util.ArrayListHelper;
+import com.sneakingshadow.core.multiblock.MultiBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
@@ -25,6 +26,13 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
         if(world.isRemote) {
+            MultiBlock multiBlock = new MultiBlock(
+                    "wcw/c c/wcw",
+                    'c', Blocks.cobblestone//"@cobblestone@",
+                    ,'w', '@', "logWood"
+            );
+
+            System.out.println(multiBlock.findStructure(world, x, y, z));
         }
 
         return true;
