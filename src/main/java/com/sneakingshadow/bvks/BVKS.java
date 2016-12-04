@@ -31,8 +31,6 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        MultiBlockLists.init();
-
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
