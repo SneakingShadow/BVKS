@@ -2,7 +2,6 @@ package com.sneakingshadow.bvks.item;
 
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
 import com.sneakingshadow.bvks.reference.Name;
-import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -38,7 +37,7 @@ public class ItemDebugItem extends ItemBVKS {
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer){
 
         if (world.isRemote) {
-            LogHelper.info(MathHelper.floor_double((double)(entityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3);
+            System.out.println(MathHelper.floor_double((double)(entityPlayer.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3);
         }
         return itemStack;
     }
@@ -63,8 +62,8 @@ public class ItemDebugItem extends ItemBVKS {
         {
             placeBlock.onBlockPlacedBy(world, x, y, z, player, stack);
             placeBlock.onPostBlockPlaced(world, x, y, z, metadata);
-            LogHelper.info(world.getTileEntity(x,y,z));
-            LogHelper.info(world.getTileEntity(x,y,z) != null);
+            System.out.println(world.getTileEntity(x,y,z));
+            System.out.println(world.getTileEntity(x,y,z) != null);
             if(world.getTileEntity(x,y,z) != null && nbtTagCompound != null){
                 NBTTagCompound nbt1 = new NBTTagCompound();
                 TileEntity tileEntity = world.getTileEntity(x, y, z);

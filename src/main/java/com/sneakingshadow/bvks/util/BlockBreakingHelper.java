@@ -1,6 +1,7 @@
 package com.sneakingshadow.bvks.util;
 
 import com.sneakingshadow.bvks.item.ItemBottomlessVoid;
+import com.sneakingshadow.core.util.EnchantmentHelper;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;

@@ -3,7 +3,6 @@ package com.sneakingshadow.bvks.item;
 import com.sneakingshadow.bvks.item.base.ItemBVKS;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.util.BottomlessVoidHelper;
-import com.sneakingshadow.bvks.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -89,7 +88,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
      */
     @Override
     public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer) {
-        LogHelper.info(itemStack.getTagCompound());
+        System.out.println(itemStack.getTagCompound());
 
         if (entityPlayer.isSneaking()) {
             if (!world.isRemote && !world.restoringBlockSnapshots) {
@@ -101,7 +100,7 @@ public class ItemBottomlessVoid extends ItemBVKS {
 
             }
         } else
-            LogHelper.info(Minecraft.getMinecraft().objectMouseOver);
+            System.out.println(Minecraft.getMinecraft().objectMouseOver);
 
             /*int slot = findItem(itemStack, entityPlayer.inventory.mainInventory);
             if (slot != -1) {

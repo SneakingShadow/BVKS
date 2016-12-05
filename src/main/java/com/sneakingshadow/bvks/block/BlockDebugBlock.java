@@ -2,6 +2,7 @@ package com.sneakingshadow.bvks.block;
 
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.tileentity.TileEntityDebugBlock;
+import com.sneakingshadow.core.multiblock.MultiBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -20,18 +21,13 @@ public class BlockDebugBlock extends BlockBVKSContainer {
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ)
     {
         if(world.isRemote) {
-            /*
             MultiBlock multiBlock = new MultiBlock(
-                    "ccc\\ c \\\\ ", ModBlocks.debugBlock,
-                    'c', Blocks.cobblestone
-            ).setRotationXAxis(true).setRotationZAxis(true);
+                    "wcw/c c/wcw"
+                    ,'c', "@cobblestone@"
+                    ,'w', '@', "logWood"
+            );
 
-            ArrayList<Structure> arrayList = multiBlock.findStructures(world, x, y, z);
-
-            System.out.println();
-            System.out.println(ArrayListHelper.arrayToString(arrayList));
-            System.out.println(arrayList.size());
-            */
+            System.out.println(multiBlock.findStructure(world, x, y, z));
         }
 
         return true;
