@@ -4,7 +4,6 @@ import com.sneakingshadow.bvks.client.handler.KeyInputEventHandler;
 import com.sneakingshadow.bvks.handler.ConfigurationHandler;
 import com.sneakingshadow.bvks.handler.GuiHandler;
 import com.sneakingshadow.bvks.init.*;
-import com.sneakingshadow.bvks.multiblock.MultiBlockLists;
 import com.sneakingshadow.bvks.proxy.IProxy;
 import com.sneakingshadow.bvks.reference.Reference;
 import com.sneakingshadow.bvks.util.LogHelper;
@@ -31,8 +30,6 @@ public class BVKS
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        MultiBlockLists.init();
-
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
