@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKSTool;
+import com.sneakingshadow.bvks.item.item.ItemBVKSTool;
 import com.sneakingshadow.bvks.reference.Tool;
 import net.minecraft.item.ItemStack;
 

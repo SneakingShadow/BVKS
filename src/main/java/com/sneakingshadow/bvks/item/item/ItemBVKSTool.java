@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.base;
+package com.sneakingshadow.bvks.item.item;
 
 import com.google.common.collect.Multimap;
 import net.minecraft.block.Block;

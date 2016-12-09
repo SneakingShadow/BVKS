@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKSPickaxe;
+import com.sneakingshadow.bvks.item.item.ItemBVKSPickaxe;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.reference.Tool;
 

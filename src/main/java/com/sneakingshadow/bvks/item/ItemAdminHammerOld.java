@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKSHammerOld;
+import com.sneakingshadow.bvks.item.item.ItemBVKSHammerOld;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.reference.Tool;
 import com.sneakingshadow.core.util.EnchantmentHelper;

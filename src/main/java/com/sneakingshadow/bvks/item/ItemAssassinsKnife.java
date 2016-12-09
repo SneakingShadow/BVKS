@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKS;
+import com.sneakingshadow.bvks.item.item.ItemBVKS;
 import com.sneakingshadow.bvks.reference.Name;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;

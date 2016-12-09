@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.base;
+package com.sneakingshadow.bvks.item.item;
 
 public class ItemBVKSAxe extends ItemBVKSTool
 {

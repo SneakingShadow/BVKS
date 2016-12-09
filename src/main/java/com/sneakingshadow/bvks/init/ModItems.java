@@ -2,7 +2,7 @@ package com.sneakingshadow.bvks.init;
 
 import com.sneakingshadow.bvks.creativetab.CreativeTabBVKS;
 import com.sneakingshadow.bvks.item.*;
-import com.sneakingshadow.bvks.item.base.*;
+import com.sneakingshadow.bvks.item.item.*;
 import com.sneakingshadow.bvks.reference.Armor;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.reference.Reference;

@@ -1,4 +1,4 @@
-package com.sneakingshadow.bvks.item.base;
+package com.sneakingshadow.bvks.item.item;
 
 import com.sneakingshadow.bvks.reference.Reference;
 import com.sneakingshadow.bvks.util.BlockBreakingHelper;

@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKS;
+import com.sneakingshadow.bvks.item.item.ItemBVKS;
 import com.sneakingshadow.bvks.reference.Name;
 import com.sneakingshadow.bvks.util.BottomlessVoidHelper;
 import cpw.mods.fml.relauncher.Side;

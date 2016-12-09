@@ -1,6 +1,6 @@
 package com.sneakingshadow.bvks.item;
 
-import com.sneakingshadow.bvks.item.base.ItemBVKSArmor;
+import com.sneakingshadow.bvks.item.item.ItemBVKSArmor;
 import com.sneakingshadow.bvks.reference.Armor;
 import com.sneakingshadow.bvks.reference.Name;
 import cpw.mods.fml.relauncher.Side;
